@@ -6,7 +6,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide;
 
 public class Exo1Math extends Exercice {
 
-    public ArrayList <string> calculEnonce;
+   /* public ArrayList <string> calculEnonce;
 
     public ParamEm1 param;
 
@@ -97,6 +97,7 @@ public class Exo1Math extends Exercice {
         }
     }
 
-    private int 
+    private int
+    */
 
 }

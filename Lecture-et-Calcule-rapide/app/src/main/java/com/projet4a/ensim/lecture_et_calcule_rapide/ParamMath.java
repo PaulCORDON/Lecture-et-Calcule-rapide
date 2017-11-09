@@ -6,9 +6,9 @@ import java.sql.Time;
  * Created by Cordon Paul on 07/11/2017.
  */
 
-public abstract class ParamMath {
+abstract class ParamMath {
 
-    public Time tempsRep;
+   /* public Time tempsRep;
 
     public Boolean pairOnly;
 
@@ -19,5 +19,5 @@ public abstract class ParamMath {
         // 0 : +
         // 1 : -
         // 2 : *
-        // 3 : /
+        // 3 : /*/
 }
