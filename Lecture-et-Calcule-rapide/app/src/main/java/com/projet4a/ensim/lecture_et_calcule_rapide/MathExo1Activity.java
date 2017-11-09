@@ -10,4 +10,7 @@ public class MathExo1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_math_exo1);
     }
+
+
+
 }

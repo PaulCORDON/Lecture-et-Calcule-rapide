@@ -14,4 +14,10 @@ public abstract class ParamMath {
 
     public Boolean chiffres;
 
+    public Boolean operateur[5];
+        operateur[4] = false;
+        // 0 : +
+        // 1 : -
+        // 2 : *
+        // 3 : /
 }

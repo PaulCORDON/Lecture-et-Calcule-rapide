@@ -23,5 +23,7 @@ public class ParamEm1 extends ParamMath {
 
     public Boolean borneEqualsOp;
 
+    public int valMax;
+
 
 }
