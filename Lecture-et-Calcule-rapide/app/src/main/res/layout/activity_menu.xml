@@ -5,5 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.MenuActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+        <Button
+            android:id="@+id/BtnLecture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lecture Rapide"
+            app:layout_constraintEnd_toStartOf="@+id/BtnCalcul"
+            tools:layout_editor_absoluteY="131dp" />
 
+        <Button
+            android:id="@+id/BtnCalcul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calcul Rapide"
+            tools:layout_editor_absoluteX="363dp"
+            tools:layout_editor_absoluteY="131dp" />
+</LinearLayout>
 </android.support.constraint.ConstraintLayout>
