@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class Exo1Math extends Exercice {
-/*
+
    public ArrayList<String> calculEnonce;
 
     public ParamEm1 param;
@@ -34,19 +34,20 @@ public class Exo1Math extends Exercice {
 
 
             // choix des operande //
-
-            int alea1, alea2;
             do{
-
                 for(int z=0; z<=1 ; z++){
-                    resultat = calculResultat(operandes[0],operandes[1],choixOperateur);
-                    while ( operandes[0] == 0 &&  operandes[1] == 0 && resultat<0 && resultat>this.param.valMax ){
-                        alea1=(int)Math.random()*this.param.valMax;
-                        alea2=(int)Math.random()*this.param.valMax;
+                    while (operandes[z]==0){
+                        operandes[z]=(int)Math.random()*this.param.valMax;
                     }
                 }
 
-            }while();
+                if (choixOperateur==2) if(operandes[0]<operandes[1]){
+                    int tempo = operandes[0];
+                    operandes[0]=operandes[1];
+                    operandes[1]=tempo;
+                }
+                resultat = calculResultat(operandes[0],operandes[1],choixOperateur);
+            }while(resultat>this.param.valMax );
             // calcul du resultat //
 
 
@@ -90,19 +91,21 @@ public class Exo1Math extends Exercice {
         switch (operateur){
             case 0 :
                 return valA+valB;
-                break;
+
             case 1 :
                 return valA-valB;
-                break;
+
             case 2 :
                 return valA*valB;
-                break;
+
             case 3 :
                 return valA/valB;  // non utilisé pour le moment //
-                break;
+                
+            default:
+                return 0;
+
         }
     }
 
-    private int
-*/
+
 }
