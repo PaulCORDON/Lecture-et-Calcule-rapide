@@ -50,8 +50,7 @@ public class Exo1Math extends Exercice {
             }while(resultat>this.param.valMax );
             // calcul du resultat //
 
-
-
+            calculEnonce.add("" + operandes[0] + choixOperateur + operandes[1]);
         }
 
 
