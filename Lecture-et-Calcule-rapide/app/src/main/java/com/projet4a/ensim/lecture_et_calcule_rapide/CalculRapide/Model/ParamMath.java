@@ -1,4 +1,4 @@
-package com.projet4a.ensim.lecture_et_calcule_rapide;
+package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
 import java.sql.Time;
 

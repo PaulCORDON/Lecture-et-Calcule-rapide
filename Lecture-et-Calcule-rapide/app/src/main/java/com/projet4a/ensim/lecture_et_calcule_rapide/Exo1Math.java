@@ -1,5 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class Exo1Math extends Exercice {
-
+/*
    public ArrayList<String> calculEnonce;
 
     public ParamEm1 param;
@@ -102,5 +104,5 @@ public class Exo1Math extends Exercice {
     }
 
     private int
-
+*/
 }

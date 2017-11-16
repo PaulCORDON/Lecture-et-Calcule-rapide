@@ -1,6 +1,7 @@
-package com.projet4a.ensim.lecture_et_calcule_rapide;
+package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamMath;
 
 /**
  * Created by Cordon Paul on 07/11/2017.

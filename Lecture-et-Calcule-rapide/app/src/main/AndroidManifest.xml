@@ -10,14 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Menu.MainActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name=".Menu.MenuActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,9 +26,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MathExo1Activity"
+            android:name=".CalculRapide.Activity.MathExo1Activity"
             android:screenOrientation="landscape" />
-        <activity android:name=".ModifParamEm1Activity"></activity>
+        <activity android:name=".CalculRapide.Activity.ModifParamEm1Activity"></activity>
     </application>
 
 </manifest>
