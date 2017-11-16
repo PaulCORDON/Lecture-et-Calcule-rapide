@@ -8,23 +8,81 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamMath
  */
 
 public class ParamEm1 extends ParamMath {
-    public int [] bornes;
 
-    public int nbBornes;
+    private int nbBornes;
+    private int nbQuestions;
+    private int scaleFrise;
+    private Boolean calculDisparait;
+    private String ordreApparition;
+    private Boolean borneSelectionnable;
+    private Boolean borneEqualsOp;
+    private int valMax;
 
-    public int nbQuestions;
 
-    public int scaleFrise;
+    public int getNbBornes() {
+        return nbBornes;
+    }
 
-    public Boolean calculDisparait;
+    public void setNbBornes(int nbBornes) {
+        this.nbBornes = nbBornes;
+    }
 
-    public String ordreApparition;
+    public int getNbQuestions() {
+        return nbQuestions;
+    }
 
-    public Boolean borneSelectionnable;
+    public void setNbQuestions(int nbQuestions) {
+        this.nbQuestions = nbQuestions;
+    }
 
-    public Boolean borneEqualsOp;
+    public int getScaleFrise() {
+        return scaleFrise;
+    }
 
-    public int valMax;
+    public void setScaleFrise(int scaleFrise) {
+        this.scaleFrise = scaleFrise;
+    }
+
+    public Boolean getCalculDisparait() {
+        return calculDisparait;
+    }
+
+    public void setCalculDisparait(Boolean calculDisparait) {
+        this.calculDisparait = calculDisparait;
+    }
+
+    public String getOrdreApparition() {
+        return ordreApparition;
+    }
+
+    public void setOrdreApparition(String ordreApparition) {
+        this.ordreApparition = ordreApparition;
+    }
+
+    public Boolean getBorneSelectionnable() {
+        return borneSelectionnable;
+    }
+
+    public void setBorneSelectionnable(Boolean borneSelectionnable) {
+        this.borneSelectionnable = borneSelectionnable;
+    }
+
+    public Boolean getBorneEqualsOp() {
+        return borneEqualsOp;
+    }
+
+    public void setBorneEqualsOp(Boolean borneEqualsOp) {
+        this.borneEqualsOp = borneEqualsOp;
+    }
+
+    public int getValMax() {
+        return valMax;
+    }
+
+    public void setValMax(int valMax) {
+        this.valMax = valMax;
+    }
+
 
 
 }
