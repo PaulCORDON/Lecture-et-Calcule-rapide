@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.projet4a.ensim.lecture_et_calcule_rapide"
-        minSdkVersion 23
+        minSdkVersion 20
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
