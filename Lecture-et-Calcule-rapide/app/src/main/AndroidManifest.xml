@@ -28,7 +28,8 @@
         <activity
             android:name=".CalculRapide.Activity.MathExo1Activity"
             android:screenOrientation="landscape" />
-        <activity android:name=".CalculRapide.Activity.ModifParamEm1Activity"></activity>
+        <activity android:name=".CalculRapide.Activity.ModifParamEm1Activity" />
+        <activity android:name=".LectureRapide.Activity.LectureAccueilActivity"></activity>
     </application>
 
 </manifest>
