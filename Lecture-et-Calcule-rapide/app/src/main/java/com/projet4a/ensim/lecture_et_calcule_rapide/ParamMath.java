@@ -8,16 +8,18 @@ import java.sql.Time;
 
 abstract class ParamMath {
 
-   /* public Time tempsRep;
+   public Time tempsRep;
 
     public Boolean pairOnly;
 
     public Boolean chiffres;
 
-    public Boolean operateur[5];
-        operateur[4] = false;
+    public Boolean operateur[] = new Boolean[5];
+
+
+
         // 0 : +
         // 1 : -
         // 2 : *
-        // 3 : /*/
+        // 3 : /
 }

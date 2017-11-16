@@ -1,12 +1,14 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide;
 
+import java.util.ArrayList;
+
 /**
  * Created by Cordon Paul on 07/11/2017.
  */
 
 public class Exo1Math extends Exercice {
 
-   /* public ArrayList <string> calculEnonce;
+   public ArrayList<String> calculEnonce;
 
     public ParamEm1 param;
 
@@ -17,7 +19,7 @@ public class Exo1Math extends Exercice {
         this.param = param;
         calculEnonce = new ArrayList(this.param.nbQuestions);
 
-        int operandes[2];
+        int operandes[] = new int[2];
             operandes[0] = 0;
             operandes[1] = 0;
 
@@ -31,12 +33,14 @@ public class Exo1Math extends Exercice {
 
             // choix des operande //
 
+            int alea1, alea2;
             do{
 
                 for(int z=0; z<=1 ; z++){
-                    resultat = calculResultat(operandeUN,operandeDEUX,choixOperateur);
-                    while ( operandeUN == 0 &&  operandeDEUX == 0 && resultat<0 && resultat>this.param.valMax ){
-
+                    resultat = calculResultat(operandes[0],operandes[1],choixOperateur);
+                    while ( operandes[0] == 0 &&  operandes[1] == 0 && resultat<0 && resultat>this.param.valMax ){
+                        alea1=(int)Math.random()*this.param.valMax;
+                        alea2=(int)Math.random()*this.param.valMax;
                     }
                 }
 
@@ -98,6 +102,5 @@ public class Exo1Math extends Exercice {
     }
 
     private int
-    */
 
 }
