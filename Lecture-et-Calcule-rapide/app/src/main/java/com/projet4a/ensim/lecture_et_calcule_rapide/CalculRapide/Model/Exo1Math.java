@@ -21,11 +21,9 @@ public class Exo1Math extends Exercice {
     public Exo1Math(ParamEm1 param )
     {
         this.param = param;
-        calculEnonce = new ArrayList(this.param.getNbQuestions());
+        calculEnonce = new ArrayList<String>(this.param.getNbQuestions());
 
         int operandes[] = new int[2];
-            operandes[0] = 0;
-            operandes[1] = 0;
 
         for (int a=0; a <= this.param.getNbQuestions(); a++)
         {
@@ -34,17 +32,20 @@ public class Exo1Math extends Exercice {
 
             while (!this.param.getOperateur()[choixOperateur])
             {
-                choixOperateur = (int)Math.random()*5;
+                choixOperateur = (int)(Math.random()*5);
             }
 
             // choix des operande et calcul du resultat//
             do
             {
+                operandes[0] = 0;
+                operandes[1] = 0;
+
                 for(int z=0; z<=1 ; z++)
                 {
                     while (operandes[z]==0)
                     {
-                        operandes[z]=(int)Math.random()*this.param.getValMax();
+                        operandes[z]=(int)(Math.random()*this.param.getValMax());
                     }
                 }
 
