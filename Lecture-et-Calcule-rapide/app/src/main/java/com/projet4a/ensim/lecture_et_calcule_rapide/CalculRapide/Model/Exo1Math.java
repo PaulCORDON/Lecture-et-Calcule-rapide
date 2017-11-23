@@ -1,6 +1,7 @@
-package com.projet4a.ensim.lecture_et_calcule_rapide;
+package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
+import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
 
 import java.util.ArrayList;
 
