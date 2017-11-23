@@ -145,7 +145,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (isMath && isExercice1){
+                if (isMath){
 
                     Intent intent = new Intent(MenuActivity.this, ModifParamEm1Activity.class);
                     startActivity(intent);
