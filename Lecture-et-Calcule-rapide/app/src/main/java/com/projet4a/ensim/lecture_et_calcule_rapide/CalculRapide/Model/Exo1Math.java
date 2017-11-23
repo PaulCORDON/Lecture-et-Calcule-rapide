@@ -4,6 +4,7 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 /**
  * Created by Cordon Paul on 07/11/2017.
@@ -13,15 +14,20 @@ public class Exo1Math extends Exercice {
 
     private ArrayList<String> calculEnonce;
 
+    private ArrayList<ArrayList<Integer>> bornes;
+
     private ParamEm1 param;
 
     private int resultat;
+
+
 
 
     public Exo1Math(ParamEm1 param )
     {
         this.param = param;
         calculEnonce = new ArrayList<String>(this.param.getNbQuestions());
+        bornes = new ArrayList<ArrayList<Integer>>(this.param.getNbQuestions());
 
         int operandes[] = new int[2];
 
@@ -61,21 +67,44 @@ public class Exo1Math extends Exercice {
 
             }while(resultat>this.param.getValMax() );
 
-            calculEnonce.add("" + operandes[0] + choixOperateur + operandes[1]);
+            switch (choixOperateur)
+            {
+                case 0 :
+                    calculEnonce.add("" + operandes[0] + " + " + operandes[1]);
+                    break;
+                case 1 :
+                    calculEnonce.add("" + operandes[0] + " - " + operandes[1]);
+                    break;
+                case 2 :
+                    calculEnonce.add("" + operandes[0] + " x " + operandes[1]);
+                    break;
+                case 3 :
+                    calculEnonce.add("" + operandes[0] + " / " + operandes[1]);
+                    break;
+                default:
+                    break;
+            }
+
+            //initialisation des bornes
+
+            ArrayList<Integer> bornestempo = new ArrayList<>(param.getNbBornes());
+
+            if(param.getBorneEqualsOp())
+            {
+                //TODO ajout creation borne quand egale
+            }
+            else
+            {
+                for(int i = 0 ; i<param.getNbBornes() ; i++)
+                {
+                    bornestempo.add((int)(Math.random()*param.getValMax()));
+                }
+                //TODO ajout methode sort()
+                //bornestempo.sort(Comparator.<Integer>naturalOrder());
+            }
+
+            bornes.add(bornestempo);
         }
-    }
-
-
-    public Boolean timeOut() {
-        return false;
-    }
-
-    public Boolean verifierResult() {
-        return false;
-    }
-
-    public int[] initBornes() {
-        return null;
     }
 
     private int calculResultat (int valA, int valB, int operateur){
@@ -111,10 +140,10 @@ public class Exo1Math extends Exercice {
         return resultat;
     }
 
+    public ArrayList<int[]> getBornes() {return bornes;}
 
-    public void setCalculEnonce(ArrayList<String> calculEnonce) {
-        this.calculEnonce = calculEnonce;
-    }
+
+    public void setCalculEnonce(ArrayList<String> calculEnonce){this.calculEnonce = calculEnonce;}
 
     public void setParam(ParamEm1 param) {
         this.param = param;
@@ -123,4 +152,6 @@ public class Exo1Math extends Exercice {
     public void setResultat(int resultat) {
         this.resultat = resultat;
     }
+
+    public void setBornes(ArrayList<int[]> bornes) {this.bornes = bornes;}
 }
