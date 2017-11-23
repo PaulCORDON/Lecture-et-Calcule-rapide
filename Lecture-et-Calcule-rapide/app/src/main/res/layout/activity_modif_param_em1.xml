@@ -146,12 +146,11 @@
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/ChoixNbValMax"
+                android:id="@+id/editText2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Entrez la valeur" />
+                android:inputType="number" />
 
         </LinearLayout>
 
