@@ -2,16 +2,80 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
+
+import java.util.ArrayList;
 
 public class MathExo1Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_math_exo1_3bornes);
+
+        ParamEm1 param = null;
+        Exo1Math exo = new Exo1Math(param);
+        TextView enonce = (TextView) findViewById(R.id.Enonce);
+        int ChoixBoutonRep;
+        int numQuestAct = 1;
+        boolean reponseDonne = false;
+
+        Button BonneRep = null;
+
+        TextView RepF1 = null;
+        TextView RepF2 = null;
+        TextView RepF3 = null;
+
+
+
+        switch (param.getNbBornes()){
+            case 1 :
+                setContentView(R.layout.activity_math_exo1_1bornes);
+
+                Button BonneRep = (Button) findViewById(R.id.BtnRepA);
+                Button RepF1 = (Button) findViewById(R.id.BtnRepB);
+                break;
+            case 2 :
+                setContentView(R.layout.activity_math_exo1_2bornes);
+                Button BonneRep = (Button) findViewById(R.id.BtnRepA);
+                Button RepF1 = (Button) findViewById(R.id.BtnRepB);
+                Button RepF2 = (Button) findViewById(R.id.BtnRepC);
+                break;
+            case 3 :
+                setContentView(R.layout.activity_math_exo1_3bornes);
+                Button BonneRep = (Button) findViewById(R.id.BtnRepA);
+                Button RepF1 = (Button) findViewById(R.id.BtnRepB);
+                Button RepF2 = (Button) findViewById(R.id.BtnRepC);
+                Button RepF3 = (Button) findViewById(R.id.BtnRepD);
+                break;
+        }
+        enonce.setText(exo.getCalculEnonce().get(a));
+        BonneRep.setText(exo.getResultat());
+        RepF1.setText((int)Math.random()*5);
+//        do {
+//            do{
+//                enonce.setText(exo.getCalculEnonce().get(a));
+//                BonneRep.setText(exo.getResultat());
+//                RepF1.setText((int)Math.random()*5);
+//            }while(reponseDonne);
+//
+//
+//
+//
+//        }while (numQuestAct != param.getNbQuestions());
+
+
+
+
+
+
+
     }
+
 
 
 
