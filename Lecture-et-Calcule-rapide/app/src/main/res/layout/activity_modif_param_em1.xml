@@ -7,7 +7,7 @@
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/TitrePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -25,17 +25,19 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
 
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitrePage">
 
         <LinearLayout
+            android:id="@+id/ColonneGauche"
             android:layout_width="287dp"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/TitreNbBornes"
                 android:layout_width="296dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -43,7 +45,7 @@
                 android:textAlignment="center" />
 
             <SeekBar
-                android:id="@+id/seekBar4"
+                android:id="@+id/ChoixNbBornes"
                 style="@style/Widget.AppCompat.SeekBar.Discrete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -51,7 +53,7 @@
                 android:max="3" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/TitreNbQuestions"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
@@ -59,7 +61,7 @@
                 android:textAlignment="center" />
 
             <SeekBar
-                android:id="@+id/seekBar5"
+                android:id="@+id/ChoixNbQuestions"
                 style="@style/Widget.AppCompat.SeekBar.Discrete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,11 +70,12 @@
                 android:progress="3" />
 
             <RadioGroup
+                android:id="@+id/GroupRadiobutton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/textView8"
+                    android:id="@+id/TitreOrdreApparition"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
@@ -81,7 +84,7 @@
                     android:textAlignment="center" />
 
                 <RadioButton
-                    android:id="@+id/radioButton3"
+                    android:id="@+id/ChoixCalculAvantRep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -89,14 +92,14 @@
                     android:textAlignment="viewStart" />
 
                 <RadioButton
-                    android:id="@+id/radioButton5"
+                    android:id="@+id/ChoixRepAvantCalcul"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Réponses avant calcul" />
 
                 <RadioButton
-                    android:id="@+id/radioButton6"
+                    android:id="@+id/ChoixCalculEtRep"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -107,34 +110,35 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ColonneDroite"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="10dp"
             android:orientation="vertical">
 
             <Switch
-                android:id="@+id/switch5"
+                android:id="@+id/ChoixDisparitionCalcul"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="Disparition du calcul" />
 
             <Switch
-                android:id="@+id/switch4"
+                android:id="@+id/ChoixBornesSelectionnables"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="Bornes sélectionnables" />
 
             <Switch
-                android:id="@+id/switch3"
+                android:id="@+id/ChoixBornesEgalesRep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:text="Bornes égales à la réponse" />
 
             <TextView
-                android:id="@+id/textView7"
+                android:id="@+id/TitreNbValMax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="0dp"
@@ -142,7 +146,7 @@
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/ChoixNbValMax"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -154,13 +158,13 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/BoutonValider"
         android:layout_width="82dp"
         android:layout_height="40dp"
         android:layout_marginTop="248dp"
         android:layout_weight="1"
         android:text="Valider"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/TitrePage"
         tools:layout_editor_absoluteX="255dp" />
 
 </android.support.constraint.ConstraintLayout>
