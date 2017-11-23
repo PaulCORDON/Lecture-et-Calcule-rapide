@@ -17,18 +17,17 @@ public class MathExo1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ParamEm1 param = null;
+        ParamEm1 param = new ParamEm1();
         Exo1Math exo = new Exo1Math(param);
         TextView enonce = (TextView) findViewById(R.id.Enonce);
-        int ChoixBoutonRep;
         int numQuestAct = 1;
         boolean reponseDonne = false;
 
         Button BonneRep = null;
 
-        TextView RepF1 = null;
-        TextView RepF2 = null;
-        TextView RepF3 = null;
+        Button RepF1 = null;
+        Button RepF2 = null;
+        Button RepF3 = null;
 
 
 
@@ -38,6 +37,8 @@ public class MathExo1Activity extends AppCompatActivity {
 
                 Button BonneRep = (Button) findViewById(R.id.BtnRepA);
                 Button RepF1 = (Button) findViewById(R.id.BtnRepB);
+
+
                 break;
             case 2 :
                 setContentView(R.layout.activity_math_exo1_2bornes);
@@ -53,9 +54,11 @@ public class MathExo1Activity extends AppCompatActivity {
                 Button RepF3 = (Button) findViewById(R.id.BtnRepD);
                 break;
         }
-        enonce.setText(exo.getCalculEnonce().get(a));
+
+        enonce.setText(exo.getCalculEnonce().get(numQuestAct));
         BonneRep.setText(exo.getResultat());
         RepF1.setText((int)Math.random()*5);
+
 //        do {
 //            do{
 //                enonce.setText(exo.getCalculEnonce().get(a));
