@@ -19,7 +19,7 @@ public class ParamEm1 extends ParamMath {
     private Boolean borneEqualsOp;
     private int valMax;
 
-    ParamEm1()
+    public ParamEm1()
     {
         super();
         nbBornes=2;
@@ -31,7 +31,7 @@ public class ParamEm1 extends ParamMath {
         valMax=50;
     }
 
-    ParamEm1(Time t, Boolean p, Boolean[] c, Boolean[] o, int nbb, int nbq, Boolean cd, Boolean oa, Boolean bs, Boolean beo, int vm)
+    public ParamEm1(Time t, Boolean p, Boolean[] c, Boolean[] o, int nbb, int nbq, Boolean cd, Boolean oa, Boolean bs, Boolean beo, int vm)
     {
         super(t, p, c, o);
         nbBornes=nbb;
