@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * Created by Cordon Paul on 07/11/2017.
  */
 
-public class Exo1Math extends Exercice {
+/*public class Exo1Math extends Exercice {
 
    public ArrayList<String> calculEnonce;
 
@@ -109,3 +109,4 @@ public class Exo1Math extends Exercice {
 
 
 }
+*/
