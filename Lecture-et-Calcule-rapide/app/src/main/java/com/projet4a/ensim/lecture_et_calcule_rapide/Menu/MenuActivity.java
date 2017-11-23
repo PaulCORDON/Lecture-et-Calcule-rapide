@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo1Activity;
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -137,6 +138,21 @@ public class MenuActivity extends AppCompatActivity {
                     description.setText("Exercice 3 de Calcul !!!!! ");
 
                 }
+            }
+        });
+
+        parametre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (isMath && isExercice1){
+
+                    Intent intent = new Intent(MenuActivity.this, ModifParamEm1Activity.class);
+                    startActivity(intent);
+
+                }
+
+
             }
         });
     }
