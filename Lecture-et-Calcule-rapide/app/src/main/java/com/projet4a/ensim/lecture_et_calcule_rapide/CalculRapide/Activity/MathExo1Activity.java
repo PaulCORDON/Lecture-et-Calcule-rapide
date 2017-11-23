@@ -22,6 +22,7 @@ public class MathExo1Activity extends AppCompatActivity {
         TextView enonce = (TextView) findViewById(R.id.Enonce);
         int numQuestAct = 1;
         boolean reponseDonne = false;
+        int btnBonneRep = -1;
 
         Button BonneRep = null;
 
@@ -35,19 +36,76 @@ public class MathExo1Activity extends AppCompatActivity {
             case 1 :
                 setContentView(R.layout.activity_math_exo1_1bornes);
 
-                Button BonneRep = (Button) findViewById(R.id.BtnRepA);
-                Button RepF1 = (Button) findViewById(R.id.BtnRepB);
-
+                if (exo.getResultat() > exo.getBornes().get(numQuestAct).get(0)){
+                    Button BonneRep = (Button) findViewById(R.id.BtnRepB);
+                    Button RepF1 = (Button) findViewById(R.id.BtnRepA);
+                }
+                else {
+                    Button BonneRep = (Button) findViewById(R.id.BtnRepA);
+                    Button RepF1 = (Button) findViewById(R.id.BtnRepB);
+                }
 
                 break;
             case 2 :
                 setContentView(R.layout.activity_math_exo1_2bornes);
-                Button BonneRep = (Button) findViewById(R.id.BtnRepA);
-                Button RepF1 = (Button) findViewById(R.id.BtnRepB);
-                Button RepF2 = (Button) findViewById(R.id.BtnRepC);
+
+                if (exo.getResultat() > exo.getBornes().get(numQuestAct).get(0)){
+
+                    if (exo.getResultat() > exo.getBornes().get(numQuestAct).get(1)){
+                        Button BonneRep = (Button) findViewById(R.id.BtnRepC);
+                        Button RepF1 = (Button) findViewById(R.id.BtnRepA);
+                        Button RepF2 = (Button) findViewById(R.id.BtnRepB);
+                    }
+                    else {
+                        Button BonneRep = (Button) findViewById(R.id.BtnRepB);
+                        Button RepF1 = (Button) findViewById(R.id.BtnRepA);
+                        Button RepF2 = (Button) findViewById((R.id.BtnRepC));
+                    }
+
+                }else {
+                    Button BonneRep = (Button) findViewById(R.id.BtnRepA);
+                    Button RepF1 = (Button) findViewById(R.id.BtnRepB);
+                    Button RepF2 = (Button) findViewById((R.id.BtnRepC));
+                }
+
                 break;
             case 3 :
                 setContentView(R.layout.activity_math_exo1_3bornes);
+
+                if (exo.getResultat() > exo.getBornes().get(numQuestAct).get(0)){
+
+                    if (exo.getResultat() > exo.getBornes().get(numQuestAct).get(1)){
+
+                        if(exo.getResultat()>exo.getBornes().get(numQuestAct).get(2)){
+                            Button BonneRep = (Button) findViewById(R.id.BtnRepD);
+                            Button RepF1 = (Button) findViewById(R.id.BtnRepA);
+                            Button RepF2 = (Button) findViewById(R.id.BtnRepB);
+                            Button RepF3 = (Button) findViewById(R.id.BtnRepC);
+                        }else
+                        {
+                            Button BonneRep = (Button) findViewById(R.id.BtnRepC);
+                            Button RepF1 = (Button) findViewById(R.id.BtnRepA);
+                            Button RepF2 = (Button) findViewById(R.id.BtnRepB);
+                            Button RepF3 = (Button) findViewById(R.id.BtnRepD);
+                        }
+
+                    }
+                    else {
+                        Button BonneRep = (Button) findViewById(R.id.BtnRepB);
+                        Button RepF1 = (Button) findViewById(R.id.BtnRepA);
+                        Button RepF2 = (Button) findViewById((R.id.BtnRepC));
+                        Button RepF3 = (Button) findViewById((R.id.BtnRepD));
+                    }
+
+                }else {
+                    Button BonneRep = (Button) findViewById(R.id.BtnRepA);
+                    Button RepF1 = (Button) findViewById(R.id.BtnRepB);
+                    Button RepF2 = (Button) findViewById((R.id.BtnRepC));
+                    Button RepF3 = (Button) findViewById((R.id.BtnRepD));
+                }
+
+
+
                 Button BonneRep = (Button) findViewById(R.id.BtnRepA);
                 Button RepF1 = (Button) findViewById(R.id.BtnRepB);
                 Button RepF2 = (Button) findViewById(R.id.BtnRepC);
@@ -56,20 +114,9 @@ public class MathExo1Activity extends AppCompatActivity {
         }
 
         enonce.setText(exo.getCalculEnonce().get(numQuestAct));
-        BonneRep.setText(exo.getResultat());
-        RepF1.setText((int)Math.random()*5);
 
-//        do {
-//            do{
-//                enonce.setText(exo.getCalculEnonce().get(a));
-//                BonneRep.setText(exo.getResultat());
-//                RepF1.setText((int)Math.random()*5);
-//            }while(reponseDonne);
-//
-//
-//
-//
-//        }while (numQuestAct != param.getNbQuestions());
+
+
 
 
 
