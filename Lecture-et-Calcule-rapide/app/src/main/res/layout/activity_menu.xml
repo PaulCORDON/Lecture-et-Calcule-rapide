@@ -5,23 +5,117 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <Button
-            android:id="@+id/BtnLecture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lecture Rapide"
-            app:layout_constraintEnd_toStartOf="@+id/BtnCalcul"
-            tools:layout_editor_absoluteY="131dp" />
 
-        <Button
-            android:id="@+id/BtnCalcul"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Calcul Rapide"
-            tools:layout_editor_absoluteX="363dp"
-            tools:layout_editor_absoluteY="131dp" />
-</LinearLayout>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/linearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="0dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                                <Button
+                                    android:id="@+id/BtnLecture"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Lecture Rapide"
+                                    app:layout_constraintEnd_toStartOf="@+id/BtnCalcul"
+                                    tools:layout_editor_absoluteY="131dp" />
+
+                                <Button
+                                    android:id="@+id/BtnCalcul"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Calcul Rapide"
+                                    tools:layout_editor_absoluteX="363dp"
+                                    tools:layout_editor_absoluteY="131dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                                <Button
+                                    android:id="@+id/exo1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_weight="1"
+                                    android:text="Exercice1"
+                                    app:layout_constraintEnd_toStartOf="@+id/Exo2"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+                                <Button
+                                    android:id="@+id/exo2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_weight="1"
+                                    android:text="Exercice2"
+                                    app:layout_constraintEnd_toStartOf="@+id/exo3"
+                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+                                <Button
+                                    android:id="@+id/exo3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_weight="1"
+                                    android:text="Exercice3"
+                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                                    tools:layout_editor_absoluteX="219dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textView4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="Description  de l'exercice : \n \n le but de cet exercice est de blabblabla             " />
+
+                                <LinearLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:orientation="vertical">
+
+                                        <Button
+                                            android:id="@+id/param"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Paramètres" />
+
+                                        <Button
+                                            android:id="@+id/go"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="Go" />
+                                </LinearLayout>
+                        </LinearLayout>
+
+                </LinearLayout>
+        </FrameLayout>
+
 </android.support.constraint.ConstraintLayout>
