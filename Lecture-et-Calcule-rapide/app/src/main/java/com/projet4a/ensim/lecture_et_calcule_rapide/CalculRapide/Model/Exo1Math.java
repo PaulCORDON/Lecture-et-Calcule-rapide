@@ -11,69 +11,60 @@ import java.util.ArrayList;
 
 public class Exo1Math extends Exercice {
 
-   public ArrayList<String> calculEnonce;
+    private ArrayList<String> calculEnonce;
 
-    public ParamEm1 param;
+    private ParamEm1 param;
 
-    public int resultat;
+    private int resultat;
 
 
-    public Exo1Math(ParamEm1 param ){
+    public Exo1Math(ParamEm1 param )
+    {
         this.param = param;
-        calculEnonce = new ArrayList(this.param.nbQuestions);
+        calculEnonce = new ArrayList(this.param.getNbQuestions());
 
         int operandes[] = new int[2];
             operandes[0] = 0;
             operandes[1] = 0;
 
-        for (int a=0; a <= this.param.nbQuestions; a++){
+        for (int a=0; a <= this.param.getNbQuestions(); a++)
+        {
             // choix de l'operateur //
             int choixOperateur = 4;
-            while (this.param.operateur[choixOperateur]){
+
+            while (!this.param.getOperateur()[choixOperateur])
+            {
                 choixOperateur = (int)Math.random()*5;
             }
 
-
-            // choix des operande //
-            do{
-                for(int z=0; z<=1 ; z++){
-                    while (operandes[z]==0){
-                        operandes[z]=(int)Math.random()*this.param.valMax;
+            // choix des operande et calcul du resultat//
+            do
+            {
+                for(int z=0; z<=1 ; z++)
+                {
+                    while (operandes[z]==0)
+                    {
+                        operandes[z]=(int)Math.random()*this.param.getValMax();
                     }
                 }
 
-                if (choixOperateur==2) if(operandes[0]<operandes[1]){
-                    int tempo = operandes[0];
-                    operandes[0]=operandes[1];
-                    operandes[1]=tempo;
-                }
+                if (choixOperateur==2)
+                    if(operandes[0]<operandes[1])
+                    {
+                        int tempo = operandes[0];
+                        operandes[0]=operandes[1];
+                        operandes[1]=tempo;
+                    }
+
                 resultat = calculResultat(operandes[0],operandes[1],choixOperateur);
-            }while(resultat>this.param.valMax );
-            // calcul du resultat //
+
+            }while(resultat>this.param.getValMax() );
 
             calculEnonce.add("" + operandes[0] + choixOperateur + operandes[1]);
         }
-
-
     }
 
-    public String generateCalcul(){
-        return null;
 
-    }
-
-    public String  generateBornes (){
-
-        for(int i = 0; i<param.nbBornes;i++){
-
-            param.bornes[i] = (int) (Math.random()*(20-10));
-
-        }
-        String res = param.bornes[0]+ "\t";
-        return res;
-
-
-    }
     public Boolean timeOut() {
         return false;
     }
@@ -100,12 +91,35 @@ public class Exo1Math extends Exercice {
 
             case 3 :
                 return valA/valB;  // non utilisé pour le moment //
-                
+
             default:
                 return 0;
 
         }
     }
 
+    public ArrayList<String> getCalculEnonce() {
+        return calculEnonce;
+    }
 
+    public ParamEm1 getParam() {
+        return param;
+    }
+
+    public int getResultat() {
+        return resultat;
+    }
+
+
+    public void setCalculEnonce(ArrayList<String> calculEnonce) {
+        this.calculEnonce = calculEnonce;
+    }
+
+    public void setParam(ParamEm1 param) {
+        this.param = param;
+    }
+
+    public void setResultat(int resultat) {
+        this.resultat = resultat;
+    }
 }

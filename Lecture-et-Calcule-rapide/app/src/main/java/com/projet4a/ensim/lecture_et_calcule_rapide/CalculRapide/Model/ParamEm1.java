@@ -11,78 +11,55 @@ public class ParamEm1 extends ParamMath {
 
     private int nbBornes;
     private int nbQuestions;
-    private int scaleFrise;
     private Boolean calculDisparait;
-    private String ordreApparition;
+    private Boolean ordreApparition;
     private Boolean borneSelectionnable;
     private Boolean borneEqualsOp;
     private int valMax;
 
-
-    public int getNbBornes() {
-        return nbBornes;
+    ParamEm1()
+    {
+        super();
+        nbBornes=2;
+        nbQuestions=5;
+        calculDisparait=false;
+        ordreApparition=true;
+        borneSelectionnable=false;
+        borneEqualsOp=false;
+        valMax=50;
     }
+
+    public int getNbBornes(){return nbBornes;}
+
+    public int getNbQuestions(){return nbQuestions;}
+
+    public Boolean getCalculDisparait(){return calculDisparait;}
+
+    public Boolean getOrdreApparition(){return ordreApparition;}
+
+    public Boolean getBorneSelectionnable(){return borneSelectionnable;}
+
+    public Boolean getBorneEqualsOp(){return borneEqualsOp;}
+
+    public int getValMax(){return valMax;}
+
 
     public void setNbBornes(int nbBornes) {
         this.nbBornes = nbBornes;
-    }
-
-    public int getNbQuestions() {
-        return nbQuestions;
     }
 
     public void setNbQuestions(int nbQuestions) {
         this.nbQuestions = nbQuestions;
     }
 
-    public int getScaleFrise() {
-        return scaleFrise;
-    }
+    public void setCalculDisparait(Boolean calculDisparait){this.calculDisparait = calculDisparait;}
 
-    public void setScaleFrise(int scaleFrise) {
-        this.scaleFrise = scaleFrise;
-    }
+    public void setOrdreApparition(Boolean ordreApparition){this.ordreApparition = ordreApparition;}
 
-    public Boolean getCalculDisparait() {
-        return calculDisparait;
-    }
+    public void setBorneSelectionnable(Boolean borneSelectionnable){this.borneSelectionnable = borneSelectionnable;}
 
-    public void setCalculDisparait(Boolean calculDisparait) {
-        this.calculDisparait = calculDisparait;
-    }
+    public void setBorneEqualsOp(Boolean borneEqualsOp){this.borneEqualsOp = borneEqualsOp;}
 
-    public String getOrdreApparition() {
-        return ordreApparition;
-    }
-
-    public void setOrdreApparition(String ordreApparition) {
-        this.ordreApparition = ordreApparition;
-    }
-
-    public Boolean getBorneSelectionnable() {
-        return borneSelectionnable;
-    }
-
-    public void setBorneSelectionnable(Boolean borneSelectionnable) {
-        this.borneSelectionnable = borneSelectionnable;
-    }
-
-    public Boolean getBorneEqualsOp() {
-        return borneEqualsOp;
-    }
-
-    public void setBorneEqualsOp(Boolean borneEqualsOp) {
-        this.borneEqualsOp = borneEqualsOp;
-    }
-
-    public int getValMax() {
-        return valMax;
-    }
-
-    public void setValMax(int valMax) {
-        this.valMax = valMax;
-    }
-
-
+    public void setValMax(int valMax){this.valMax = valMax;}
 
 }
