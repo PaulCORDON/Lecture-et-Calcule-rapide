@@ -3,6 +3,8 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamMath;
 
+import java.sql.Time;
+
 /**
  * Created by Cordon Paul on 07/11/2017.
  */
@@ -27,6 +29,18 @@ public class ParamEm1 extends ParamMath {
         borneSelectionnable=false;
         borneEqualsOp=false;
         valMax=50;
+    }
+
+    ParamEm1(Time t, Boolean p, Boolean[] c, Boolean[] o, int nbb, int nbq, Boolean cd, Boolean oa, Boolean bs, Boolean beo, int vm)
+    {
+        super(t, p, c, o);
+        nbBornes=nbb;
+        nbQuestions=nbq;
+        calculDisparait=cd;
+        ordreApparition=oa;
+        borneSelectionnable=bs;
+        borneEqualsOp=beo;
+        valMax=vm;
     }
 
     public int getNbBornes(){return nbBornes;}

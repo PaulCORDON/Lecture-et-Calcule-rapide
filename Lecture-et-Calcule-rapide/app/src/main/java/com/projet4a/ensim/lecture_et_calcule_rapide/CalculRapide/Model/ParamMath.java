@@ -38,6 +38,14 @@ abstract class ParamMath
             operateur[4]=false;
     }
 
+    ParamMath(Time t, Boolean p, Boolean[] c, Boolean[] o)
+    {
+        tempsRep=t;
+        pairOnly=p;
+        chiffres=c;
+        operateur=o;
+    }
+
     public Time getTempsRep(){return tempsRep;}
 
     public Boolean getPairOnly(){return pairOnly;}
