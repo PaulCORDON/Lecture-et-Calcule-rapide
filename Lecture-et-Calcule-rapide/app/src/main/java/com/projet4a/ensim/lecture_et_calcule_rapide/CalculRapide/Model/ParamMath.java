@@ -8,11 +8,9 @@ import java.sql.Time;
 
 abstract class ParamMath
 {
-    private Time tempsRep;
+    private Long tempsRep;
 
     private Boolean pairOnly;
-
-    private Boolean chiffres[];
 
     private Boolean operateur[];
         // 0 : +
@@ -22,44 +20,35 @@ abstract class ParamMath
 
     ParamMath()
     {
-        tempsRep=new Time(30);
+        tempsRep=new Long(30);
         pairOnly=true;
-        chiffres= new Boolean[10];
-        for(int i=0;i<10;i++)
-        {
-            if(i%2==0) chiffres[i]=true;
-            else chiffres[i]=false;
-        }
-        operateur = new Boolean[5];
+
+        operateur = new Boolean[4];
             operateur[0]=true;
             operateur[1]=false;
             operateur[2]=true;
             operateur[3]=false;
-            operateur[4]=false;
+
     }
 
-    ParamMath(Time t, Boolean p, Boolean[] c, Boolean[] o)
+    ParamMath(Long t, Boolean p, Boolean[] o)
     {
         tempsRep=t;
         pairOnly=p;
-        chiffres=c;
         operateur=o;
     }
 
-    public Time getTempsRep(){return tempsRep;}
+    public Long getTempsRep(){return tempsRep;}
 
     public Boolean getPairOnly(){return pairOnly;}
 
-    public Boolean[] getChiffres(){return chiffres;}
 
     public Boolean[] getOperateur() {return operateur;}
 
 
-    public void setTempsRep(Time t){tempsRep=t;}
+    public void setTempsRep(Long t){tempsRep=t;}
 
     public void setPairOnly(Boolean p){pairOnly=p;}
-
-    public void setChiffres(Boolean[]c){chiffres=c;}
 
     public void setOperateur(Boolean[]o){operateur=o;}
 }
