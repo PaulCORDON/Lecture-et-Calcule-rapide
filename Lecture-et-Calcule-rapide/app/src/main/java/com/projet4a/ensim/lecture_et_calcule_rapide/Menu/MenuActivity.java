@@ -48,6 +48,9 @@ public class MenuActivity extends AppCompatActivity {
             //   startActivity(new Intent(MenuActivity.this, MathExo1Activity.class));
                 isMath = true;
                 isLecture = false;
+                isExercice1 = true;
+                isExercice2 = false;
+                isExercice3 = false;
                 math.setEnabled(false);
                 lecture.setEnabled(true);
                 exercice1.setEnabled(false);
@@ -71,6 +74,9 @@ public class MenuActivity extends AppCompatActivity {
 
                 isMath = false;
                 isLecture = true;
+                isExercice1 = true;
+                isExercice2 = false;
+                isExercice3 = false;
                 math.setEnabled(true);
                 lecture.setEnabled(false);
                 description = (TextView) findViewById(R.id.descriptionExo);
@@ -88,6 +94,9 @@ public class MenuActivity extends AppCompatActivity {
                 exercice1.setEnabled(false);
                 exercice2.setEnabled(true);
                 exercice3.setEnabled(true);
+                isExercice1 = true;
+                isExercice2 = false;
+                isExercice3 = false;
                 description = (TextView) findViewById(R.id.descriptionExo);
                 if (isLecture){
 
@@ -108,6 +117,9 @@ public class MenuActivity extends AppCompatActivity {
                 exercice1.setEnabled(true);
                 exercice2.setEnabled(false);
                 exercice3.setEnabled(true);
+                isExercice1 = false;
+                isExercice2 = true;
+                isExercice3 = false;
                 description = (TextView) findViewById(R.id.descriptionExo);
                 if (isLecture){
 
@@ -127,6 +139,9 @@ public class MenuActivity extends AppCompatActivity {
                 exercice1.setEnabled(true);
                 exercice2.setEnabled(true);
                 exercice3.setEnabled(false);
+                isExercice1 = false;
+                isExercice2 = false;
+                isExercice3 = true;
                 description = (TextView) findViewById(R.id.descriptionExo);
                 if (isLecture){
 

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class MathExo1Activity extends AppCompatActivity {
 
-    @Override
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -114,9 +114,26 @@ public class MathExo1Activity extends AppCompatActivity {
         }
 
         enonce.setText(exo.getCalculEnonce().get(numQuestAct));
+<<<<<<< HEAD
 
 
 
+=======
+        BonneRep.setText(exo.getResultat());
+        RepF1.setText((int)Math.random()*5);*/
+
+//        do {
+//            do{
+//                enonce.setText(exo.getCalculEnonce().get(a));
+//                BonneRep.setText(exo.getResultat());
+//                RepF1.setText((int)Math.random()*5);
+//            }while(reponseDonne);
+//
+//
+//
+//
+//        }while (numQuestAct != param.getNbQuestions());
+>>>>>>> Affichage
 
 
 
@@ -129,4 +146,4 @@ public class MathExo1Activity extends AppCompatActivity {
 
 
 
-}
+//}
