@@ -133,7 +133,7 @@ public class MathExo1Activity extends AppCompatActivity {
 //
 //
 //        }while (numQuestAct != param.getNbQuestions());
->>>>>>> Affichage
+
 
 
 

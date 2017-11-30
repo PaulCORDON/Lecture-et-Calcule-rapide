@@ -99,8 +99,8 @@ public class Exo1Math extends Exercice {
                     if(bornestempo.get(i)>bornestempo.get(i+1))
                     {
                         swap=bornestempo.get(i);
-                        bornestempo.add(i,bornestempo.get(i+1));
-                        bornestempo.add(i+1,swap);
+                        bornestempo.set(i,bornestempo.get(i+1));
+                        bornestempo.set(i+1,swap);
 
                         trie=false;
                     }
