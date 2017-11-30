@@ -1,14 +1,9 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
-import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
-/**
- * Created by Cordon Paul on 07/11/2017.
- */
 
 public class Exo1Math extends Exercice {
 
@@ -89,20 +84,54 @@ public class Exo1Math extends Exercice {
 
             ArrayList<Integer> bornestempo = new ArrayList<>(param.getNbBornes());
 
-            if(param.getBorneEqualsOp())
+            for(int i = 0 ; i<param.getNbBornes() ; i++)
             {
-                //TODO ajout creation borne quand egale
-            }
-            else
-            {
-                for(int i = 0 ; i<param.getNbBornes() ; i++)
-                {
-                    bornestempo.add((int)(Math.random()*param.getValMax()));
-                }
-                //TODO ajout methode sort()
-                //bornestempo.sort(Comparator.<Integer>naturalOrder());
+                bornestempo.add((int)(Math.random()*param.getValMax()));
             }
 
+            boolean trie = false;
+            while(!trie)
+            {
+                trie=true;
+                for (int i = 0 ; i<bornestempo.size()-1 ; i++)
+                {
+                    Integer swap;
+                    if(bornestempo.get(i)>bornestempo.get(i+1))
+                    {
+                        swap=bornestempo.get(i);
+                        bornestempo.add(i,bornestempo.get(i+1));
+                        bornestempo.add(i+1,swap);
+
+                        trie=false;
+                    }
+                }
+            }
+
+            if(param.getBorneEqualsOp())
+            {
+                //TODO ajout modif borne quand egale
+                int min=param.getValMax();
+                int numborne=0;
+                int numope=0;
+
+                for (int b : bornestempo)
+                {
+                    if(Math.abs(b-operandes[0])<min)
+                    {
+                        min=Math.abs(b-operandes[0]);
+                        numborne=bornestempo.indexOf(b);
+                        numope=0;
+                    }
+                    if(Math.abs(b-operandes[1])<min)
+                    {
+                        min=Math.abs(b-operandes[1]);
+                        numborne=bornestempo.indexOf(b);
+                        numope=1;
+                    }
+                }
+                bornestempo.add(numborne,operandes[numope]+(int)(Math.random()*3)-1);
+            }
+            
             bornes.add(bornestempo);
         }
     }
@@ -128,6 +157,8 @@ public class Exo1Math extends Exercice {
         }
     }
 
+
+
     public ArrayList<String> getCalculEnonce() {
         return calculEnonce;
     }
@@ -140,7 +171,7 @@ public class Exo1Math extends Exercice {
         return resultat;
     }
 
-    public ArrayList<int[]> getBornes() {return bornes;}
+    public ArrayList<ArrayList<Integer>> getBornes() {return bornes;}
 
 
     public void setCalculEnonce(ArrayList<String> calculEnonce){this.calculEnonce = calculEnonce;}
@@ -153,5 +184,5 @@ public class Exo1Math extends Exercice {
         this.resultat = resultat;
     }
 
-    public void setBornes(ArrayList<int[]> bornes) {this.bornes = bornes;}
+    public void setBornes(ArrayList<ArrayList<Integer>> bornes) {this.bornes = bornes;}
 }
