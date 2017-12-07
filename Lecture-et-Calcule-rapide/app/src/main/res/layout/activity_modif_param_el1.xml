@@ -25,22 +25,16 @@
                 <TextView
                     android:id="@+id/textView10"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="Modification des paramètres de l'exercice de lecture"
                     tools:textAlignment="center" />
 
-                <Button
-                    android:id="@+id/BtmParamEl1"
-                    android:layout_width="245dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="OK" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="65dp"
+                android:layout_height="36dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -50,19 +44,21 @@
                     android:layout_weight="1"
                     android:text="Nombre de mots dans l'énoncé" />
 
-                <EditText
-                    android:id="@+id/Nbapp"
-                    android:layout_width="194dp"
+                <SeekBar
+                    android:id="@+id/seekNbEnonce"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
+                    android:layout_weight="2"
+                    android:max="2"
+                    android:progress="0" />
+
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/TpsApp"
                 android:layout_width="match_parent"
-                android:layout_height="43dp"
+                android:layout_height="38dp"
                 android:orientation="horizontal">
 
                 <TextView
@@ -72,19 +68,19 @@
                     android:layout_weight="1"
                     android:text="Temps d'apparution" />
 
-                <EditText
-                    android:id="@+id/editText9"
+                <SeekBar
+                    android:id="@+id/seekTpsApparution"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="time" />
+                    android:layout_weight="2"
+                    android:max="2" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="301dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
@@ -96,7 +92,7 @@
                     android:text="Nombre de mot à faire apparaitre" />
 
                 <EditText
-                    android:id="@+id/TpsApp"
+                    android:id="@+id/NbMotsApp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -122,40 +118,26 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nombre de bonnes réponses parmi les propositions" />
-
-                <EditText
-                    android:id="@+id/editText8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="311dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <Switch
-                    android:id="@+id/switch2"
+                    android:id="@+id/BtnApparutionEnonce"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Faire disparaitre l'énoncé aucours de l'éxercice" />
+
             </LinearLayout>
+
+            <Button
+                android:id="@+id/BtmParamEl1"
+                style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Valider" />
         </LinearLayout>
     </FrameLayout>
 
