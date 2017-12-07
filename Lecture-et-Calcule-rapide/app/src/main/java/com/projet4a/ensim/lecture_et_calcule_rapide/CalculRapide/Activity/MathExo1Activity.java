@@ -3,6 +3,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -19,23 +20,23 @@ import static java.lang.System.currentTimeMillis;
 public class MathExo1Activity extends AppCompatActivity {
 
     private boolean reponseDonnee = false;
-    private  int numQuestAct = 1;
+    private  int numQuestAct ;
     private  boolean[] reponseJuste;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.i("Debug","coucou depuis le oncreate" );
         ParamEm1 param = new ParamEm1();
         Exo1Math exo = new Exo1Math(param);
-        TextView enonce = (TextView) findViewById(R.id.Enonce);
+        //TextView enonce = (TextView) findViewById(R.id.Enonce);
 
         reponseJuste = new boolean[param.getNbQuestions()];
 
-        boolean Reponse = false;
+
 
         long timeStart;
 
-        int btnBonneRep = -1;
+
 
         Button BonneRep = null;
 
@@ -48,12 +49,13 @@ public class MathExo1Activity extends AppCompatActivity {
         TextView Borne3 = null;
 
 
-
+        for(numQuestAct=0; numQuestAct<param.getNbQuestions() ; numQuestAct++) {
+            Log.i("debug","coucou depuis le for" + numQuestAct);
         switch (param.getNbBornes()){
             case 1 :
                 setContentView(R.layout.activity_math_exo1_1bornes);
                 Borne1 = (TextView) findViewById(R.id.Borne1);
-                Borne1.setText(exo.getBornes().get(numQuestAct).get(0));
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
                 if (exo.getResultats()[0] > exo.getBornes().get(numQuestAct).get(0)){
                     BonneRep = (Button) findViewById(R.id.BtnRepB);
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
@@ -63,13 +65,31 @@ public class MathExo1Activity extends AppCompatActivity {
                     RepF1 = (Button) findViewById(R.id.BtnRepB);
                 }
 
+                BonneRep.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = true;
+
+                    }
+                });
+                RepF1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = false;
+                    }
+                });
+
                 break;
+
             case 2 :
                 setContentView(R.layout.activity_math_exo1_2bornes);
                 Borne1 = (TextView) findViewById(R.id.Borne1);
                 Borne2 = (TextView) findViewById(R.id.Borne2);
-                Borne1.setText(exo.getBornes().get(numQuestAct).get(0));
-                Borne2.setText(exo.getBornes().get(numQuestAct).get(1));
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
                 if (exo.getResultats()[0] > exo.getBornes().get(numQuestAct).get(0)){
 
                     if (exo.getResultats()[0] > exo.getBornes().get(numQuestAct).get(1)){
@@ -89,20 +109,44 @@ public class MathExo1Activity extends AppCompatActivity {
                     RepF2 = (Button) findViewById((R.id.BtnRepC));
                 }
 
+                BonneRep.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = true;
+
+                    }
+                });
+                RepF1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = false;
+                    }
+                });
+                RepF2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = false;
+                    }
+                });
+
                 break;
             case 3:
                 setContentView(R.layout.activity_math_exo1_3bornes);
                 Borne1 = (TextView) findViewById(R.id.Borne1);
                 Borne2 = (TextView) findViewById(R.id.Borne2);
                 Borne3 = (TextView) findViewById(R.id.Borne3);
-                Borne1.setText(exo.getBornes().get(numQuestAct).get(0));
-                Borne2.setText(exo.getBornes().get(numQuestAct).get(1));
-                Borne3.setText(exo.getBornes().get(numQuestAct).get(2));
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
+                Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
                 if (exo.getResultats()[0] > exo.getBornes().get(numQuestAct).get(0)){
 
                     if (exo.getResultats()[0] > exo.getBornes().get(numQuestAct).get(1)){
 
-                        if(exo.getResultats()[0]>exo.getBornes().get(numQuestAct).get(3)){
+                        if(exo.getResultats()[0]>exo.getBornes().get(numQuestAct).get(2)){
                             BonneRep = (Button) findViewById(R.id.BtnRepD);
                             RepF1 = (Button) findViewById(R.id.BtnRepA);
                             RepF2 = (Button) findViewById(R.id.BtnRepB);
@@ -136,32 +180,7 @@ public class MathExo1Activity extends AppCompatActivity {
                 RepF1 = (Button) findViewById(R.id.BtnRepB);
                 RepF2 = (Button) findViewById(R.id.BtnRepC);
                 RepF3 = (Button) findViewById(R.id.BtnRepD);
-                break;
-        }
 
-        timeStart = currentTimeMillis();
-        do{
-            enonce.setText(exo.getCalculEnonce().get(numQuestAct));
-
-
-
-=======
-        BonneRep.setText(exo.getResultat());
-        RepF1.setText((int)Math.random()*5);*/
-
-//        do {
-//            do{
-//                enonce.setText(exo.getCalculEnonce().get(a));
-//                BonneRep.setText(exo.getResultat());
-//                RepF1.setText((int)Math.random()*5);
-//            }while(reponseDonne);
-//
-//
-//
-//
-//        }while (numQuestAct != param.getNbQuestions());
-
-            try{
                 BonneRep.setOnClickListener(new View.OnClickListener() {
 
                     @Override
@@ -171,8 +190,6 @@ public class MathExo1Activity extends AppCompatActivity {
 
                     }
                 });
-
-
                 RepF1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -194,25 +211,49 @@ public class MathExo1Activity extends AppCompatActivity {
                         reponseJuste[numQuestAct] = false;
                     }
                 });
-            }catch (NullPointerException e){
-                System.out.println(e);
+
+                break;
+        }
+
+
+        TextView enonce = (TextView) findViewById(R.id.Enonce);
+
+
+
+            timeStart=currentTimeMillis();
+
+            enonce.setText(exo.getCalculEnonce().get(numQuestAct));
+
+            switch (param.getNbBornes()){
+                case 1:
+                    Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                    break;
+                case 2:
+                    Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                    Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
+                    break;
+                case 3:
+                    Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                    Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
+                    Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
+                    break;
             }
 
+            Log.i("debug","coucou depuis le while");
+            long timeAct;
+            do
+            {
+                timeAct=currentTimeMillis();
+            }while(timeAct-timeStart<1000 && !reponseDonnee);
 
-            if(!reponseDonnee  || timeStart >= timeStart + 10000){ // param.getTempsRep()
-
-                if(!reponseDonnee){
-                    reponseJuste[numQuestAct] = false;
-                }
-                numQuestAct ++;
-                reponseDonnee = false;
+            if (!reponseDonnee) {
+                reponseJuste[numQuestAct] = false;
             }
+            reponseDonnee = false;
 
 
 
-        }while (numQuestAct != param.getNbQuestions());
-
-
+        }
     }
 
 
