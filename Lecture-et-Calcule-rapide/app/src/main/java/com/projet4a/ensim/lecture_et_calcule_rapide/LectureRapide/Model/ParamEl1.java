@@ -11,7 +11,6 @@ public class ParamEl1 extends ParamLecture{
     private Time tempsApparution;
     private int nbApparution;
     private Boolean multipleApparution;
-    private int nbBonneRep;
     private Boolean enonceDisparait;
 
 
@@ -23,7 +22,6 @@ public class ParamEl1 extends ParamLecture{
     //getters
     public int getNbEnonce() {return nbEnonce;}
     public Time getTempsApparution() {return tempsApparution;}
-    public int getNbBonneRep() {return nbBonneRep;}
     public int getNbApparution() {return nbApparution;}
     public Boolean getMultipleApparution() {return multipleApparution;}
     public Boolean getEnonceDisparait() {return enonceDisparait;}
@@ -33,7 +31,6 @@ public class ParamEl1 extends ParamLecture{
     public void setTempsApparution(Time tempsApparution) {this.tempsApparution = tempsApparution;}
     public void setNbApparution(int nbApparution) {this.nbApparution = nbApparution;}
     public void setMultipleApparution(Boolean multipleApparution) {this.multipleApparution = multipleApparution;}
-    public void setNbBonneRep(int nbBonneRep) {this.nbBonneRep = nbBonneRep;}
     public void setEnonceDisparait(Boolean enonceDisparait) {this.enonceDisparait = enonceDisparait;}
 
 
