@@ -145,7 +145,21 @@ public class MathExo1Activity extends AppCompatActivity {
 
 
 
+=======
+        BonneRep.setText(exo.getResultat());
+        RepF1.setText((int)Math.random()*5);*/
 
+//        do {
+//            do{
+//                enonce.setText(exo.getCalculEnonce().get(a));
+//                BonneRep.setText(exo.getResultat());
+//                RepF1.setText((int)Math.random()*5);
+//            }while(reponseDonne);
+//
+//
+//
+//
+//        }while (numQuestAct != param.getNbQuestions());
 
             try{
                 BonneRep.setOnClickListener(new View.OnClickListener() {
