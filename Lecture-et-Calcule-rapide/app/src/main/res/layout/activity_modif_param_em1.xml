@@ -131,13 +131,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:hint="10"
+                        android:text="10"/>
 
                     <Switch
                         android:id="@+id/ChoixNbPairs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mettre seulement des chifres pairs" />
+                        android:text="Mettre seulement des chiffres pairs" />
 
                 </LinearLayout>
 
@@ -182,7 +184,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:ems="10"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:text="50"
+                        android:hint="50"/>
 
                     <TextView
                         android:id="@+id/titreChoixOperateurs"
@@ -196,7 +200,8 @@
                         android:id="@+id/addition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="+" />
+                        android:text="+"
+                        android:checked="true"/>
 
                     <CheckBox
                         android:id="@+id/soustraction"
