@@ -3,6 +3,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.autofill.AutofillValue;
 import android.widget.Button;
@@ -42,8 +43,10 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         Switch bornesEgalesReps= (Switch) findViewById(R.id.ChoixBornesEgalesRep);
 
         EditText valMax= (EditText) findViewById(R.id.ValeurMax);
+        int valmax=Integer.parseInt(valMax.getText().toString());
 
         EditText tpsReponse= (EditText) findViewById(R.id.tempsReponse);
+        Long tpsrep= Long.parseLong(tpsReponse.getText().toString());
 
         Switch nbPairsOnly= (Switch) findViewById(R.id.ChoixNbPairs);
 
@@ -60,11 +63,15 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
 
         Button valider= (Button) findViewById(R.id.BoutonValider);
-        final boolean enregistrer = valider.callOnClick();
+        final boolean enregistrer = valider.isPressed();
 
         if(enregistrer){
             //ligne suivante a revoir car les types renvoyés ne sont pas les types attendus
-            ParamEm1 param= new ParamEm1(tpsReponse.getText().toString(), nbPairsOnly.isChecked(), enregistrer, nbBornes.getContext(), nbQuestions.getContext(),disparitionCalcul.isChecked(), ordreApparition, bornesSelectionnables.isChecked(),bornesEgalesReps.isChecked(),valMax.getText());
+            ParamEm1 param= new ParamEm1(tpsrep, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(),disparitionCalcul.isChecked(), ordreApparition, bornesSelectionnables.isChecked(),bornesEgalesReps.isChecked(),valmax);
+
+            Log.d("DEBUG", "tps reponse: "+param.getTempsRep()+"\nnbs pairs seulement: "+param.getPairOnly()+"\noperateurs: "+param.getOperateur()+"\nnb bornes: "+param.getNbBornes()+
+            "\nnb questions: "+param.getNbQuestions()+"\ndisparition du calcul: "+param.getCalculDisparait()+"\nordre apparition: "+param.getOrdreApparition()+
+                    "\nbornes selectionnables: " +param.getBorneSelectionnable()+"\nbornes egales reponses: "+param.getBorneEqualsOp()+"\nvaleur max: "+param.getValMax());
         }
 
 
