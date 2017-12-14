@@ -46,7 +46,7 @@ public class Exo1Math extends Exercice
         int operandes[] = new int[2];
 
         //pour chaque question
-        for (int a=0; a <= this.param.getNbQuestions(); a++)
+        for (int a=0; a < this.param.getNbQuestions(); a++)
         {
             // choix de l'operateur //
             int choixOperateur = 4;

@@ -22,7 +22,7 @@ public class ParamEm1 extends ParamMath {
     public ParamEm1()
     {
         super();
-        nbBornes=2;
+        nbBornes=3;
         nbQuestions=5;
         calculDisparait=false;
         ordreApparition=true;
