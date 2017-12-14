@@ -224,7 +224,6 @@ public class LectureExo1Activity extends AppCompatActivity {
             nbMauvaiseRep++;
             b.setBackgroundColor(Color.RED);
         }
-        rendreInvisible(b);
     }
 
     /**
@@ -238,9 +237,16 @@ public class LectureExo1Activity extends AppCompatActivity {
 
     /**
      * Méthode qui calcule le score de l'élève
-     * @return le score de l'élève
+     * @return le score de l'élève en pourcentage
      */
     private float calculerScore(){
-        return ((nbBonneRep/nbAppDeEnonce)-(nbMauvaiseRep/(param.getNbApparution()-nbAppDeEnonce))*10);
+       int score;
+       if(nbBonneRep+nbMauvaiseRep!=0){
+           score=((nbBonneRep/nbAppDeEnonce)/(nbBonneRep+nbMauvaiseRep))*100;
+       }
+       else{
+           score=0;
+       }
+       return score;
     }
 }
