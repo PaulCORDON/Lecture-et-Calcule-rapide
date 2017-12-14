@@ -267,38 +267,11 @@ public class MathExo1Activity extends AppCompatActivity
         {
             if (numQuestAct == exo.getParam().getNbQuestions() - 1) {
                 numQuestAct = 0;
-                startActivity(intent2);
+                startActivity(intent);
             }
         }
     }
 
-
-    /*protected void onStart()
-    {1
-        super.onStart();
-
-        do
-        {
-            timeAct=currentTimeMillis();
-            if(reponseDonnee)
-            {
-                break;
-            }
-            else if(timeAct-timeStart<2000) break;
-        }while(true);
-
-        if (!reponseDonnee)
-        {
-            reponseJuste[numQuestAct] = false;
-        }
-
-        numQuestAct++;
-        if(numQuestAct==exo.getParam().getNbQuestions())
-        {
-            numQuestAct = 0;
-            finish();
-        }
-    }
 }
 
 
