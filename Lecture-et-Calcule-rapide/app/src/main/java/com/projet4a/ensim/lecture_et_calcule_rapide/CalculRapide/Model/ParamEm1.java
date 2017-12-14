@@ -19,10 +19,11 @@ public class ParamEm1 extends ParamMath {
     private Boolean borneEqualsOp;
     private int valMax;
 
+
     public ParamEm1()
     {
         super();
-        nbBornes=2;
+        nbBornes=3;
         nbQuestions=5;
         calculDisparait=false;
         ordreApparition=true;
@@ -31,9 +32,9 @@ public class ParamEm1 extends ParamMath {
         valMax=50;
     }
 
-    public ParamEm1(Time t, Boolean p, Boolean[] c, Boolean[] o, int nbb, int nbq, Boolean cd, Boolean oa, Boolean bs, Boolean beo, int vm)
+    public ParamEm1(Long t, Boolean p,  Boolean[] o, int nbb, int nbq, Boolean cd, Boolean oa, Boolean bs, Boolean beo, int vm)
     {
-        super(t, p, c, o);
+        super(t, p, o);
         nbBornes=nbb;
         nbQuestions=nbq;
         calculDisparait=cd;
@@ -42,6 +43,8 @@ public class ParamEm1 extends ParamMath {
         borneEqualsOp=beo;
         valMax=vm;
     }
+
+
 
     public int getNbBornes(){return nbBornes;}
 
@@ -56,7 +59,6 @@ public class ParamEm1 extends ParamMath {
     public Boolean getBorneEqualsOp(){return borneEqualsOp;}
 
     public int getValMax(){return valMax;}
-
 
     public void setNbBornes(int nbBornes) {
         this.nbBornes = nbBornes;

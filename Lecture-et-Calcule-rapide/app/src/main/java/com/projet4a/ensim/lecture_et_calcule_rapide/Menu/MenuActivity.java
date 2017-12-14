@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity;
+import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -34,7 +36,7 @@ public class MenuActivity extends AppCompatActivity {
          final Button exercice3 = (Button) findViewById(R.id.exo3);
          /* creation du boutton parametre */
          final Button parametre = (Button) findViewById(R.id.param);
-
+        final Button debutExo = (Button) findViewById(R.id.go);
 
         isMath = true;
         isLecture =false;
@@ -169,6 +171,27 @@ public class MenuActivity extends AppCompatActivity {
                 if (isLecture && isExercice1){
 
                     Intent intent = new Intent(MenuActivity.this, ModifParamEl1Activity.class);
+                    startActivity(intent);
+
+                }
+
+
+            }
+        });
+        debutExo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (isMath && isExercice1){
+
+                    Intent intent = new Intent(MenuActivity.this, MathExo1Activity.class);
+                    startActivity(intent);
+
+                }
+
+                if (isLecture && isExercice1){
+
+                    Intent intent = new Intent(MenuActivity.this, LectureExo1Activity.class);
                     startActivity(intent);
 
                 }

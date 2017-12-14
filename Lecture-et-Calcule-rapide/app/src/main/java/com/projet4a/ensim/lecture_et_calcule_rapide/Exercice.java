@@ -1,27 +1,35 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide;
 
-/**
- * Created by Cordon Paul on 07/11/2017.
- */
+public abstract class Exercice
+{
+    private Double note;
 
-public abstract class Exercice {
-    public Double note;
+    private int bonneRep;
 
-    public int bonneRep;
-
-    public int mauvaiseRep;
-
-    public int nbRep;
+    private int mauvaiseRep;
 
 
-
-    private void calculeNote() {
+    private void calculeNote()
+    {
+        //TODO calculNote()
     }
 
-    public void afficheNote() {
+    public void afficheNote()
+    {
+        //TODO afficheNote()
     }
 
-    public void get() {
-    }
 
+    public Double getNote() {return note;}
+
+    public int getBonneRep() {return bonneRep;}
+
+    public int getMauvaiseRep() {return mauvaiseRep;}
+
+
+    public void setNote(Double note) {this.note = note;}
+
+    public void setBonneRep(int bonneRep) {this.bonneRep = bonneRep;}
+
+    public void setMauvaiseRep(int mauvaiseRep) {this.mauvaiseRep = mauvaiseRep;}
 }
