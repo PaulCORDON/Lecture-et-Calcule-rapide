@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity;
+import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -184,6 +185,13 @@ public class MenuActivity extends AppCompatActivity {
                 if (isMath && isExercice1){
 
                     Intent intent = new Intent(MenuActivity.this, MathExo1Activity.class);
+                    startActivity(intent);
+
+                }
+
+                if (isLecture && isExercice1){
+
+                    Intent intent = new Intent(MenuActivity.this, LectureExo1Activity.class);
                     startActivity(intent);
 
                 }
