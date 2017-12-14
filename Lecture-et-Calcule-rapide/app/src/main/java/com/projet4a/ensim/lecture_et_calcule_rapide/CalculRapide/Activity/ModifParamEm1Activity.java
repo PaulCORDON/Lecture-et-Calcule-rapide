@@ -4,6 +4,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.autofill.AutofillValue;
 import android.widget.Button;
@@ -54,16 +55,13 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
         final Switch nbPairsOnly=  findViewById(R.id.ChoixNbPairs);
 
-        CheckBox addition=  findViewById(R.id.addition);
-        CheckBox soustraction=  findViewById(R.id.soustraction);
-        CheckBox division= findViewById(R.id.division);
-        CheckBox multiplication=  findViewById(R.id.multiplication);
+        final CheckBox addition=  findViewById(R.id.addition);
+        final CheckBox soustraction=  findViewById(R.id.soustraction);
+        final CheckBox division= findViewById(R.id.division);
+        final CheckBox multiplication=  findViewById(R.id.multiplication);
 
         final Boolean[] operateurs= new Boolean[4];
-        operateurs[0]=addition.isChecked();
-        operateurs[1]=soustraction.isChecked();
-        operateurs[2]=multiplication.isChecked();
-        operateurs[3]=division.isChecked();
+
 
 
 
@@ -74,10 +72,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                operateurs[0]=addition.isChecked();
+                operateurs[1]=soustraction.isChecked();
+                operateurs[2]=multiplication.isChecked();
+                operateurs[3]=division.isChecked();
 
                 ParamEm1 param= new ParamEm1(Long.parseLong(tpsReponse.getText().toString()), nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(),disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(),bornesEgalesReps.isChecked(),Integer.parseInt(valMax.getText().toString()));
 
-                Log.i("info", "tps reponse: "+param.getTempsRep()+"\nnbs pairs seulement: "+param.getPairOnly()+"\noperateurs: "+param.getOperateur()+"\nnb bornes: "+param.getNbBornes()+
+                Log.i("info", "tps reponse: "+param.getTempsRep()+"\nnbs pairs seulement: "+param.getPairOnly()+"\noperateurs: "+param.getOperateur()[0]+ param.getOperateur()[1]+ param.getOperateur()[2]+ param.getOperateur()[3]+"\nnb bornes: "+param.getNbBornes()+
                         "\nnb questions: "+param.getNbQuestions()+"\ndisparition du calcul: "+param.getCalculDisparait()+"\nordre apparition: "+param.getOrdreApparition()+
                         "\nbornes selectionnables: " +param.getBorneSelectionnable()+"\nbornes egales reponses: "+param.getBorneEqualsOp()+"\nvaleur max: "+param.getValMax());
 
