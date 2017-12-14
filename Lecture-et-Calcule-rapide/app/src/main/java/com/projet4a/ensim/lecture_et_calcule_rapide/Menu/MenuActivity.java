@@ -163,7 +163,7 @@ public class MenuActivity extends AppCompatActivity {
 
                 if (isMath && isExercice1){
 
-                    Intent intent = new Intent(MenuActivity.this, ModifParamEm1Activity.class);
+                    Intent intent = new Intent(MenuActivity.this, ModifParamEl1Activity.class);
                     startActivity(intent);
 
                 }
