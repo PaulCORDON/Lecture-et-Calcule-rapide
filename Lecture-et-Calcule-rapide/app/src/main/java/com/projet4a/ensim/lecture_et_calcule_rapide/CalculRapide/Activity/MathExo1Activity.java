@@ -1,5 +1,6 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextWatcher;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
+import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import org.w3c.dom.Text;
@@ -20,23 +22,26 @@ import static java.lang.System.currentTimeMillis;
 public class MathExo1Activity extends AppCompatActivity {
 
     private boolean reponseDonnee = false;
-    private  int numQuestAct ;
-    private  boolean[] reponseJuste;
+
+    private static int numQuestAct = 0;
+    private static boolean[] reponseJuste ;
+    private static Exo1Math exo;
+
+    private long timeStart;
+    private long timeAct;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        Log.i("Debug","coucou depuis le oncreate" );
-        ParamEm1 param = new ParamEm1();
-        Exo1Math exo = new Exo1Math(param);
-        //TextView enonce = (TextView) findViewById(R.id.Enonce);
+        Log.i("Debug","coucou depuis le oncreate " + numQuestAct );
 
-        reponseJuste = new boolean[param.getNbQuestions()];
-
-
-
-        long timeStart;
-
-
+        if(numQuestAct==0)
+        {
+            ParamEm1 param = new ParamEm1();
+            exo = new Exo1Math(param);
+            reponseJuste = new boolean[param.getNbQuestions()];
+        }
 
         Button BonneRep = null;
 
@@ -48,10 +53,8 @@ public class MathExo1Activity extends AppCompatActivity {
         TextView Borne2 = null;
         TextView Borne3 = null;
 
-
-        for(numQuestAct=0; numQuestAct<param.getNbQuestions() ; numQuestAct++) {
-            Log.i("debug","coucou depuis le for" + numQuestAct);
-        switch (param.getNbBornes()){
+        switch (exo.getParam().getNbBornes())
+        {
             case 1 :
                 setContentView(R.layout.activity_math_exo1_1bornes);
                 Borne1 = (TextView) findViewById(R.id.Borne1);
@@ -134,6 +137,7 @@ public class MathExo1Activity extends AppCompatActivity {
                 });
 
                 break;
+
             case 3:
                 setContentView(R.layout.activity_math_exo1_3bornes);
                 Borne1 = (TextView) findViewById(R.id.Borne1);
@@ -215,53 +219,52 @@ public class MathExo1Activity extends AppCompatActivity {
                 break;
         }
 
-
         TextView enonce = (TextView) findViewById(R.id.Enonce);
 
+        enonce.setText(exo.getCalculEnonce().get(numQuestAct));
 
+        switch (exo.getParam().getNbBornes())
+        {
+            case 1:
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                break;
 
-            timeStart=currentTimeMillis();
+            case 2:
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
+                break;
 
-            enonce.setText(exo.getCalculEnonce().get(numQuestAct));
+            case 3:
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
+                Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
+                break;
+        }
 
-            switch (param.getNbBornes()){
-                case 1:
-                    Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
-                    break;
-                case 2:
-                    Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
-                    Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
-                    break;
-                case 3:
-                    Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
-                    Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
-                    Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
-                    break;
-            }
+        timeStart=currentTimeMillis();
 
-            Log.i("debug","coucou depuis le while");
-            long timeAct;
-            do
-            {
-                timeAct=currentTimeMillis();
-            }while(timeAct-timeStart<1000 && !reponseDonnee);
+        do
+        {
+            timeAct=currentTimeMillis();
+        }while(timeAct-timeStart<1000 && !reponseDonnee);
 
-            if (!reponseDonnee) {
-                reponseJuste[numQuestAct] = false;
-            }
-            reponseDonnee = false;
+        if (!reponseDonnee) {
+            reponseJuste[numQuestAct] = false;
+        }
+        reponseDonnee = false;
 
-
-
+        if(numQuestAct==exo.getParam().getNbQuestions()-1)
+        {
+            numQuestAct =0;
+            Intent intent = new Intent(MathExo1Activity.this, MenuActivity.class);
+            startActivity(intent);
+        }
+        else
+        {
+            Intent intent = new Intent(MathExo1Activity.this, MathExo1Activity.class);
+            startActivity(intent);
         }
     }
-
-
-
-
-
-
-
 }
 
 
