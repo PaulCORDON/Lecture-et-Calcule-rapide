@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity">
+    tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathsActivity">
 
     <LinearLayout
         android:layout_width="368dp"
@@ -19,25 +19,26 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/exo1L"
+                android:id="@+id/exo1M"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="exercice1" />
 
             <Button
-                android:id="@+id/exo2L"
+                android:id="@+id/exo2M"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="exercice2" />
 
             <Button
-                android:id="@+id/exo3L"
+                android:id="@+id/exo3M"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="exercice3" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -52,28 +53,28 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/descriptionL"
+                    android:id="@+id/descriptionM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Description de l'exercice \n Le but de l'exercice est de blblabla \n blabla" />
 
                 <Button
-                    android:id="@+id/paramL"
+                    android:id="@+id/paramM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="parametre" />
 
                 <Button
-                    android:id="@+id/go"
+                    android:id="@+id/goM"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="GO" />
             </LinearLayout>
-
         </LinearLayout>
 
     </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

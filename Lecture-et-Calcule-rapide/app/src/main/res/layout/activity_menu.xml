@@ -41,59 +41,10 @@
                         </LinearLayout>
 
                         <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                                <Button
-                                    android:id="@+id/exo1"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_weight="1"
-                                    android:text="Exercice1"
-                                    app:layout_constraintEnd_toStartOf="@+id/Exo2"
-                                    app:layout_constraintHorizontal_bias="0.0"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-                                <Button
-                                    android:id="@+id/exo2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8dp"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_weight="1"
-                                    android:text="Exercice2"
-                                    app:layout_constraintEnd_toStartOf="@+id/exo3"
-                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
-
-                                <Button
-                                    android:id="@+id/exo3"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="8dp"
-                                    android:layout_weight="1"
-                                    android:text="Exercice3"
-                                    app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-                                    tools:layout_editor_absoluteX="219dp" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/descriptionExo"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:text="Description  de l'exercice : \n \n le but de cet exercice est de blabblabla             " />
 
                                 <LinearLayout
                                     android:layout_width="wrap_content"
@@ -101,17 +52,6 @@
                                     android:layout_weight="1"
                                     android:orientation="vertical">
 
-                                        <Button
-                                            android:id="@+id/param"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="Paramètres" />
-
-                                        <Button
-                                            android:id="@+id/go"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:text="Go" />
                                 </LinearLayout>
                         </LinearLayout>
 
