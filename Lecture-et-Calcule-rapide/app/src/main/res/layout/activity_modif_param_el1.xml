@@ -34,7 +34,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="36dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -58,7 +58,7 @@
             <LinearLayout
                 android:id="@+id/TpsApp"
                 android:layout_width="match_parent"
-                android:layout_height="38dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
@@ -80,7 +80,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="311dp"
+                android:layout_height="330dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
@@ -110,7 +110,7 @@
                 <Switch
                     android:id="@+id/BtnAppMultiple"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="37dp"
                     android:layout_weight="1"
                     android:text="Faire apparaitre plusieurs propositions à la fois" />
 
@@ -125,7 +125,7 @@
                 <Switch
                     android:id="@+id/BtnApparutionEnonce"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="37dp"
                     android:layout_weight="1"
                     android:text="Faire disparaitre l'énoncé aucours de l'éxercice" />
 
