@@ -9,6 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_margin="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,6 +32,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
                 android:text="Modification des paramètres de l'exercice 1"
+                android:layout_marginBottom="20dp"
                 android:textAlignment="center"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayout"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +60,7 @@
                         android:id="@+id/TitreNbBornes"
                         android:layout_width="296dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:text="Nombre de bornes"
                         android:textAlignment="center" />
 
@@ -67,14 +69,14 @@
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:max="3" />
 
                     <TextView
                         android:id="@+id/TitreNbQuestions"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:text="Nombre de questions"
                         android:textAlignment="center" />
 
@@ -83,20 +85,21 @@
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:max="12"
                         android:progress="3" />
 
                     <RadioGroup
                         android:id="@+id/GroupRadiobutton"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="20dp">
 
                         <TextView
                             android:id="@+id/TitreOrdreApparition"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginBottom="0dp"
+                            android:layout_marginBottom="10dp"
                             android:layout_weight="1"
                             android:text="Ordre d'apparition"
                             android:textAlignment="center" />
@@ -132,14 +135,15 @@
                         android:layout_height="wrap_content"
                         android:ems="10"
                         android:inputType="number"
-                        android:hint="10"
-                        android:text="10"/>
+                        android:text="10"
+                        android:layout_marginBottom="20dp" />
 
                     <Switch
                         android:id="@+id/ChoixNbPairs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Mettre seulement des chiffres pairs" />
+                        android:text="Mettre seulement des chiffres pairs"
+                        android:layout_marginBottom="20dp"/>
 
                 </LinearLayout>
 
@@ -154,28 +158,28 @@
                         android:id="@+id/ChoixDisparitionCalcul"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:text="Disparition du calcul" />
 
                     <Switch
                         android:id="@+id/ChoixBornesSelectionnables"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:text="Bornes sélectionnables" />
 
                     <Switch
                         android:id="@+id/ChoixBornesEgalesRep"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="20dp"
                         android:text="Bornes égales à la réponse" />
 
                     <TextView
                         android:id="@+id/TitreNbValMax"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="0dp"
+                        android:layout_marginBottom="10dp"
                         android:text="Valeur maximale des bornes"
                         android:textAlignment="center" />
 
@@ -186,13 +190,13 @@
                         android:ems="10"
                         android:inputType="number"
                         android:text="50"
-                        android:hint="50"/>
+                        android:layout_marginBottom="20dp"/>
 
                     <TextView
                         android:id="@+id/titreChoixOperateurs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="0dp"
+                        android:layout_marginBottom="10dp"
                         android:text="Opérateurs à utiliser"
                         android:textAlignment="center" />
 
@@ -200,8 +204,8 @@
                         android:id="@+id/addition"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="+"
-                        android:checked="true"/>
+                        android:checked="true"
+                        android:text="+" />
 
                     <CheckBox
                         android:id="@+id/soustraction"
@@ -219,7 +223,8 @@
                         android:id="@+id/division"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="/" />
+                        android:text="/"
+                        android:layout_marginBottom="20dp"/>
 
                 </LinearLayout>
 
@@ -229,11 +234,11 @@
                 android:id="@+id/BoutonValider"
                 android:layout_width="match_parent"
                 android:layout_height="61dp"
-                android:layout_marginTop="248dp"
                 android:layout_weight="1"
                 android:text="Valider"
                 app:layout_constraintTop_toBottomOf="@+id/TitrePage"
                 tools:layout_editor_absoluteX="255dp" />
+
         </LinearLayout>
     </ScrollView>
 
