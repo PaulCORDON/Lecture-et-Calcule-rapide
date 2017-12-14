@@ -37,8 +37,6 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                     enonceDisparait.isChecked();
 
                     if(tempsApparution.equals("")){
-
-
                        Long t = Long.parseLong(tempsApparution.getText().toString());
                        t=new Long(2000);
                         ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked());
