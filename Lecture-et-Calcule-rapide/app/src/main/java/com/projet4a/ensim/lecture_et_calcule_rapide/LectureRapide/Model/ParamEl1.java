@@ -14,13 +14,13 @@ public class ParamEl1 extends ParamLecture{
     private Boolean enonceDisparait;
     private long tempsEnonce;
 
-    public ParamEl1(){
-        nbEnonce=2;
-        tempsApparution=5000;
-        nbApparution=20;
-        multipleApparution=false;
-        enonceDisparait=false;
-
+    public ParamEl1() {
+        nbEnonce = 2;
+        tempsApparution = new Long(5000);
+        nbApparution = 20;
+        multipleApparution = false;
+        enonceDisparait = false;
+    }
 
     public ParamEl1(int nbEnonce,Long tempsApparution, int nbApparution,Boolean multipleApparution,Boolean enonceDisparait ){
         this.enonceDisparait = enonceDisparait;

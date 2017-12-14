@@ -27,8 +27,12 @@ public class MathExo1Activity extends AppCompatActivity {
     private static boolean[] reponseJuste ;
     private static Exo1Math exo;
 
-    private long timeStart;
+    private long timeStart = currentTimeMillis();
     private long timeAct;
+
+    Intent intent1 = new Intent(MathExo1Activity.this, MathExo1Activity.class);
+    Intent intent2 = new Intent(MathExo1Activity.this, MenuActivity.class);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -74,7 +78,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = true;
-
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
                 RepF1.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +87,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
 
@@ -118,7 +125,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = true;
-
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
                 RepF1.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +134,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
                 RepF2.setOnClickListener(new View.OnClickListener() {
@@ -133,6 +143,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
 
@@ -191,7 +203,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = true;
-
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
                 RepF1.setOnClickListener(new View.OnClickListener() {
@@ -199,6 +212,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
                 RepF2.setOnClickListener(new View.OnClickListener() {
@@ -206,6 +221,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
                 RepF3.setOnClickListener(new View.OnClickListener() {
@@ -213,6 +230,8 @@ public class MathExo1Activity extends AppCompatActivity {
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
+                        finish();
+                        startActivity(getIntent());
                     }
                 });
 
@@ -240,31 +259,31 @@ public class MathExo1Activity extends AppCompatActivity {
                 Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
                 break;
         }
+    }
 
-        timeStart=currentTimeMillis();
+    /*protected void onStart()
+    {
+        super.onStart();
 
         do
         {
             timeAct=currentTimeMillis();
-        }while(timeAct-timeStart<1000 && !reponseDonnee);
+        }while(timeAct-timeStart<5000 && !reponseDonnee);
 
-        if (!reponseDonnee) {
+        if (!reponseDonnee)
+        {
             reponseJuste[numQuestAct] = false;
         }
-        reponseDonnee = false;
 
         if(numQuestAct==exo.getParam().getNbQuestions()-1)
         {
-            numQuestAct =0;
-            Intent intent = new Intent(MathExo1Activity.this, MenuActivity.class);
-            startActivity(intent);
+            if (numQuestAct == exo.getParam().getNbQuestions() - 1) {
+                numQuestAct = 0;
+                startActivity(intent2);
+            }
         }
-        else
-        {
-            Intent intent = new Intent(MathExo1Activity.this, MathExo1Activity.class);
-            startActivity(intent);
-        }
-    }
+    }*/
+
 }
 
 
