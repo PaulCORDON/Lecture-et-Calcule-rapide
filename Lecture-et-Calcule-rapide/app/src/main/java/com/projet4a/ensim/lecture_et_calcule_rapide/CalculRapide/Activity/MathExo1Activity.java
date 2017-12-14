@@ -19,20 +19,17 @@ import org.w3c.dom.Text;
 import static java.lang.System.currentTimeMillis;
 
 
-public class MathExo1Activity extends AppCompatActivity {
-
-    private boolean reponseDonnee = false;
-
+public class MathExo1Activity extends AppCompatActivity
+{
     private static int numQuestAct = 0;
     private static boolean[] reponseJuste ;
     private static Exo1Math exo;
 
+    private boolean reponseDonnee = false;
     private long timeStart = currentTimeMillis();
     private long timeAct;
 
-    Intent intent1 = new Intent(MathExo1Activity.this, MathExo1Activity.class);
-    Intent intent2 = new Intent(MathExo1Activity.this, MenuActivity.class);
-
+    private Intent intent = new Intent(MathExo1Activity.this, MenuActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -259,31 +256,29 @@ public class MathExo1Activity extends AppCompatActivity {
                 Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
                 break;
         }
-    }
-
-    /*protected void onStart()
-    {
-        super.onStart();
 
         do
         {
             timeAct=currentTimeMillis();
-        }while(timeAct-timeStart<5000 && !reponseDonnee);
+            if(reponseDonnee)
+            {
+                break;
+            }
+            else if(timeAct-timeStart<2000) break;
+        }while(true);
 
         if (!reponseDonnee)
         {
             reponseJuste[numQuestAct] = false;
         }
 
-        if(numQuestAct==exo.getParam().getNbQuestions()-1)
+        numQuestAct++;
+        if(numQuestAct==exo.getParam().getNbQuestions())
         {
-            if (numQuestAct == exo.getParam().getNbQuestions() - 1) {
-                numQuestAct = 0;
-                startActivity(intent2);
-            }
+            numQuestAct = 0;
+            finish();
         }
-    }*/
-
+    }
 }
 
 
