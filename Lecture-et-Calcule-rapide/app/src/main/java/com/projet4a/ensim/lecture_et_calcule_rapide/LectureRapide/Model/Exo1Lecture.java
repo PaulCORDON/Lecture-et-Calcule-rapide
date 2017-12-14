@@ -7,9 +7,25 @@ import java.util.ArrayList;
  */
 
 public class Exo1Lecture {
-    ArrayList<String> enonce= new ArrayList<String>();
-    ArrayList<String> apparition= new ArrayList<String>();
+    String enonce= new String();
+    ArrayList<String> apparition= new ArrayList<>();
     ParamEl1 paramEl1;
+
+    public String getEnonce() {
+        return enonce;
+    }
+
+    public void setEnonce(String enonce) {
+        this.enonce = enonce;
+    }
+
+    public ArrayList<String> getApparition() {
+        return apparition;
+    }
+
+    public void setApparition(ArrayList<String> apparition) {
+        this.apparition = apparition;
+    }
 
     public Exo1Lecture(ParamEl1 param){
         paramEl1=param;
@@ -19,11 +35,11 @@ public class Exo1Lecture {
     }
 
     private ArrayList<String> genererApparition() {
-        ArrayList<String> enonc = new ArrayList<String>();
+        ArrayList<String> enonc = new ArrayList<>();
         return enonc;
     }
 
-    private ArrayList<String> genererEnonce() {
+    private String genererEnonce() {
         return null;
     }
 }
