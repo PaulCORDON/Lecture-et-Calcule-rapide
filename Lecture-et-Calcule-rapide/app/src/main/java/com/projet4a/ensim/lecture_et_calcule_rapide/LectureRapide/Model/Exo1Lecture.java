@@ -36,10 +36,14 @@ public class Exo1Lecture {
 
     private ArrayList<String> genererApparition() {
         ArrayList<String> enonc = new ArrayList<>();
+        enonc.add("cha");
+        enonc.add("chat");
+        enonc.add("cat");
+        enonc.add("caht");
         return enonc;
     }
 
     private String genererEnonce() {
-        return null;
+        return "chat";
     }
 }
