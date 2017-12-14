@@ -22,7 +22,6 @@ public class ModifParamEl1Activity extends AppCompatActivity {
         final SeekBar nbEnonce = findViewById(R.id.seekNbEnonce);
 
         final EditText tempsApparution = findViewById(R.id.TpsApparution);
-
         final EditText nbApp = findViewById(R.id.NbMotsApp);
 
         final Switch multipleApparution = findViewById(R.id.BtnAppMultiple);
@@ -30,19 +29,37 @@ public class ModifParamEl1Activity extends AppCompatActivity {
 
         Button valider=  findViewById(R.id.Valider);
 
+            valider.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    multipleApparution.isChecked();
+                    enonceDisparait.isChecked();
+
+                    if(tempsApparution.equals("")){
 
 
-        valider.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString()),Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked());
+                       Long t = Long.parseLong(tempsApparution.getText().toString());
+                       t=new Long(2000);
+                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked());
+                    }
+                    else if(nbApp.equals("")){
 
-                Log.i("Info", "NbEnonce : "+param.getNbEnonce()+"\nTempsApp : "+param.getTempsApparution()+"NbMots : "+param.getNbApparution()+"MultipleApparution : "+param.getMultipleApparution()+"EnonceDisparait : "+param.getEnonceDisparait());
-            }
-        });
+                        Integer nb =Integer.parseInt(nbApp.getText().toString());
+                        nb = 10;
+                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString()),nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
+                    }
+
+                    else {
+
+                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()), Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked());
+
+                        Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
+                    }
 
 
-
+                }
+            });
 
 
     }
