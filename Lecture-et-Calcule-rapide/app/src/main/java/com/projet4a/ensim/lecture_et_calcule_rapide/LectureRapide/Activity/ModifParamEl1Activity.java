@@ -1,5 +1,6 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.SeekBar;
 import android.widget.Switch;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1;
+import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 public class ModifParamEl1Activity extends AppCompatActivity {
@@ -36,24 +38,33 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                     multipleApparution.isChecked();
                     enonceDisparait.isChecked();
 
-                    if(tempsApparution.equals("")){
-                       Long t = Long.parseLong(tempsApparution.getText().toString());
-                       t=new Long(2000);
+                    if(tempsApparution.getText().toString().equals("")){
+                       Long t = new Long(2000);
                         ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked());
+                        Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
-                    else if(nbApp.equals("")){
+                    else if(nbApp.getText().toString().equals("")){
 
-                        Integer nb =Integer.parseInt(nbApp.getText().toString());
-                        nb = 10;
+                        Integer nb =10;
                         ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString()),nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
+                        Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
+                    }
+                    else if(tempsApparution.getText().toString().equals("")&& nbApp.getText().toString().equals("")){
+
+                        Long t = new Long(2000);
+                        Integer nb =10;
+                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
+                        Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
 
                     else {
 
                         ParamEl1 param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()), Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked());
-
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
+
+                    Intent intent = new Intent( ModifParamEl1Activity.this, MenuActivity.class);
+                    startActivity(intent);
 
 
                 }
