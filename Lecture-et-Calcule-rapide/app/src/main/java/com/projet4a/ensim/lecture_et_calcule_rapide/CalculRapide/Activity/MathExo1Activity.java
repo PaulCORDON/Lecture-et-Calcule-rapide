@@ -29,7 +29,7 @@ public class MathExo1Activity extends AppCompatActivity
     private long timeStart = currentTimeMillis();
     private long timeAct;
 
-    private Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
+    private Intent intent = new Intent(MathExo1Activity.this, MenuActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
