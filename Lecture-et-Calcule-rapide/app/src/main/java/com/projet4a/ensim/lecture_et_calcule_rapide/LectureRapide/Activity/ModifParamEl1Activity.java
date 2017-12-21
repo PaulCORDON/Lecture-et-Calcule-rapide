@@ -40,26 +40,35 @@ public class ModifParamEl1Activity extends AppCompatActivity {
 
                     if(tempsApparution.getText().toString().equals("")){
                        Long t = new Long(2000);
-
                         ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked());
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
                     else if(nbApp.getText().toString().equals("")){
 
-                        Integer nb = 10;
+                        Integer nb =10;
                         ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString()),nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
+                    }
+                    else if(tempsApparution.getText().toString().equals("")&& nbApp.getText().toString().equals("")){
+
+                        Long t = new Long(2000);
+                        Integer nb =10;
+                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
+                        Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
 
                     else {
 
                         ParamEl1 param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()), Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked());
-
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
 
                     }
                     Intent intent=new Intent(ModifParamEl1Activity.this, MenuActivity.class);
                     startActivity(intent);
+
+                    Intent intent = new Intent( ModifParamEl1Activity.this, MenuActivity.class);
+                    startActivity(intent);
+
 
                 }
             });
