@@ -97,8 +97,8 @@ public class LectureAccueilActivity extends AppCompatActivity {
 
                 if (isExercice1){
 
-                    /*Intent intent = new Intent(MenuActivity.this, ModifParamEm1Activity.class);
-                    startActivity(intent);*/
+                    Intent intent = new Intent(LectureAccueilActivity.this, ModifParamEl1Activity.class);
+                    startActivity(intent);
 
                 }
 

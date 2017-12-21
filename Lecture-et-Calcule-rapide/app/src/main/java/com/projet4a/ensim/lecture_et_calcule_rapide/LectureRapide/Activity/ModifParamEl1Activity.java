@@ -105,13 +105,12 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
 
                     }
-                    Intent intent=new Intent(ModifParamEl1Activity.this, MenuActivity.class);
-                    startActivity(intent);
+
 
                     /**
                      * redirection vers la page StartActivity
                      */
-                    Intent intent = new Intent( ModifParamEl1Activity.this, MenuActivity.class);
+                    Intent  intent = new Intent( ModifParamEl1Activity.this, ModifParamEl1Activity.class);
                     startActivity(intent);
 
 
