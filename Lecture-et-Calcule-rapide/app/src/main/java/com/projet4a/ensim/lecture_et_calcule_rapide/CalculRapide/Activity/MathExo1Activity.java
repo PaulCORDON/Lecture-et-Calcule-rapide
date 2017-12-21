@@ -20,8 +20,8 @@ import static java.lang.System.currentTimeMillis;
 
 
 public class MathExo1Activity extends AppCompatActivity
-{
-    private static int numQuestAct = 0;
+{}
+   /* private static int numQuestAct = 0;
     private static boolean[] reponseJuste ;
     private static Exo1Math exo;
 
@@ -288,7 +288,7 @@ public class MathExo1Activity extends AppCompatActivity
         }while(true);
 
         if (!reponseDonnee)
-        {
+        {<
             reponseJuste[numQuestAct] = false;
         }
 
@@ -302,4 +302,4 @@ public class MathExo1Activity extends AppCompatActivity
 }
 
 
-
+*/

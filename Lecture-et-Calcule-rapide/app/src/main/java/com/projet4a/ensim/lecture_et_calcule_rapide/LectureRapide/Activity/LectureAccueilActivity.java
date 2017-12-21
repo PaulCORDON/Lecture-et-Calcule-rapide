@@ -18,6 +18,10 @@ public class LectureAccueilActivity extends AppCompatActivity {
     boolean isExercice3;
     TextView descriptionL;
 
+    /**
+     *
+      * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
