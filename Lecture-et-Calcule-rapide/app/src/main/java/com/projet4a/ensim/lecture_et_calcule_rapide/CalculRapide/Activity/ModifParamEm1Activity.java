@@ -140,7 +140,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 }
 
 
-                Intent intent=new Intent(ModifParamEm1Activity.this, MenuActivity.class);
+                Intent intent=new Intent(ModifParamEm1Activity.this, MathsActivity.class);
                 startActivity(intent);
             }
 

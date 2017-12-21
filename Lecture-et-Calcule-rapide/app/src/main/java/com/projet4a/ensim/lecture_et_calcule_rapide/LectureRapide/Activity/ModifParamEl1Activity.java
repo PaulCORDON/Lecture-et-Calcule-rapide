@@ -66,7 +66,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                     Intent intent=new Intent(ModifParamEl1Activity.this, MenuActivity.class);
                     startActivity(intent);
 
-                    Intent intent = new Intent( ModifParamEl1Activity.this, MenuActivity.class);
+                    intent = new Intent(ModifParamEl1Activity.this, MenuActivity.class);
                     startActivity(intent);
 
 
