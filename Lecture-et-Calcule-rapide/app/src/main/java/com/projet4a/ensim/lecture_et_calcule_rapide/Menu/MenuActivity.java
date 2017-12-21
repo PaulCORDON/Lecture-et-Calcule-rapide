@@ -20,6 +20,7 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +28,9 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
         /* creation des boutons maths et lecture*/
 
-        final Button math=(Button) findViewById(R.id.BtnCalcul);
-        final Button lecture=(Button)findViewById(R.id.BtnLecture);
 
-
+        final Button math= findViewById(R.id.BtnCalcul);
+        final Button lecture=findViewById(R.id.BtnLecture);
 
 
         /** si on clique sur math on va vers les exercice de maths*/

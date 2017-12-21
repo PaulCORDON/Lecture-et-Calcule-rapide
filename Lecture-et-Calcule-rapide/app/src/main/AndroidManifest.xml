@@ -29,10 +29,16 @@
             android:name=".CalculRapide.Activity.MathExo1Activity"
             android:screenOrientation="landscape" />
         <activity
+            android:name=".CalculRapide.Activity.MathsActivity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".CalculRapide.Activity.ModifParamEm1Activity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".LectureRapide.Activity.LectureExo1Activity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LectureRapide.Activity.LectureAccueilActivity"
             android:screenOrientation="landscape" />
         <activity
             android:name=".LectureRapide.Activity.ModifParamEl1Activity"

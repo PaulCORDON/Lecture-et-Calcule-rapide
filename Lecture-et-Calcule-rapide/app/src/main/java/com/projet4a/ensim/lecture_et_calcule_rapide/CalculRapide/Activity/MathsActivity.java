@@ -23,7 +23,7 @@ public class MathsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_maths);
 
     /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
-        final Button exercice1 = (Button) findViewById(R.id.exo1M);
+        final Button exercice1 = findViewById(R.id.exo1M);
         final Button exercice2 = (Button) findViewById(R.id.exo2M);
         final Button exercice3 = (Button) findViewById(R.id.exo3M);
     /* creation du boutton parametre */
