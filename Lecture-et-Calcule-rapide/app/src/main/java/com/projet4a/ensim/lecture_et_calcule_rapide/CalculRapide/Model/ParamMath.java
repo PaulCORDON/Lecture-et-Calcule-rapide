@@ -32,12 +32,12 @@ abstract class ParamMath
         tempsRep=new Long(30);
         pairOnly=true;
 
-        operateur = new Boolean[4];
+        operateur = new Boolean[5];
             operateur[0]=true;
             operateur[1]=false;
             operateur[2]=true;
             operateur[3]=false;
-
+            operateur[4]=false;
     }
 
     ParamMath(Long t, Boolean p, Boolean[] o)

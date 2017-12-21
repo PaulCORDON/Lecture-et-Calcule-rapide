@@ -4,6 +4,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -49,7 +50,7 @@ public class MathExo1Activity extends AppCompatActivity
     private long timeStart = currentTimeMillis();
     private long timeAct;
 
-    private Intent intent = new Intent(MathExo1Activity.this, MenuActivity.class);
+    //private Intent intent = new Intent(MathExo1Activity.this, MenuActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -311,22 +312,37 @@ public class MathExo1Activity extends AppCompatActivity
         }
 
         /**
-         * décompte du temps pou la question, si on arrive au bout du temps, on considere que c'est une réponse fausse.
+         * Timer
          */
-        do
+        new CountDownTimer(5000,500)
         {
-            timeAct=currentTimeMillis();
-            if(reponseDonnee)
-            {
-                break;
-            }
-            else if(timeAct-timeStart<2000) break;
-        }while(true);
+            @Override
+            public void onTick(long l) {
 
-        if (!reponseDonnee)
-        {
-            reponseJuste[numQuestAct] = false;
-        }
+            }
+
+            @Override
+            public void onFinish() {
+                if(!reponseDonnee)
+                {
+                    reponseJuste[numQuestAct] = false;
+                    numQuestAct++;
+
+                    if(numQuestAct==exo.getParam().getNbQuestions())
+                    {
+                        numQuestAct = 0;
+                        finish();
+                        //TODO aller à l'ecran du score.
+                    }
+                    else
+                    {
+                        finish();
+                        startActivity(getIntent());
+                    }
+                }
+            }
+        }.start();
+
         /**
          * à ce moment là, on passe à la question suivante.
          */
