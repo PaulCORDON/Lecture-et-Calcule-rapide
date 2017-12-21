@@ -1,7 +1,6 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
-
 import java.util.ArrayList;
 
 
@@ -13,7 +12,7 @@ public class Exo1Math extends Exercice
 {
     private ArrayList<String> calculEnonce;
     /**
-     * Liste des enoncés
+     * Liste des énoncés
      */
 
     private ArrayList<ArrayList<Integer>> bornes;
@@ -22,6 +21,9 @@ public class Exo1Math extends Exercice
      */
 
     private int[] resultats;
+    /**
+     * Liste des résultats
+     */
 
     private ParamEm1 param;
     /**
@@ -33,7 +35,7 @@ public class Exo1Math extends Exercice
     /**
      * constructeur de l'exercice
      * créé les enoncés et les bornes corespondantes
-     * @param param
+     * @param param paramètres de l'exercice
      */
     {
         //initialisation
@@ -48,7 +50,7 @@ public class Exo1Math extends Exercice
         //pour chaque question
         for (int a=0; a < this.param.getNbQuestions(); a++)
         {
-            // choix de l'operateur //
+            // choix de l'operateur
             int choixOperateur = 4;
 
             //tant que l'opérateur ne correspond pas aux paramètres
@@ -58,7 +60,7 @@ public class Exo1Math extends Exercice
                 choixOperateur = (int)(Math.random()*5);
             }
 
-            //faire choix des operandes et calcul du resultat
+            //faire... , choix des operandes et calcul du resultat
             do
             {
                 //initialisation
@@ -89,7 +91,7 @@ public class Exo1Math extends Exercice
                 //on calcul le résultat
                 resultats[a] = calculResultat(operandes[0],operandes[1],choixOperateur);
 
-            //tant que le résultat ne correspond pas aux paramètres
+            //...tant que, résultat ne correspond pas aux paramètres
             }while(resultats[a]>this.param.getValMax() );
 
             //on construit l'énoncé selon l'opérateur puis on l'ajoute à la liste
@@ -170,6 +172,7 @@ public class Exo1Math extends Exercice
                     }
                 }
 
+                //TODO paramètre distance entre borne et opérande
                 //on modifie la borne afin qu'elle corresponde aux paramètres
                 bornestempo.set(numborne,operandes[numope]+(int)(Math.random()*3)-1);
             }
@@ -180,7 +183,7 @@ public class Exo1Math extends Exercice
     }
 
     /**
-     * calcul le resultat de l'opération valA operateur valB et retourne le resultat
+     * calcul le resultat de l'opération "valA operateur valB" et retourne le resultat
      * @param valA
      * @param valB
      * @param operateur
@@ -226,22 +229,8 @@ public class Exo1Math extends Exercice
      */
     public ArrayList<ArrayList<Integer>> getBornes() {return bornes;}
 
+    /**
+     * @return resultats
+     */
     public int[] getResultats() {return resultats;}
-
-    /**
-     * @param calculEnonce
-     */
-    public void setCalculEnonce(ArrayList<String> calculEnonce){this.calculEnonce = calculEnonce;}
-
-    /**
-     * @param param
-     */
-    public void setParam(ParamEm1 param) {
-        this.param = param;
-    }
-
-    /**
-     * @param bornes
-     */
-    public void setBornes(ArrayList<ArrayList<Integer>> bornes) {this.bornes = bornes;}
 }
