@@ -324,7 +324,7 @@ public class MathExo1Activity extends AppCompatActivity
         }while(true);
 
         if (!reponseDonnee)
-        {<
+        {
             reponseJuste[numQuestAct] = false;
         }
         /**
@@ -345,4 +345,4 @@ public class MathExo1Activity extends AppCompatActivity
 }
 
 
-*/
+

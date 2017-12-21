@@ -28,7 +28,9 @@ public class MathsActivity extends AppCompatActivity {
         final Button exercice3 = (Button) findViewById(R.id.exo3M);
     /* creation du boutton parametre */
         final Button parametreM = (Button) findViewById(R.id.paramM);
+    /*creation bouton goM */
 
+    final  Button go = findViewById(R.id.goM);
 
 
         /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
@@ -103,6 +105,23 @@ public class MathsActivity extends AppCompatActivity {
 
             }
         });
+
+
+        /**Click sur go : on lance l'exercice !!! */
+
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(MathsActivity.this, MathExo1Activity.class);
+                startActivity(intent);
+
+
+
+            }
+        });
+
 
     }
 }
