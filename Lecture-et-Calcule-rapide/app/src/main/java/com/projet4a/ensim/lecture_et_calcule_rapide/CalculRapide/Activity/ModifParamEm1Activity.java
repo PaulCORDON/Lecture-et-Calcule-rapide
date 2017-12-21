@@ -5,20 +5,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.autofill.AutofillValue;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.Switch;
-
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
-
-import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -83,7 +77,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /**Si cette checkBox est cochee les calculs comporteront des multiplications*/
         final CheckBox multiplication=  findViewById(R.id.multiplication);
 
-        /** tableau de booleens qui stocke les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
+        /** tableau de booleens qui stockera plus tard les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
         final Boolean[] operateurs= new Boolean[4];
 
 
@@ -94,15 +88,19 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
         valider.setOnClickListener(new View.OnClickListener() {
             @Override
+            /** si le bouton valider a ete cliqué on rentre dans cette methode*/
             public void onClick(View view) {
 
+                /**on stocke les booleens correspondant aux operations dans le tableau*/
                 operateurs[0]=addition.isChecked();
                 operateurs[1]=soustraction.isChecked();
                 operateurs[2]=multiplication.isChecked();
                 operateurs[3]=division.isChecked();
 
+                /** Si les deux champs de saisie pour le temps de reponses et la valeur max sont remplis on recupere les valeurs des parametres
+                 * et on construit un nouvel objet param avec ces parametres
+                 */
                 if(!tpsReponse.getText().toString().equals("") && !valMax.getText().toString().equals("")) {
-                    //cas ou les deux Edit text sont remplis
                     ParamEm1 param = new ParamEm1(Long.parseLong(tpsReponse.getText().toString())*1000, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), Integer.parseInt(valMax.getText().toString()));
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
@@ -110,8 +108,8 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
+                /** si le champs de saisie pour la valeur max n'est pas rempli, on fixe une valeur dans le constructeur de ParamEm1*/
                 else if(!tpsReponse.getText().toString().equals("") && valMax.getText().toString().equals("")) {
-                    //cas ou seulement tpsReponse est rempli
                     ParamEm1 param = new ParamEm1(Long.parseLong(tpsReponse.getText().toString())*1000, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), 50);
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
@@ -119,8 +117,8 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
+                /** si le champs de saisie pour le temps de reponse n'est pas rempli, on fixe une valeur dans le constructeur de ParamEm1*/
                 else if(tpsReponse.getText().toString().equals("") && !valMax.getText().toString().equals("")) {
-                    //cas ou seulement valmax est rempli
                     Long tps=new Long(10000);
                     ParamEm1 param = new ParamEm1(tps, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), Integer.parseInt(valMax.getText().toString()));
 
@@ -129,8 +127,9 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
+                /** si les champs de saisie pour la valeur max et le temps de reponse ne sont pas remplis,
+                 *  on fixe des valeurs dans le constructeur de ParamEm1*/
                 else if(tpsReponse.getText().toString().equals("") && valMax.getText().toString().equals("")) {
-                    //cas ou les deux Edit text sont vides
                     Long tps=new Long(10000);
                     ParamEm1 param = new ParamEm1(tps, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), 50);
 
@@ -140,7 +139,8 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 }
 
 
-                Intent intent=new Intent(ModifParamEm1Activity.this, MathsActivity.class);
+                /** quand on a clique sur le bouton valider on reviens au menu*/
+                Intent intent=new Intent(ModifParamEm1Activity.this, MenuActivity.class);
                 startActivity(intent);
             }
 
