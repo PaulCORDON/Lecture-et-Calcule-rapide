@@ -13,6 +13,7 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 
 public class LectureAccueilActivity extends AppCompatActivity {
+    /* booleens pour savoir quel exercice est selectionné */
     boolean isExercice1;
     boolean isExercice2;
     boolean isExercice3;
@@ -35,6 +36,9 @@ public class LectureAccueilActivity extends AppCompatActivity {
     /* creation du boutton parametre */
         final Button parametreL = (Button) findViewById(R.id.paramL);
 
+
+
+        /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
         exercice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,7 +58,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
 
             }
         });
-
+        /** click sur le bouton exercice 2 , on affiche la description et on met le bouton enable */
         exercice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,6 +77,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
 
             }
         });
+        /** click sur le bouton exercice 3 , on affiche la description et on met le bouton enable */
         exercice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,6 +96,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
             }
         });
 
+        /** click sur le bouton parametre qui renvoie sur la bonne activité en fonction des booleens */
         parametreL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,7 +107,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
                     startActivity(intent);
 
                 }
-
+                //TODO faire pareil pour les autres exercices quand les activités seront créer
 
             }
         });
