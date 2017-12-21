@@ -29,14 +29,19 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modif_param_em1);
 
-
-
+        /** seekBar qui stocke le nombre de bornes de la phrise */
         final SeekBar nbBornes=  findViewById(R.id.ChoixNbBornes);
+
+        /** seekBar qui stocke le nombre de questions de l'exercice */
         final SeekBar nbQuestions=  findViewById(R.id.ChoixNbQuestions);
 
-
+        /** radioButton qui permet de savoir si on affiche le calcul avant la reponse */
         final RadioButton rb1= findViewById(R.id.ChoixCalculAvantRep);
+
+        /** radioButton qui permet de savoir si on affiche le choix des reponses avant le calcul, rb1 et rb2 ne peuvent pas etre vrai en meme temps*/
         final RadioButton rb2=findViewById(R.id.ChoixRepAvantCalcul);
+
+        /** Booleen qui est vrai si on affiche le calcul avant la reponse et faux si on affiches les reponses avant le calcul */
         Boolean ordreApparition=true;
         if(rb1.isChecked()){
             ordreApparition=true;
@@ -44,30 +49,46 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         if(rb2.isChecked()){
             ordreApparition=false;
         }
+
+        /** Booleen qui permet de stocker la valeur de ordreApparition en final */
         final Boolean finalOrdreApparition = ordreApparition;
 
+        /** Switch qui permet de savoir si le calcul disparait pendant le choix des reponses*/
         final Switch disparitionCalcul=  findViewById(R.id.ChoixDisparitionCalcul);
+
+        /** Switch qui permet de savoir si le joueur peut choisir une borne en reponse*/
         final Switch bornesSelectionnables=  findViewById(R.id.ChoixBornesSelectionnables);
+
+        /** Switch qui permet de savoir si les reponses peuvent etre les bornes elles-memes*/
         final Switch bornesEgalesReps= findViewById(R.id.ChoixBornesEgalesRep);
 
+        /** Texte rentré par le parametreur qui donne la valeur max utilisee dans l'exercice*/
         final EditText valMax=  findViewById(R.id.ValeurMax);
-        //int valmax=Integer.parseInt(valMax.getText().toString());
 
+        /** texte rentre par le parametreur qui donne le temps de reponse donné au joueur*/
         final EditText tpsReponse=  findViewById(R.id.tempsReponse);
-       // Long tpsrep= Long.parseLong(tpsReponse.getText().toString());
 
+        /** Switch qui dit si l'exercice ne traitera que des nombres pairs */
         final Switch nbPairsOnly=  findViewById(R.id.ChoixNbPairs);
 
+        /**Si cette checkBox est cochee les calculs comporteront des additions*/
         final CheckBox addition=  findViewById(R.id.addition);
+
+        /**Si cette checkBox est cochee les calculs comporteront des soustractions*/
         final CheckBox soustraction=  findViewById(R.id.soustraction);
+
+        /**Si cette checkBox est cochee les calculs comporteront des divisions*/
         final CheckBox division= findViewById(R.id.division);
+
+        /**Si cette checkBox est cochee les calculs comporteront des multiplications*/
         final CheckBox multiplication=  findViewById(R.id.multiplication);
 
+        /** tableau de booleens qui stocke les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
         final Boolean[] operateurs= new Boolean[4];
 
 
 
-
+        /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
         Button valider=  findViewById(R.id.BoutonValider);
 
 
