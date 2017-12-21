@@ -13,7 +13,9 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 
-
+/**
+ * Activité liée à l'affichage : activity lecture exo 1
+ */
 public class LectureExo1Activity extends AppCompatActivity {
 
     /**
