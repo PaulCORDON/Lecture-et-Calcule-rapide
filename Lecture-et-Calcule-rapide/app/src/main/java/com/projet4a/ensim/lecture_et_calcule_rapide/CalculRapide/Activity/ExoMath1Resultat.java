@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.util.logging.Logger;
@@ -30,6 +31,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
 
         TextView nbRep = (TextView) findViewById(R.id.score);
+        TextView nbQuest = (TextView) findViewById(R.id.nbQuestion);
 
         for(boolean b : reponseJuste){
             if(b){
@@ -39,6 +41,10 @@ public class ExoMath1Resultat extends AppCompatActivity {
         }
 
         nbRep.setText(""+bonneRep);
+        nbQuest.setText(""+reponseJuste.length);
+
+        Intent intent2 = new Intent( ExoMath1Resultat.this ,MenuActivity.class);
+        startActivity(intent2);
 
     }
 }
