@@ -35,7 +35,7 @@ abstract class ParamMath
         operateur = new Boolean[5];
             operateur[0]=true;
             operateur[1]=false;
-            operateur[2]=true;
+            operateur[2]=false;
             operateur[3]=false;
             operateur[4]=false;
     }

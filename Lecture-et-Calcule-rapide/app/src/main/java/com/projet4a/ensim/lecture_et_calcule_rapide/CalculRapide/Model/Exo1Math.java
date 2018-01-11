@@ -120,7 +120,17 @@ public class Exo1Math extends Exercice
             for(int i = 0 ; i<param.getNbBornes() ; i++)
             {
                 //on génère un entier correspondant aux paramètres
-                bornestempo.add((int)(Math.random()*param.getValMax()));
+                int borne;
+                boolean correct;
+                do {
+                    correct=true;
+                    borne = (int)(Math.random()*param.getValMax());
+                    if(borne==resultats[a]) correct = false;
+                    for (int test:bornestempo) {
+                        if(borne==test) correct = false;
+                    }
+                }while (!correct);
+                bornestempo.add(borne);
             }
 
             boolean trie = false;
@@ -174,7 +184,13 @@ public class Exo1Math extends Exercice
 
                 //TODO paramètre distance entre borne et opérande
                 //on modifie la borne afin qu'elle corresponde aux paramètres
-                bornestempo.set(numborne,operandes[numope]+(int)(Math.random()*3)-1);
+                int bt;
+                do
+                {
+                    bt=operandes[numope] + (int) (Math.random() * 3) - 1;
+                }while(bt==resultats[a]);
+
+                bornestempo.set(numborne,bt);
             }
 
             //on ajoute les bornes à la liste
