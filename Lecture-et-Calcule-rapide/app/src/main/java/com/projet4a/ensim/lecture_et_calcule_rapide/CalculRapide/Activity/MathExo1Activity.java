@@ -50,12 +50,49 @@ public class MathExo1Activity extends AppCompatActivity
     private long timeStart = currentTimeMillis();
     private long timeAct;
 
-    //private Intent intent = new Intent(MathExo1Activity.this, MenuActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        /**
+         * Timer
+         */
+        final CountDownTimer timer = new CountDownTimer(5000,500)
+        {
+            @Override
+            public void onTick(long l) {
+
+            }
+
+            @Override
+            public void onFinish()
+            {
+                if(!reponseDonnee)
+                {
+                    reponseJuste[numQuestAct] = false;
+                }
+
+                numQuestAct++;
+
+                if(numQuestAct==exo.getParam().getNbQuestions())
+                {
+                    numQuestAct = 0;
+
+                    Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
+                    intent.putExtra("ReponseDonnee",reponseJuste);
+
+                    finish();
+                    startActivity(intent);
+                }
+                else
+                {
+                    finish();
+                    startActivity(getIntent());
+                }
+            }
+        }.start();
 
         /**
          * Si c'est la premiere fois que l'on charge l'activité, on instancie les paramettres de l'exercice
@@ -113,8 +150,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = true;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
                 RepF1.setOnClickListener(new View.OnClickListener() {
@@ -122,8 +159,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
 
@@ -166,8 +203,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = true;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
                 RepF1.setOnClickListener(new View.OnClickListener() {
@@ -175,8 +212,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
                 RepF2.setOnClickListener(new View.OnClickListener() {
@@ -184,8 +221,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
 
@@ -249,8 +286,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = true;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
                 RepF1.setOnClickListener(new View.OnClickListener() {
@@ -258,8 +295,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
                 RepF2.setOnClickListener(new View.OnClickListener() {
@@ -267,8 +304,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
                 RepF3.setOnClickListener(new View.OnClickListener() {
@@ -276,8 +313,8 @@ public class MathExo1Activity extends AppCompatActivity
                     public void onClick(View view) {
                         reponseDonnee = true;
                         reponseJuste[numQuestAct] = false;
-                        finish();
-                        startActivity(getIntent());
+                        timer.cancel();
+                        timer.onFinish();
                     }
                 });
 
@@ -311,52 +348,6 @@ public class MathExo1Activity extends AppCompatActivity
                 break;
         }
 
-        /**
-         * Timer
-         */
-        new CountDownTimer(5000,500)
-        {
-            @Override
-            public void onTick(long l) {
-
-            }
-
-            @Override
-            public void onFinish() {
-                if(!reponseDonnee)
-                {
-                    reponseJuste[numQuestAct] = false;
-                    numQuestAct++;
-
-                    if(numQuestAct==exo.getParam().getNbQuestions())
-                    {
-                        numQuestAct = 0;
-                        finish();
-                        //TODO aller à l'ecran du score.
-                    }
-                    else
-                    {
-                        finish();
-                        startActivity(getIntent());
-                    }
-                }
-            }
-        }.start();
-
-        /**
-         * à ce moment là, on passe à la question suivante.
-         */
-        numQuestAct++;
-
-        /**
-         * des qu'on a répondu ou non à la derniere question, on remet le compteur de question à zero (car variable statique) puis on termine l'activité
-         */
-        if(numQuestAct==exo.getParam().getNbQuestions())
-        {
-            numQuestAct = 0;
-            finish();
-            //TODO aller à l'ecran du score.
-        }
     }
 }
 
