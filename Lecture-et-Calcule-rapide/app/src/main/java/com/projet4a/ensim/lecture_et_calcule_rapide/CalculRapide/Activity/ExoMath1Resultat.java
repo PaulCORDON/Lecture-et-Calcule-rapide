@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -32,6 +35,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
         TextView nbRep = (TextView) findViewById(R.id.score);
         TextView nbQuest = (TextView) findViewById(R.id.nbQuestion);
+        Button acceuil = (Button) findViewById(R.id.Acceuil);
 
         for(boolean b : reponseJuste){
             if(b){
@@ -43,8 +47,17 @@ public class ExoMath1Resultat extends AppCompatActivity {
         nbRep.setText(""+bonneRep);
         nbQuest.setText(""+reponseJuste.length);
 
-        Intent intent2 = new Intent( ExoMath1Resultat.this ,MenuActivity.class);
-        startActivity(intent2);
+        acceuil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 = new Intent( ExoMath1Resultat.this ,MenuActivity.class);
+                startActivity(intent2);
+
+            }
+
+        });
+
+
 
     }
 }
