@@ -17,11 +17,16 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
 import static java.lang.System.currentTimeMillis;
 
 /**
- * Activité gérant l'exercice 1 de maths, un calcul apparait aisni qu'une frise avec des bornes, l'élève doit séléctionner le bon intervalle dans
- * le quel se situ la réponse du calcul.
+ * Activité gérant l'exercice 1 de maths, un calcul apparait ainsi qu'une frise avec des bornes, l'élève doit séléctionner le bon intervalle dans
+ * lequel se situ la réponse du calcul.
  */
 
 public class MathExo1Activity extends AppCompatActivity
@@ -32,7 +37,7 @@ public class MathExo1Activity extends AppCompatActivity
     private static int numQuestAct = 0;
 
     /**
-     * tableau des réponse, reponse juste = true dans la case du numero de la question.
+     * tableau des réponses, reponse juste = true dans la case du numero de la question  si il a bien répondue, faux sinon.
      */
     private static boolean[] reponseJuste ;
 
@@ -40,15 +45,9 @@ public class MathExo1Activity extends AppCompatActivity
     private static Exo1Math exo;
 
     /**
-     * une réponse à t'elle était donné ?
+     * une réponse a-t-elle été donnée ?
      */
     private boolean reponseDonnee = false;
-
-    /**
-     * les variables pour gérer le temps que l'on passe sur chaque question
-     */
-    private long timeStart = currentTimeMillis();
-    private long timeAct;
 
 
     @Override
@@ -97,13 +96,24 @@ public class MathExo1Activity extends AppCompatActivity
         }.start();
 
         /**
-         * Si c'est la premiere fois que l'on charge l'activité, on instancie les paramettres de l'exercice
-         * anisi que les question grâce au constructeur de l'exercie de math,
-         * on crée le tableau qui vas contenir les reponse aux bonnes dimensions.
+         * Si c'est la premiere fois que l'on charge l'activité, on instancie les parametres de l'exercice
+         * ainsi que les questions grâce au constructeur de l'exercie de math,
+         * on créé le tableau qui va contenir les reponses aux bonnes dimensions.
          */
         if(numQuestAct==0)
         {
             ParamEm1 param = new ParamEm1();
+            try {
+                FileInputStream fis = openFileInput("ParamEm1.txt");
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                param = (ParamEm1)ois.readObject();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
             exo = new Exo1Math(param);
             reponseJuste = new boolean[param.getNbQuestions()];
         }
@@ -111,7 +121,7 @@ public class MathExo1Activity extends AppCompatActivity
         Log.w("resultat", "resultat = " + exo.getResultats()[numQuestAct]);
 
         /**
-         * Création des instances des boutons pour les réponse qui vont être initialisé au besoin celon
+         * Création des instances des boutons pour les réponses qui vont être initialisées au besoin selon
          * le nombre de questions.
          */
         Button BonneRep = null;
@@ -123,7 +133,7 @@ public class MathExo1Activity extends AppCompatActivity
         TextView Borne3 = null;
 
         /**
-         *  Celon le nombre de bornes defini dans les parametre on vas choisir quelle VIEW on affiche
+         *  Selon le nombre de bornes definies dans les parametres on va choisir quelle VIEW on affiche
          *  puis on instancie les bouttons et textView avec les valeurs appropriées.
          *
          *  On defini aussi les interractions avec les boutons.

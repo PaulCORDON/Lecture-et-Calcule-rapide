@@ -1,6 +1,8 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
-abstract class ParamMath
+import java.io.Serializable;
+
+abstract class ParamMath implements Serializable
         /**
          * Classe definissant les paramètres communs a chaque exercice de maths
          */
@@ -48,6 +50,7 @@ abstract class ParamMath
         tempsRep=t;
         pairOnly=p;
         operateur=o;
+        operateur[4]=false;
     }
 
     /**

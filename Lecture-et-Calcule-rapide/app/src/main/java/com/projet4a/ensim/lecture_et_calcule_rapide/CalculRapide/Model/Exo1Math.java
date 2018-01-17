@@ -1,6 +1,14 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import android.content.Context;
+
 import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 
@@ -39,6 +47,7 @@ public class Exo1Math extends Exercice
      */
     {
         //initialisation
+
         this.param = param;
         calculEnonce = new ArrayList<String>(this.param.getNbQuestions());
         bornes = new ArrayList<ArrayList<Integer>>(this.param.getNbQuestions());

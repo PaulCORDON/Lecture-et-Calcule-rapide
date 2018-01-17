@@ -1,6 +1,8 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
-public class ParamEm1 extends ParamMath
+import java.io.Serializable;
+
+public class ParamEm1 extends ParamMath implements Serializable
     /**
      * classe définissant les paramètres de Exo1Maths
     */

@@ -1,6 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -15,6 +16,10 @@ import android.widget.Switch;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public class ModifParamEm1Activity extends AppCompatActivity {
 
@@ -78,7 +83,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final CheckBox multiplication=  findViewById(R.id.multiplication);
 
         /** tableau de booleens qui stockera plus tard les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
-        final Boolean[] operateurs= new Boolean[4];
+        final Boolean[] operateurs= new Boolean[5];
 
 
 
@@ -97,11 +102,23 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 operateurs[2]=multiplication.isChecked();
                 operateurs[3]=division.isChecked();
 
+                ParamEm1 param = null;
+
                 /** Si les deux champs de saisie pour le temps de reponses et la valeur max sont remplis on recupere les valeurs des parametres
                  * et on construit un nouvel objet param avec ces parametres
                  */
                 if(!tpsReponse.getText().toString().equals("") && !valMax.getText().toString().equals("")) {
-                    ParamEm1 param = new ParamEm1(Long.parseLong(tpsReponse.getText().toString())*1000, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), Integer.parseInt(valMax.getText().toString()));
+                    param = new ParamEm1(Long.parseLong(
+                            tpsReponse.getText().toString())*1000,
+                            nbPairsOnly.isChecked(),
+                            operateurs,
+                            nbBornes.getProgress()+1,
+                            nbQuestions.getProgress(),
+                            disparitionCalcul.isChecked(),
+                            finalOrdreApparition,
+                            bornesSelectionnables.isChecked(),
+                            bornesEgalesReps.isChecked(),
+                            Integer.parseInt(valMax.getText().toString()));
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
@@ -110,7 +127,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
                 /** si le champs de saisie pour la valeur max n'est pas rempli, on fixe une valeur dans le constructeur de ParamEm1*/
                 else if(!tpsReponse.getText().toString().equals("") && valMax.getText().toString().equals("")) {
-                    ParamEm1 param = new ParamEm1(Long.parseLong(tpsReponse.getText().toString())*1000, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), 50);
+                    param = new ParamEm1(
+                            Long.parseLong(tpsReponse.getText().toString())*1000,
+                            nbPairsOnly.isChecked(),
+                            operateurs,
+                            nbBornes.getProgress()+1,
+                            nbQuestions.getProgress(),
+                            disparitionCalcul.isChecked(),
+                            finalOrdreApparition,
+                            bornesSelectionnables.isChecked(),
+                            bornesEgalesReps.isChecked(),
+                            50);
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
@@ -120,7 +147,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 /** si le champs de saisie pour le temps de reponse n'est pas rempli, on fixe une valeur dans le constructeur de ParamEm1*/
                 else if(tpsReponse.getText().toString().equals("") && !valMax.getText().toString().equals("")) {
                     Long tps=new Long(10000);
-                    ParamEm1 param = new ParamEm1(tps, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), Integer.parseInt(valMax.getText().toString()));
+                    param = new ParamEm1(
+                            tps,
+                            nbPairsOnly.isChecked(),
+                            operateurs,
+                            nbBornes.getProgress()+1,
+                            nbQuestions.getProgress(),
+                            disparitionCalcul.isChecked(),
+                            finalOrdreApparition,
+                            bornesSelectionnables.isChecked(),
+                            bornesEgalesReps.isChecked(),
+                            Integer.parseInt(valMax.getText().toString()));
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
@@ -131,12 +168,38 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                  *  on fixe des valeurs dans le constructeur de ParamEm1*/
                 else if(tpsReponse.getText().toString().equals("") && valMax.getText().toString().equals("")) {
                     Long tps=new Long(10000);
-                    ParamEm1 param = new ParamEm1(tps, nbPairsOnly.isChecked(), operateurs, nbBornes.getProgress(), nbQuestions.getProgress(), disparitionCalcul.isChecked(), finalOrdreApparition, bornesSelectionnables.isChecked(), bornesEgalesReps.isChecked(), 50);
+                    param = new ParamEm1(
+                            tps,
+                            nbPairsOnly.isChecked(),
+                            operateurs,
+                            nbBornes.getProgress()+1,
+                            nbQuestions.getProgress(),
+                            disparitionCalcul.isChecked(),
+                            finalOrdreApparition,
+                            bornesSelectionnables.isChecked(),
+                            bornesEgalesReps.isChecked(),
+                            50);
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
+
+
+                FileOutputStream outputStream;
+                ObjectOutputStream oos;
+                try {
+                    outputStream = openFileOutput("ParamEm1.txt", Context.MODE_PRIVATE);
+                    oos = new ObjectOutputStream(outputStream);
+                    oos.writeObject(param);
+
+
+                    oos.flush();
+                    oos.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
 
 
                 /** quand on a clique sur le bouton valider on reviens au menu*/
