@@ -84,6 +84,7 @@ public class Exo1Math extends Exercice
                     {
                         //on génère un entier correspondant aux paramètres
                         operandes[z]=(int)(Math.random()*this.param.getValMax());
+                        if(param.getPairOnly() && operandes[z]%2!=0) operandes[z]=0;
                     }
                 }
 
@@ -134,7 +135,7 @@ public class Exo1Math extends Exercice
                 do {
                     correct=true;
                     borne = (int)(Math.random()*param.getValMax());
-                    if(borne==resultats[a]) correct = false;
+                    if(!param.getBorneSelectionnable() && borne==resultats[a]) correct = false;
                     for (int test:bornestempo) {
                         if(borne==test) correct = false;
                     }
@@ -197,7 +198,7 @@ public class Exo1Math extends Exercice
                 do
                 {
                     bt=operandes[numope] + (int) (Math.random() * 3) - 1;
-                }while(bt==resultats[a]);
+                }while(bt==resultats[a] && param.getBorneSelectionnable());
 
                 bornestempo.set(numborne,bt);
             }
