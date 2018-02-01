@@ -56,44 +56,16 @@ public class MathExo1Activity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         /**
-         * Timer
+         * Création des instances des boutons pour les réponses qui vont être initialisées au besoin selon
+         * le nombre de questions.
          */
-        final CountDownTimer timer = new CountDownTimer(5000,500)
-        {
-            @Override
-            public void onTick(long l) {
-
-            }
-
-            @Override
-            public void onFinish()
-            {
-                if(!reponseDonnee)
-                {
-                    reponseJuste[numQuestAct] = false;
-                }
-
-                Log.w("UN truc QUI se VOIT","Reponse " + numQuestAct + " " + reponseJuste[numQuestAct]);
-
-                numQuestAct++;
-
-                if(numQuestAct==exo.getParam().getNbQuestions())
-                {
-                    numQuestAct = 0;
-
-                    Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
-                    intent.putExtra("ReponseDonnee",reponseJuste);
-
-                    finish();
-                    startActivity(intent);
-                }
-                else
-                {
-                    finish();
-                    startActivity(getIntent());
-                }
-            }
-        }.start();
+        Button BonneRep = null;
+        Button RepF1 = null;
+        Button RepF2 = null;
+        Button RepF3 = null;
+        TextView Borne1 = null;
+        TextView Borne2 = null;
+        TextView Borne3 = null;
 
         /**
          * Si c'est la premiere fois que l'on charge l'activité, on instancie les parametres de l'exercice
@@ -117,20 +89,13 @@ public class MathExo1Activity extends AppCompatActivity
             exo = new Exo1Math(param);
             reponseJuste = new boolean[param.getNbQuestions()];
         }
-
         Log.w("resultat", "resultat = " + exo.getResultats()[numQuestAct]);
 
         /**
-         * Création des instances des boutons pour les réponses qui vont être initialisées au besoin selon
-         * le nombre de questions.
+         * Affichage de l'énoncé pour la question actuelle.
          */
-        Button BonneRep = null;
-        Button RepF1 = null;
-        Button RepF2 = null;
-        Button RepF3 = null;
-        TextView Borne1 = null;
-        TextView Borne2 = null;
-        TextView Borne3 = null;
+        TextView enonce = (TextView) findViewById(R.id.Enonce);
+        enonce.setText(exo.getCalculEnonce().get(numQuestAct));
 
         /**
          *  Selon le nombre de bornes definies dans les parametres on va choisir quelle VIEW on affiche
@@ -140,7 +105,7 @@ public class MathExo1Activity extends AppCompatActivity
          */
         switch (exo.getParam().getNbBornes())
         {
-            case 1 :
+            case 1:
                 /**
                  * instanciation
                  */
@@ -156,31 +121,12 @@ public class MathExo1Activity extends AppCompatActivity
                     RepF1 = (Button) findViewById(R.id.BtnRepB);
                 }
                 /**
-                 * Définition des interractions avec les bouttons.
+                 * mise en place du texte pour la question actuelle.
                  */
-                BonneRep.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        reponseDonnee = true;
-                        reponseJuste[numQuestAct] = true;
-                        timer.cancel();
-                        timer.onFinish();
-                    }
-                });
-                RepF1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        reponseDonnee = true;
-                        reponseJuste[numQuestAct] = false;
-                        timer.cancel();
-                        timer.onFinish();
-                    }
-                });
-
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
                 break;
 
-            case 2 :
+            case 2:
                 /**
                  * instanciation
                  */
@@ -207,39 +153,11 @@ public class MathExo1Activity extends AppCompatActivity
                     RepF1 = (Button) findViewById(R.id.BtnRepB);
                     RepF2 = (Button) findViewById((R.id.BtnRepC));
                 }
-
                 /**
-                 * Définition des interractions avec les bouttons.
+                 * mise en place du texte pour la question actuelle.
                  */
-                BonneRep.setOnClickListener(new View.OnClickListener() {
-
-                    @Override
-                    public void onClick(View view) {
-                        reponseDonnee = true;
-                        reponseJuste[numQuestAct] = true;
-                        timer.cancel();
-                        timer.onFinish();
-                    }
-                });
-                RepF1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        reponseDonnee = true;
-                        reponseJuste[numQuestAct] = false;
-                        timer.cancel();
-                        timer.onFinish();
-                    }
-                });
-                RepF2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        reponseDonnee = true;
-                        reponseJuste[numQuestAct] = false;
-                        timer.cancel();
-                        timer.onFinish();
-                    }
-                });
-
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
                 break;
 
             case 3:
@@ -284,8 +202,124 @@ public class MathExo1Activity extends AppCompatActivity
                     RepF2 = (Button) findViewById((R.id.BtnRepC));
                     RepF3 = (Button) findViewById((R.id.BtnRepD));
                 }
+                /**
+                 * mise en place du texte pour la question actuelle.
+                 */
+                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
+                Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
+                break;
+        }
 
 
+        /**
+         * Timer
+         */
+        final CountDownTimer timer = new CountDownTimer(exo.getParam().getTempsRep(),500)
+        {
+            @Override
+            public void onTick(long l) {
+            }
+
+            @Override
+            public void onFinish()
+            {
+                if(!reponseDonnee)
+                {
+                    reponseJuste[numQuestAct] = false;
+                }
+
+                Log.w("UN truc QUI se VOIT","Reponse " + numQuestAct + " " + reponseJuste[numQuestAct]);
+
+                numQuestAct++;
+
+                if(numQuestAct==exo.getParam().getNbQuestions())
+                {
+                    numQuestAct = 0;
+
+                    Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
+                    intent.putExtra("ReponseDonnee",reponseJuste);
+
+                    finish();
+                    startActivity(intent);
+                }
+                else
+                {
+                    finish();
+                    startActivity(getIntent());
+                }
+            }
+        }.start();
+
+
+        /**
+         *  Selon le nombre de bornes definies dans les parametres on va choisir quelle VIEW on affiche
+         *  puis on instancie les bouttons et textView avec les valeurs appropriées.
+         *
+         *  On defini aussi les interractions avec les boutons.
+         */
+        switch (exo.getParam().getNbBornes())
+        {
+            case 1 :
+                /**
+                 * Définition des interractions avec les bouttons.
+                 */
+                BonneRep.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = true;
+                        timer.cancel();
+                        timer.onFinish();
+                    }
+                });
+                RepF1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = false;
+                        timer.cancel();
+                        timer.onFinish();
+                    }
+                });
+                break;
+
+            case 2 :
+                /**
+                 * Définition des interractions avec les bouttons.
+                 */
+                BonneRep.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = true;
+                        timer.cancel();
+                        timer.onFinish();
+                    }
+                });
+                RepF1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = false;
+                        timer.cancel();
+                        timer.onFinish();
+                    }
+                });
+                RepF2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        reponseDonnee = true;
+                        reponseJuste[numQuestAct] = false;
+                        timer.cancel();
+                        timer.onFinish();
+                    }
+                });
+                break;
+
+            case 3:
                 /**
                  * Définition des interractions avec les bouttons.
                  */
@@ -326,37 +360,8 @@ public class MathExo1Activity extends AppCompatActivity
                         timer.onFinish();
                     }
                 });
-
                 break;
         }
-
-        /**
-         * Affichage de l'énoncé pour la question actuelle.
-         */
-        TextView enonce = (TextView) findViewById(R.id.Enonce);
-        enonce.setText(exo.getCalculEnonce().get(numQuestAct));
-
-        /**
-         * mise en place du texte pour la question actuelle.
-         */
-        switch (exo.getParam().getNbBornes())
-        {
-            case 1:
-                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
-                break;
-
-            case 2:
-                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
-                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
-                break;
-
-            case 3:
-                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
-                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
-                Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
-                break;
-        }
-
     }
 }
 
