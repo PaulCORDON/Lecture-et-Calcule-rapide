@@ -7,73 +7,50 @@
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ExoMath1Resultat">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Ton score : " />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/exo1L"
+            <TextView
+                android:id="@+id/score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="exercice1" />
+                android:textAlignment="center"
+                android:layout_weight="1" />
 
-            <Button
-                android:id="@+id/exo2L"
+            <TextView
+                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textAlignment="center"
                 android:layout_weight="1"
-                android:text="exercice2" />
+                android:text="/" />
 
-            <Button
-                android:id="@+id/exo3L"
+            <TextView
+                android:id="@+id/nbQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="exercice3" />
+                android:textAlignment="center"
+                android:layout_weight="1" />
         </LinearLayout>
 
-        <LinearLayout
+        <Button
+            android:id="@+id/Acceuil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/descriptionL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Description de l'exercice \n Le but de l'exercice est de blblabla \n blabla" />
-
-                <Button
-                    android:id="@+id/paramL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="parametre" />
-
-                <Button
-                    android:id="@+id/go"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="GO" />
-            </LinearLayout>
-
-        </LinearLayout>
+            android:text="Acceuil" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

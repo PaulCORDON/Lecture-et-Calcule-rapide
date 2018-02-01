@@ -1,6 +1,14 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import android.content.Context;
+
 import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 
@@ -39,6 +47,7 @@ public class Exo1Math extends Exercice
      */
     {
         //initialisation
+
         this.param = param;
         calculEnonce = new ArrayList<String>(this.param.getNbQuestions());
         bornes = new ArrayList<ArrayList<Integer>>(this.param.getNbQuestions());
@@ -75,6 +84,7 @@ public class Exo1Math extends Exercice
                     {
                         //on génère un entier correspondant aux paramètres
                         operandes[z]=(int)(Math.random()*this.param.getValMax());
+                        if(param.getPairOnly() && operandes[z]%2!=0) operandes[z]=0;
                     }
                 }
 
@@ -120,7 +130,17 @@ public class Exo1Math extends Exercice
             for(int i = 0 ; i<param.getNbBornes() ; i++)
             {
                 //on génère un entier correspondant aux paramètres
-                bornestempo.add((int)(Math.random()*param.getValMax()));
+                int borne;
+                boolean correct;
+                do {
+                    correct=true;
+                    borne = (int)(Math.random()*param.getValMax());
+                    if(!param.getBorneSelectionnable() && borne==resultats[a]) correct = false;
+                    for (int test:bornestempo) {
+                        if(borne==test) correct = false;
+                    }
+                }while (!correct);
+                bornestempo.add(borne);
             }
 
             boolean trie = false;
@@ -174,7 +194,13 @@ public class Exo1Math extends Exercice
 
                 //TODO paramètre distance entre borne et opérande
                 //on modifie la borne afin qu'elle corresponde aux paramètres
-                bornestempo.set(numborne,operandes[numope]+(int)(Math.random()*3)-1);
+                int bt;
+                do
+                {
+                    bt=operandes[numope] + (int) (Math.random() * 3) - 1;
+                }while(bt==resultats[a] && param.getBorneSelectionnable());
+
+                bornestempo.set(numborne,bt);
             }
 
             //on ajoute les bornes à la liste

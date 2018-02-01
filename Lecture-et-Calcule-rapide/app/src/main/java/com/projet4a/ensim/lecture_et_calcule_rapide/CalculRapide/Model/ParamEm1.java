@@ -1,6 +1,8 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
-public class ParamEm1 extends ParamMath
+import java.io.Serializable;
+
+public class ParamEm1 extends ParamMath implements Serializable
     /**
      * classe définissant les paramètres de Exo1Maths
     */
@@ -59,7 +61,7 @@ public class ParamEm1 extends ParamMath
         ordreApparition=true;
         borneSelectionnable=false;
         borneEqualsOp=false;
-        valMax=50;
+        valMax=30;
     }
 
     public ParamEm1(Long t, Boolean p,  Boolean[] o, int nbb, int nbq, Boolean cd, Boolean oa, Boolean bs, Boolean beo, int vm)
