@@ -6,139 +6,137 @@
     android:layout_height="match_parent"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity">
 
-    <FrameLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="38dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView10"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:text="Modification des paramètres de l'exercice de lecture"
-                    tools:textAlignment="center" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nombre de mots dans l'énoncé" />
-
-                <SeekBar
-                    android:id="@+id/seekNbEnonce"
-                    style="@style/Widget.AppCompat.SeekBar.Discrete"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:max="2"
-                    android:progress="0" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/TpsApp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Temps d'apparition" />
-
-                <EditText
-                    android:id="@+id/TpsApparution"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="330dp"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/Nbapp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Nombre de mots à faire apparaitre" />
-
-                <EditText
-                    android:id="@+id/NbMotsApp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:inputType="number" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <Switch
-                    android:id="@+id/BtnAppMultiple"
-                    android:layout_width="wrap_content"
-                    android:layout_height="37dp"
-                    android:layout_weight="1"
-                    android:text="Faire apparaitre plusieurs propositions à la fois" />
-
-            </LinearLayout>
+                android:text="Modification des paramètres de l'exercice de lecture"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                tools:textAlignment="center" />
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="311dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="20dp">
 
-                <Switch
-                    android:id="@+id/BtnApparutionEnonce"
-                    android:layout_width="wrap_content"
-                    android:layout_height="37dp"
+                <LinearLayout
+                    android:id="@+id/Colonne"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Faire disparaitre l'énoncé aucours de l'éxercice" />
+                    android:orientation="vertical"
+                    android:layout_width="600dp"
+                    android:layout_marginRight="10dp">
 
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:text="Nombre de mots dans l'énoncé"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <SeekBar
+                        android:id="@+id/seekNbEnonce"
+                        style="@style/Widget.AppCompat.SeekBar.Discrete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:max="2"
+                        android:progress="0"
+                        android:layout_marginBottom="20dp"/>
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:text="Temps d'apparition"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/TpsApparution"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:layout_marginBottom="20dp"/>
+
+                    <TextView
+                        android:id="@+id/Nbapp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:text="Nombre de mots à faire apparaitre"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <EditText
+                        android:id="@+id/NbMotsApp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:inputType="number"
+                        android:layout_marginBottom="20dp"/>
+
+                    <Switch
+                        android:id="@+id/BtnAppMultiple"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:text="Faire apparaitre plusieurs propositions à la fois"
+                        android:textColor="@android:color/background_dark" />
+
+                    <Switch
+                        android:id="@+id/BtnApparutionEnonce"
+                        android:layout_width="match_parent"
+                        android:layout_height="37dp"
+                        android:layout_marginBottom="20dp"
+                        android:layout_weight="1"
+                        android:text="Faire disparaitre l'énoncé aucours de l'éxercice"
+                        android:textColor="@android:color/background_dark" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <Button
                 android:id="@+id/Valider"
-                style="@style/Widget.AppCompat.Button.Colored"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="61dp"
                 android:layout_weight="1"
-                android:text="Valider" />
+                android:text="Valider"
+                tools:layout_editor_absoluteY="603dp"
+                android:layout_marginBottom="20dp"/>
         </LinearLayout>
-    </FrameLayout>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

@@ -80,7 +80,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:max="3"
-                        android:stateListAnimator=/>
+                       />
 
                     <TextView
                         android:id="@+id/TitreNbQuestions"
@@ -93,14 +93,35 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <SeekBar
+                   <!-- <SeekBar
                         android:id="@+id/ChoixNbQuestions"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:max="12"
-                        android:progress="3" />
+                        android:progress="3" />-->
+
+                    <com.xw.repo.BubbleSeekBar
+                        android:id="@+id/ChoixNbQuestions"
+                        style="@style/Widget.AppCompat.SeekBar.Discrete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:max="12"
+                        android:progress="3"
+
+                        app:bsb_bubble_text_color="@color/colorPrimaryDark"
+                        app:bsb_max="12"
+                        app:bsb_min="1"
+                        app:bsb_progress="0"
+                        app:bsb_section_count="12"
+                        app:bsb_section_text_position="bottom_sides"
+                        app:bsb_show_progress_in_float="false"
+                        app:bsb_show_section_mark="true"
+                        app:bsb_show_section_text="true"
+                        app:bsb_show_thumb_text="true"
+                        />
 
                     <RadioGroup
                         android:id="@+id/GroupRadiobutton"

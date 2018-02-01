@@ -27,7 +27,9 @@ dependencies {
     compile 'org.json:json:20160212'
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.xw.repo:bubbleseekbar:3.14-lite'
     testCompile 'junit:junit:4.12'
+
 
 
 }

@@ -22,7 +22,7 @@ import static android.content.Context.INPUT_SERVICE;
  * Created by florentin on 01/02/18.
  */
 
-public class ParseJSON extends Context {
+public class ParseJSON{
 
 
     JSONObject object ;
@@ -31,8 +31,8 @@ public class ParseJSON extends Context {
     ParseJSON (String name ) throws IOException, JSONException {
 
 
-        String content = AssetJSONFile(name,this );
-        object = new JSONObject(content);
+        //String content = AssetJSONFile(name,this );
+       // object = new JSONObject(content);
 
 
     }
