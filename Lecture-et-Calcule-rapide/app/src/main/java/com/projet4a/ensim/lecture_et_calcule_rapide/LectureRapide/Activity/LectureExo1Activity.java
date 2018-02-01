@@ -2,6 +2,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
 
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.Exo1Lecture;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
+
+import java.util.ArrayList;
 
 
 /**
@@ -36,8 +39,8 @@ public class LectureExo1Activity extends AppCompatActivity {
     /**
      * Variable servant pour le temps
      */
-    private long tempsDepart;
 
+    int nbAppCourent=0;
     ParamEl1 param = new ParamEl1();
     Exo1Lecture exo = new Exo1Lecture(param);
     Button rep1=(Button)findViewById(R.id.Rep1);
@@ -50,146 +53,165 @@ public class LectureExo1Activity extends AppCompatActivity {
     Button rep8=(Button)findViewById(R.id.Rep8);
     Button rep9=(Button)findViewById(R.id.Rep9);
     Button rep10=(Button)findViewById(R.id.Rep10);
+    ArrayList<Button> listeDesBoutons =new ArrayList<>();
     TextView enonce=(TextView)findViewById(R.id.EnonceLectureEx1);
-    boolean aRepondu=false;
-
+    ArrayList<Integer> idDesBoutonsDesApparitions = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_exo1);
         enonce.setText(exo.getEnonce());
+        listeDesBoutons.add(rep1);
+        listeDesBoutons.add(rep2);
+        listeDesBoutons.add(rep3);
+        listeDesBoutons.add(rep4);
+        listeDesBoutons.add(rep5);
+        listeDesBoutons.add(rep6);
+        listeDesBoutons.add(rep7);
+        listeDesBoutons.add(rep8);
+        listeDesBoutons.add(rep9);
+        listeDesBoutons.add(rep10);
 
         rep1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep1);
-                aRepondu=true;
+                rendreInvisible(rep1);
             }
         });
         rep2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep2);
-                aRepondu=true;
+                rendreInvisible(rep2);
             }
         });
         rep3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep3);
-                aRepondu=true;
+                rendreInvisible(rep3);
             }
         });
         rep4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep4);
-                aRepondu=true;
+                rendreInvisible(rep4);
             }
         });
         rep5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep5);
-                aRepondu=true;
+                rendreInvisible(rep5);
             }
         });
         rep6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep6);
-                aRepondu=true;
+                rendreInvisible(rep6);
             }
         });
         rep7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep7);
-                aRepondu=true;
+                rendreInvisible(rep7);
             }
         });
         rep8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep8);
-                aRepondu=true;
+                rendreInvisible(rep8);
             }
         });
         rep9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep9);
-                aRepondu=true;
+                rendreInvisible(rep9);
             }
         });
         rep10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 verifierReponse(rep10);
-                aRepondu=true;
+                rendreInvisible(rep10);
             }
         });
 
-        if(!param.getMultipleApparution()){
 
-            for(int nbApparition=0;nbApparition<=param.getNbApparution();nbApparition++){
-                aRepondu=false;
-
-                switch (tirrageAleatoireEntre1et10()){
-                    case 1:rendreVisibleEtDonneeValeur(rep1);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep1);
-                        break;
-                    case 2:rendreVisibleEtDonneeValeur(rep2);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep2);
-                        break;
-                    case 3:rendreVisibleEtDonneeValeur(rep3);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep3);
-                        break;
-                    case 4:rendreVisibleEtDonneeValeur(rep4);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep4);
-                        break;
-                    case 5:rendreVisibleEtDonneeValeur(rep5);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep5);
-                        break;
-                    case 6:rendreVisibleEtDonneeValeur(rep6);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep6);
-                        break;
-                    case 7:rendreVisibleEtDonneeValeur(rep7);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep7);
-                        break;
-                    case 8:rendreVisibleEtDonneeValeur(rep8);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep8);
-                        break;
-                    case 9:rendreVisibleEtDonneeValeur(rep9);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep9);
-                        break;
-                    case 10:rendreVisibleEtDonneeValeur(rep10);
-                        while ((System.currentTimeMillis()-tempsDepart)<param.getTempsApparution()&&!aRepondu){}
-                        rendreInvisible(rep10);
-                        break;
-                    default:break;
+            final CountDownTimer timer = new CountDownTimer(3600000,param.getTempsApparution())
+            {
+                @Override
+                public void onTick(long l) {
+                     if (nbAppCourent>=param.getNbApparution()){
+                         this.cancel();
+                         this.onFinish();
+                     }
+                     else{
+                         /**
+                          * boucle qui ferme les apparitions non répondu
+                          */
+                         for(Button b:listeDesBoutons){
+                             b.setVisibility(View.GONE);
+                         }
+                         /**
+                          * boucle qui remplie les apparitions
+                          */
+                         idDesBoutonsDesApparitions=tirrageAleatoireEntre1et10(param.getNbAparitionSimultanee());
+                         for(int unId:idDesBoutonsDesApparitions){
+                             rendreVisibleEtDonneeValeur(listeDesBoutons.get(unId));
+                         }
+                     }
                 }
-            }
-        }
-        calculerScore();
+                @Override
+                public void onFinish()
+                {
+                    calculerScore();
+                }
+            }.start();
+
+
+
     }
     /**
      * Méthode qui tire un nombre aléatoire entre 1 et 10
-     * @return entier entre 1 et 10
+     * @return tableau de x entier entre 1 et 10
+     * @param x nombre d'entier que doit contenir le tableau retourner par cette méthode
      */
-    private int tirrageAleatoireEntre1et10(){
-        int num = (int)Math.random()*9+1;
+    private ArrayList<Integer> tirrageAleatoireEntre1et10(int x){
+        ArrayList<Integer> tab = new ArrayList <> (x);
+        int length = 0;
+
+        while (length < x)
+        {
+            int n = (int) (Math.random() * 9 + 1);
+            if (!tab.contains(n))
+            {
+                tab.add(n);
+                length += 1;
+            }
+        }
+
+
+        return tab;
+    }
+
+    /**
+     * Méthode qui tire un nombre aléatoire entre 1 et le nombre mit en paramêtre
+     * @return entier entre 1 et le nombre mit en paramêtre
+     */
+    private int tirrageAleatoireEntre1EtLeNombreMitEnParam(int p){
+        int num = (int)Math.random()*(p-1)+1;
         return num;
     }
+
+
 
     /**
      * Méthode qui tire aléatoirement en index situé entre 0 et la taille du tableau qui contient les apparitions
@@ -210,7 +232,8 @@ public class LectureExo1Activity extends AppCompatActivity {
             nbAppDeEnonce++;
         }
         b.setVisibility(View.VISIBLE);
-        tempsDepart=System.currentTimeMillis();
+
+        nbAppCourent++;
     }
 
     /**
