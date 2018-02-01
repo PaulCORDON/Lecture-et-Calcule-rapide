@@ -15,8 +15,9 @@
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="Ton score : "
             android:textAlignment="center"
-            android:text="Ton score : " />
+            android:textSize="45sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +26,7 @@
 
             <TextView
                 android:id="@+id/score"
+                android:textSize="45sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -32,6 +34,7 @@
 
             <TextView
                 android:id="@+id/textView15"
+                android:textSize="45sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -40,17 +43,53 @@
 
             <TextView
                 android:id="@+id/nbQuestion"
+                android:textSize="45sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
                 android:layout_weight="1" />
         </LinearLayout>
 
+
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center">
+
+
+            <TextView
+                android:id="@+id/numQuCorrig"
+                android:textSize="35sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textAlignment="center"
+
+               />
+
+            <TextView
+                android:id="@+id/reponse"
+                android:textSize="35sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_weight="1"
+               />
+
+        </LinearLayout>
+
         <Button
             android:id="@+id/Acceuil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Acceuil" />
+             />
+        <Button
+            android:id="@+id/nextQuest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Question suivante" />
 
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
