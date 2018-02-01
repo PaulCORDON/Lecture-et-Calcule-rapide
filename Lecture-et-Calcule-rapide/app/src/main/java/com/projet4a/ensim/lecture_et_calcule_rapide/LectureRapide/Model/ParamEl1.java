@@ -28,6 +28,12 @@ public class ParamEl1 extends ParamLecture{
     private Boolean multipleApparution;
 
     /**
+     * Si multipleApparution est égale à vrai on pourra choisir le nombre d'apparition simultanée
+     */
+    private int nbAparitionSimultanee;
+
+
+    /**
      * Vrai : L'énoncé disparaitra au bout d'un certain temps.
      * Faux : L'énoncé ne disparaitra pas.
      */
@@ -74,6 +80,6 @@ public class ParamEl1 extends ParamLecture{
     public int getNbApparution() {return nbApparution;}
     public Boolean getMultipleApparution() {return multipleApparution;}
     public Boolean getEnonceDisparait() {return enonceDisparait;}
-
+    public int getNbAparitionSimultanee(){return nbAparitionSimultanee;}
 
 }
