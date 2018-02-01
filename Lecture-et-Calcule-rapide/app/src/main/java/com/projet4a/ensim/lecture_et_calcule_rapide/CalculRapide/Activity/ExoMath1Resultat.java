@@ -1,6 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -62,7 +63,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
         final TextView numQuCorrig = (TextView) findViewById(R.id.numQuCorrig);
         final TextView reponse = (TextView) findViewById(R.id.reponse);
         final Button nextQuest = (Button) findViewById(R.id.nextQuest);
-
+        final TextView score = (TextView) findViewById(R.id.Score);
 
         acceuil.setText("Acceuil");
         nextQuest.setText("Voir la correction");
@@ -80,22 +81,16 @@ public class ExoMath1Resultat extends AppCompatActivity {
         /**
          * Affichage de la correction pour chaque question jusqu'a ce que l'on appuie sur correction suivante
          */
-        /*
-        if(numQuestCorr !=-1 ){ // && numQuestCorr != reponseJuste.length+1
-
-            numQuCorrig.setText(""+ numQuCorrig+1);
-            reponse.setText("" + "2+2=4" );
-
-        }
-*/
-
-
-
             nextQuest.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(numQuestCorr == -1 ){
                         numQuestCorr ++;
+                        if(reponseJuste[numQuestCorr-1]){
+                            score.setText("VRAI");
+                        }else{
+                            score.setText("FAUX");
+                        }
                         acceuil.setVisibility(View.INVISIBLE);
                         nextQuest.setText("Correction suivante");
                         numQuCorrig.setText("Question "+ (numQuestCorr) + " : ");  //TODO mettre le vrai énoncé
@@ -105,12 +100,18 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
                     if (numQuestCorr > -1 && numQuestCorr < reponseJuste.length +1) {
                         numQuestCorr ++;
+                        if(reponseJuste[numQuestCorr-1]){
+                            score.setText("VRAI");
+                        }else{
+                            score.setText("FAUX");
+                        }
                         numQuCorrig.setText("Question "+ (numQuestCorr) + " : ");
                         reponse.setText(enonces.get(numQuestCorr-1)+ " = " + resultats[numQuestCorr-1]);
 
                     }
 
                     if(numQuestCorr == reponseJuste.length){
+                        score.setText("Ton score");
                         nextQuest.setVisibility(View.INVISIBLE);
                         acceuil.setVisibility(View.VISIBLE);
                     }
@@ -118,10 +119,6 @@ public class ExoMath1Resultat extends AppCompatActivity {
                 }
 
             });
-
-
-
-
 
         /**
          * bouton pour revenir à l'ecran d'acceuil visible uniquement avant l'affichage de la correction et apres ( pas pendant que les correction sont affichées).
@@ -138,10 +135,6 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
             });
         }
-
-
-
-
 
     }
 }
