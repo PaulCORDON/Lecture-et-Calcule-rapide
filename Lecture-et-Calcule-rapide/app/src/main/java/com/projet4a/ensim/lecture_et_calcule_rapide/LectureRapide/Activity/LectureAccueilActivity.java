@@ -35,7 +35,8 @@ public class LectureAccueilActivity extends AppCompatActivity {
         final Button exercice3 = (Button) findViewById(R.id.exo3L);
     /* creation du boutton parametre */
         final Button parametreL = (Button) findViewById(R.id.paramL);
-
+    /*creation du boutton go */
+        final Button go=(Button) findViewById(R.id.goL);
 
 
         /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
@@ -111,7 +112,15 @@ public class LectureAccueilActivity extends AppCompatActivity {
 
             }
         });
-
+        go.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isExercice1){
+                    Intent intent = new Intent(LectureAccueilActivity.this, LectureExo1Activity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
 }

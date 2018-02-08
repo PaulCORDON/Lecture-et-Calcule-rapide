@@ -16,6 +16,7 @@ import android.widget.Switch;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
+import com.xw.repo.BubbleSeekBar;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -32,7 +33,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final SeekBar nbBornes=  findViewById(R.id.ChoixNbBornes);
 
         /** seekBar qui stocke le nombre de questions de l'exercice */
-        final SeekBar nbQuestions=  findViewById(R.id.ChoixNbQuestions);
+        final BubbleSeekBar nbQuestions=  findViewById(R.id.ChoixNbQuestions);
 
         /** radioButton qui permet de savoir si on affiche le calcul avant la reponse */
         final RadioButton rb1= findViewById(R.id.ChoixCalculAvantRep);
