@@ -50,9 +50,10 @@ public class ParamEl1 extends ParamLecture{
     public ParamEl1() {
         nbEnonce = 2;
         tempsApparution = new Long(5000);
-        nbApparution = 20;
+        nbApparution = 10;
         multipleApparution = false;
         enonceDisparait = false;
+        nbAparitionSimultanee=2;
     }
 
     /**
