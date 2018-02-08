@@ -86,7 +86,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
                 public void onClick(View v) {
                     if(numQuestCorr == -1 ){
                         numQuestCorr ++;
-                        if(reponseJuste[numQuestCorr-1]){
+                        if(reponseJuste[0]){
                             score.setText("VRAI");
                         }else{
                             score.setText("FAUX");
