@@ -21,7 +21,7 @@ import static android.content.Context.INPUT_SERVICE;
 /**
  * Created by florentin on 01/02/18.
  */
-
+/*
 public class ParseJSON{
 
 
@@ -73,4 +73,4 @@ public class ParseJSON{
 
 
 
-}
+}*/
