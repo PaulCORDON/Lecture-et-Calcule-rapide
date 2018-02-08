@@ -183,6 +183,9 @@ public class LectureExo1Activity extends AppCompatActivity {
                 @Override
                 public void onTick(long l) {
                     Log.d("EXO 1 Lecture","dans le on tick");
+                    Log.d("Nb bonne rep",""+nbBonneRep);
+                    Log.d("Nb mauvaise rep",""+nbMauvaiseRep);
+                    Log.d("Nb app courrent",""+nbAppCourent);
                      if (nbAppCourent>=param.getNbApparution()){
                          Log.d("EXO 1 Lecture","l'exo va finir");
                          this.cancel();
@@ -199,7 +202,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                          /**
                           * boucle qui remplie les apparitions
                           */
-                         Log.d("EXO 1 Lecture","On va remplir les apparitions");
+                         Log.d("EXO 1 Lecture","On va remplir " +param.getNbAparitionSimultanee()+" apparitions");
                          idDesBoutonsDesApparitions=tirrageAleatoireEntre1et10(param.getNbAparitionSimultanee());
                          Log.d("EXO1L les id aléa sont"," "+idDesBoutonsDesApparitions);
                          for(int unId:idDesBoutonsDesApparitions){
@@ -210,7 +213,11 @@ public class LectureExo1Activity extends AppCompatActivity {
                 @Override
                 public void onFinish()
                 {
-                    calculerScore();
+                    Log.d("Nb bonne rep",""+nbBonneRep);
+                    Log.d("Nb mauvaise rep",""+nbMauvaiseRep);
+                    float score = calculerScore();
+                    Log.d("SCORE",""+score);
+
                 }
             }.start();
 
@@ -228,7 +235,9 @@ public class LectureExo1Activity extends AppCompatActivity {
 
         while (length < x)
         {
+
             int n = (int) (Math.random() * 9 + 1);
+            Log.d("ALEA"," "+n);
             if (!tab.contains(n))
             {
                 tab.add(n);
@@ -256,7 +265,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      * @return un index aléatoire
      */
     private int tirrageAleatoireDunIndex(){
-        int num = (int)Math.random()*exo.getApparition().size();
+        int num = (int)(Math.random()*exo.getApparition().size());
         return num;
     }
 
@@ -280,10 +289,12 @@ public class LectureExo1Activity extends AppCompatActivity {
      */
     private void verifierReponse(Button b){
         if(b.getText().equals(enonce)){
+            Log.d("BONNE REP","");
             nbBonneRep++;
             b.setBackgroundColor(Color.GREEN);
         }
         else{
+            Log.d("Mauvaise REP","");
             nbMauvaiseRep++;
             b.setBackgroundColor(Color.RED);
         }
@@ -304,7 +315,8 @@ public class LectureExo1Activity extends AppCompatActivity {
      */
     private float calculerScore(){
        int score;
-       if(nbBonneRep+nbMauvaiseRep!=0){
+       Log.d("Calcul du score ","je calcul");
+       if(nbBonneRep+nbMauvaiseRep!=0&&nbAppDeEnonce>0){
            score=((nbBonneRep/nbAppDeEnonce)/(nbBonneRep+nbMauvaiseRep))*100;
        }
        else{

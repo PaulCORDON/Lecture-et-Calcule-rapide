@@ -66,6 +66,6 @@ public class Exo1Lecture {
      * @return Enoncé de l'exercice qui sera afficher en haut de l'écran
      */
     private String genererEnonce() {
-        return "chat";
+        return "CHAT";
     }
 }
