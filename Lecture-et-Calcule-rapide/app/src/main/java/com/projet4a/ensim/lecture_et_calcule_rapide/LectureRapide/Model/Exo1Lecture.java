@@ -1,5 +1,11 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model;
 
+import android.util.Log;
+
+import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity;
+import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
+
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +30,7 @@ public class Exo1Lecture {
     /**
      * On instancie la classe ParamEl1 pour pouvoir charger les paramètres.
      */
-    ParamEl1 paramEl1= new ParamEl1();//TODO serialisation des paramètres pour les passées en paramètre du constructeur.
+    ParamEl1 paramEl1;//TODO serialisation des paramètres pour les passées en paramètre du constructeur.
 
 
     public String getEnonce() {
@@ -40,7 +46,7 @@ public class Exo1Lecture {
      * Constructeur de la classe Exo1Lecture.
      * Elle charge les paramètres et génere l'énoncé ainsi que le tableau des apparition.
      */
-    public Exo1Lecture(ParamEl1 param){
+    public Exo1Lecture(ParamEl1 param) throws FileNotFoundException {
         paramEl1=param;
         enonce=genererEnonce();
         apparition=genererApparition();
@@ -51,18 +57,22 @@ public class Exo1Lecture {
      * Methode qui génère le tableau des apparition.
      * @return Tableau de chaine de caractère contenant l'énoncé et des mots similaires.
      */
-    private ArrayList<String> genererApparition() {
-        //TODO réaliser la méthode genererAparition grace à une BDD.
+    private ArrayList<String> genererApparition() throws FileNotFoundException {
+        //TODO Il peut il y avoir des beugs avec les indices qui peuvent sortir du tableau
 
-        double rand = Math.random();
-        ParseDB parseDB = new ParseDB("database");
+
+
+        ParseDB parseDB = new ParseDB("database.txt");
         parseDB.execute();
-
+        int index = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(parseDB.listMot.size());
         ArrayList<String> enonc = new ArrayList<>();
-        enonc.add("cha");
-        enonc.add("chat");
-        enonc.add("cat");
-        enonc.add("caht");
+        for (int i =index; i<index+6 ; i++ ) {
+            if (i< parseDB.listMot.size()) {
+                enonc.add(parseDB.listMot.get(i));
+                Log.d("parse", "le mot est : " + enonc.get(i));
+            }
+
+        }
         return enonc;
     }
 

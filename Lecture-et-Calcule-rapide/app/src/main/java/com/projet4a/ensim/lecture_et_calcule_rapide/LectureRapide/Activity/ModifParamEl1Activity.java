@@ -1,5 +1,6 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,9 @@ import android.widget.Switch;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
+
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Modification des paramètres de lecture
@@ -51,7 +55,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
             valider.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    ParamEl1 param=null;
                     /**
                      * Changement des valeurs booleennes si Update dans les paramètres
                      */
@@ -65,7 +69,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                      */
                     if(tempsApparution.getText().toString().equals("")){
                        Long t = new Long(2000);
-                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked());
+                        param = new ParamEl1(nbEnonce.getProgress(),t,Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked());
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
                     /**
@@ -76,7 +80,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                     else if(nbApp.getText().toString().equals("")){
 
                         Integer nb =10;
-                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString()),nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
+                       param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString()),nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
                     /**
@@ -89,7 +93,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
 
                         Long t = new Long(2000);
                         Integer nb =10;
-                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(),t,nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
+                        param = new ParamEl1(nbEnonce.getProgress(),t,nb,multipleApparution.isChecked(),enonceDisparait.isChecked());
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
 
@@ -98,7 +102,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                      */
                     else
                     {
-                        ParamEl1 param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()), Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked());
+                        param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()), Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked());
                         /**
                          * test de fonctionnement avec les logs
                          */
@@ -107,10 +111,24 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                     }
 
 
+                    FileOutputStream outputStream;
+                    ObjectOutputStream oos;
+                    try {
+                        outputStream = openFileOutput("ParamEl1.txt", Context.MODE_PRIVATE);
+                        oos = new ObjectOutputStream(outputStream);
+                        oos.writeObject(param);
+
+
+                        oos.flush();
+                        oos.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     /**
                      * redirection vers la page StartActivity
                      */
-                    Intent  intent = new Intent( ModifParamEl1Activity.this, ModifParamEl1Activity.class);
+                    Intent  intent = new Intent( ModifParamEl1Activity.this,LectureAccueilActivity.class);
                     startActivity(intent);
 
 
