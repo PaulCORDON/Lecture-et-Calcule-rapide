@@ -3,9 +3,9 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 import java.io.Serializable;
 
 public class ParamEm1 extends ParamMath implements Serializable
-    /**
-     * classe définissant les paramètres de Exo1Maths
-    */
+        /**
+         * classe définissant les paramètres de Exo1Maths
+         */
 {
     private int nbBornes;
     /**
@@ -22,9 +22,14 @@ public class ParamEm1 extends ParamMath implements Serializable
         OU
         bornes apparaissent disparaissent puis calcul apparait
      */
-    private Boolean calculDisparait;
+    private Boolean disparition;
     /**
-     * Vrai : le calcul disparait, Faux : le calcul reste apparant
+     * Vrai : le premier element disparait, Faux : les deux elements s'affiche en meme temps
+     */
+
+    private long tempsRestantApparant;
+    /**
+     * temps pendant lequel le premier element affiché reste apparant dans le cas ou il disparait
      */
 
     private Boolean ordreApparition;
@@ -57,14 +62,15 @@ public class ParamEm1 extends ParamMath implements Serializable
         super();
         nbBornes=3;
         nbQuestions=5;
-        calculDisparait=false;
+        disparition =false;
+        tempsRestantApparant = 3000;
         ordreApparition=true;
         borneSelectionnable=false;
         borneEqualsOp=false;
         valMax=30;
     }
 
-    public ParamEm1(Long t, Boolean p,  Boolean[] o, int nbb, int nbq, Boolean cd, Boolean oa, Boolean bs, Boolean beo, int vm)
+    public ParamEm1(Long t, Boolean p,  Boolean[] o, int nbb, int nbq, Boolean d, long tra, Boolean oa, Boolean bs, Boolean beo, int vm)
     /**
      * Constructeur de paramètres personalisés
      */
@@ -72,7 +78,8 @@ public class ParamEm1 extends ParamMath implements Serializable
         super(t, p, o);
         nbBornes=nbb;
         nbQuestions=nbq;
-        calculDisparait=cd;
+        disparition =d;
+        tempsRestantApparant = tra;
         ordreApparition=oa;
         borneSelectionnable=bs;
         borneEqualsOp=beo;
@@ -93,7 +100,7 @@ public class ParamEm1 extends ParamMath implements Serializable
     /**
      * @return calculDisparait
      */
-    public Boolean getCalculDisparait(){return calculDisparait;}
+    public Boolean getDisparition(){return disparition;}
 
     /**
      * @return ordreApparition

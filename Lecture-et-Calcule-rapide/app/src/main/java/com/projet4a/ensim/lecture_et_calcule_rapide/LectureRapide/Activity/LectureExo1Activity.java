@@ -18,6 +18,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
@@ -62,6 +63,10 @@ public class LectureExo1Activity extends AppCompatActivity {
     ArrayList<Button> listeDesBoutons =new ArrayList<>();
     TextView enonce;
     ArrayList<Integer> idDesBoutonsDesApparitions = new ArrayList<>();
+
+    public LectureExo1Activity() throws FileNotFoundException {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -244,7 +249,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      * Méthode qui tire un nombre aléatoire entre 1 et le nombre mit en paramêtre
      * @return entier entre 1 et le nombre mit en paramêtre
      */
-    private int tirrageAleatoireEntre1EtLeNombreMitEnParam(int p){
+    public static int tirageAleatoireEntre1EtLeNombreMitEnParam(int p){
         int num = (int)Math.random()*(p-1)+1;
         return num;
     }
