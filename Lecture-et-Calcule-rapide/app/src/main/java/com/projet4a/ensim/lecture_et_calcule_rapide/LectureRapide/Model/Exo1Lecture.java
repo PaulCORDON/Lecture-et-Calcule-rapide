@@ -66,7 +66,7 @@ public class Exo1Lecture {
         ParseDB parseDB = new ParseDB("database.txt");
         parseDB.execute();
         /* on tire un chiffre aléatoire pour savoir ou on commence a tirer les mots */
-        int index = LectureExo1Activity.tirrageAleatoireEntre1EtLeNombreMitEnParam(parseDB.listMot.size());
+        int index = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(parseDB.listMot.size());
         ArrayList<String> enonc = new ArrayList<>();
         /*  on rempli l'enoncé partir d'un nombre aléatoire*/
         for (int i =index; i<index+6 ; i++ ) {
