@@ -92,6 +92,7 @@ public class LectureExo1Activity extends AppCompatActivity {
         }
         try {
             exo =  new Exo1Lecture(param);
+            Log.d("On cree un EXo1Lecture","");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -257,7 +258,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      * Méthode qui tire un nombre aléatoire entre 1 et le nombre mit en paramêtre
      * @return entier entre 1 et le nombre mit en paramêtre
      */
-    public static int tirrageAleatoireEntre1EtLeNombreMitEnParam(int p){
+    public static int tirageAleatoireEntre1EtLeNombreMitEnParam(int p){
         int num = (int)Math.random()*(p-1)+1;
         return num;
     }
@@ -279,7 +280,9 @@ public class LectureExo1Activity extends AppCompatActivity {
      */
     private void rendreVisibleEtDonneeValeur(Button b){
         b.setText(exo.getApparition().get(tirrageAleatoireDunIndex()));
-        if(b.getText().equals(enonce)){
+        Log.d("rendreVisible",b.getText()+" et "+enonce.getText());
+        if(b.getText().equals(enonce.getText())){
+            Log.d("L'enonce est apparue","");
             nbAppDeEnonce++;
         }
         b.setVisibility(View.VISIBLE);
@@ -292,7 +295,8 @@ public class LectureExo1Activity extends AppCompatActivity {
      * @param b le boutton sur lequel l'élève à répondu
      */
     private void verifierReponse(Button b){
-        if(b.getText().equals(enonce)){
+       Log.d("verifi rep",b.getText()+" et "+enonce.getText());
+        if(b.getText().equals(enonce.getText())){
             Log.d("BONNE REP","");
             nbBonneRep++;
             b.setBackgroundColor(Color.GREEN);

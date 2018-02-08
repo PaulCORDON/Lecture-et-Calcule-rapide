@@ -1,10 +1,12 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Cordon Paul on 07/11/2017.
  */
 
-public class ParamEl1 extends ParamLecture{
+public class ParamEl1 extends ParamLecture implements Serializable{
 
     /**
      * Nombre de mots contenue dans l'émoncé
