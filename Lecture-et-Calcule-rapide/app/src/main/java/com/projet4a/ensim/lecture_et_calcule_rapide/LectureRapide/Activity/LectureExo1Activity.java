@@ -248,7 +248,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      * Méthode qui tire un nombre aléatoire entre 1 et le nombre mit en paramêtre
      * @return entier entre 1 et le nombre mit en paramêtre
      */
-    public static int tirrageAleatoireEntre1EtLeNombreMitEnParam(int p){
+    public static int tirageAleatoireEntre1EtLeNombreMitEnParam(int p){
         int num = (int)Math.random()*(p-1)+1;
         return num;
     }
