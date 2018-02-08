@@ -11,14 +11,11 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.SeekBar;
 import android.widget.Switch;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
-import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 import com.xw.repo.BubbleSeekBar;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -29,11 +26,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modif_param_em1);
 
-        /** seekBar qui stocke le nombre de bornes de la phrise */
-        final SeekBar nbBornes=  findViewById(R.id.ChoixNbBornes);
+        /**EditText qui stocke le temps d'apparition de l'enonce ou des bornes*/
+        final EditText TpsAvantDisp= findViewById(R.id.tempsAvantDisparition);
 
-        /** seekBar qui stocke le nombre de questions de l'exercice */
-        final BubbleSeekBar nbQuestions=  findViewById(R.id.ChoixNbQuestions);
+        /** seekBar qui stocke le nombre de bornes de la phrise */
+        final BubbleSeekBar nbBornes=  findViewById(R.id.ChoixNbBornes);
+
+        /** EditText qui stocke le nombre de questions de l'exercice */
+        final EditText nbQuestions=  findViewById(R.id.ChoixNbQuestions);
 
         /** radioButton qui permet de savoir si on affiche le calcul avant la reponse */
         final RadioButton rb1= findViewById(R.id.ChoixCalculAvantRep);
@@ -54,7 +54,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final Boolean finalOrdreApparition = ordreApparition;
 
         /** Switch qui permet de savoir si le calcul disparait pendant le choix des reponses*/
-        final Switch disparitionCalcul=  findViewById(R.id.ChoixDisparitionCalcul);
+        final Switch disparition=  findViewById(R.id.ChoixDisparitionCalcul);
 
         /** Switch qui permet de savoir si le joueur peut choisir une borne en reponse*/
         final Switch bornesSelectionnables=  findViewById(R.id.ChoixBornesSelectionnables);
@@ -113,16 +113,16 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             tpsReponse.getText().toString())*1000,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
+                            nbBornes.getProgress(),
+                            Integer.parseInt(nbQuestions.getText().toString()),
+                            disparition.isChecked(),
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             Integer.parseInt(valMax.getText().toString()));
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -132,16 +132,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             Long.parseLong(tpsReponse.getText().toString())*1000,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
+                            nbBornes.getProgress(),
+                            Integer.parseInt(nbQuestions.getText().toString()),
+                            disparition.isChecked(),
+                            Long.parseLong(TpsAvantDisp.getText().toString())*1000,
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             50);
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -152,16 +153,16 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             tps,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
+                            nbBornes.getProgress(),
+                            Integer.parseInt(nbQuestions.getText().toString()),
+                            disparition.isChecked(),
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             Integer.parseInt(valMax.getText().toString()));
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -173,16 +174,16 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             tps,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
+                            nbBornes.getProgress(),
+                            Integer.parseInt(nbQuestions.getText().toString()),
+                            disparition.isChecked(),
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             50);
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
