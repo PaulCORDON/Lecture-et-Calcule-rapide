@@ -63,7 +63,7 @@ public class ParamEm1 extends ParamMath implements Serializable
         super();
         nbBornes=3;
         nbQuestions=5;
-        disparition =false;
+        disparition =true;
         tempsRestantApparant = 3000;
         ordreApparition=true;
         borneSelectionnable=false;

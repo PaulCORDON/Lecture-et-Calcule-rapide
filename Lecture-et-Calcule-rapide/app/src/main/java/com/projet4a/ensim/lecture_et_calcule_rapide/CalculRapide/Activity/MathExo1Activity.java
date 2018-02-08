@@ -232,11 +232,56 @@ public class MathExo1Activity extends AppCompatActivity
             @Override
             public void onTick(long l) {
                 if(exo.getParam().getDisparition()){
+                    Log.w("ordre apparition","ordre"+exo.getParam().getOrdreApparition());
                     if(exo.getParam().getOrdreApparition()){
-
+                        if(l<=exo.getParam().getTempsRep()){
+                            switch(exo.getParam().getNbBornes()){
+                                case 3 :
+                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    Borne3.setVisibility(View.VISIBLE);
+                                case 2 :
+                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    Borne2.setVisibility(View.VISIBLE);
+                                case 1 :
+                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    Borne1.setVisibility(View.VISIBLE);
+                            }
+                            enonce.setVisibility(View.INVISIBLE);
+                        }
+                        else{
+                            switch(exo.getParam().getNbBornes()){
+                                case 3 :
+                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    Borne3.setVisibility(View.INVISIBLE);
+                                case 2 :
+                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    Borne2.setVisibility(View.INVISIBLE);
+                                case 1 :
+                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    Borne1.setVisibility(View.INVISIBLE);
+                            }
+                        }
+                    }
+                    else{
+                        if(l<=exo.getParam().getTempsRep()){
+                            switch(exo.getParam().getNbBornes()){
+                                case 3 :
+                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    Borne3.setVisibility(View.INVISIBLE);
+                                case 2 :
+                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    Borne2.setVisibility(View.INVISIBLE);
+                                case 1 :
+                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    Borne1.setVisibility(View.INVISIBLE);
+                            }
+                            enonce.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            enonce.setVisibility(View.INVISIBLE);
+                        }
                     }
                 }
-
             }
 
             @Override

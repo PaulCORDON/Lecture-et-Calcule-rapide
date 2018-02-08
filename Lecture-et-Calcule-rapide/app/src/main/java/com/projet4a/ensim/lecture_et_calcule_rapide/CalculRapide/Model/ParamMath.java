@@ -31,7 +31,7 @@ abstract class ParamMath implements Serializable
      * constructeur des paramètres par défault
      */
     {
-        tempsRep=new Long(30);
+        tempsRep=new Long(5000);
         pairOnly=true;
 
         operateur = new Boolean[5];
