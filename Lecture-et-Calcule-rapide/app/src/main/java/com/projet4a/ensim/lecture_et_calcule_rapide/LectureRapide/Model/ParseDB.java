@@ -42,7 +42,7 @@ public class ParseDB  {
 
 
     public void execute () {
-        try (Scanner sc = new Scanner(database)) {
+        try (Scanner sc = new Scanner("database")) {
             String mot = "a";
             do {
 

@@ -176,15 +176,14 @@
 
                         <TextView
                             android:id="@+id/TitreTempsAvantDisparition"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="TextView"
                             android:textAlignment="center"
                             android:textColor="@android:color/background_dark"
                             android:textSize="18sp"
-                            android:layout_marginBottom="20dp"
-                            tools:text="Temps avant disparition du calcul ou des bornes (selon le choix ci-dessus)" />
+                            android:layout_marginBottom="0dp"
+                            android:text="Temps avant disparition du calcul ou des bornes (selon le choix ci-dessus)" />
+
 
                         <EditText
                             android:id="@+id/tempsAvantDisparition"
