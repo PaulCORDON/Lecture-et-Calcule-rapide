@@ -41,7 +41,7 @@ public class ParseDB  {
 
 
 
-    public void execute () {
+    public void execute () throws FileNotFoundException {
         try (Scanner sc = new Scanner(database)) {
             String mot = "a";
             do {

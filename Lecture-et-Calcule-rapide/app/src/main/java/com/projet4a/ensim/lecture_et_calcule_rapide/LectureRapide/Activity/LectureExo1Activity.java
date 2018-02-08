@@ -13,6 +13,7 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.Exo1Lect
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
@@ -57,6 +58,10 @@ public class LectureExo1Activity extends AppCompatActivity {
     ArrayList<Button> listeDesBoutons =new ArrayList<>();
     TextView enonce=(TextView)findViewById(R.id.EnonceLectureEx1);
     ArrayList<Integer> idDesBoutonsDesApparitions = new ArrayList<>();
+
+    public LectureExo1Activity() throws FileNotFoundException {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -207,7 +212,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      * Méthode qui tire un nombre aléatoire entre 1 et le nombre mit en paramêtre
      * @return entier entre 1 et le nombre mit en paramêtre
      */
-    private int tirrageAleatoireEntre1EtLeNombreMitEnParam(int p){
+    public static int tirageAleatoireEntre1EtLeNombreMitEnParam(int p){
         int num = (int)Math.random()*(p-1)+1;
         return num;
     }
