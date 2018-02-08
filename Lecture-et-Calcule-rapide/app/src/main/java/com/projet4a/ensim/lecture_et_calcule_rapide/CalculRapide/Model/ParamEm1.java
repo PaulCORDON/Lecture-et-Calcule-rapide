@@ -113,7 +113,7 @@ public class ParamEm1 extends ParamMath implements Serializable
      */
     public Boolean getOrdreApparition(){return ordreApparition;}
 
-    public long getTempsRestantApparant(){return tempsRestantApparant;}
+
 
     /**
      * @return borneSelectionnable

@@ -42,9 +42,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final RadioButton rb2=findViewById(R.id.ChoixRepAvantCalcul);
 
 
-
-
-
         /** Switch qui permet de savoir si le calcul disparait pendant le choix des reponses*/
         final Switch disparition=  findViewById(R.id.ChoixDisparitionCalcul);
 
@@ -83,6 +80,12 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
         Button valider=  findViewById(R.id.BoutonValider);
 
+        disparition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TpsAvantDisp.setEnabled(disparition.isChecked());
+            }
+        });
 
 
         valider.setOnClickListener(new View.OnClickListener() {
