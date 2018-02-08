@@ -33,8 +33,7 @@ public class GifImageView extends android.support.v7.widget.AppCompatImageView{
     public GifImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
         setFocusable(true);
-        inputStream = context.getResources()
-                .openRawResource(R.drawable.GifImg);
+        inputStream = context.getResources().openRawResource(+R.drawable.raw);
         byte[] array = streamToBytes(inputStream);
         movie = Movie.decodeByteArray(array, 0, array.length);
 
