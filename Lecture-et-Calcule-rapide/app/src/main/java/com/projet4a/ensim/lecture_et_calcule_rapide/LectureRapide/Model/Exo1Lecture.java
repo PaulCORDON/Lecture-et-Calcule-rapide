@@ -7,6 +7,8 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.Lectu
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
+import static com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity.*;
+
 /**
  * Created by Cordon Paul on 07/11/2017.
  */
@@ -45,7 +47,7 @@ public class Exo1Lecture {
      * Constructeur de la classe Exo1Lecture.
      * Elle charge les paramètres et génere l'énoncé ainsi que le tableau des apparition.
      */
-    public Exo1Lecture(ParamEl1 param){
+    public Exo1Lecture(ParamEl1 param) throws FileNotFoundException {
         paramEl1=param;
         enonce=genererEnonce();
         apparition=genererApparition();
@@ -82,6 +84,6 @@ public class Exo1Lecture {
      * @return Enoncé de l'exercice qui sera afficher en haut de l'écran
      */
     private String genererEnonce() {
-        return "chat";
+        return "CHAT";
     }
 }
