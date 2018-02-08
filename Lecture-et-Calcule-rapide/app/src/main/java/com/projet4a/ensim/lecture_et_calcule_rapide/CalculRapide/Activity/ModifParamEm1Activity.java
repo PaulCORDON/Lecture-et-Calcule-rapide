@@ -121,8 +121,8 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                  * et on construit un nouvel objet param avec ces parametres
                  */
                 if(!tpsReponse.getText().toString().equals("") && !valMax.getText().toString().equals("")) {
-                    param = new ParamEm1(Long.parseLong(
-                            tpsReponse.getText().toString())*1000,
+                    param = new ParamEm1(
+                            Long.parseLong(tpsReponse.getText().toString())*1000,
                             nbPairsOnly.isChecked(),
                             operateurs,
                             nbBornes.getProgress(),
@@ -209,7 +209,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     outputStream = openFileOutput("ParamEm1.txt", Context.MODE_PRIVATE);
                     oos = new ObjectOutputStream(outputStream);
                     oos.writeObject(param);
-
 
                     oos.flush();
                     oos.close();

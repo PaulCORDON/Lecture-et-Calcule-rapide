@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -13,6 +14,10 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.Exo1Lect
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
 
@@ -41,27 +46,58 @@ public class LectureExo1Activity extends AppCompatActivity {
      */
 
     int nbAppCourent=0;
-
+    Exo1Lecture exo;
     ParamEl1 param = new ParamEl1();
-    Exo1Lecture exo = new Exo1Lecture(param);
-    Button rep1=(Button)findViewById(R.id.Rep1);
-    Button rep2=(Button)findViewById(R.id.Rep2);
-    Button rep3=(Button)findViewById(R.id.Rep3);
-    Button rep4=(Button)findViewById(R.id.Rep4);
-    Button rep5=(Button)findViewById(R.id.Rep5);
-    Button rep6=(Button)findViewById(R.id.Rep6);
-    Button rep7=(Button)findViewById(R.id.Rep7);
-    Button rep8=(Button)findViewById(R.id.Rep8);
-    Button rep9=(Button)findViewById(R.id.Rep9);
-    Button rep10=(Button)findViewById(R.id.Rep10);
+
+    Button rep1;
+    Button rep2;
+    Button rep3;
+    Button rep4;
+    Button rep5;
+    Button rep6;
+    Button rep7;
+    Button rep8;
+    Button rep9;
+    Button rep10;
     ArrayList<Button> listeDesBoutons =new ArrayList<>();
-    TextView enonce=(TextView)findViewById(R.id.EnonceLectureEx1);
+    TextView enonce;
     ArrayList<Integer> idDesBoutonsDesApparitions = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_exo1);
+        Log.d("EXO 1 Lecture","Dans le on crete");
+        rep1=findViewById(R.id.Rep1);
+        rep2=findViewById(R.id.Rep2);
+        rep3=findViewById(R.id.Rep3);
+        rep4=findViewById(R.id.Rep4);
+        rep5=findViewById(R.id.Rep5);
+        rep6=findViewById(R.id.Rep6);
+        rep7=findViewById(R.id.Rep7);
+        rep8=findViewById(R.id.Rep8);
+        rep9=findViewById(R.id.Rep9);
+        rep10=findViewById(R.id.Rep10);
+        enonce=findViewById(R.id.EnonceLectureEx1);
+
+        try {
+            FileInputStream fis = openFileInput("ParamEl1.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            param = (ParamEl1)ois.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            exo =  new Exo1Lecture(param);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        Log.d("EXO 1 Lecture","Après la désérialisation");
+
+
         enonce.setText(exo.getEnonce());
         listeDesBoutons.add(rep1);
         listeDesBoutons.add(rep2);
@@ -150,7 +186,9 @@ public class LectureExo1Activity extends AppCompatActivity {
             {
                 @Override
                 public void onTick(long l) {
+                    Log.d("EXO 1 Lecture","dans le on tick");
                      if (nbAppCourent>=param.getNbApparution()){
+                         Log.d("EXO 1 Lecture","l'exo va finir");
                          this.cancel();
                          this.onFinish();
                      }
@@ -158,13 +196,16 @@ public class LectureExo1Activity extends AppCompatActivity {
                          /**
                           * boucle qui ferme les apparitions non répondu
                           */
+                         Log.d("EXO 1 Lecture","on fais disparaitre le button si il n'a rien répondu");
                          for(Button b:listeDesBoutons){
                              b.setVisibility(View.GONE);
                          }
                          /**
                           * boucle qui remplie les apparitions
                           */
+                         Log.d("EXO 1 Lecture","On va remplir les apparitions");
                          idDesBoutonsDesApparitions=tirrageAleatoireEntre1et10(param.getNbAparitionSimultanee());
+                         Log.d("EXO1L les id aléa sont"," "+idDesBoutonsDesApparitions);
                          for(int unId:idDesBoutonsDesApparitions){
                              rendreVisibleEtDonneeValeur(listeDesBoutons.get(unId));
                          }
@@ -207,7 +248,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      * Méthode qui tire un nombre aléatoire entre 1 et le nombre mit en paramêtre
      * @return entier entre 1 et le nombre mit en paramêtre
      */
-    private int tirrageAleatoireEntre1EtLeNombreMitEnParam(int p){
+    public static int tirrageAleatoireEntre1EtLeNombreMitEnParam(int p){
         int num = (int)Math.random()*(p-1)+1;
         return num;
     }

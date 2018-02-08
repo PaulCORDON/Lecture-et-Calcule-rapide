@@ -1,5 +1,6 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -16,8 +17,10 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import static java.lang.System.currentTimeMillis;
 
@@ -224,11 +227,61 @@ public class MathExo1Activity extends AppCompatActivity
         /**
          * Définition des actions du timer
          */
-        timer = new CountDownTimer(exo.getParam().getTempsRep(),500)
+        timer = new CountDownTimer(exo.getParam().getTempsRep()+exo.getParam().getTempsRestantApparant(),500)
         {
             @Override
             public void onTick(long l) {
-
+                if(exo.getParam().getDisparition()){
+                    Log.w("ordre apparition","ordre"+exo.getParam().getOrdreApparition());
+                    if(exo.getParam().getOrdreApparition()){
+                        if(l<=exo.getParam().getTempsRep()){
+                            switch(exo.getParam().getNbBornes()){
+                                case 3 :
+                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    Borne3.setVisibility(View.VISIBLE);
+                                case 2 :
+                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    Borne2.setVisibility(View.VISIBLE);
+                                case 1 :
+                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    Borne1.setVisibility(View.VISIBLE);
+                            }
+                            enonce.setVisibility(View.INVISIBLE);
+                        }
+                        else{
+                            switch(exo.getParam().getNbBornes()){
+                                case 3 :
+                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    Borne3.setVisibility(View.INVISIBLE);
+                                case 2 :
+                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    Borne2.setVisibility(View.INVISIBLE);
+                                case 1 :
+                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    Borne1.setVisibility(View.INVISIBLE);
+                            }
+                        }
+                    }
+                    else{
+                        if(l<=exo.getParam().getTempsRep()){
+                            switch(exo.getParam().getNbBornes()){
+                                case 3 :
+                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    Borne3.setVisibility(View.INVISIBLE);
+                                case 2 :
+                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    Borne2.setVisibility(View.INVISIBLE);
+                                case 1 :
+                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    Borne1.setVisibility(View.INVISIBLE);
+                            }
+                            enonce.setVisibility(View.VISIBLE);
+                        }
+                        else {
+                            enonce.setVisibility(View.INVISIBLE);
+                        }
+                    }
+                }
             }
 
             @Override
@@ -249,8 +302,19 @@ public class MathExo1Activity extends AppCompatActivity
 
                     Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee",reponseJuste);
-                    intent.putExtra("Enonce",exo.getCalculEnonce());
-                    intent.putExtra("Resultat",exo.getResultats());
+
+                    FileOutputStream outputStream;
+                    ObjectOutputStream oos;
+                    try {
+                        outputStream = openFileOutput("ExoM1.txt", Context.MODE_PRIVATE);
+                        oos = new ObjectOutputStream(outputStream);
+                        oos.writeObject(exo);
+
+                        oos.flush();
+                        oos.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     finish();
                     startActivity(intent);
