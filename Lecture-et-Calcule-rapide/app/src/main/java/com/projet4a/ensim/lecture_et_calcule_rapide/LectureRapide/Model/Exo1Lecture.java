@@ -53,6 +53,11 @@ public class Exo1Lecture {
      */
     private ArrayList<String> genererApparition() {
         //TODO réaliser la méthode genererAparition grace à une BDD.
+
+        double rand = Math.random();
+        ParseDB parseDB = new ParseDB("database");
+        parseDB.execute();
+
         ArrayList<String> enonc = new ArrayList<>();
         enonc.add("cha");
         enonc.add("chat");

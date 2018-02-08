@@ -15,56 +15,50 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import static android.content.Context.INPUT_SERVICE;
 
 /**
  * Created by florentin on 01/02/18.
+ *
+ * Cette classe recupère tous les mots contenu dans un fichier txt et les mets dans une ArrayList
  */
 
-public class ParseJSON extends Context {
+public class ParseDB  {
 
 
-    JSONObject object ;
-    ArrayList<String> listMot = new ArrayList<String>();
+    File database;
+    ArrayList <String> listMot ;
 
-    ParseJSON (String name ) throws IOException, JSONException {
+    ParseDB (String path){
 
-
-        String content = AssetJSONFile(name,this );
-        object = new JSONObject(content);
+        database = new File (path);
+        listMot = new ArrayList<>();
 
 
     }
 
-    public static String AssetJSONFile (String filename, Context context) throws IOException {
-        AssetManager manager;
-        manager = context.getAssets();
-        InputStream file = manager.open(filename);
-        byte[] formArray = new byte[file.available()];
-        file.read(formArray);
-        file.close();
-
-        return new String(formArray);
-    }
 
 
-    public void execute (String letter) throws JSONException {
-        JSONArray array ;
-        String mot ;
-        array = object.getJSONArray(letter);
-        for (int i=0 ; i<array.length(); i++ ) {
+    public void execute () {
+        try (Scanner sc = new Scanner(database)) {
+            String mot = "a";
+            do {
 
-            mot = (String) array.get(i);
-            listMot.add(mot);
-
+                mot = sc.nextLine();
+                listMot.add(mot);
 
 
-
-
+            } while (!mot.equals("-1"));
         }
 
 
+
+
+    }
+
+
     }
 
 
@@ -73,4 +67,3 @@ public class ParseJSON extends Context {
 
 
 
-}
