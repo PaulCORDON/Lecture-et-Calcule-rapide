@@ -23,6 +23,7 @@ public class ParamEm1 extends ParamMath implements Serializable
         bornes apparaissent disparaissent puis calcul apparait
      */
     private Boolean disparition;
+
     /**
      * Vrai : le premier element disparait, Faux : les deux elements s'affiche en meme temps
      */
@@ -62,7 +63,7 @@ public class ParamEm1 extends ParamMath implements Serializable
         super();
         nbBornes=3;
         nbQuestions=5;
-        disparition =false;
+        disparition =true;
         tempsRestantApparant = 3000;
         ordreApparition=true;
         borneSelectionnable=false;
@@ -98,9 +99,14 @@ public class ParamEm1 extends ParamMath implements Serializable
     public int getNbQuestions(){return nbQuestions;}
 
     /**
-     * @return calculDisparait
+     * @return disparition
      */
     public Boolean getDisparition(){return disparition;}
+
+    /**
+     * @return tempsRestantApparant
+     */
+    public long getTempsRestantApparant() {return tempsRestantApparant;}
 
     /**
      * @return ordreApparition
