@@ -1,11 +1,5 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model;
 
-import android.util.Log;
-
-import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity;
-import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
-
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -46,7 +40,7 @@ public class Exo1Lecture {
      * Constructeur de la classe Exo1Lecture.
      * Elle charge les paramètres et génere l'énoncé ainsi que le tableau des apparition.
      */
-    public Exo1Lecture(ParamEl1 param) throws FileNotFoundException {
+    public Exo1Lecture(ParamEl1 param){
         paramEl1=param;
         enonce=genererEnonce();
         apparition=genererApparition();
@@ -57,22 +51,13 @@ public class Exo1Lecture {
      * Methode qui génère le tableau des apparition.
      * @return Tableau de chaine de caractère contenant l'énoncé et des mots similaires.
      */
-    private ArrayList<String> genererApparition() throws FileNotFoundException {
-        //TODO Il peut il y avoir des beugs avec les indices qui peuvent sortir du tableau
-
-
-
-        ParseDB parseDB = new ParseDB("database.txt");
-        parseDB.execute();
-        int index = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(parseDB.listMot.size());
+    private ArrayList<String> genererApparition() {
+        //TODO réaliser la méthode genererAparition grace à une BDD.
         ArrayList<String> enonc = new ArrayList<>();
-        for (int i =index; i<index+6 ; i++ ) {
-            if (i< parseDB.listMot.size()) {
-                enonc.add(parseDB.listMot.get(i));
-                Log.d("parse", "le mot est : " + enonc.get(i));
-            }
-
-        }
+        enonc.add("cha");
+        enonc.add("chat");
+        enonc.add("cat");
+        enonc.add("caht");
         return enonc;
     }
 
