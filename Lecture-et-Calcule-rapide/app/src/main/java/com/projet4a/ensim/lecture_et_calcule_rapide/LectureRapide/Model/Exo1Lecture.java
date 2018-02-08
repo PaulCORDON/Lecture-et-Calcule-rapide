@@ -24,7 +24,7 @@ public class Exo1Lecture {
     /**
      * On instancie la classe ParamEl1 pour pouvoir charger les paramètres.
      */
-    ParamEl1 paramEl1= new ParamEl1();//TODO serialisation des paramètres pour les passées en paramètre du constructeur.
+    ParamEl1 paramEl1;//TODO serialisation des paramètres pour les passées en paramètre du constructeur.
 
 
     public String getEnonce() {
