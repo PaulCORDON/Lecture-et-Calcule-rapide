@@ -41,6 +41,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      */
 
     int nbAppCourent=0;
+
     ParamEl1 param = new ParamEl1();
     Exo1Lecture exo = new Exo1Lecture(param);
     Button rep1=(Button)findViewById(R.id.Rep1);
