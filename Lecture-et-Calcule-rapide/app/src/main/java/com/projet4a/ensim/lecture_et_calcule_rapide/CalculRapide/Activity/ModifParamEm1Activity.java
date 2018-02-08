@@ -109,20 +109,21 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                  * et on construit un nouvel objet param avec ces parametres
                  */
                 if(!tpsReponse.getText().toString().equals("") && !valMax.getText().toString().equals("")) {
-                    param = new ParamEm1(Long.parseLong(
-                            tpsReponse.getText().toString())*1000,
+                    param = new ParamEm1(
+                            Long.parseLong(tpsReponse.getText().toString())*1000,
                             nbPairsOnly.isChecked(),
                             operateurs,
                             nbBornes.getProgress()+1,
                             nbQuestions.getProgress()+1,
                             disparitionCalcul.isChecked(),
+                            3000,
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             Integer.parseInt(valMax.getText().toString()));
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -135,13 +136,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             nbBornes.getProgress()+1,
                             nbQuestions.getProgress()+1,
                             disparitionCalcul.isChecked(),
+                            3000,
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             50);
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -155,13 +157,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             nbBornes.getProgress()+1,
                             nbQuestions.getProgress()+1,
                             disparitionCalcul.isChecked(),
+                            3000,
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             Integer.parseInt(valMax.getText().toString()));
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -176,13 +179,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             nbBornes.getProgress()+1,
                             nbQuestions.getProgress()+1,
                             disparitionCalcul.isChecked(),
+                            3000,
                             finalOrdreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             50);
 
                     Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -193,7 +197,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     outputStream = openFileOutput("ParamEm1.txt", Context.MODE_PRIVATE);
                     oos = new ObjectOutputStream(outputStream);
                     oos.writeObject(param);
-
 
                     oos.flush();
                     oos.close();
