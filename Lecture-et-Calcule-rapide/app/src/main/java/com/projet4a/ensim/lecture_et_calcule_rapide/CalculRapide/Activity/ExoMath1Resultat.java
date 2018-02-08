@@ -103,8 +103,10 @@ public class ExoMath1Resultat extends AppCompatActivity {
                         numQuestCorr ++;
                         if(reponseJuste[0]){
                             score.setText("VRAI");
+                            reponse.setVisibility(View.INVISIBLE);
                         }else{
                             score.setText("FAUX");
+                            reponse.setVisibility(View.VISIBLE);
                             reponse.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]));
                         }
                         acceuil.setVisibility(View.INVISIBLE);
@@ -118,9 +120,11 @@ public class ExoMath1Resultat extends AppCompatActivity {
                         numQuestCorr ++;
                         if(reponseJuste[numQuestCorr-1]){
                             score.setText("VRAI");
+                            reponse.setVisibility(View.INVISIBLE);
                         }else{
                             score.setText("FAUX");
-                            reponse.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]));
+                            reponse.setVisibility(View.VISIBLE);
+                            reponse.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]));
                         }
                         slash.setText("Question "+ (numQuestCorr) + " : ");
                         numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr-1)+ " = " + exoMath.getResultats()[numQuestCorr-1]);
@@ -162,50 +166,44 @@ public class ExoMath1Resultat extends AppCompatActivity {
     }
 
     private String correction(ArrayList<Integer> bornes, int resultat){
-        StringBuilder correctionBuild = new StringBuilder("");
-        for (int b : bornes){
 
-            if(resultat< b && bornes.indexOf(b) == 0){
-                correctionBuild.append(resultat);
-                correctionBuild.append(" < ");
-                correctionBuild.append(b);
-                String correction = new String(correctionBuild);
-                return correction;
-            }
-            if(resultat>b && bornes.indexOf(b) == bornes.size()){
-                correctionBuild.append(b);
-                correctionBuild.append(" > ");
-                correctionBuild.append(resultat);
-                String correction = new String(correctionBuild);
-                return correction;
-            }
-            if(bornes.size() == 2){
-                correctionBuild.append(bornes.get(0));
-                correctionBuild.append(" < ");
-                correctionBuild.append(resultat);
-                correctionBuild.append(" < ");
-                correctionBuild.append(bornes.get(1));
-            }
-            if(bornes.size() == 3){
-                if(resultat< bornes.get(1)){
-                    correctionBuild.append(bornes.get(0));
-                    correctionBuild.append(" < ");
-                    correctionBuild.append(resultat);
-                    correctionBuild.append(" < ");
-                    correctionBuild.append(bornes.get(1));
+            if(bornes.size() == 1){
+                if(resultat< bornes.get(0)){
+                    return "" +resultat + " < " + bornes.get(0);
                 }
                 else{
-                    correctionBuild.append(bornes.get(1));
-                    correctionBuild.append(" < ");
-                    correctionBuild.append(resultat);
-                    correctionBuild.append(" < ");
-                    correctionBuild.append(bornes.get(2));
+                    return "" + bornes.get(0) + " < " + resultat;
                 }
             }
 
-        }
-        String correction = new String(correctionBuild);
-        return correction;
+
+            if(bornes.size() == 2){
+                if(resultat < bornes.get(0)){
+                    return "" +resultat + " < " + bornes.get(0);
+                }
+                if(resultat > bornes.get(1)){
+                    return "" + bornes.get(1) + " < " + resultat;
+                }
+                return bornes.get(0) + " < " + resultat + " < " + bornes.get(1);
+            }
+            if(bornes.size() == 3){
+                if(resultat < bornes.get(0)){
+                    return "" +resultat + " < " + bornes.get(0);
+                }
+                if(resultat > bornes.get(1)){
+                    return "" + bornes.get(1) + " < " + resultat;
+                }
+                if(resultat< bornes.get(1)){
+                    return bornes.get(0) + " < " + resultat + " < " + bornes.get(1);
+                }
+                else{
+                    return bornes.get(1) + " < " + resultat + " < " + bornes.get(2);
+                }
+            }
+
+
+
+        return "" + bornes.size();
     }
 
 

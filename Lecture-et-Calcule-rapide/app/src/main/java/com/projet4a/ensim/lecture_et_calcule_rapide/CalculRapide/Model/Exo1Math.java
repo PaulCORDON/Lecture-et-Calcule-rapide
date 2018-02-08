@@ -9,10 +9,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Exo1Math extends Exercice
+public class Exo1Math extends Exercice implements Serializable
         /**
          * Classe contenant la liste d'énoncé avec la liste des bornes correspondantes
          * Ces listes sont créées en fonction des paramètres de l'exercice
