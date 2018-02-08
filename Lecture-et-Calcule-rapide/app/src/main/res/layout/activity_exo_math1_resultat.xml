@@ -33,7 +33,7 @@
                 android:layout_weight="1" />
 
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/slash"
                 android:textSize="45sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
 
 
             <TextView
-                android:id="@+id/numQuCorrig"
+                android:id="@+id/calcul"
                 android:textSize="35sp"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

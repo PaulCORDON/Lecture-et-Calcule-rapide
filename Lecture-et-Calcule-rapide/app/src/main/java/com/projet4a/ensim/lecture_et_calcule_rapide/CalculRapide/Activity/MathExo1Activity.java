@@ -83,8 +83,7 @@ public class MathExo1Activity extends AppCompatActivity
 
                     Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee",reponseJuste);
-                    intent.putExtra("Enonce",exo.getCalculEnonce());
-                    intent.putExtra("Reponses",exo.getResultats());
+                    
 
                     finish();
                     startActivity(intent);
