@@ -169,35 +169,35 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
             if(bornes.size() == 1){
                 if(resultat< bornes.get(0)){
-                    return "" +resultat + " < " + bornes.get(0);
+                    return " _ " +resultat + " _ < _ " + bornes.get(0) + " _ ";
                 }
                 else{
-                    return "" + bornes.get(0) + " < " + resultat;
+                    return " _ " +bornes.get(0) + " _ < _ " + resultat + " _ ";
                 }
             }
 
 
             if(bornes.size() == 2){
                 if(resultat < bornes.get(0)){
-                    return "" +resultat + " < " + bornes.get(0);
+                    return " _ " +resultat + " < " + bornes.get(0) + " < " + bornes.get(1) + " _";
                 }
                 if(resultat > bornes.get(1)){
-                    return "" + bornes.get(1) + " < " + resultat;
+                    return " _ " +bornes.get(0) + " < " + bornes.get(1) + " < " + resultat + " _";
                 }
-                return bornes.get(0) + " < " + resultat + " < " + bornes.get(1);
+                return "_ " + bornes.get(0) + " < " + resultat + " < " + bornes.get(1) + " _";
             }
             if(bornes.size() == 3){
                 if(resultat < bornes.get(0)){
-                    return "" +resultat + " < " + bornes.get(0);
+                    return resultat + " < " + bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2);
                 }
-                if(resultat > bornes.get(1)){
-                    return "" + bornes.get(1) + " < " + resultat;
+                if(resultat > bornes.get(2)){
+                    return   bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2) + " < " + resultat;
                 }
                 if(resultat< bornes.get(1)){
-                    return bornes.get(0) + " < " + resultat + " < " + bornes.get(1);
+                    return bornes.get(0) + " < " + resultat + " < " + bornes.get(1) + " < " + bornes.get(2);
                 }
                 else{
-                    return bornes.get(1) + " < " + resultat + " < " + bornes.get(2);
+                    return  bornes.get(0) + " < " + bornes.get(1) + " < " + resultat + " < " + bornes.get(2);
                 }
             }
 
