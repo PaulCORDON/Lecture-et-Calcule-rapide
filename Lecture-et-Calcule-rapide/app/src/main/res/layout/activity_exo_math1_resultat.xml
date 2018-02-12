@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:text="Ton score : "
             android:textAlignment="center"
-            android:textSize="45sp" />
+            android:textSize="36sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,70 +26,107 @@
 
             <TextView
                 android:id="@+id/score"
-                android:textSize="45sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:textAlignment="center"
-                android:layout_weight="1" />
+                android:textSize="36sp" />
 
             <TextView
                 android:id="@+id/slash"
-                android:textSize="45sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
                 android:layout_weight="1"
-                android:text="/" />
+                android:text="/"
+                android:textAlignment="center"
+                android:textSize="36sp" />
 
             <TextView
                 android:id="@+id/nbQuestion"
-                android:textSize="45sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:textAlignment="center"
-                android:layout_weight="1" />
+                android:textSize="36sp" />
         </LinearLayout>
 
 
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:textAlignment="center"
             android:layout_gravity="center">
 
 
             <TextView
                 android:id="@+id/calcul"
-                android:textSize="35sp"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:textAlignment="center"
-
-               />
-
-            <TextView
-                android:id="@+id/reponse"
-                android:textSize="35sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
-                android:layout_weight="1"
-               />
+                android:textSize="30sp"
 
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/reponse1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/reponse2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+                <TextView
+                    android:id="@+id/reponse3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.9"
+                app:srcCompat="@drawable/frise" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/Acceuil"
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             />
-        <Button
-            android:id="@+id/nextQuest"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Question suivante" />
-
+            android:orientation="vertical"
+            android:layout_gravity="center">
+            <Button
+                android:id="@+id/Acceuil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+            <Button
+                android:id="@+id/nextQuest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Question suivante" />
+        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

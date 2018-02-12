@@ -1,6 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -74,7 +75,9 @@ public class ExoMath1Resultat extends AppCompatActivity {
         final TextView nbQuest = (TextView) findViewById(R.id.nbQuestion);
         final Button acceuil = (Button) findViewById(R.id.Acceuil);
         final TextView numQuCorrig = (TextView) findViewById(R.id.calcul);
-        final TextView reponse = (TextView) findViewById(R.id.reponse);
+        final TextView reponse1 = (TextView) findViewById(R.id.reponse1);
+        final TextView reponse2 = (TextView) findViewById(R.id.reponse2);
+        final TextView reponse3 = (TextView) findViewById(R.id.reponse3);
         final Button nextQuest = (Button) findViewById(R.id.nextQuest);
         final TextView score = (TextView) findViewById(R.id.Score);
         final TextView slash = (TextView) findViewById(R.id.slash);
@@ -82,14 +85,15 @@ public class ExoMath1Resultat extends AppCompatActivity {
         acceuil.setText("Acceuil");
         nextQuest.setText("Voir la correction");
 
+        // La réponse est afiché en vert pour plus de visiblité
+        reponse2.setTextColor(Color.GREEN);
+
         // calcul du score de l'élève :
         for(boolean b : reponseJuste){
             if(b){
-
                 bonneRep++;
             }
         }
-
         nbRep.setText(""+bonneRep);
         nbQuest.setText(""+reponseJuste.length);
 
@@ -103,28 +107,34 @@ public class ExoMath1Resultat extends AppCompatActivity {
                         numQuestCorr ++;
                         if(reponseJuste[0]){
                             score.setText("VRAI");
-                            reponse.setVisibility(View.INVISIBLE);
+                            reponse2.setVisibility(View.INVISIBLE);
+                            reponse1.setVisibility(View.INVISIBLE);
+                            reponse3.setVisibility(View.INVISIBLE);
                         }else{
                             score.setText("FAUX");
-                            reponse.setVisibility(View.VISIBLE);
-                            reponse.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]));
+                            reponse2.setVisibility(View.VISIBLE);
+                            reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
                         }
                         acceuil.setVisibility(View.INVISIBLE);
                         nextQuest.setText("Correction suivante");
                         slash.setText("Question "+ (numQuestCorr) + " : ");
                         numQuCorrig.setText(exoMath.getCalculEnonce().get(0) + " = " + exoMath.getResultats()[0]);
-
                     }
-
                     if (numQuestCorr > -1 && numQuestCorr < reponseJuste.length +1) {
                         numQuestCorr ++;
                         if(reponseJuste[numQuestCorr-1]){
                             score.setText("VRAI");
-                            reponse.setVisibility(View.INVISIBLE);
+                            reponse2.setVisibility(View.INVISIBLE);
+                            reponse1.setVisibility(View.INVISIBLE);
+                            reponse3.setVisibility(View.INVISIBLE);
                         }else{
                             score.setText("FAUX");
-                            reponse.setVisibility(View.VISIBLE);
-                            reponse.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]));
+                            reponse2.setVisibility(View.VISIBLE);
+                            reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]).get(0));
+                            reponse1.setVisibility(View.VISIBLE);
+                            reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]).get(1));
+                            reponse3.setVisibility(View.VISIBLE);
+                            reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]).get(2));
                         }
                         slash.setText("Question "+ (numQuestCorr) + " : ");
                         numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr-1)+ " = " + exoMath.getResultats()[numQuestCorr-1]);
@@ -139,14 +149,10 @@ public class ExoMath1Resultat extends AppCompatActivity {
                             public void onClick(View v) {
                                 Intent intent2 = new Intent( ExoMath1Resultat.this ,MenuActivity.class);
                                 startActivity(intent2);
-
                             }
-
                         });
                     }
-
                 }
-
             });
 
 
@@ -162,48 +168,73 @@ public class ExoMath1Resultat extends AppCompatActivity {
                 }
             });
         }
-
     }
+        // on renvoi une array list de String, la premiere valeurs correspond à la réponse,
+        // la deuxieme à l'expression de gauche, la derniere à la droite de l'expression.
+    private ArrayList<String> correction(ArrayList<Integer> bornes, int resultat){
 
-    private String correction(ArrayList<Integer> bornes, int resultat){
+        ArrayList<String> rep = new  ArrayList<>();
 
             if(bornes.size() == 1){
                 if(resultat< bornes.get(0)){
-                    return " _ " +resultat + " _ < _ " + bornes.get(0) + " _ ";
+                    rep.add("" + resultat);
+                    rep.add("");
+                    rep.add( " _ < _ " + bornes.get(0));
+                    return rep;
                 }
                 else{
-                    return " _ " +bornes.get(0) + " _ < _ " + resultat + " _ ";
+                    rep.add("" + resultat);
+                    rep.add(" _ " +bornes.get(0) + " _ < _ " );
+                    rep.add("");
+                    return rep;
                 }
             }
-
-
             if(bornes.size() == 2){
                 if(resultat < bornes.get(0)){
-                    return " _ " +resultat + " < " + bornes.get(0) + " < " + bornes.get(1) + " _";
+                    rep.add(""  +resultat);
+                    rep.add("");
+                    rep.add( " < " + bornes.get(0) + " < " + bornes.get(1));
+
+                    return rep ;
                 }
                 if(resultat > bornes.get(1)){
-                    return " _ " +bornes.get(0) + " < " + bornes.get(1) + " < " + resultat + " _";
+                    rep.add("" +  resultat );
+                    rep.add(" _ " +bornes.get(0) + " < " + bornes.get(1) + " < " );
+                    rep.add("");
+                    return rep ;
                 }
-                return "_ " + bornes.get(0) + " < " + resultat + " < " + bornes.get(1) + " _";
+                rep.add( "" +  resultat );
+                rep.add("_ " + bornes.get(0) +" < " );
+                rep.add(" < " + bornes.get(1));
+                return rep;
             }
             if(bornes.size() == 3){
                 if(resultat < bornes.get(0)){
-                    return resultat + " < " + bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2);
+                    rep.add(""+ resultat);
+                    rep.add("");
+                    rep.add(" < " + bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2));
+                    return rep ;
                 }
                 if(resultat > bornes.get(2)){
-                    return   bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2) + " < " + resultat;
+                    rep.add("" +resultat);
+                    rep.add(bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2) + " < " );
+                    rep.add("");
+                    return  rep ;
                 }
                 if(resultat< bornes.get(1)){
-                    return bornes.get(0) + " < " + resultat + " < " + bornes.get(1) + " < " + bornes.get(2);
+                    rep.add( "" + resultat );
+                    rep.add(""+ bornes.get(0) +" < ");
+                    rep.add( " < " + bornes.get(1) + " < " + bornes.get(2));
+                    return rep ;
                 }
                 else{
-                    return  bornes.get(0) + " < " + bornes.get(1) + " < " + resultat + " < " + bornes.get(2);
+                    rep.add("" +resultat);
+                    rep.add( bornes.get(0) + " < " + bornes.get(1)+ " < " );
+                    rep.add(" < " + bornes.get(2));
+                    return rep;
                 }
             }
-
-
-
-        return "" + bornes.size();
+        return null;
     }
 
 
