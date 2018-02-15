@@ -88,10 +88,10 @@ public class MathExo1Activity extends AppCompatActivity
         /**
          * Déclaration des variables
          */
-        Button BonneRep = null;
         Button RepF1 = null;
         Button RepF2 = null;
         Button RepF3 = null;
+        Button RepF4 = null;
 
 
         /**
@@ -124,12 +124,21 @@ public class MathExo1Activity extends AppCompatActivity
         switch (exo.getParam().getNbBornes()) {
             case 3:
                 setContentView(R.layout.activity_math_exo1_3bornes);
+                RepF1 = findViewById(R.id.BtnRepA);
+                RepF2 = findViewById(R.id.BtnRepB);
+                RepF3 = findViewById(R.id.BtnRepC);
+                RepF4 = findViewById(R.id.BtnRepD);
                 break;
             case 2 :
                 setContentView(R.layout.activity_math_exo1_2bornes);
+                RepF1 = findViewById(R.id.BtnRepA);
+                RepF2 = findViewById(R.id.BtnRepB);
+                RepF3 = findViewById(R.id.BtnRepC);
                 break;
             case 1:
                 setContentView(R.layout.activity_math_exo1_1bornes);
+                RepF1 = findViewById(R.id.BtnRepA);
+                RepF2 = findViewById(R.id.BtnRepB);
                 break;
         }
 
@@ -142,7 +151,7 @@ public class MathExo1Activity extends AppCompatActivity
         /**
          *  Initialisation des bornes avec les valeurs de l'exercice
          */
-        switch (exo.getParam().getNbBornes())
+        switch (exo.getParam().getNbBornes()) //r1 b1 r2 b2 r3 b3 r4
         {
             case 3:
                 Log.w("case3", "case 3");
@@ -150,36 +159,13 @@ public class MathExo1Activity extends AppCompatActivity
                 final TextView Borne3 = findViewById(R.id.Borne3);
                 Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
 
-                if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0)){
+                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(2))
+                        RepF4.setOnClickListener(OCLBonneReponse);
+                else RepF4.setOnClickListener(OCLMauvaiseReponse);
 
-                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1)){
-
-                        if(exo.getResultats()[numQuestAct]>exo.getBornes().get(numQuestAct).get(2)){
-                            BonneRep = findViewById(R.id.BtnRepD);
-                            RepF1 = findViewById(R.id.BtnRepA);
-                            RepF2 = findViewById(R.id.BtnRepB);
-                            RepF3 = findViewById(R.id.BtnRepC);
-                        }
-                        else {
-                            BonneRep = findViewById(R.id.BtnRepC);
-                            RepF1 = findViewById(R.id.BtnRepA);
-                            RepF2 = findViewById(R.id.BtnRepB);
-                            RepF3 = findViewById(R.id.BtnRepD);
-                        }
-                    }
-                    else {
-                        BonneRep = findViewById(R.id.BtnRepB);
-                        RepF1 = findViewById(R.id.BtnRepA);
-                        RepF2 = findViewById((R.id.BtnRepC));
-                        RepF3 = findViewById((R.id.BtnRepD));
-                    }
-                }
-                else {
-                    BonneRep = findViewById(R.id.BtnRepA);
-                    RepF1 = findViewById(R.id.BtnRepB);
-                    RepF2 = findViewById((R.id.BtnRepC));
-                    RepF3 = findViewById((R.id.BtnRepD));
-                }
+                if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(2) && exo.getParam().getBorneSelectionnable())
+                    Borne3.setOnClickListener(OCLBonneReponse);
+                else Borne3.setOnClickListener(OCLMauvaiseReponse);
 
             case 2:
                 Log.w("case2", "case 2");
@@ -187,40 +173,32 @@ public class MathExo1Activity extends AppCompatActivity
                 final TextView Borne2 = findViewById(R.id.Borne2);
                 Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
 
-                if(BonneRep==null) {
-                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0)) {
+                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(2))
+                    RepF3.setOnClickListener(OCLBonneReponse);
+                else RepF3.setOnClickListener(OCLMauvaiseReponse);
 
-                        if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1)) {
-                            BonneRep = findViewById(R.id.BtnRepC);
-                            RepF1 = findViewById(R.id.BtnRepA);
-                            RepF2 = findViewById(R.id.BtnRepB);
-                        } else {
-                            BonneRep = findViewById(R.id.BtnRepB);
-                            RepF1 = findViewById(R.id.BtnRepA);
-                            RepF2 = findViewById((R.id.BtnRepC));
-                        }
-
-                    } else {
-                        BonneRep = findViewById(R.id.BtnRepA);
-                        RepF1 = findViewById(R.id.BtnRepB);
-                        RepF2 = findViewById((R.id.BtnRepC));
-                    }
-                }
+                if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(1) && exo.getParam().getBorneSelectionnable())
+                    Borne2.setOnClickListener(OCLBonneReponse);
+                else Borne2.setOnClickListener(OCLMauvaiseReponse);
 
             case 1:
                 Log.w("case1", "case 1");
 
                 final TextView Borne1 = findViewById(R.id.Borne1);
                 Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
-                if(BonneRep==null) {
-                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0)) {
-                        BonneRep = findViewById(R.id.BtnRepB);
-                        RepF1 = findViewById(R.id.BtnRepA);
-                    } else {
-                        BonneRep = findViewById(R.id.BtnRepA);
-                        RepF1 = findViewById(R.id.BtnRepB);
-                    }
-                }
+
+                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(1))
+                    RepF2.setOnClickListener(OCLBonneReponse);
+                else RepF2.setOnClickListener(OCLMauvaiseReponse);
+
+                if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(0) && exo.getParam().getBorneSelectionnable())
+                    Borne1.setOnClickListener(OCLBonneReponse);
+                else Borne1.setOnClickListener(OCLMauvaiseReponse);
+
+                if(exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(0))
+                    RepF1.setOnClickListener(OCLBonneReponse);
+                else RepF1.setOnClickListener(OCLMauvaiseReponse);
+
                 break;
         }
 
@@ -326,23 +304,5 @@ public class MathExo1Activity extends AppCompatActivity
                 }
             }
         }.start();
-
-
-        /**
-         *  Initialisation des OnClickListener des boutons
-         */
-        switch (exo.getParam().getNbBornes())
-        {
-            case 3:
-                RepF3.setOnClickListener(OCLMauvaiseReponse);
-
-            case 2 :
-                RepF2.setOnClickListener(OCLMauvaiseReponse);
-
-            case 1 :
-                BonneRep.setOnClickListener(OCLBonneReponse);
-                RepF1.setOnClickListener(OCLMauvaiseReponse);
-                break;
-        }
     }
 }

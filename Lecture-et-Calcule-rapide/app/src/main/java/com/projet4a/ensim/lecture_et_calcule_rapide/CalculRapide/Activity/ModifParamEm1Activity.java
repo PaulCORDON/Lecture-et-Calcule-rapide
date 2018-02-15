@@ -12,6 +12,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
+import android.widget.TextView;
+
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 import com.xw.repo.BubbleSeekBar;
@@ -28,6 +30,11 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
         /**EditText qui stocke le temps d'apparition de l'enonce ou des bornes*/
         final EditText TpsAvantDisp= findViewById(R.id.tempsAvantDisparition);
+        TpsAvantDisp.setVisibility(View.GONE);
+
+        /** TextView qui correspond au titre au dessus du editText pour rentrer le temps avant disparition*/
+        final TextView titreTpsAvDisp=  findViewById(R.id.TitreTempsAvantDisparition);
+        titreTpsAvDisp.setVisibility(View.GONE);
 
         /** seekBar qui stocke le nombre de bornes de la phrise */
         final BubbleSeekBar nbBornes=  findViewById(R.id.ChoixNbBornes);
@@ -44,6 +51,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
         /** Switch qui permet de savoir si le calcul disparait pendant le choix des reponses*/
         final Switch disparition=  findViewById(R.id.ChoixDisparitionCalcul);
+        disparition.setVisibility(View.GONE);
 
         /** Switch qui permet de savoir si le joueur peut choisir une borne en reponse*/
         final Switch bornesSelectionnables=  findViewById(R.id.ChoixBornesSelectionnables);
@@ -83,7 +91,43 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         disparition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TpsAvantDisp.setEnabled(disparition.isChecked());
+                if(disparition.isChecked()) {
+                    titreTpsAvDisp.setVisibility(View.VISIBLE);
+                    TpsAvantDisp.setVisibility(View.VISIBLE);
+                }
+                else{
+                    titreTpsAvDisp.setVisibility(View.GONE);
+                    TpsAvantDisp.setVisibility(View.GONE);
+                }
+            }
+        });
+
+        rb1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(rb1.isChecked()) {
+                    disparition.setVisibility(View.VISIBLE);
+
+                }
+                else {
+                    disparition.setVisibility(View.GONE);
+                }
+
+
+            }
+        });
+
+        rb2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(rb2.isChecked()) {
+                    disparition.setVisibility(View.VISIBLE);
+
+                }
+                else{
+                    disparition.setVisibility(View.GONE);
+
+                }
             }
         });
 
