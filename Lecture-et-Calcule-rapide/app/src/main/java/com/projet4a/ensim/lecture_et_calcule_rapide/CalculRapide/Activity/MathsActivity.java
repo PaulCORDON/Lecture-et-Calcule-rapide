@@ -42,25 +42,6 @@ public class MathsActivity extends AppCompatActivity {
 
     final  Button go = findViewById(R.id.goM);
 
-        /**
-         * image gif
-         *
-         * Bitmap b;
-         InputStream is = getResources().openRawResource(+R.drawable.raw);
-         b = BitmapFactory.decodeStream(is);
-
-         ImageView gifImageView = (ImageView) findViewById(R.id.GifImageView);
-         gifImageView.setImageBitmap(b);
-         *
-         *
-         */
-
-
-        @SuppressLint("WrongViewCast") GifImageView gifImageViewer = (GifImageView) findViewById(R.id.GifImageView);
-        if(Build.VERSION.SDK_INT>=11){
-            gifImageViewer.setLayerType(View.LAYER_TYPE_SOFTWARE,null);
-        }
-
 
 
         /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
