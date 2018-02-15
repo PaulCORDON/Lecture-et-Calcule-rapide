@@ -93,7 +93,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                      * mettre une valeur par defaut "2000"
                      */
                     if(tempsApparution.getText().toString().equals("") && !nbApp.getText().toString().equals("")){
-                       Long t = new Long(2000);
+                       Long t = new Long(3000);
                         param = new ParamEl1(nbEnonce.getProgress(),t,Integer.parseInt(nbApp.getText().toString()),multipleApparution.isChecked(),enonceDisparait.isChecked(), nombreApparition);
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait()+ "apparitions multiples:"+nombreApparition);
                     }
@@ -105,7 +105,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                     else if(nbApp.getText().toString().equals("") && !tempsApparution.getText().toString().equals("")){
 
                         Integer nb =10;
-                       param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString()),nb,multipleApparution.isChecked(),enonceDisparait.isChecked(), nombreApparition);
+                       param = new ParamEl1(nbEnonce.getProgress(),Long.parseLong(tempsApparution.getText().toString())*1000,nb,multipleApparution.isChecked(),enonceDisparait.isChecked(), nombreApparition);
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                     }
                     /**
@@ -116,7 +116,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                      */
                     else if(tempsApparution.getText().toString().equals("")&& nbApp.getText().toString().equals("")){
 
-                        Long t = new Long(2000);
+                        Long t = new Long(3000);
                         Integer nb =10;
                         param = new ParamEl1(nbEnonce.getProgress(),t,nb,multipleApparution.isChecked(),enonceDisparait.isChecked(), nombreApparition);
                         Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait()+ "apparitions multiples:"+nombreApparition);
@@ -127,7 +127,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                      */
                     else
                     {
-                        param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()), Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
+                        param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString())*1000, Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
                         /**
                          * test de fonctionnement avec les logs
                          */

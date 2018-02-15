@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:text="Temps d'apparition"
+                        android:text="Temps d'apparition (en secondes)"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"

@@ -84,6 +84,6 @@ public class ParamEl1 extends ParamLecture implements Serializable{
     public int getNbApparution() {return nbApparution;}
     public Boolean getMultipleApparution() {return multipleApparution;}
     public Boolean getEnonceDisparait() {return enonceDisparait;}
-    public int getNbAparitionSimultanee(){return 2;}
+    public int getNbAparitionSimultanee(){return nbAparitionSimultanee;}
 
 }
