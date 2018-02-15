@@ -86,10 +86,11 @@
 
                         app:bsb_section_count="2"
                         app:bsb_section_text_position="bottom_sides"
-                        app:bsb_show_progress_in_float="false"
                         app:bsb_show_section_mark="true"
-                        app:bsb_show_section_text="false"
-                        app:bsb_show_thumb_text="true"
+                        app:bsb_show_section_text="true"
+                        app:bsb_show_thumb_text="false"
+                        app:bsb_touch_to_seek="true"
+
                         />
 
                    <!-- <SeekBar
@@ -170,9 +171,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="20dp"
-                            android:layout_weight="1"
-                            android:text="Disparition du calcul"
+                            android:text="Disparition du calcul ou des bornes (selon le choix ci-dessus)"
                             android:textColor="@android:color/background_dark" />
+
 
                         <TextView
                             android:id="@+id/TitreTempsAvantDisparition"
@@ -238,7 +239,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:text="Bornes égales à la réponse"
+                        android:text="Bornes égales à un des opérandes"
                         android:textColor="@android:color/background_dark" />
 
                     <TextView
@@ -246,7 +247,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="Valeur maximale des bornes"
+                        android:text="Valeur maximale"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
