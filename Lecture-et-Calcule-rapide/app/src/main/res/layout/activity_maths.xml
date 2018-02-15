@@ -75,12 +75,12 @@
             </LinearLayout>
         </LinearLayout>
 
-        <ImageView
-            android:id="@+id/GifImageView"
-            android:layout_width="333dp"
-            android:layout_height="149dp"
-            android:orientation="horizontal"
-            app:srcCompat="@android:drawable/alert_light_frame" />
+
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:background="#000000"
+            android:src="@drawable/raw" />
 
     </LinearLayout>
 
