@@ -92,14 +92,17 @@ public class LectureExo1Activity extends AppCompatActivity {
         }
         try {
             exo =  new Exo1Lecture(param);
-            Log.d("On cree un EXo1Lecture","");
+            Log.d("Dans le try","On a cree un EXo1Lecture");
         } catch (FileNotFoundException e) {
+            Log.d("Dans le catch","On a pas réussi a cree un EXo1Lecture");
             e.printStackTrace();
         }
         Log.d("EXO 1 Lecture","Après la désérialisation");
 
 
         enonce.setText(exo.getEnonce());
+
+
         listeDesBoutons.add(rep1);
         listeDesBoutons.add(rep2);
         listeDesBoutons.add(rep3);
@@ -202,8 +205,17 @@ public class LectureExo1Activity extends AppCompatActivity {
                           */
                          Log.d("EXO 1 Lecture","on fais disparaitre le button si il n'a rien répondu");
                          for(Button b:listeDesBoutons){
-                             b.setVisibility(View.GONE);
+                             if(b.getVisibility()==View.VISIBLE){
+                                 if(!b.getText().equals(enonce.getText())){
+                                     nbBonneRep++;
+                                 }
+                                 else{
+                                     nbMauvaiseRep++;
+                                 }
+                                 b.setVisibility(View.GONE);
+                             }
                          }
+                         
                          /**
                           * boucle qui remplie les apparitions
                           */
