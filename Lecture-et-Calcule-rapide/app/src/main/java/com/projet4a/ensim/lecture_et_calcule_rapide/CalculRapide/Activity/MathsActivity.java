@@ -3,21 +3,13 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
-
-import java.io.InputStream;
-
-import static com.projet4a.ensim.lecture_et_calcule_rapide.R.id.GifImageView;
 
 public class MathsActivity extends AppCompatActivity {
 
