@@ -192,21 +192,21 @@ public class LectureExo1Activity extends AppCompatActivity {
         timeBar =findViewById(R.id.progressBar);
         timeBar.setMax((int)(param.getTempsApparution()+0));
 
-            final CountDownTimer timer = new CountDownTimer(tempsTotal,param.getTempsApparution())
+            final CountDownTimer timer = new CountDownTimer(tempsTotal+100,param.getTempsApparution())
             {
                 @Override
                 public void onTick(long l) {
                     final CountDownTimer t = new CountDownTimer(param.getTempsApparution(),100) {
                         @Override
                         public void onTick(long m) {
-                            Log.i("time",m+"");
-                            Log.i("temps app -m",param.getTempsApparution()-m+"");
                             timeBar.setProgress((int)(param.getTempsApparution()-m));
                         }
 
                         @Override
                         public void onFinish() {
-
+                            if(param.getEnonceDisparait()){
+                                enonce.setVisibility(View.INVISIBLE);
+                            }
                         }
                     }.start();
 
@@ -216,7 +216,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                     Log.d("Nb app courrent",""+nbAppCourent);
                      if (nbAppCourent>=param.getNbApparution()){
                          Log.d("EXO 1 Lecture","l'exo va finir");
-                         rendreInvisibleEtVerifierLesBoutonsNonSelectionnes();
+
                          this.cancel();
                          this.onFinish();
                      }
@@ -241,6 +241,8 @@ public class LectureExo1Activity extends AppCompatActivity {
                 @Override
                 public void onFinish()
                 {
+                    rendreInvisibleEtVerifierLesBoutonsNonSelectionnes();
+                    
                     Log.d("NB BONNE REP",""+nbBonneRep);
                     Log.d("NB MAUVAISE REP",""+nbMauvaiseRep);
                     float score = calculerScore();
