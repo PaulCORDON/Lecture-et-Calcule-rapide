@@ -43,10 +43,10 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final EditText nbQuestions=  findViewById(R.id.ChoixNbQuestions);
 
         /** radioButton qui permet de savoir si on affiche le calcul avant la reponse */
-        final RadioButton rb1= findViewById(R.id.ChoixCalculAvantRep);
+        final CheckBox rb1= findViewById(R.id.ChoixCalculAvantRep);
 
         /** radioButton qui permet de savoir si on affiche le choix des reponses avant le calcul, rb1 et rb2 ne peuvent pas etre vrai en meme temps*/
-        final RadioButton rb2=findViewById(R.id.ChoixRepAvantCalcul);
+        final CheckBox rb2=findViewById(R.id.ChoixRepAvantCalcul);
 
 
         /** Switch qui permet de savoir si le calcul disparait pendant le choix des reponses*/
@@ -107,6 +107,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if(rb1.isChecked()) {
                     disparition.setVisibility(View.VISIBLE);
+                    rb2.setChecked(false);
 
                 }
                 else {
@@ -122,6 +123,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             public void onClick(View view) {
                 if(rb2.isChecked()) {
                     disparition.setVisibility(View.VISIBLE);
+                    rb1.setChecked(false);
 
                 }
                 else{
