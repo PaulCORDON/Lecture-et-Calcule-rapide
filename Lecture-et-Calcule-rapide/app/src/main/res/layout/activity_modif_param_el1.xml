@@ -116,6 +116,26 @@
                         android:text="Faire apparaitre plusieurs propositions à la fois"
                         android:textColor="@android:color/background_dark" />
 
+                    <com.xw.repo.BubbleSeekBar
+                        android:id="@+id/NbPropositions"
+                        style="@style/Widget.AppCompat.SeekBar.Discrete"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+
+                        app:bsb_bubble_text_color="@color/colorPrimaryDark"
+                        app:bsb_max="5"
+                        app:bsb_min="1"
+
+                        app:bsb_section_count="4"
+                        app:bsb_section_text_position="bottom_sides"
+                        app:bsb_show_section_mark="true"
+                        app:bsb_show_section_text="true"
+                        app:bsb_show_thumb_text="false"
+                        app:bsb_touch_to_seek="true"
+
+                        />
+
                     <Switch
                         android:id="@+id/BtnApparutionEnonce"
                         android:layout_width="match_parent"
