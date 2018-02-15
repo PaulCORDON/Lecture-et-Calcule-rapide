@@ -173,9 +173,16 @@ public class MathExo1Activity extends AppCompatActivity
                 final TextView Borne2 = findViewById(R.id.Borne2);
                 Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
 
-                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(2))
-                    RepF3.setOnClickListener(OCLBonneReponse);
-                else RepF3.setOnClickListener(OCLMauvaiseReponse);
+                if(exo.getParam().getNbBornes()==2) {
+                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1))
+                        RepF3.setOnClickListener(OCLBonneReponse);
+                    else RepF3.setOnClickListener(OCLMauvaiseReponse);
+                }
+                else{
+                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(2))
+                        RepF3.setOnClickListener(OCLBonneReponse);
+                    else RepF3.setOnClickListener(OCLMauvaiseReponse);
+                }
 
                 if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(1) && exo.getParam().getBorneSelectionnable())
                     Borne2.setOnClickListener(OCLBonneReponse);
@@ -187,9 +194,17 @@ public class MathExo1Activity extends AppCompatActivity
                 final TextView Borne1 = findViewById(R.id.Borne1);
                 Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
 
-                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0))
-                    RepF2.setOnClickListener(OCLBonneReponse);
-                else RepF2.setOnClickListener(OCLMauvaiseReponse);
+                if(exo.getParam().getNbBornes()==1){
+                    if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0))
+                        RepF2.setOnClickListener(OCLBonneReponse);
+                    else RepF2.setOnClickListener(OCLMauvaiseReponse);
+                }
+                else {
+                    if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(1))
+                        RepF2.setOnClickListener(OCLBonneReponse);
+                    else RepF2.setOnClickListener(OCLMauvaiseReponse);
+                }
+
 
                 if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(0) && exo.getParam().getBorneSelectionnable())
                     Borne1.setOnClickListener(OCLBonneReponse);
