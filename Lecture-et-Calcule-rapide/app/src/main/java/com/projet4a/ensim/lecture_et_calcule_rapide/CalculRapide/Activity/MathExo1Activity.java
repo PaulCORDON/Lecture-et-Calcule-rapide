@@ -187,7 +187,7 @@ public class MathExo1Activity extends AppCompatActivity
                 final TextView Borne1 = findViewById(R.id.Borne1);
                 Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
 
-                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(1))
+                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0))
                     RepF2.setOnClickListener(OCLBonneReponse);
                 else RepF2.setOnClickListener(OCLMauvaiseReponse);
 
