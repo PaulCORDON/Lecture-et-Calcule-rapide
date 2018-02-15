@@ -43,8 +43,12 @@
         <activity
             android:name=".LectureRapide.Activity.ModifParamEl1Activity"
             android:screenOrientation="landscape" />
-        <activity android:name=".CalculRapide.Activity.ExoMath1Resultat"
-            android:screenOrientation="landscape" />/>
+        <activity
+            android:name=".CalculRapide.Activity.ExoMath1Resultat"
+            android:screenOrientation="landscape" />
+        />
+        <activity android:name=".CalculRapide.Activity.MathExo2Activity"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>
