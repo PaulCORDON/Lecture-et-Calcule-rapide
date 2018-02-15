@@ -31,7 +31,7 @@ public class Exo1Lecture {
     /**
      * On instancie la classe ParamEl1 pour pouvoir charger les paramètres.
      */
-    ParamEl1 paramEl1;//TODO serialisation des paramètres pour les passées en paramètre du constructeur.
+    ParamEl1 paramEl1;
 
 
     public String getEnonce() {
@@ -48,9 +48,10 @@ public class Exo1Lecture {
      * Elle charge les paramètres et génere l'énoncé ainsi que le tableau des apparition.
      */
     public Exo1Lecture(ParamEl1 param) throws FileNotFoundException {
+        Log.d("Exo1Lecture","On est dans le constructeur");
         paramEl1=param;
-        enonce=genererEnonce();
         apparition=genererApparition();
+        enonce=genererEnonce();
 
     }
 
@@ -61,21 +62,25 @@ public class Exo1Lecture {
     private ArrayList<String> genererApparition() throws FileNotFoundException {
         //TODO Il peut il y avoir des beugs avec les indices qui peuvent sortir du tableau
 
+        ArrayList<String> enonc = new ArrayList<>();
+        enonc.add("cha");
+        enonc.add("chat");
+        enonc.add("cat");
+        enonc.add("caht");
 
-
-        ParseDB parseDB = new ParseDB("database.txt");
+        /*ParseDB parseDB = new ParseDB("C:\\Users\\paul cordon\\Documents\\GitHubLectureEtCalculeRapide\\Lecture-et-Calcule-rapide\\app\\src\\main\\res\\data.txt");
         parseDB.execute();
-        /* on tire un chiffre aléatoire pour savoir ou on commence a tirer les mots */
+         on tire un chiffre aléatoire pour savoir ou on commence a tirer les mots
         int index = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(parseDB.listMot.size());
         ArrayList<String> enonc = new ArrayList<>();
-        /*  on rempli l'enoncé partir d'un nombre aléatoire*/
+          on rempli l'enoncé partir d'un nombre aléatoire
         for (int i =index; i<index+6 ; i++ ) {
             if (i< parseDB.listMot.size()) {
                 enonc.add(parseDB.listMot.get(i));
                 Log.d("parse", "le mot est : " + enonc.get(i));
             }
 
-        }
+        }*/
         return enonc;
     }
 
@@ -84,6 +89,6 @@ public class Exo1Lecture {
      * @return Enoncé de l'exercice qui sera afficher en haut de l'écran
      */
     private String genererEnonce() {
-        return "CHAT";
+        return apparition.get(0);
     }
 }
