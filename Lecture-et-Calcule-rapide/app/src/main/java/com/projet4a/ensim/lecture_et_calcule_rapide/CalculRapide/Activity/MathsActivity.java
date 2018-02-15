@@ -46,7 +46,7 @@ public class MathsActivity extends AppCompatActivity {
                 descriptionM = (TextView) findViewById(R.id.descriptionM);
 
 
-                descriptionM.setText("Exercice 1 de Lecture !!!!! ");
+                descriptionM.setText("Exercice 1 de Maths !!!!! ");
 
 
 
@@ -66,7 +66,7 @@ public class MathsActivity extends AppCompatActivity {
                 descriptionM = (TextView) findViewById(R.id.descriptionM);
 
 
-                descriptionM.setText("Exercice 2 de Lecture !!!!! ");
+                descriptionM.setText("Exercice 2 de Maths !!!!! ");
 
 
 
@@ -85,7 +85,7 @@ public class MathsActivity extends AppCompatActivity {
                 descriptionM = (TextView) findViewById(R.id.descriptionM);
 
 
-                descriptionM.setText("Exercice 3 de Lecture !!!!! ");
+                descriptionM.setText("Exercice 3 de Maths !!!!! ");
 
 
             }

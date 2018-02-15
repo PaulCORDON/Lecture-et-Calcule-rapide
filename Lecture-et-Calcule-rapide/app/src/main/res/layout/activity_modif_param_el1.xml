@@ -55,15 +55,26 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <SeekBar
+
+                    <com.xw.repo.BubbleSeekBar
                         android:id="@+id/seekNbEnonce"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:max="2"
-                        android:progress="0"
-                        android:layout_marginBottom="20dp"/>
+                        android:layout_marginBottom="20dp"
+
+                        app:bsb_bubble_text_color="@color/colorPrimaryDark"
+                        app:bsb_max="3"
+                        app:bsb_min="1"
+
+                        app:bsb_section_count="2"
+                        app:bsb_section_text_position="bottom_sides"
+                        app:bsb_show_section_mark="true"
+                        app:bsb_show_section_text="true"
+                        app:bsb_show_thumb_text="false"
+                        app:bsb_touch_to_seek="true"
+
+                        />
 
                     <TextView
                         android:id="@+id/textView5"
