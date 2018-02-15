@@ -196,6 +196,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                     Log.d("Nb app courrent",""+nbAppCourent);
                      if (nbAppCourent>=param.getNbApparution()){
                          Log.d("EXO 1 Lecture","l'exo va finir");
+                         rendreInvisibleEtVerifierLesBoutonsNonSelectionnes();
                          this.cancel();
                          this.onFinish();
                      }
@@ -204,23 +205,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                           * boucle qui ferme les apparitions non répondu
                           */
                          Log.d("EXO 1 Lecture","on fais disparaitre le button si il n'a rien répondu");
-                         for(Button b:listeDesBoutons){
-                             /**
-                              * Pour chaque boutons que l'élève n'aura pas cliquer, on regarde le texte qu'il conteint
-                              */
-                             if(b.getVisibility()==View.VISIBLE){
-                                 /**
-                                  * Si le texte est diférent de l'énoncé c'est une bonne réponce sinon c'est une fausse
-                                  */
-                                 if(!b.getText().equals(enonce.getText())){
-                                     nbBonneRep++;
-                                 }
-                                 else{
-                                     nbMauvaiseRep++;
-                                 }
-                                 b.setVisibility(View.GONE);
-                             }
-                         }
+                         rendreInvisibleEtVerifierLesBoutonsNonSelectionnes();
 
                          /**
                           * boucle qui remplie les apparitions
@@ -343,11 +328,34 @@ public class LectureExo1Activity extends AppCompatActivity {
        int score;
        Log.d("Calcul du score ","je calcul");
        if(nbBonneRep+nbMauvaiseRep!=0&&nbAppDeEnonce>0){
-           score=((nbBonneRep/nbAppDeEnonce)/(nbBonneRep+nbMauvaiseRep))*100;
+           score=(nbBonneRep/nbAppCourent)*100;
        }
        else{
            score=0;
        }
        return score;
+    }
+
+    /**
+     * methode qui ferme les apparitions non répondu
+     */
+    private void rendreInvisibleEtVerifierLesBoutonsNonSelectionnes() {
+        Log.d("EXO 1 Lecture", "on fais disparaitre le button si il n'a rien répondu");
+        for (Button b : listeDesBoutons) {
+            /**
+             * Pour chaque boutons que l'élève n'aura pas cliquer, on regarde le texte qu'il conteint
+             */
+            if (b.getVisibility() == View.VISIBLE) {
+                /**
+                 * Si le texte est diférent de l'énoncé c'est une bonne réponce sinon c'est une fausse
+                 */
+                if (!b.getText().equals(enonce.getText())) {
+                    nbBonneRep++;
+                } else {
+                    nbMauvaiseRep++;
+                }
+                b.setVisibility(View.GONE);
+            }
+        }
     }
 }
