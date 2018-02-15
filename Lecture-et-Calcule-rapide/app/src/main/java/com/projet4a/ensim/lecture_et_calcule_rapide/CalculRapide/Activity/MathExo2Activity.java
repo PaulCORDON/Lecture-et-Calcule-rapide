@@ -16,6 +16,6 @@ public class MathExo2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_math_exo2);
+        setContentView(R.layout.activity_math_exo2_pave_numerique);
     }
 }
