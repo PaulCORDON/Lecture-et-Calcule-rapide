@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
@@ -54,6 +55,8 @@ public class MathExo1Activity extends AppCompatActivity
      * timer
      */
     private CountDownTimer timer;
+
+    private ProgressBar progress;
 
     /**
      * OnClickListeners permettant d'enregistrer si l'élève a eu bon ou pas, d'arreter le timer et de passer à la question suivante
@@ -217,13 +220,19 @@ public class MathExo1Activity extends AppCompatActivity
                 break;
         }
 
+        final long tempsTotal = exo.getParam().getTempsRep()+exo.getParam().getTempsRestantApparant();
+
+        progress = (ProgressBar)findViewById(R.id.progressBar1);
+        progress.setMax((int)tempsTotal);
+
         /**
          * Définition des actions du timer
          */
-        timer = new CountDownTimer(exo.getParam().getTempsRep()+exo.getParam().getTempsRestantApparant(),500)
+        timer = new CountDownTimer(tempsTotal,500)
         {
             @Override
             public void onTick(long l) {
+                progress.setProgress(((int) tempsTotal)-((int)l));
                 if(exo.getParam().getDisparition()){
                     Log.w("ordre apparition","ordre"+exo.getParam().getOrdreApparition());
                     if(exo.getParam().getOrdreApparition()){
