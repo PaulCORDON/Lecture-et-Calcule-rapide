@@ -205,7 +205,13 @@ public class LectureExo1Activity extends AppCompatActivity {
                           */
                          Log.d("EXO 1 Lecture","on fais disparaitre le button si il n'a rien répondu");
                          for(Button b:listeDesBoutons){
+                             /**
+                              * Pour chaque boutons que l'élève n'aura pas cliquer, on regarde le texte qu'il conteint
+                              */
                              if(b.getVisibility()==View.VISIBLE){
+                                 /**
+                                  * Si le texte est diférent de l'énoncé c'est une bonne réponce sinon c'est une fausse
+                                  */
                                  if(!b.getText().equals(enonce.getText())){
                                      nbBonneRep++;
                                  }
@@ -215,7 +221,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                                  b.setVisibility(View.GONE);
                              }
                          }
-                         
+
                          /**
                           * boucle qui remplie les apparitions
                           */
@@ -230,8 +236,8 @@ public class LectureExo1Activity extends AppCompatActivity {
                 @Override
                 public void onFinish()
                 {
-                    Log.d("Nb bonne rep",""+nbBonneRep);
-                    Log.d("Nb mauvaise rep",""+nbMauvaiseRep);
+                    Log.d("NB BONNE REP",""+nbBonneRep);
+                    Log.d("NB MAUVAISE REP",""+nbMauvaiseRep);
                     float score = calculerScore();
                     Log.d("SCORE",""+score);
 
