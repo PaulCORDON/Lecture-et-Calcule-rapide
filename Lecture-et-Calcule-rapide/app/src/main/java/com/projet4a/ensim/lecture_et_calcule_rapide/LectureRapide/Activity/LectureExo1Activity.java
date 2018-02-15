@@ -1,6 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.Exo1Lecture;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1;
+import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.io.FileInputStream;
@@ -228,6 +230,11 @@ public class LectureExo1Activity extends AppCompatActivity {
                     Log.d("NB MAUVAISE REP",""+nbMauvaiseRep);
                     float score = calculerScore();
                     Log.d("SCORE",""+score);
+
+                    Intent intent = new Intent( LectureExo1Activity.this ,ExoLecture1Resultat.class);
+                    intent.putExtra("nbBonneRep",nbBonneRep);
+                    intent.putExtra("nbAppCourent",nbAppCourent);
+                    startActivity(intent);
 
                 }
             }.start();
