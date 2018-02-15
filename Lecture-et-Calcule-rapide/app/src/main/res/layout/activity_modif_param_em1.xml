@@ -132,12 +132,7 @@
                         android:inputType="number"
                         />
 
-                    <RadioGroup
-                        android:id="@+id/GroupRadiobutton"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        android:gravity="center">
+
 
                         <TextView
                             android:id="@+id/TitreOrdreApparition"
@@ -151,20 +146,33 @@
                             android:textSize="20sp"
                             android:textStyle="bold" />
 
-                        <RadioButton
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="120dp"
+                        android:layout_marginBottom="20dp"
+                        >
+
+                        <CheckBox
                             android:id="@+id/ChoixCalculAvantRep"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
                             android:text="Calcul avant réponses"
-                            android:textAlignment="viewStart" />
+                            android:gravity="center"/>
 
-                        <RadioButton
+                        <CheckBox
                             android:id="@+id/ChoixRepAvantCalcul"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Bornes avant calcul" />
+                            android:text="Bornes avant calcul"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+
+
 
                         <Switch
                             android:id="@+id/ChoixDisparitionCalcul"
@@ -196,7 +204,7 @@
                             android:inputType="number"
                             android:textColor="@android:color/background_dark" />
 
-                    </RadioGroup>
+
 
                     <TextView
                         android:id="@+id/TitreTempsReponse"
