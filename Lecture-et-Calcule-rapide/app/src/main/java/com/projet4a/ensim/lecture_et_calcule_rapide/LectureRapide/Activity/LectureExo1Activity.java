@@ -2,7 +2,6 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.Exo1Lecture;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.ParamEl1;
-import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.io.FileInputStream;
@@ -63,6 +61,7 @@ public class LectureExo1Activity extends AppCompatActivity {
     Button rep9;
     Button rep10;
     ProgressBar scoreBar;
+    ProgressBar timeBar;
     ArrayList<Button> listeDesBoutons =new ArrayList<>();
     TextView enonce;
     ArrayList<Integer> idDesBoutonsDesApparitions = new ArrayList<>();
@@ -189,12 +188,28 @@ public class LectureExo1Activity extends AppCompatActivity {
                 rendreInvisible(rep10);
             }
         });
+        final long tempsTotal =(param.getTempsApparution()*param.getNbApparution())/param.getNbAparitionSimultanee();
+        timeBar =findViewById(R.id.progressBar);
+        timeBar.setMax((int)(param.getTempsApparution()+0));
 
-
-            final CountDownTimer timer = new CountDownTimer(3600000,param.getTempsApparution())
+            final CountDownTimer timer = new CountDownTimer(tempsTotal,param.getTempsApparution())
             {
                 @Override
                 public void onTick(long l) {
+                    final CountDownTimer t = new CountDownTimer(param.getTempsApparution(),100) {
+                        @Override
+                        public void onTick(long m) {
+                            Log.i("time",m+"");
+                            Log.i("temps app -m",param.getTempsApparution()-m+"");
+                            timeBar.setProgress((int)(param.getTempsApparution()-m));
+                        }
+
+                        @Override
+                        public void onFinish() {
+
+                        }
+                    }.start();
+
                     Log.d("EXO 1 Lecture","dans le on tick");
                     Log.d("Nb bonne rep",""+nbBonneRep);
                     Log.d("Nb mauvaise rep",""+nbMauvaiseRep);
