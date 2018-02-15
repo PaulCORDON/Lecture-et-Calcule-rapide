@@ -1,5 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +33,7 @@ public class MathsActivity extends AppCompatActivity {
     /*creation bouton goM */
 
     final  Button go = findViewById(R.id.goM);
+
 
 
         /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
