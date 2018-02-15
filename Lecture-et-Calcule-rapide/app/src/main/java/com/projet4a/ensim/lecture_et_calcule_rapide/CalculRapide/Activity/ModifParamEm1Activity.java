@@ -11,13 +11,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.SeekBar;
 import android.widget.Switch;
-import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
-import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
-import com.projet4a.ensim.lecture_et_calcule_rapide.R;
+import android.widget.TextView;
 
-import java.io.File;
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
+import com.projet4a.ensim.lecture_et_calcule_rapide.R;
+import com.xw.repo.BubbleSeekBar;
+
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
@@ -28,11 +28,19 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modif_param_em1);
 
-        /** seekBar qui stocke le nombre de bornes de la phrise */
-        final SeekBar nbBornes=  findViewById(R.id.ChoixNbBornes);
+        /**EditText qui stocke le temps d'apparition de l'enonce ou des bornes*/
+        final EditText TpsAvantDisp= findViewById(R.id.tempsAvantDisparition);
+        TpsAvantDisp.setVisibility(View.GONE);
 
-        /** seekBar qui stocke le nombre de questions de l'exercice */
-        final SeekBar nbQuestions=  findViewById(R.id.ChoixNbQuestions);
+        /** TextView qui correspond au titre au dessus du editText pour rentrer le temps avant disparition*/
+        final TextView titreTpsAvDisp=  findViewById(R.id.TitreTempsAvantDisparition);
+        titreTpsAvDisp.setVisibility(View.GONE);
+
+        /** seekBar qui stocke le nombre de bornes de la phrise */
+        final BubbleSeekBar nbBornes=  findViewById(R.id.ChoixNbBornes);
+
+        /** EditText qui stocke le nombre de questions de l'exercice */
+        final EditText nbQuestions=  findViewById(R.id.ChoixNbQuestions);
 
         /** radioButton qui permet de savoir si on affiche le calcul avant la reponse */
         final RadioButton rb1= findViewById(R.id.ChoixCalculAvantRep);
@@ -40,20 +48,9 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /** radioButton qui permet de savoir si on affiche le choix des reponses avant le calcul, rb1 et rb2 ne peuvent pas etre vrai en meme temps*/
         final RadioButton rb2=findViewById(R.id.ChoixRepAvantCalcul);
 
-        /** Booleen qui est vrai si on affiche le calcul avant la reponse et faux si on affiches les reponses avant le calcul */
-        Boolean ordreApparition=true;
-        if(rb1.isChecked()){
-            ordreApparition=true;
-        }
-        if(rb2.isChecked()){
-            ordreApparition=false;
-        }
-
-        /** Booleen qui permet de stocker la valeur de ordreApparition en final */
-        final Boolean finalOrdreApparition = ordreApparition;
 
         /** Switch qui permet de savoir si le calcul disparait pendant le choix des reponses*/
-        final Switch disparitionCalcul=  findViewById(R.id.ChoixDisparitionCalcul);
+        final Switch disparition=  findViewById(R.id.ChoixDisparitionCalcul);
 
         /** Switch qui permet de savoir si le joueur peut choisir une borne en reponse*/
         final Switch bornesSelectionnables=  findViewById(R.id.ChoixBornesSelectionnables);
@@ -90,11 +87,44 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
         Button valider=  findViewById(R.id.BoutonValider);
 
+        disparition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(disparition.isChecked()) {
+                    titreTpsAvDisp.setVisibility(View.VISIBLE);
+                    TpsAvantDisp.setVisibility(View.VISIBLE);
+                }
+                else{
+                    titreTpsAvDisp.setVisibility(View.GONE);
+                    TpsAvantDisp.setVisibility(View.GONE);
+                }
+            }
+        });
+
 
         valider.setOnClickListener(new View.OnClickListener() {
             @Override
             /** si le bouton valider a ete cliqué on rentre dans cette methode*/
             public void onClick(View view) {
+
+                long tpsAvDisp;
+                int nbQuest;
+
+                if (!TpsAvantDisp.getText().toString().equals(""))tpsAvDisp=Long.parseLong(TpsAvantDisp.getText().toString())*1000;
+                else tpsAvDisp=5000;
+
+                if(!nbQuestions.getText().toString().equals(""))  nbQuest=Integer.parseInt(nbQuestions.getText().toString());
+                else nbQuest=5;
+
+
+                /** Booleen qui est vrai si on affiche le calcul avant la reponse et faux si on affiches les reponses avant le calcul */
+                Boolean ordreApparition=true;
+                if(rb1.isChecked()){
+                    ordreApparition=true;
+                }
+                if(rb2.isChecked()){
+                    ordreApparition=false;
+                }
 
                 /**on stocke les booleens correspondant aux operations dans le tableau*/
                 operateurs[0]=addition.isChecked();
@@ -108,20 +138,21 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                  * et on construit un nouvel objet param avec ces parametres
                  */
                 if(!tpsReponse.getText().toString().equals("") && !valMax.getText().toString().equals("")) {
-                    param = new ParamEm1(Long.parseLong(
-                            tpsReponse.getText().toString())*1000,
+                    param = new ParamEm1(
+                            Long.parseLong(tpsReponse.getText().toString())*1000,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
-                            finalOrdreApparition,
+                            nbBornes.getProgress(),
+                            nbQuest,
+                            disparition.isChecked(),
+                            tpsAvDisp,
+                            ordreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             Integer.parseInt(valMax.getText().toString()));
 
-                    Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                    Log.i("info", "tps avant disparition:"+param.getTempsRestantApparant()+"tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -131,16 +162,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             Long.parseLong(tpsReponse.getText().toString())*1000,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
-                            finalOrdreApparition,
+                            nbBornes.getProgress(),
+                            nbQuest,
+                            disparition.isChecked(),
+                            tpsAvDisp,
+                            ordreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             50);
 
-                    Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                    Log.i("info", "tps avant disparition:"+param.getTempsRestantApparant()+"tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -151,16 +183,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             tps,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
-                            finalOrdreApparition,
+                            nbBornes.getProgress(),
+                            nbQuest,
+                            disparition.isChecked(),
+                            tpsAvDisp,
+                            ordreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             Integer.parseInt(valMax.getText().toString()));
 
-                    Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                    Log.i("info", "tps avant disparition:"+param.getTempsRestantApparant()+"tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -172,16 +205,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             tps,
                             nbPairsOnly.isChecked(),
                             operateurs,
-                            nbBornes.getProgress()+1,
-                            nbQuestions.getProgress()+1,
-                            disparitionCalcul.isChecked(),
-                            finalOrdreApparition,
+                            nbBornes.getProgress(),
+                            nbQuest,
+                            disparition.isChecked(),
+                            tpsAvDisp,
+                            ordreApparition,
                             bornesSelectionnables.isChecked(),
                             bornesEgalesReps.isChecked(),
                             50);
 
-                    Log.i("info", "tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getCalculDisparait() + "\nordre apparition: " + param.getOrdreApparition() +
+                        Log.i("info", "tps avant disparition:"+param.getTempsRestantApparant()+"tps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
+                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
                 }
 
@@ -192,7 +226,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     outputStream = openFileOutput("ParamEm1.txt", Context.MODE_PRIVATE);
                     oos = new ObjectOutputStream(outputStream);
                     oos.writeObject(param);
-
 
                     oos.flush();
                     oos.close();

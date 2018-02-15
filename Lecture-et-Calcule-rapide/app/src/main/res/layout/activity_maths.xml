@@ -75,6 +75,13 @@
             </LinearLayout>
         </LinearLayout>
 
+        <ImageView
+            android:id="@+id/GifImageView"
+            android:layout_width="333dp"
+            android:layout_height="149dp"
+            android:orientation="horizontal"
+            app:srcCompat="@android:drawable/alert_light_frame" />
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
