@@ -1,10 +1,12 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model;
 
+import java.io.Serializable;
+
 /**
  * Created by Cordon Paul on 07/11/2017.
  */
 
-public class ParamEl1 extends ParamLecture{
+public class ParamEl1 extends ParamLecture implements Serializable{
 
     /**
      * Nombre de mots contenue dans l'émoncé
@@ -66,12 +68,13 @@ public class ParamEl1 extends ParamLecture{
      * @param enonceDisparait Vrai : L'énoncé disparaitra au bout d'un certain temps.
      *                        Faux : L'énoncé ne disparaitra pas.
      */
-    public ParamEl1(int nbEnonce,Long tempsApparution, int nbApparution,Boolean multipleApparution,Boolean enonceDisparait ){
+    public ParamEl1(int nbEnonce,Long tempsApparution, int nbApparution,Boolean multipleApparution,Boolean enonceDisparait,int nbAparitionSimultanee){
         this.enonceDisparait = enonceDisparait;
         this.multipleApparution = multipleApparution;
         this.nbApparution = nbApparution;
         this.tempsApparution = tempsApparution;
         this.nbEnonce = nbEnonce;
+        this.nbAparitionSimultanee=nbAparitionSimultanee;
 
     }
 
@@ -81,6 +84,6 @@ public class ParamEl1 extends ParamLecture{
     public int getNbApparution() {return nbApparution;}
     public Boolean getMultipleApparution() {return multipleApparution;}
     public Boolean getEnonceDisparait() {return enonceDisparait;}
-    public int getNbAparitionSimultanee(){return nbAparitionSimultanee;}
+    public int getNbAparitionSimultanee(){return 2;}
 
 }
