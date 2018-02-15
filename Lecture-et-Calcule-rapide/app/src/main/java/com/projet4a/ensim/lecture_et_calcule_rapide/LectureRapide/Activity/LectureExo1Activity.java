@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model.Exo1Lecture;
@@ -59,6 +60,7 @@ public class LectureExo1Activity extends AppCompatActivity {
     Button rep8;
     Button rep9;
     Button rep10;
+    ProgressBar scoreBar;
     ArrayList<Button> listeDesBoutons =new ArrayList<>();
     TextView enonce;
     ArrayList<Integer> idDesBoutonsDesApparitions = new ArrayList<>();
@@ -77,6 +79,7 @@ public class LectureExo1Activity extends AppCompatActivity {
         rep8=findViewById(R.id.Rep8);
         rep9=findViewById(R.id.Rep9);
         rep10=findViewById(R.id.Rep10);
+        scoreBar=findViewById(R.id.scoreBar);
         enonce=findViewById(R.id.EnonceLectureEx1);
 
         try {
@@ -302,12 +305,11 @@ public class LectureExo1Activity extends AppCompatActivity {
         if(b.getText().equals(enonce.getText())){
             Log.d("BONNE REP","");
             nbBonneRep++;
-            b.setBackgroundColor(Color.GREEN);
+            scoreBar.setProgress(nbBonneRep*(100/param.getNbApparution()));
         }
         else{
             Log.d("Mauvaise REP","");
             nbMauvaiseRep++;
-            b.setBackgroundColor(Color.RED);
         }
     }
 
@@ -317,7 +319,6 @@ public class LectureExo1Activity extends AppCompatActivity {
      */
     private void rendreInvisible(Button b){
         b.setVisibility(View.GONE);
-        b.setBackgroundColor(Color.WHITE);
     }
 
     /**
@@ -351,6 +352,8 @@ public class LectureExo1Activity extends AppCompatActivity {
                  */
                 if (!b.getText().equals(enonce.getText())) {
                     nbBonneRep++;
+                    scoreBar.setProgress(nbBonneRep*(100/param.getNbApparution()));
+
                 } else {
                     nbMauvaiseRep++;
                 }
