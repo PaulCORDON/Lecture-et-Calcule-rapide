@@ -16,6 +16,7 @@
         tools:ignore="MissingConstraints">
 
         <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/Gif"
             android:layout_width="match_parent"
             android:layout_height="193dp"
             android:background="#ffff"
@@ -74,7 +75,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Description de l'exercice \n Le but de l'exercice est de blblabla \n blabla" />
+                    android:text="Choisit l'exercice que tu veux faire.\nExercice 1 : Les Intervales\n Exercice 2 : Les tables de multiplications \n..." />
 
                 <Button
                     android:id="@+id/paramM"
