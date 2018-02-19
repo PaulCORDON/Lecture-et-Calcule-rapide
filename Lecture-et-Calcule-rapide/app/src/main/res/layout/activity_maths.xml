@@ -10,9 +10,10 @@
         android:layout_width="212dp"
         android:layout_height="303dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="8dp"
+        app:layout_constraintTop_toTopOf="parent"
         tools:ignore="MissingConstraints">
 
         <pl.droidsonroids.gif.GifImageView
@@ -20,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="193dp"
             android:background="#ffff"
-            android:src="@drawable/raw" />
+            android:src="@drawable/giphy" />
     </LinearLayout>
 
     <LinearLayout
@@ -75,7 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Choisit l'exercice que tu veux faire.\nExercice 1 : Les Intervales\n Exercice 2 : Les tables de multiplications \n..." />
+                    android:text="Choisit l'exercice que tu veux faire.\nExercice 1 : Les Intervales\nExercice 2 : Les tables de multiplications \n..." />
 
                 <Button
                     android:id="@+id/paramM"

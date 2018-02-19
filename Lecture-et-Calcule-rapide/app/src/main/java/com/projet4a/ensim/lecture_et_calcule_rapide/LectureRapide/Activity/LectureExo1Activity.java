@@ -1,6 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -277,6 +278,14 @@ public class LectureExo1Activity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.d("OnBackPressed","OnBackPressed Exo1Lecture");
+        LectureExo1Activity.this.finish();
+    }
+
 
 
     /**

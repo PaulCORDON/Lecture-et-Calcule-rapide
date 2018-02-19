@@ -316,4 +316,11 @@ public class MathExo1Activity extends AppCompatActivity {
             }
         }.start();
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("OnStop","OnStop Exo1Math");
+        this.finish();
+    }
 }
