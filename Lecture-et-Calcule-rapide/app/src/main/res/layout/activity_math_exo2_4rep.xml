@@ -28,44 +28,36 @@
 
 
         <Button
-            android:id="@+id/7"
+            android:id="@+id/R3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="10"
             android:layout_row="4"
-            android:text="7" />
+            android:text="rep3" />
 
         <Button
-            android:id="@+id/9"
+            android:id="@+id/R4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="12"
             android:layout_row="4"
-            android:text="9" />
+            android:text="rep4" />
 
         <Button
-            android:id="@+id/Validation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="12"
-            android:layout_row="5"
-            android:text="Valider" />
-
-        <Button
-            android:id="@+id/1"
+            android:id="@+id/R1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="10"
             android:layout_row="2"
-            android:text="1" />
+            android:text="rep1" />
 
         <Button
-            android:id="@+id/3"
+            android:id="@+id/R2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="12"
             android:layout_row="2"
-            android:text="3" />
+            android:text="rep2" />
 
         <EditText
             android:id="@+id/operande2"

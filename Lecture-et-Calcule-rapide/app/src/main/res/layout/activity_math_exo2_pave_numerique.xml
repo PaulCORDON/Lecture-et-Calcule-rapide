@@ -34,7 +34,7 @@
 
 
             <Button
-                android:id="@+id/8"
+                android:id="@+id/p8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="11"
@@ -42,7 +42,7 @@
                 android:text="8" />
 
             <Button
-                android:id="@+id/7"
+                android:id="@+id/p7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="10"
@@ -50,7 +50,7 @@
                 android:text="7" />
 
             <Button
-                android:id="@+id/9"
+                android:id="@+id/p9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="12"
@@ -66,7 +66,7 @@
                 android:text="Valider" />
 
             <Button
-                android:id="@+id/4"
+                android:id="@+id/p4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="10"
@@ -82,7 +82,7 @@
                 android:text="5" />
 
             <Button
-                android:id="@+id/6"
+                android:id="@+id/p6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="12"
@@ -90,7 +90,7 @@
                 android:text="6" />
 
             <Button
-                android:id="@+id/1"
+                android:id="@+id/p1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="10"
@@ -98,7 +98,7 @@
                 android:text="1" />
 
             <Button
-                android:id="@+id/2"
+                android:id="@+id/p2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="11"
@@ -106,7 +106,7 @@
                 android:text="2" />
 
             <Button
-                android:id="@+id/3"
+                android:id="@+id/p3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="12"
@@ -114,7 +114,7 @@
                 android:text="3" />
 
             <Button
-                android:id="@+id/0"
+                android:id="@+id/p0"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="11"
@@ -138,6 +138,14 @@
                 android:layout_column="0"
                 android:layout_row="1"
                 app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+            <Button
+                android:id="@+id/correction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="10"
+                android:layout_row="5"
+                android:text="corriger" />
 
         </GridLayout>
     </android.support.constraint.ConstraintLayout>
