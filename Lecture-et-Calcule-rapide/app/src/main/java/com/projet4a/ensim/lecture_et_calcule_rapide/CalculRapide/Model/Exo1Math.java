@@ -118,6 +118,9 @@ public class Exo1Math extends Exercice implements Serializable
                     calculEnonce.add("" + operandes[0] + " x " + operandes[1]);
                     break;
                 case 3 :
+                    int swap = resultats[a];
+                    resultats[a] = operandes[0];
+                    operandes[0] = swap;
                     calculEnonce.add("" + operandes[0] + " / " + operandes[1]);
                     break;
                 default:
@@ -136,7 +139,7 @@ public class Exo1Math extends Exercice implements Serializable
                 do {
                     correct=true;
                     borne = (int)(Math.random()*param.getValMax());
-                    if(!param.getBorneSelectionnable() && borne==resultats[a]) correct = false;
+                    if((!param.getBorneSelectionnable() && borne==resultats[a]) || borne==0) correct = false;
                     for (int test:bornestempo) {
                         if(borne==test) correct = false;
                     }
@@ -199,7 +202,7 @@ public class Exo1Math extends Exercice implements Serializable
                 do
                 {
                     bt=operandes[numope] + (int) (Math.random() * 3) - 1;
-                }while(bt==resultats[a] && param.getBorneSelectionnable());
+                }while((bt==resultats[a] && param.getBorneSelectionnable())||bt==0);
 
                 bornestempo.set(numborne,bt);
             }
@@ -230,7 +233,7 @@ public class Exo1Math extends Exercice implements Serializable
                 return valA*valB;
 
             case 3 :
-                return valA/valB;
+                return valA*valB;
 
             default:
                 return 0;

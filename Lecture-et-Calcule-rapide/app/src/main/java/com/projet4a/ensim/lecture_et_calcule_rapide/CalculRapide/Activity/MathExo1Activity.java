@@ -8,7 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
@@ -28,8 +30,7 @@ import static java.lang.System.currentTimeMillis;
  * Activité gérant l'exercice 1 de maths, un calcul apparait ainsi qu'une frise avec des bornes, l'élève doit séléctionner le bon intervalle dans
  * lequel se situ la réponse du calcul.
  */
-public class MathExo1Activity extends AppCompatActivity
-{
+public class MathExo1Activity extends AppCompatActivity {
     /**
      * numero de la question actuelle.
      */
@@ -38,7 +39,7 @@ public class MathExo1Activity extends AppCompatActivity
     /**
      * tableau des réponses, reponse juste = true dans la case du numero de la question  si il a bien répondue, faux sinon.
      */
-    private static boolean[] reponseJuste ;
+    private static boolean[] reponseJuste;
 
     /**
      * Exercice de Maths
@@ -54,6 +55,8 @@ public class MathExo1Activity extends AppCompatActivity
      * timer
      */
     private CountDownTimer timer;
+
+    private ProgressBar progress;
 
     /**
      * OnClickListeners permettant d'enregistrer si l'élève a eu bon ou pas, d'arreter le timer et de passer à la question suivante
@@ -81,8 +84,7 @@ public class MathExo1Activity extends AppCompatActivity
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         /**
@@ -99,13 +101,12 @@ public class MathExo1Activity extends AppCompatActivity
          * ainsi que les questions grâce au constructeur de l'exercie de math,
          * on créé le tableau qui va contenir les reponses aux bonnes dimensions.
          */
-        if(numQuestAct==0)
-        {
+        if (numQuestAct == 0) {
             ParamEm1 param = new ParamEm1();
             try {
                 FileInputStream fis = openFileInput("ParamEm1.txt");
                 ObjectInputStream ois = new ObjectInputStream(fis);
-                param = (ParamEm1)ois.readObject();
+                param = (ParamEm1) ois.readObject();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -129,7 +130,7 @@ public class MathExo1Activity extends AppCompatActivity
                 RepF3 = findViewById(R.id.BtnRepC);
                 RepF4 = findViewById(R.id.BtnRepD);
                 break;
-            case 2 :
+            case 2:
                 setContentView(R.layout.activity_math_exo1_2bornes);
                 RepF1 = findViewById(R.id.BtnRepA);
                 RepF2 = findViewById(R.id.BtnRepB);
@@ -157,13 +158,13 @@ public class MathExo1Activity extends AppCompatActivity
                 Log.w("case3", "case 3");
 
                 final TextView Borne3 = findViewById(R.id.Borne3);
-                Borne3.setText(""+exo.getBornes().get(numQuestAct).get(2));
+                Borne3.setText("" + exo.getBornes().get(numQuestAct).get(2));
 
-                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(2))
-                        RepF4.setOnClickListener(OCLBonneReponse);
+                if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(2))
+                    RepF4.setOnClickListener(OCLBonneReponse);
                 else RepF4.setOnClickListener(OCLMauvaiseReponse);
 
-                if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(2) && exo.getParam().getBorneSelectionnable())
+                if (exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(2) && exo.getParam().getBorneSelectionnable())
                     Borne3.setOnClickListener(OCLBonneReponse);
                 else Borne3.setOnClickListener(OCLMauvaiseReponse);
 
@@ -171,13 +172,19 @@ public class MathExo1Activity extends AppCompatActivity
                 Log.w("case2", "case 2");
 
                 final TextView Borne2 = findViewById(R.id.Borne2);
-                Borne2.setText(""+exo.getBornes().get(numQuestAct).get(1));
+                Borne2.setText("" + exo.getBornes().get(numQuestAct).get(1));
 
-                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(2))
-                    RepF3.setOnClickListener(OCLBonneReponse);
-                else RepF3.setOnClickListener(OCLMauvaiseReponse);
+                if (exo.getParam().getNbBornes() == 2) {
+                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1))
+                        RepF3.setOnClickListener(OCLBonneReponse);
+                    else RepF3.setOnClickListener(OCLMauvaiseReponse);
+                } else {
+                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(1) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(2))
+                        RepF3.setOnClickListener(OCLBonneReponse);
+                    else RepF3.setOnClickListener(OCLMauvaiseReponse);
+                }
 
-                if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(1) && exo.getParam().getBorneSelectionnable())
+                if (exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(1) && exo.getParam().getBorneSelectionnable())
                     Borne2.setOnClickListener(OCLBonneReponse);
                 else Borne2.setOnClickListener(OCLMauvaiseReponse);
 
@@ -185,77 +192,86 @@ public class MathExo1Activity extends AppCompatActivity
                 Log.w("case1", "case 1");
 
                 final TextView Borne1 = findViewById(R.id.Borne1);
-                Borne1.setText(""+exo.getBornes().get(numQuestAct).get(0));
+                Borne1.setText("" + exo.getBornes().get(numQuestAct).get(0));
 
-                if(exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(1))
-                    RepF2.setOnClickListener(OCLBonneReponse);
-                else RepF2.setOnClickListener(OCLMauvaiseReponse);
+                if (exo.getParam().getNbBornes() == 1) {
+                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0))
+                        RepF2.setOnClickListener(OCLBonneReponse);
+                    else RepF2.setOnClickListener(OCLMauvaiseReponse);
+                } else {
+                    if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(0) && exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(1))
+                        RepF2.setOnClickListener(OCLBonneReponse);
+                    else RepF2.setOnClickListener(OCLMauvaiseReponse);
+                }
 
-                if(exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(0) && exo.getParam().getBorneSelectionnable())
+
+                if (exo.getResultats()[numQuestAct] == exo.getBornes().get(numQuestAct).get(0) && exo.getParam().getBorneSelectionnable())
                     Borne1.setOnClickListener(OCLBonneReponse);
                 else Borne1.setOnClickListener(OCLMauvaiseReponse);
 
-                if(exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(0))
+                if (exo.getResultats()[numQuestAct] < exo.getBornes().get(numQuestAct).get(0))
                     RepF1.setOnClickListener(OCLBonneReponse);
                 else RepF1.setOnClickListener(OCLMauvaiseReponse);
 
                 break;
         }
 
+        final long tempsTotal = exo.getParam().getTempsRep() + exo.getParam().getTempsRestantApparant();
+
+        progress = (ProgressBar) findViewById(R.id.progressBar1);
+        progress.setMax((int) tempsTotal);
+
         /**
          * Définition des actions du timer
          */
-        timer = new CountDownTimer(exo.getParam().getTempsRep()+exo.getParam().getTempsRestantApparant(),500)
-        {
+        timer = new CountDownTimer(tempsTotal, 500) {
             @Override
             public void onTick(long l) {
-                if(exo.getParam().getDisparition()){
-                    Log.w("ordre apparition","ordre"+exo.getParam().getOrdreApparition());
-                    if(exo.getParam().getOrdreApparition()){
-                        if(l<=exo.getParam().getTempsRep()){
-                            switch(exo.getParam().getNbBornes()){
-                                case 3 :
+                progress.setProgress(((int) tempsTotal) - ((int) l));
+                if (exo.getParam().getDisparition()) {
+                    Log.w("ordre apparition", "ordre" + exo.getParam().getOrdreApparition());
+                    if (exo.getParam().getOrdreApparition()) {
+                        if (l <= exo.getParam().getTempsRep()) {
+                            switch (exo.getParam().getNbBornes()) {
+                                case 3:
                                     TextView Borne3 = findViewById(R.id.Borne3);
                                     Borne3.setVisibility(View.VISIBLE);
-                                case 2 :
+                                case 2:
                                     TextView Borne2 = findViewById(R.id.Borne2);
                                     Borne2.setVisibility(View.VISIBLE);
-                                case 1 :
+                                case 1:
                                     TextView Borne1 = findViewById(R.id.Borne1);
                                     Borne1.setVisibility(View.VISIBLE);
                             }
                             enonce.setVisibility(View.INVISIBLE);
-                        }
-                        else{
-                            switch(exo.getParam().getNbBornes()){
-                                case 3 :
+                        } else {
+                            switch (exo.getParam().getNbBornes()) {
+                                case 3:
                                     TextView Borne3 = findViewById(R.id.Borne3);
                                     Borne3.setVisibility(View.INVISIBLE);
-                                case 2 :
+                                case 2:
                                     TextView Borne2 = findViewById(R.id.Borne2);
                                     Borne2.setVisibility(View.INVISIBLE);
-                                case 1 :
+                                case 1:
                                     TextView Borne1 = findViewById(R.id.Borne1);
                                     Borne1.setVisibility(View.INVISIBLE);
                             }
                         }
-                    }
-                    else{
-                        if(l<=exo.getParam().getTempsRep()){
-                            switch(exo.getParam().getNbBornes()){
-                                case 3 :
+                    } else {
+                        if (l <= exo.getParam().getTempsRep()) {
+                            switch (exo.getParam().getNbBornes()) {
+                                case 3:
                                     TextView Borne3 = findViewById(R.id.Borne3);
                                     Borne3.setVisibility(View.INVISIBLE);
-                                case 2 :
+                                case 2:
                                     TextView Borne2 = findViewById(R.id.Borne2);
                                     Borne2.setVisibility(View.INVISIBLE);
-                                case 1 :
+                                case 1:
                                     TextView Borne1 = findViewById(R.id.Borne1);
                                     Borne1.setVisibility(View.INVISIBLE);
                             }
                             enonce.setVisibility(View.VISIBLE);
-                        }
-                        else {
+                        } else {
                             enonce.setVisibility(View.INVISIBLE);
                         }
                     }
@@ -263,23 +279,20 @@ public class MathExo1Activity extends AppCompatActivity
             }
 
             @Override
-            public void onFinish()
-            {
-                if(!reponseDonnee)
-                {
+            public void onFinish() {
+                if (!reponseDonnee) {
                     reponseJuste[numQuestAct] = false;
                 }
 
-                Log.w("Reponse","Reponse " + numQuestAct + " " + reponseJuste[numQuestAct]);
+                Log.w("Reponse", "Reponse " + numQuestAct + " " + reponseJuste[numQuestAct]);
 
                 numQuestAct++;
 
-                if(numQuestAct==exo.getParam().getNbQuestions())
-                {
+                if (numQuestAct == exo.getParam().getNbQuestions()) {
                     numQuestAct = 0;
 
                     Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
-                    intent.putExtra("ReponseDonnee",reponseJuste);
+                    intent.putExtra("ReponseDonnee", reponseJuste);
 
                     FileOutputStream outputStream;
                     ObjectOutputStream oos;
@@ -296,13 +309,18 @@ public class MathExo1Activity extends AppCompatActivity
 
                     finish();
                     startActivity(intent);
-                }
-                else
-                {
+                } else {
                     finish();
                     startActivity(getIntent());
                 }
             }
         }.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("OnStop","OnStop Exo1Math");
+        this.finish();
     }
 }

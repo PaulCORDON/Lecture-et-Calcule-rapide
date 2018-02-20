@@ -33,11 +33,14 @@ public class LectureAccueilActivity extends AppCompatActivity {
         final Button exercice1 = (Button) findViewById(R.id.exo1L);
         final Button exercice2 = (Button) findViewById(R.id.exo2L);
         final Button exercice3 = (Button) findViewById(R.id.exo3L);
-    /* creation du boutton parametre */
+        /* creation du boutton parametre */
         final Button parametreL = (Button) findViewById(R.id.paramL);
-    /*creation du boutton go */
+        /*creation du boutton go */
         final Button go=(Button) findViewById(R.id.goL);
 
+        descriptionL = findViewById(R.id.descriptionL);
+        parametreL.setVisibility(View.GONE);
+        go.setVisibility(View.GONE);
 
         /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
         exercice1.setOnClickListener(new View.OnClickListener() {
@@ -46,13 +49,13 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 exercice1.setEnabled(false);
                 exercice2.setEnabled(true);
                 exercice3.setEnabled(true);
+                parametreL.setVisibility(View.VISIBLE);
+                go.setVisibility(View.VISIBLE);
                 isExercice1 = true;
                 isExercice2 = false;
                 isExercice3 = false;
-                descriptionL = (TextView) findViewById(R.id.descriptionL);
 
-
-                    descriptionL.setText("Exercice 1 de Lecture !!!!! ");
+                descriptionL.setText("Exercice 1 de Lecture\nConsigne : Trouve le mot qui est écrit exactement comme le mot de l'énoncé");
 
 
 
@@ -66,13 +69,13 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 exercice1.setEnabled(true);
                 exercice2.setEnabled(false);
                 exercice3.setEnabled(true);
+                parametreL.setVisibility(View.VISIBLE);
+                go.setVisibility(View.VISIBLE);
                 isExercice1 = false;
                 isExercice2 = true;
                 isExercice3 = false;
-                descriptionL = (TextView) findViewById(R.id.descriptionL);
 
-
-                    descriptionL.setText("Exercice 2 de Lecture !!!!! ");
+                descriptionL.setText("Exercice 2 de Lecture\nConsigne : ");
 
 
 
@@ -85,13 +88,13 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 exercice1.setEnabled(true);
                 exercice2.setEnabled(true);
                 exercice3.setEnabled(false);
+                parametreL.setVisibility(View.VISIBLE);
+                go.setVisibility(View.VISIBLE);
                 isExercice1 = false;
                 isExercice2 = false;
                 isExercice3 = true;
-                descriptionL = (TextView) findViewById(R.id.descriptionL);
 
-
-                    descriptionL.setText("Exercice 3 de Lecture !!!!! ");
+                descriptionL.setText("Exercice 3 de Lecture\nConsigne : ");
 
 
             }
