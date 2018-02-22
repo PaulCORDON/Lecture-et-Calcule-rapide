@@ -135,7 +135,7 @@
 
 
                 <EditText
-                    android:id="@+id/ChoixNbQuestions"
+                    android:id="@+id/ChoixNbQuestionsB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -145,7 +145,7 @@
 
 
                 <TextView
-                    android:id="@+id/TitreOrdreApparition"
+                    android:id="@+id/TitreOrdreApparitionB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -164,14 +164,14 @@
                     android:layout_marginLeft="120dp">
 
                     <CheckBox
-                        android:id="@+id/ChoixCalculAvantRep"
+                        android:id="@+id/ChoixCalculAvantRepB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
                         android:text="Calcul avant boutons" />
 
                     <CheckBox
-                        android:id="@+id/ChoixRepAvantCalcul"
+                        android:id="@+id/ChoixRepAvantCalculB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -181,7 +181,7 @@
 
 
                 <Switch
-                    android:id="@+id/ChoixDisparitionCalcul"
+                    android:id="@+id/ChoixDisparitionCalculB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -190,18 +190,18 @@
 
 
                 <TextView
-                    android:id="@+id/TitreTempsAvantDisparition"
+                    android:id="@+id/TitreTempsAvantDisparitionB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
-                    android:text="Temps avant disparition du calcul ou des bornes (selon le choix ci-dessus)"
+                    android:text="Temps avant disparition du calcul"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="18sp" />
 
 
                 <EditText
-                    android:id="@+id/tempsAvantDisparition"
+                    android:id="@+id/tempsAvantDisparitionB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -212,7 +212,7 @@
 
 
                 <TextView
-                    android:id="@+id/TitreTempsReponse"
+                    android:id="@+id/TitreTempsReponseB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
@@ -223,7 +223,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/tempsReponse"
+                    android:id="@+id/tempsReponseB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -232,31 +232,15 @@
                     android:textColor="@android:color/background_dark" />
 
                 <Switch
-                    android:id="@+id/ChoixNbPairs"
+                    android:id="@+id/ChoixNbPairsB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
                     android:text="Mettre seulement des chiffres pairs"
                     android:textColor="@android:color/background_dark" />
 
-                <Switch
-                    android:id="@+id/ChoixBornesSelectionnables"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="Bornes sélectionnables"
-                    android:textColor="@android:color/background_dark" />
-
-                <Switch
-                    android:id="@+id/ChoixBornesEgalesRep"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="20dp"
-                    android:text="Bornes égales à un des opérandes"
-                    android:textColor="@android:color/background_dark" />
-
                 <TextView
-                    android:id="@+id/titreNbValMax"
+                    android:id="@+id/titreNbValMaxB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -267,7 +251,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/ValeurMax"
+                    android:id="@+id/ValeurMaxB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
@@ -275,7 +259,7 @@
                     android:inputType="number" />
 
                 <TextView
-                    android:id="@+id/titreChoixOperateurs"
+                    android:id="@+id/titreChoixOperateursB"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -297,14 +281,14 @@
                         android:orientation="vertical">
 
                         <CheckBox
-                            android:id="@+id/addition"
+                            android:id="@+id/additionB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:checked="true"
                             android:text="+" />
 
                         <CheckBox
-                            android:id="@+id/soustraction"
+                            android:id="@+id/soustractionB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="-" />
@@ -317,13 +301,13 @@
                         android:orientation="vertical">
 
                         <CheckBox
-                            android:id="@+id/multiplication"
+                            android:id="@+id/multiplicationB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="X" />
 
                         <CheckBox
-                            android:id="@+id/division"
+                            android:id="@+id/divisionB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="20dp"
