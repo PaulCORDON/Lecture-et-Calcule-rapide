@@ -54,17 +54,31 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/TitrePage">
 
-                <RadioGroup
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                <LinearLayout
+                    android:layout_width="600dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:orientation="vertical">
 
-                    <RadioButton
-                        android:id="@+id/radioButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="RadioButton" />
-                </RadioGroup>
+                    <RadioGroup
+                        android:layout_width="600dp"
+                        android:layout_height="wrap_content">
+
+                        <RadioButton
+                            android:id="@+id/RbFrise"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="RadioButton" />
+
+                        <RadioButton
+                            android:id="@+id/RbButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="RadioButton" />
+                    </RadioGroup>
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/Colonne"
