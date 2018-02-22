@@ -9,8 +9,7 @@ import java.util.ArrayList;
  * Classe contenant la liste d'énoncé avec la liste des bornes correspondantes
  * Ces listes sont créées en fonction des paramètres de l'exercice
  */
-public class Exo1Math extends Exercice implements Serializable
-{
+public class Exo1Math extends Exercice implements Serializable {
     private ArrayList<String> calculEnonce;
     /**
      * Liste des énoncés
@@ -27,7 +26,6 @@ public class Exo1Math extends Exercice implements Serializable
      */
 
     private ParamEm1 param;
-
     /**
      * paramètre selon lesquels les listes sont créées
      */

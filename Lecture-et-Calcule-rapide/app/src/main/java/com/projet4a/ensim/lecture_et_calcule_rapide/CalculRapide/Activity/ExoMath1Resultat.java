@@ -18,7 +18,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 
-
 public class ExoMath1Resultat extends AppCompatActivity {
 
     /**
@@ -36,9 +35,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
      */
     private int numQuestCorr = -1;
 
-
     private Exo1Math exoMath = null;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

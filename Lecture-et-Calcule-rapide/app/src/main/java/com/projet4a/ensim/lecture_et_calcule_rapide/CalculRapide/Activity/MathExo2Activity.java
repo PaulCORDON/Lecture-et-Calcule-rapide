@@ -1,3 +1,4 @@
+package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Context;
 import android.content.Intent;
