@@ -65,7 +65,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
          * apparition multiple, mode d'apparition
          */
         final EditText tempsApparution = findViewById(R.id.TpsApparution);
-        tempsApparution.setText(""+param.getTempsApparution());
+        tempsApparution.setText(""+param.getTempsApparution()/1000);
 
         final EditText nbApp = findViewById(R.id.NbMotsApp);
         nbApp.setText(""+param.getNbApparution());
