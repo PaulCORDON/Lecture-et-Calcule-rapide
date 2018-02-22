@@ -124,7 +124,7 @@ public class MathExo1Activity extends AppCompatActivity {
         /**
          * On déclare la vue correspondant aux paramètres de l'exercice
          */
-        if(exo.getParam().getFrise){
+        if(exo.getParam().getFrise()){
             switch (exo.getParam().getNbBornes()) {
                 case 3:
                     setContentView(R.layout.activity_math_exo1_3bornes);
