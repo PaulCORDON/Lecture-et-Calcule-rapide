@@ -47,7 +47,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toEndOf="@+id/Borne1"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <Button
         android:id="@+id/BtnRepA"
@@ -62,7 +62,7 @@
         app:layout_constraintEnd_toStartOf="@+id/Borne1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.85" />
 
     <TextView
         android:id="@+id/Enonce"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.82" />
 
     <TextView
         android:id="@+id/textView9"
@@ -90,14 +90,6 @@
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/valeur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="une valeur"
-        tools:layout_editor_absoluteX="267dp"
-        tools:layout_editor_absoluteY="246dp" />
 
 
 </android.support.constraint.ConstraintLayout>

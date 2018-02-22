@@ -126,14 +126,14 @@ public class MathExo1Activity extends AppCompatActivity {
                 case 3:
                     setContentView(R.layout.activity_math_exo1_3bornes);
                     RepF1 =(Button)findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepC);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
                     RepF3 = (Button)findViewById(R.id.BtnRepC);
                     RepF4 =(Button)findViewById(R.id.BtnRepD);
                     break;
                 case 2:
                     setContentView(R.layout.activity_math_exo1_2bornes);
                     RepF1 =(Button) findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepC);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
                     RepF3 = (Button)findViewById(R.id.BtnRepC);
                     break;
                 case 1:
@@ -148,7 +148,7 @@ public class MathExo1Activity extends AppCompatActivity {
                 case 2:
                     setContentView(R.layout.activity_math_exo1_compris_entre);
                     RepF1 =(Button) findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepC);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
                     RepF3 = (Button)findViewById(R.id.BtnRepC);
                     break;
                 case 1:
