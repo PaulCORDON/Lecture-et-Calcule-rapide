@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo2Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -50,7 +51,7 @@ public class MathExo2Activity extends AppCompatActivity {
      *   L'instance de l'exercice qui va comprendre l'ensemble des énoncés, un accés au arametre
      *   ainsi que les réponses et les valurs à afficher si il y a lieu
      */
-    // private ExoM2 exo = null;
+     private Exo2Math exo = null;
 
     /**
      * une réponse a-t-elle été donnée ?
@@ -58,7 +59,7 @@ public class MathExo2Activity extends AppCompatActivity {
     private boolean reponseDonnee = false;
 
     /**
-     *      dans le cas où on est avec le pavé numerique, on a le résultat donnée par l'éleve qui est sous la frme d'un string :
+     *      dans le cas où on est avec le pavé numerique, on a le résultat donnée par l'éleve qui est sous la forme d'un string :
      */
     private StringBuilder reponse = new StringBuilder();
 
