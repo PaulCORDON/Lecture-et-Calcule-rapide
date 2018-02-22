@@ -9,7 +9,7 @@
             android:layout_height="match_parent"
             >
 
-            <EditText
+            <TextView
                 android:id="@+id/operande1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:layout_row="3"
                 android:text="RepB" />
 
-            <EditText
+            <TextView
                 android:id="@+id/operande2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

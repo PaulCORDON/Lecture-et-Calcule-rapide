@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo2Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm2;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.io.FileInputStream;
@@ -47,7 +48,7 @@ public class MathExo2Activity extends AppCompatActivity {
      */
     private int numQuestAct = 0;
 
-    /** //TODO Uncomment this code !!!
+    /**
      *   L'instance de l'exercice qui va comprendre l'ensemble des énoncés, un accés au arametre
      *   ainsi que les réponses et les valurs à afficher si il y a lieu
      */
@@ -173,7 +174,7 @@ public class MathExo2Activity extends AppCompatActivity {
     private View.OnClickListener Valider = (new View.OnClickListener() {
         @Override
         public void onClick(View view){
-            if(reponse.equals(exo.getReponse())){
+            if(reponse.equals(exo.getCalcul().get(numQuestAct).getResultatString())){
                 reponseJuste[numQuestAct] = true;
             }
             else
@@ -208,9 +209,6 @@ public class MathExo2Activity extends AppCompatActivity {
         Button rep9 = null;
         Button rep0 = null;
 
-        EditText op1 = null;
-        EditText op2 = null;
-
         Button valider = null;
         Button corriger = null;
 
@@ -222,32 +220,29 @@ public class MathExo2Activity extends AppCompatActivity {
          * si c'est la premiere fois que l'on lance l'activité de cet exercice, on récupere les parametres et on créer les énoncés
          */
             if(numQuestAct == 0){
-                //ParamEm2 param = new ParamEm2();
+                ParamEm2 param = new ParamEm2();
                 try{
                     FileInputStream out = openFileInput("ParamEm2.txt");
                     ObjectInputStream ois = new ObjectInputStream(out);
-                   // param = (ParamEm2)ois.readObject();
+                    param = (ParamEm2)ois.readObject();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
-                } /*catch (ClassNotFoundException e) {  // TODO uncomment this !!!
+                } catch (ClassNotFoundException e) {
                     e.printStackTrace();
-                }*/
+                }
 
-             // exo = new ExoM2(param);
-                    // on instancie le tableu des réponse avec le bon nombre de cases.
-             // reponseJuste = new boolean[param.getNbQuestions()];
+              exo = new Exo2Math(param);
+
+             reponseJuste = new boolean[param.getNbQuestions()];
             }
 
 
-            // TODO ask dylan ???
-        // TODO pourquoi est ce que l'instanciation des bouton ne se fait pas avec celle de l'exercice ?
-        // TODO on ne change pas de nombre de bornes au cours de l'exercice :|
 
 
-        // TODO associé le tpe de reponse à la variable typeReonse des parametres
-        switch(typeRep){
+        // TODO associé le type de reponse à la variable typeReonse des parametres
+        switch(typeRep){ //exo.getParam().gettypeRep()
             case 0 :
                 setContentView(R.layout.activity_math_exo2_pave_numerique);
                 rep0 = findViewById(R.id.p0);
@@ -282,23 +277,23 @@ public class MathExo2Activity extends AppCompatActivity {
 
         //TODO récuperer les opérandes du calcul.
 
-        op1 = findViewById(R.id.operande1);
-        op2 = findViewById(R.id.operande2);
+       final TextView op1 = findViewById(R.id.operande1);
+        final TextView op2 = findViewById(R.id.operande2);
 
-            //op1.setText(exo.getOP()[0]);
-            //op2.setText(exo.getOP()[1]);
+           // op1.setText(exo.getCalcul().get(numQuestAct).getOp1Int());
+            //op2.setText(exo.getCalcul().get(numQuestAct).getOp2String());
 
 
         switch (typeRep){       //TODO methode getRep pour exo : return ArrayList<int> + ajout onClickListner !!!
             case 1 :
-                //rep0.setText(exo.getRep().get(0));
+                rep0.setText(exo.getCalcul().get(numQuestAct).getResultatInt());
                 //rep1.setText(exo.getRep().get(1));
 
-                rep0.setOnClickListener();
+               // rep0.setOnClickListener();
                 break;
 
             case 2 :
-                //rep0.setText(exo.getRep().get(0));
+                rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                 //rep1.setText(exo.getRep().get(1));
                 //rep2.setText(exo.getRep().get(2));
                 //rep3.setText(exo.getRep().get(3));

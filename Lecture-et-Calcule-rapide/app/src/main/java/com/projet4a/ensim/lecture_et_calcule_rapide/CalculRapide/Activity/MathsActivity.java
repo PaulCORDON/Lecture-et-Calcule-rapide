@@ -127,9 +127,15 @@ public class MathsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
+            if(isExercice1){
                 Intent intent = new Intent(MathsActivity.this, MathExo1Activity.class);
                 startActivity(intent);
+            }
+            if (isExercice2){
+                Intent intent = new Intent(MathsActivity.this, MathExo2Activity.class);
+                startActivity(intent);
+            }
+
 
 
 
