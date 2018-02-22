@@ -155,6 +155,24 @@ public class MathExo1Activity extends AppCompatActivity {
                     break;
             }
         }
+        else{
+            switch (exo.getParam().getNbBornes()) {
+                case 2:
+                    setContentView(R.layout.activity_math_exo1_compris_entre);
+                    RepF1 =(Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF3 = (Button)findViewById(R.id.BtnRepC);
+                    break;
+                case 1:
+                    setContentView(R.layout.activity_math_exo1_comparaison);
+                    RepF1 = (Button)findViewById(R.id.BtnRepA);
+                    RepF2 = (Button)findViewById(R.id.BtnRepC);
+
+                    break;
+            }
+        }
+
+
 
         /**
          * Affichage de l'énoncé pour la question actuelle.

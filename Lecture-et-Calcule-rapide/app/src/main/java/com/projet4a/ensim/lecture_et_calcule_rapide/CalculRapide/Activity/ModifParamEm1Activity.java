@@ -90,6 +90,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final EditText tpsReponse = findViewById(R.id.tempsReponse);
         final EditText tpsReponseB = findViewById(R.id.tempsReponseB);
 
+
         /** Switch qui dit si l'exercice ne traitera que des nombres pairs */
         final Switch nbPairsOnly = findViewById(R.id.ChoixNbPairs);
         final Switch nbPairsOnlyB = findViewById(R.id.ChoixNbPairsB);
@@ -97,6 +98,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /**Si cette checkBox est cochee les calculs comporteront des additions*/
         final CheckBox addition = findViewById(R.id.addition);
         final CheckBox additionB = findViewById(R.id.additionB);
+
 
         /**Si cette checkBox est cochee les calculs comporteront des soustractions*/
         final CheckBox soustraction = findViewById(R.id.soustraction);
@@ -161,6 +163,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 }
             }
         });
+
 
         rb1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -368,6 +371,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb boutons: " + param.getNbBornes() +
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
+
                 }
 
                 FileOutputStream outputStream;
