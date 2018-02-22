@@ -74,6 +74,7 @@ public class MathExo2Activity extends AppCompatActivity {
     /**
      * textView contenant la réponse de l'élève
      */
+
     private TextView reponseE;
 
 
@@ -213,7 +214,6 @@ public class MathExo2Activity extends AppCompatActivity {
         Button valider = null;
         Button corriger = null;
 
-        final TextView reponseDonne = findViewById(R.id.ReponseEleve);
 
         //TODO récuperation des parametres de l'exercices de multiplications qui ont été sérialisés :
         //TODO uncomment code !!!
@@ -256,7 +256,8 @@ public class MathExo2Activity extends AppCompatActivity {
                 rep8 = findViewById(R.id.p8);
                 rep9 = findViewById(R.id.p9);
 
-
+                final TextView reponseDonne = findViewById(R.id.ReponseEleve);
+                reponseE = reponseDonne;
                 valider = findViewById(R.id.Validation);
                 corriger = findViewById(R.id.correction);
                 reponseE = findViewById(R.id.ReponseEleve);
@@ -277,7 +278,6 @@ public class MathExo2Activity extends AppCompatActivity {
                 break;
         }
 
-        //TODO récuperer les opérandes du calcul.
 
         final TextView op1 = findViewById(R.id.operande1);
         final TextView op2 = findViewById(R.id.operande2);
