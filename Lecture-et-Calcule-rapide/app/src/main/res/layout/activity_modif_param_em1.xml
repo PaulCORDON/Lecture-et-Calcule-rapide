@@ -45,67 +45,317 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="600dp"
                 android:layout_height="match_parent"
-                android:layout_marginTop="20dp"
+                android:layout_marginRight="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/TitrePage">
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Choix du type de réponse"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
                 <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" >
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp">
 
                     <RadioButton
-                        android:id="@+id/radioButton"
+                        android:id="@+id/RbFrise"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="RadioButton" />
+                        android:text="Frise" />
+
+                    <RadioButton
+                        android:id="@+id/RbButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Boutons" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ColonneButton"
+                android:layout_width="600dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/TitreNbButtons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Nombre de boutons"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp">
+
+                    <RadioButton
+                        android:id="@+id/Rb2Buttons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="2" />
+
+                    <RadioButton
+                        android:id="@+id/Rb3Buttons"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3" />
                 </RadioGroup>
 
-                <LinearLayout
-                    android:id="@+id/Colonne"
-                    android:layout_width="600dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
-                    android:orientation="vertical"
-                    >
+                    android:layout_marginBottom="20dp"
+                    android:text="Nombre de questions"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/TitreNbBornes"
-                        android:layout_width="match_parent"
+
+                <EditText
+                    android:id="@+id/ChoixNbQuestionsB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@android:color/background_dark" />
+
+
+                <TextView
+                    android:id="@+id/TitreOrdreApparitionB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Ordre d'apparition"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="120dp">
+
+                    <CheckBox
+                        android:id="@+id/ChoixCalculAvantRepB"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="Nombre de bornes"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                        android:gravity="center"
+                        android:text="Calcul avant boutons" />
 
-                    <com.xw.repo.BubbleSeekBar
-                        android:id="@+id/ChoixNbBornes"
-                        style="@style/Widget.AppCompat.SeekBar.Discrete"
-                        android:layout_width="match_parent"
+                    <CheckBox
+                        android:id="@+id/ChoixRepAvantCalculB"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
+                        android:gravity="center"
+                        android:text="Boutons avant calcul" />
 
-                        app:bsb_bubble_text_color="@color/colorPrimaryDark"
-                        app:bsb_max="3"
-                        app:bsb_min="1"
+                </LinearLayout>
 
-                        app:bsb_section_count="2"
-                        app:bsb_section_text_position="bottom_sides"
-                        app:bsb_show_section_mark="true"
-                        app:bsb_show_section_text="true"
-                        app:bsb_show_thumb_text="false"
-                        app:bsb_touch_to_seek="true"
 
-                        />
+                <Switch
+                    android:id="@+id/ChoixDisparitionCalculB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Disparition du calcul"
+                    android:textColor="@android:color/background_dark" />
 
-                   <!-- <SeekBar
+
+                <TextView
+                    android:id="@+id/TitreTempsAvantDisparitionB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:text="Temps avant disparition du calcul"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/tempsAvantDisparitionB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@android:color/background_dark" />
+
+
+                <TextView
+                    android:id="@+id/TitreTempsReponseB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:text="Temps de réponse (en secondes)"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/tempsReponseB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@android:color/background_dark" />
+
+                <Switch
+                    android:id="@+id/ChoixNbPairsB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Mettre seulement des chiffres pairs"
+                    android:textColor="@android:color/background_dark" />
+
+                <TextView
+                    android:id="@+id/titreNbValMaxB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Valeur maximale"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/ValeurMaxB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/titreChoixOperateursB"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Opérateurs à utiliser"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/additionB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="+" />
+
+                        <CheckBox
+                            android:id="@+id/soustractionB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:gravity="right"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/multiplicationB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="X" />
+
+                        <CheckBox
+                            android:id="@+id/divisionB"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:text="/" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ColonneFrise"
+                android:layout_width="600dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/TitreNbBornes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Nombre de bornes"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <com.xw.repo.BubbleSeekBar
+                    android:id="@+id/ChoixNbBornes"
+                    style="@style/Widget.AppCompat.SeekBar.Discrete"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+
+                    app:bsb_bubble_text_color="@color/colorPrimaryDark"
+                    app:bsb_max="3"
+                    app:bsb_min="1"
+
+                    app:bsb_section_count="2"
+                    app:bsb_section_text_position="bottom_sides"
+                    app:bsb_show_section_mark="true"
+                    app:bsb_show_section_text="true"
+                    app:bsb_show_thumb_text="false"
+                    app:bsb_touch_to_seek="true"
+
+                    />
+
+                <!-- <SeekBar
                         android:id="@+id/ChoixNbBornes"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="match_parent"
@@ -114,18 +364,18 @@
                         android:max="3"
                        />-->
 
-                    <TextView
-                        android:id="@+id/TitreNbQuestions"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="Nombre de questions"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/TitreNbQuestions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Nombre de questions"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                   <!-- <SeekBar
+                <!-- <SeekBar
                         android:id="@+id/ChoixNbQuestions"
                         style="@style/Widget.AppCompat.SeekBar.Discrete"
                         android:layout_width="match_parent"
@@ -134,213 +384,205 @@
                         android:max="12"
                         android:progress="3" />-->
 
-                    <EditText
-                        android:id="@+id/ChoixNbQuestions"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:textColor="@android:color/background_dark"
-                        android:ems="10"
-                        android:inputType="number"
-                        />
+                <EditText
+                    android:id="@+id/ChoixNbQuestions"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@android:color/background_dark" />
 
 
-
-                        <TextView
-                            android:id="@+id/TitreOrdreApparition"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="10dp"
-                            android:layout_weight="1"
-                            android:text="Ordre d'apparition"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/background_dark"
-                            android:textSize="20sp"
-                            android:textStyle="bold" />
-
+                <TextView
+                    android:id="@+id/TitreOrdreApparition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1"
+                    android:text="Ordre d'apparition"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
 
-                    <LinearLayout
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginLeft="120dp">
+
+                    <CheckBox
+                        android:id="@+id/ChoixCalculAvantRep"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginBottom="20dp"
-                        >
+                        android:gravity="center"
+                        android:text="Calcul avant réponses" />
 
-                        <CheckBox
-                            android:id="@+id/ChoixCalculAvantRep"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Calcul avant réponses"
-                            android:gravity="center"/>
-
-                        <CheckBox
-                            android:id="@+id/ChoixRepAvantCalcul"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Bornes avant calcul"
-                            android:gravity="center"/>
-
-                    </LinearLayout>
-
-
-
-
-                        <Switch
-                            android:id="@+id/ChoixDisparitionCalcul"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            android:text="Disparition du calcul ou des bornes (selon le choix ci-dessus)"
-                            android:textColor="@android:color/background_dark" />
-
-
-                        <TextView
-                            android:id="@+id/TitreTempsAvantDisparition"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            android:textColor="@android:color/background_dark"
-                            android:textSize="18sp"
-                            android:layout_marginBottom="0dp"
-                            android:text="Temps avant disparition du calcul ou des bornes (selon le choix ci-dessus)" />
-
-
-                        <EditText
-                            android:id="@+id/tempsAvantDisparition"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="20dp"
-                            android:layout_weight="1"
-                            android:ems="10"
-                            android:inputType="number"
-                            android:textColor="@android:color/background_dark" />
-
-
-
-                    <TextView
-                        android:id="@+id/TitreTempsReponse"
-                        android:layout_width="match_parent"
+                    <CheckBox
+                        android:id="@+id/ChoixRepAvantCalcul"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="0dp"
-                        android:text="Temps de réponse (en secondes)"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/tempsReponse"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:textColor="@android:color/background_dark" />
-
-                    <Switch
-                        android:id="@+id/ChoixNbPairs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="Mettre seulement des chiffres pairs"
-                        android:textColor="@android:color/background_dark" />
-
-                    <Switch
-                        android:id="@+id/ChoixBornesSelectionnables"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="Bornes sélectionnables"
-                        android:textColor="@android:color/background_dark" />
-
-                    <Switch
-                        android:id="@+id/ChoixBornesEgalesRep"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:text="Bornes égales à un des opérandes"
-                        android:textColor="@android:color/background_dark" />
-
-                    <TextView
-                        android:id="@+id/titreNbValMax"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:text="Valeur maximale"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/ValeurMax"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:ems="10"
-                        android:inputType="number" />
-
-                    <TextView
-                        android:id="@+id/titreChoixOperateurs"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
-                        android:text="Opérateurs à utiliser"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:gravity="center">
-
-                        <LinearLayout
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:orientation="vertical">
-
-                            <CheckBox
-                                android:id="@+id/addition"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:checked="true"
-                                android:text="+" />
-
-                            <CheckBox
-                                android:id="@+id/soustraction"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="-" />
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:gravity="right"
-                            android:orientation="vertical">
-
-                            <CheckBox
-                                android:id="@+id/multiplication"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:text="X" />
-
-                            <CheckBox
-                                android:id="@+id/division"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginBottom="20dp"
-                                android:text="/" />
-                        </LinearLayout>
-                    </LinearLayout>
+                        android:gravity="center"
+                        android:text="Bornes avant calcul" />
 
                 </LinearLayout>
 
+
+                <Switch
+                    android:id="@+id/ChoixDisparitionCalcul"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Disparition du calcul ou des bornes (selon le choix ci-dessus)"
+                    android:textColor="@android:color/background_dark" />
+
+
+                <TextView
+                    android:id="@+id/TitreTempsAvantDisparition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:text="Temps avant disparition du calcul ou des bornes (selon le choix ci-dessus)"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="18sp" />
+
+
+                <EditText
+                    android:id="@+id/tempsAvantDisparition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@android:color/background_dark" />
+
+
+                <TextView
+                    android:id="@+id/TitreTempsReponse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="0dp"
+                    android:text="Temps de réponse (en secondes)"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/tempsReponse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="number"
+                    android:textColor="@android:color/background_dark" />
+
+                <Switch
+                    android:id="@+id/ChoixNbPairs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Mettre seulement des chiffres pairs"
+                    android:textColor="@android:color/background_dark" />
+
+                <Switch
+                    android:id="@+id/ChoixBornesSelectionnables"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Bornes sélectionnables"
+                    android:textColor="@android:color/background_dark" />
+
+                <Switch
+                    android:id="@+id/ChoixBornesEgalesRep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:text="Bornes égales à un des opérandes"
+                    android:textColor="@android:color/background_dark" />
+
+                <TextView
+                    android:id="@+id/titreNbValMax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Valeur maximale"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/ValeurMax"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:ems="10"
+                    android:inputType="number" />
+
+                <TextView
+                    android:id="@+id/titreChoixOperateurs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:text="Opérateurs à utiliser"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/background_dark"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/addition"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="+" />
+
+                        <CheckBox
+                            android:id="@+id/soustraction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="-" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:gravity="right"
+                        android:orientation="vertical">
+
+                        <CheckBox
+                            android:id="@+id/multiplication"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="X" />
+
+                        <CheckBox
+                            android:id="@+id/division"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="20dp"
+                            android:text="/" />
+                    </LinearLayout>
+                </LinearLayout>
+
             </LinearLayout>
+
 
             <Button
                 android:id="@+id/BoutonValider"

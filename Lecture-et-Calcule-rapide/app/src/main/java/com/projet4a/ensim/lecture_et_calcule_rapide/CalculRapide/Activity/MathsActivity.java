@@ -1,10 +1,8 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,7 +13,7 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class MathsActivity extends AppCompatActivity {
 
-/* booleens pour savoir quel exercice est selectionné */
+    /* booleens pour savoir quel exercice est selectionné */
     boolean isExercice1;
     boolean isExercice2;
     boolean isExercice3;
@@ -43,7 +41,6 @@ public class MathsActivity extends AppCompatActivity {
         parametreM.setVisibility(View.GONE);
         go.setVisibility(View.GONE);
 
-
         /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
         exercice1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,12 +56,9 @@ public class MathsActivity extends AppCompatActivity {
                 isExercice3 = false;
 
                 descriptionM.setText("Exercice 1 de Mathématiques\nConsigne : Trouve où se situe le résultat du calcule");
-
-
-
-
             }
         });
+
         /** click sur le bouton exercice 2 , on affiche la description et on met le bouton enable */
         exercice2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,11 +74,9 @@ public class MathsActivity extends AppCompatActivity {
                 isExercice3 = false;
 
                 descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : ");
-
-
-
             }
         });
+
         /** click sur le bouton exercice 3 , on affiche la description et on met le bouton enable */
         exercice3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,48 +92,35 @@ public class MathsActivity extends AppCompatActivity {
                 isExercice3 = true;
 
                 descriptionM.setText("Exercice 3 de Mathématiques\nConsigne : ");
-
-
             }
         });
+
         /** click sur le bouton parametre qui renvoie sur la bonne activité en fonction des booleens */
         parametreM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (isExercice1){
-
+                if (isExercice1) {
                     Intent intent = new Intent(MathsActivity.this, ModifParamEm1Activity.class);
                     startActivity(intent);
-
                 }
                 //TODO faire pareil pour les autres exercices quand les activités seront créer
 
             }
         });
 
-
         /**Click sur go : on lance l'exercice !!! */
-
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-            if(isExercice1){
-                Intent intent = new Intent(MathsActivity.this, MathExo1Activity.class);
-                startActivity(intent);
-            }
-            if (isExercice2){
-                Intent intent = new Intent(MathsActivity.this, MathExo2Activity.class);
-                startActivity(intent);
-            }
-
-
-
-
+                if (isExercice1) {
+                    Intent intent = new Intent(MathsActivity.this, MathExo1Activity.class);
+                    startActivity(intent);
+                }
+                if (isExercice2) {
+                    Intent intent = new Intent(MathsActivity.this, MathExo2Activity.class);
+                    startActivity(intent);
+                }
             }
         });
-
-
     }
 }

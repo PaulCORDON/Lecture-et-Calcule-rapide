@@ -2,17 +2,15 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo2Math;
-import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm2;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -23,12 +21,10 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-
 /**
  * Exercice deux de maths,
  * Exercice de multiplications
  */
-
 public class MathExo2Activity extends AppCompatActivity {
 
     /**
@@ -70,13 +66,10 @@ public class MathExo2Activity extends AppCompatActivity {
      */
     private CountDownTimer timer;
 
-
     /**
      * textView contenant la réponse de l'élève
      */
-
     private TextView reponseE;
-
 
     /**
      * entier aléatoire pour placer la bonne réponse
@@ -192,7 +185,6 @@ public class MathExo2Activity extends AppCompatActivity {
             timer.onFinish();
         }
     });
-
     private View.OnClickListener Corriger = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
@@ -219,10 +211,8 @@ public class MathExo2Activity extends AppCompatActivity {
         Button valider = null;
         Button corriger = null;
 
-
         //TODO récuperation des parametres de l'exercices de multiplications qui ont été sérialisés :
         //TODO uncomment code !!!
-
         /**
          * si c'est la premiere fois que l'on lance l'activité de cet exercice, on récupere les parametres et on créer les énoncés
          */
@@ -241,10 +231,8 @@ public class MathExo2Activity extends AppCompatActivity {
             }
 
             exo = new Exo2Math(param);
-
             reponseJuste = new boolean[param.getNbQuestions()];
         }
-
 
         // TODO associé le type de reponse à la variable typeReonse des parametres
         switch (typeRep) { //exo.getParam().gettypeRep()
@@ -267,13 +255,11 @@ public class MathExo2Activity extends AppCompatActivity {
                 corriger = findViewById(R.id.correction);
                 reponseE = findViewById(R.id.ReponseEleve);
                 break;
-
             case 1:
                 setContentView(R.layout.activity_math_exo2_2rep);
                 rep0 = findViewById(R.id.repA);
                 rep1 = findViewById(R.id.repB);
                 break;
-
             case 2:
                 setContentView(R.layout.activity_math_exo2_4rep);
                 rep0 = findViewById(R.id.R1);
@@ -283,58 +269,50 @@ public class MathExo2Activity extends AppCompatActivity {
                 break;
         }
 
-
         final TextView op1 = findViewById(R.id.operande1);
         final TextView op2 = findViewById(R.id.operande2);
 
         op1.setText(exo.getCalcul().get(numQuestAct).getOp1String());
         op2.setText(exo.getCalcul().get(numQuestAct).getOp2String());
 
-
         switch (typeRep) {       //TODO methode getRep pour exo : return ArrayList<int> + ajout onClickListner !!!
             case 1:
-                placementAlea = (int)(Math.random()*2);
-                if(placementAlea == 1){
+                placementAlea = (int) (Math.random() * 2);
+                if (placementAlea == 1) {
                     rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
-                    rep1.setText("" + (int) Math.random()*100);
+                    rep1.setText("" + (int) Math.random() * 100);
                     rep0.setOnClickListener(OCLBonneReponse);
                     rep1.setOnClickListener(OCLMauvaiseReponse);
-                }
-                else {
+                } else {
                     rep1.setText(exo.getCalcul().get(numQuestAct).getResultatString());
-                    rep0.setText("" + (int) Math.random()*100);
+                    rep0.setText("" + (int) Math.random() * 100);
                     rep1.setOnClickListener(OCLBonneReponse);
                     rep0.setOnClickListener(OCLMauvaiseReponse);
                 }
                 rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
-
                 break;
-
             case 2:
+                rep0.setText("" + (int) Math.random() * 100);
+                rep1.setText("" + (int) Math.random() * 100);
+                rep2.setText("" + (int) Math.random() * 100);
+                rep3.setText("" + (int) Math.random() * 100);
 
-                rep0.setText("" + (int) Math.random()*100);
-                rep1.setText("" + (int) Math.random()*100);
-                rep2.setText("" + (int) Math.random()*100);
-                rep3.setText("" + (int) Math.random()*100);
-
-                placementAlea = (int) (Math.random()*4);
-                switch (placementAlea){
+                placementAlea = (int) (Math.random() * 4);
+                switch (placementAlea) {
                     case 0:
                         rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
                     case 1:
                         rep1.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
-                    case 2 :
+                    case 2:
                         rep2.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
-                    case 3 :
+                    case 3:
                         rep3.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
                 }
-               
                 break;
-
             case 0:
                 rep0.setOnClickListener(Pav0);
                 rep1.setOnClickListener(Pav1);
@@ -350,8 +328,6 @@ public class MathExo2Activity extends AppCompatActivity {
                 valider.setOnClickListener(Valider);
                 corriger.setOnClickListener(Corriger);
                 break;
-
-
         }
 
         timer = new CountDownTimer(5000, 500) {
