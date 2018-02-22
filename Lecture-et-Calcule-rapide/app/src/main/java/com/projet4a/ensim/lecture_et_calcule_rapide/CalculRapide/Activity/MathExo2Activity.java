@@ -73,7 +73,7 @@ public class MathExo2Activity extends AppCompatActivity {
     /**
      * textView contenant la réponse de l'élève
      */
-    private TextView reponseE = null;
+    private  TextView reponseE ;
 
 
     /**
@@ -211,8 +211,8 @@ public class MathExo2Activity extends AppCompatActivity {
 
         Button valider = null;
         Button corriger = null;
-
-
+final TextView reponseDonne = findViewById(R.id.ReponseEleve);
+        reponseE = findViewById(R.id.ReponseEleve);
         //TODO récuperation des parametres de l'exercices de multiplications qui ont été sérialisés :
                 //TODO uncomment code !!!
 
@@ -256,6 +256,7 @@ public class MathExo2Activity extends AppCompatActivity {
                 rep8 = findViewById(R.id.p0);
                 rep9 = findViewById(R.id.p0);
 
+
                 valider = findViewById(R.id.Validation);
                 corriger = findViewById(R.id.correction);
                 break;
@@ -280,13 +281,13 @@ public class MathExo2Activity extends AppCompatActivity {
        final TextView op1 = findViewById(R.id.operande1);
         final TextView op2 = findViewById(R.id.operande2);
 
-           // op1.setText(exo.getCalcul().get(numQuestAct).getOp1Int());
-            //op2.setText(exo.getCalcul().get(numQuestAct).getOp2String());
+           op1.setText(exo.getCalcul().get(numQuestAct).getOp1String());
+           op2.setText(exo.getCalcul().get(numQuestAct).getOp2String());
 
 
         switch (typeRep){       //TODO methode getRep pour exo : return ArrayList<int> + ajout onClickListner !!!
             case 1 :
-                rep0.setText(exo.getCalcul().get(numQuestAct).getResultatInt());
+                rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                 //rep1.setText(exo.getRep().get(1));
 
                // rep0.setOnClickListener();
