@@ -74,7 +74,7 @@
                 android:text="4" />
 
             <Button
-                android:id="@+id/5"
+                android:id="@+id/p5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_column="11"
