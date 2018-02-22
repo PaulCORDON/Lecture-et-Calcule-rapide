@@ -16,7 +16,11 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 import com.xw.repo.BubbleSeekBar;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
@@ -25,29 +29,56 @@ import java.io.ObjectOutputStream;
  *
  */
 
+
+
 public class ModifParamEl1Activity extends AppCompatActivity {
+
+    static ParamEl1 param=new ParamEl1();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        try {
+            FileInputStream fis = openFileInput("ParamEl1.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            param = (ParamEl1) ois.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
         setContentView(R.layout.activity_modif_param_el1);
 
         /**
          * recuperation de la valeur du nombre d'énoncé
          */
         final BubbleSeekBar nbEnonce = findViewById(R.id.seekNbEnonce);
+        nbEnonce.setProgress(param.getNbEnonce());
 
         /**
          * recuperation des valeurs du temps d'apparition, nombre d'apparition,
          * apparition multiple, mode d'apparition
          */
         final EditText tempsApparution = findViewById(R.id.TpsApparution);
+        tempsApparution.setText(""+param.getTempsApparution()/1000);
+
         final EditText nbApp = findViewById(R.id.NbMotsApp);
+        nbApp.setText(""+param.getNbApparution());
 
         final Switch multipleApparution = findViewById(R.id.BtnAppMultiple);
+        multipleApparution.setChecked(param.getMultipleApparution());
+
         final BubbleSeekBar nbApparition= findViewById(R.id.NbPropositions);
-        nbApparition.setVisibility(View.GONE);
+        if(!param.getMultipleApparution())nbApparition.setVisibility(View.GONE);
+        else nbApparition.setProgress(param.getNbAparitionSimultanee());
+
         final Switch enonceDisparait = findViewById(R.id.BtnApparutionEnonce);
+        enonceDisparait.setChecked(param.getEnonceDisparait());
 
 
         multipleApparution.setOnClickListener(new View.OnClickListener() {
@@ -71,7 +102,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
             valider.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    ParamEl1 param=null;
+
                     /**
                      * Changement des valeurs booleennes si Update dans les paramètres
                      */
