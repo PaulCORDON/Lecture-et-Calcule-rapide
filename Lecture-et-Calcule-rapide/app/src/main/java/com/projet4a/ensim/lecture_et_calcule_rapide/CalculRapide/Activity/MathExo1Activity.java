@@ -1,8 +1,10 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -336,10 +338,23 @@ public class MathExo1Activity extends AppCompatActivity {
         }.start();
     }
 
+    //TODO changer le text de la pop up
     @Override
-    protected void onStop() {
-        super.onStop();
-        Log.d("OnStop","OnStop Exo1Math");
-        this.finish();
+    public void onBackPressed() {
+        Log.d("onBackPressed","onBackPressed Exo1Math");
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Closing Activity")
+                .setMessage("Are you sure you want to close this activity?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        timer.cancel();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 }

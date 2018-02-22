@@ -112,6 +112,11 @@ public class Exo1Math extends Exercice implements Serializable
                     calculEnonce.add("" + operandes[0] + " + " + operandes[1]);
                     break;
                 case 1 :
+                    if(operandes[0]<operandes[1]){
+                        int swap = operandes[0];
+                        operandes[0] = operandes[1];
+                        operandes[1] = swap;
+                    }
                     calculEnonce.add("" + operandes[0] + " - " + operandes[1]);
                     break;
                 case 2 :
