@@ -122,26 +122,45 @@ public class MathExo1Activity extends AppCompatActivity {
         /**
          * On déclare la vue correspondant aux paramètres de l'exercice
          */
-        switch (exo.getParam().getNbBornes()) {
-            case 3:
-                setContentView(R.layout.activity_math_exo1_3bornes);
-                RepF1 =(Button)findViewById(R.id.BtnRepA);
-                RepF2 = (Button)findViewById(R.id.BtnRepB);
-                RepF3 = (Button)findViewById(R.id.BtnRepC);
-                RepF4 =(Button)findViewById(R.id.BtnRepD);
-                break;
-            case 2:
-                setContentView(R.layout.activity_math_exo1_2bornes);
-                RepF1 =(Button) findViewById(R.id.BtnRepA);
-                RepF2 = (Button)findViewById(R.id.BtnRepB);
-                RepF3 = (Button)findViewById(R.id.BtnRepC);
-                break;
-            case 1:
-                setContentView(R.layout.activity_math_exo1_1bornes);
-                RepF1 = (Button)findViewById(R.id.BtnRepA);
-                RepF2 = (Button)findViewById(R.id.BtnRepB);
-                break;
+        if(exo.getParam().getFrise){
+            switch (exo.getParam().getNbBornes()) {
+                case 3:
+                    setContentView(R.layout.activity_math_exo1_3bornes);
+                    RepF1 =(Button)findViewById(R.id.BtnRepA);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF3 = (Button)findViewById(R.id.BtnRepC);
+                    RepF4 =(Button)findViewById(R.id.BtnRepD);
+                    break;
+                case 2:
+                    setContentView(R.layout.activity_math_exo1_2bornes);
+                    RepF1 =(Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF3 = (Button)findViewById(R.id.BtnRepC);
+                    break;
+                case 1:
+                    setContentView(R.layout.activity_math_exo1_1bornes);
+                    RepF1 = (Button)findViewById(R.id.BtnRepA);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    break;
+            }
         }
+        else{
+            switch (exo.getParam().getNbBornes()) {
+                case 2:
+                    setContentView(R.layout.activity_math_exo1_comparaison);
+                    RepF1 =(Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    break;
+                case 1:
+                    setContentView(R.layout.activity_math_exo1_compris_entre);
+                    RepF1 = (Button)findViewById(R.id.BtnRepA);
+                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF3 = (Button)findViewById(R.id.BtnRepC);
+                    break;
+            }
+        }
+
+
 
         /**
          * Affichage de l'énoncé pour la question actuelle.
