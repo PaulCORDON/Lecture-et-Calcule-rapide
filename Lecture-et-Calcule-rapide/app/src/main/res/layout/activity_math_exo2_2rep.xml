@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <EditText
+                android:id="@+id/operande1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Operande1" />
+
+
+            <TextView
+                android:id="@+id/ReponseEleve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="12"
+                android:layout_row="0"
+                android:text="La reponse de l'eleve" />
+
+
+            <Button
+                android:id="@+id/repA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="10"
+                android:layout_row="3"
+                android:text="repA" />
+
+            <Button
+                android:id="@+id/repB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="12"
+                android:layout_row="3"
+                android:text="RepB" />
+
+            <EditText
+                android:id="@+id/operande2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="2"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Operande2" />
+
+            <ImageView
+                android:id="@+id/imageView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_row="1"
+                app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+        </GridLayout>
+
+</android.support.constraint.ConstraintLayout>
