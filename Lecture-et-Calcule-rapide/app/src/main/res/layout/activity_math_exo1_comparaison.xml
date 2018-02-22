@@ -7,10 +7,10 @@
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo1Activity">
 
     <ProgressBar
-        android:id="@+id/progressBar2"
+        android:id="@+id/progressBar1"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="340dp"
-        android:layout_height="8dp"
+        android:layout_height="13dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="48dp"
@@ -34,7 +34,7 @@
         app:layout_constraintVertical_bias="0.75" />
 
     <Button
-        android:id="@+id/BtnRepB"
+        android:id="@+id/BtnRepC"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

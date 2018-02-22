@@ -76,6 +76,7 @@ public class ParamEm1 extends ParamMath implements Serializable
         borneSelectionnable = false;
         borneEqualsOp = false;
         valMax = 30;
+        frise=true;
     }
 
     public ParamEm1(boolean f, Long t, Boolean p, Boolean[] o, int nbb, int nbq, Boolean d, long tra, Boolean oa, Boolean bs, Boolean beo, int vm)

@@ -15,7 +15,6 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
-import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 
@@ -25,8 +24,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
-import static java.lang.System.currentTimeMillis;
 
 /**
  * Activité gérant l'exercice 1 de maths, un calcul apparait ainsi qu'une frise avec des bornes, l'élève doit séléctionner le bon intervalle dans
@@ -129,35 +126,36 @@ public class MathExo1Activity extends AppCompatActivity {
                 case 3:
                     setContentView(R.layout.activity_math_exo1_3bornes);
                     RepF1 =(Button)findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF2 = (Button)findViewById(R.id.BtnRepC);
                     RepF3 = (Button)findViewById(R.id.BtnRepC);
                     RepF4 =(Button)findViewById(R.id.BtnRepD);
                     break;
                 case 2:
                     setContentView(R.layout.activity_math_exo1_2bornes);
                     RepF1 =(Button) findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF2 = (Button)findViewById(R.id.BtnRepC);
                     RepF3 = (Button)findViewById(R.id.BtnRepC);
                     break;
                 case 1:
                     setContentView(R.layout.activity_math_exo1_1bornes);
                     RepF1 = (Button)findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF2 = (Button)findViewById(R.id.BtnRepC);
                     break;
             }
         }
         else{
             switch (exo.getParam().getNbBornes()) {
                 case 2:
-                    setContentView(R.layout.activity_math_exo1_comparaison);
+                    setContentView(R.layout.activity_math_exo1_compris_entre);
                     RepF1 =(Button) findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepB);
+                    RepF2 = (Button)findViewById(R.id.BtnRepC);
+                    RepF3 = (Button)findViewById(R.id.BtnRepC);
                     break;
                 case 1:
-                    setContentView(R.layout.activity_math_exo1_compris_entre);
+                    setContentView(R.layout.activity_math_exo1_comparaison);
                     RepF1 = (Button)findViewById(R.id.BtnRepA);
-                    RepF2 = (Button)findViewById(R.id.BtnRepB);
-                    RepF3 = (Button)findViewById(R.id.BtnRepC);
+                    RepF2 = (Button)findViewById(R.id.BtnRepC);
+
                     break;
             }
         }
