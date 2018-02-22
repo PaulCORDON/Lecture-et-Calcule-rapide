@@ -2,8 +2,10 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.CountDownTimer;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -66,6 +68,11 @@ public class LectureExo1Activity extends AppCompatActivity {
     ArrayList<Button> listeDesBoutons = new ArrayList<>();
     TextView enonce;
     ArrayList<Integer> idDesBoutonsDesApparitions = new ArrayList<>();
+
+    /**
+     * timer
+     */
+    private CountDownTimer timer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -198,7 +205,7 @@ public class LectureExo1Activity extends AppCompatActivity {
         /**
          * Premier CountDownTimer pour passer d'un groupe d'apparition a un autre
          */
-        final CountDownTimer timer = new CountDownTimer(tempsTotal + 100, param.getTempsApparution()) {
+        timer = new CountDownTimer(tempsTotal + 100, param.getTempsApparution()) {
             /**
              * A chaque tick un groupe d'apparition apparait
              * @param l
@@ -279,11 +286,24 @@ public class LectureExo1Activity extends AppCompatActivity {
 
     }
 
+    //TODO changer le text de la pop up
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
         Log.d("OnBackPressed","OnBackPressed Exo1Lecture");
-        LectureExo1Activity.this.finish();
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle("Closing Activity")
+                .setMessage("Are you sure you want to close this activity?")
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                        timer.cancel();
+                    }
+                })
+                .setNegativeButton("No", null)
+                .show();
     }
 
 

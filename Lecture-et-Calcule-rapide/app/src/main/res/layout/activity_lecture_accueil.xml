@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="193dp"
             android:background="#ffff"
-            android:src="@drawable/raw" />
+            android:src="@drawable/giphyLecture" />
     </LinearLayout>
 
     <LinearLayout
