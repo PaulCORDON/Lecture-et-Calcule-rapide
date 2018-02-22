@@ -15,11 +15,16 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 import com.xw.repo.BubbleSeekBar;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 public class ModifParamEm1Activity extends AppCompatActivity {
@@ -246,6 +251,9 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         });
 
 
+        /**
+         * ici, c'est quand on clique sur valider, on vérifie tous les parametres rentrés et on appelle le constructeur
+         */
         valider.setOnClickListener(new View.OnClickListener() {
             @Override
             /** si le bouton valider a ete cliqué on rentre dans cette methode*/
@@ -257,7 +265,26 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 long tpsRep;
                 int valeurMax;
                 int nbBoutons;
-                ParamEm1 param = null;
+                ParamEm1 param = new ParamEm1();
+                Exo1Math exo;
+
+                /**
+                 * Pour récupérer les parametres déja sérialisés
+                 */
+                try {
+                    FileInputStream fis = openFileInput("ParamEm1.txt");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    param = (ParamEm1) ois.readObject();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                exo = new Exo1Math(param);
+
+
 
                 if(rbFrise.isChecked())ExoFrise=true;
                 else ExoFrise=false;
@@ -268,16 +295,16 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 if(ExoFrise) {
 
                 if (!TpsAvantDisp.getText().toString().equals(""))tpsAvDisp=Long.parseLong(TpsAvantDisp.getText().toString())*1000;
-                else tpsAvDisp=5000;
+                else tpsAvDisp=exo.getParam().getTempsRestantApparant();
 
                 if(!nbQuestions.getText().toString().equals(""))  nbQuest=Integer.parseInt(nbQuestions.getText().toString());
-                else nbQuest=5;
+                else nbQuest=exo.getParam().getNbQuestions();
 
                 if(!tpsReponse.getText().toString().equals("")) tpsRep=Long.parseLong(tpsReponse.getText().toString())*1000;
-                else tpsRep=10000;
+                else tpsRep=exo.getParam().getTempsRep();
 
                 if(!valMax.getText().toString().equals("")) valeurMax=Integer.parseInt(valMax.getText().toString());
-                else valeurMax=50;
+                else valeurMax=exo.getParam().getValMax();
 
 
                 /** Booleen qui est vrai si on affiche le calcul avant la reponse et faux si on affiches les reponses avant le calcul */
@@ -320,16 +347,16 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 if(!ExoFrise){
 
                     if (!TpsAvantDispB.getText().toString().equals(""))tpsAvDisp=Long.parseLong(TpsAvantDispB.getText().toString())*1000;
-                    else tpsAvDisp=5000;
+                    else tpsAvDisp=exo.getParam().getTempsRestantApparant();
 
                     if(!nbQuestionsB.getText().toString().equals(""))  nbQuest=Integer.parseInt(nbQuestionsB.getText().toString());
-                    else nbQuest=5;
+                    else nbQuest=exo.getParam().getNbQuestions();
 
                     if(!tpsReponseB.getText().toString().equals("")) tpsRep=Long.parseLong(tpsReponseB.getText().toString())*1000;
-                    else tpsRep=10000;
+                    else tpsRep=exo.getParam().getTempsRep();
 
                     if(!valMaxB.getText().toString().equals("")) valeurMax=Integer.parseInt(valMaxB.getText().toString());
-                    else valeurMax=50;
+                    else valeurMax=exo.getParam().getValMax();
 
                     if(DeuxButtons.isChecked())nbBoutons=1;
                     else if(TroisButtons.isChecked())nbBoutons=2;
@@ -364,7 +391,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             false,
                             valeurMax);
 
-                    Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb boutons: " + param.getNbBornes()+1 +
+                    Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb boutons: " + param.getNbBornes() +
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
 
