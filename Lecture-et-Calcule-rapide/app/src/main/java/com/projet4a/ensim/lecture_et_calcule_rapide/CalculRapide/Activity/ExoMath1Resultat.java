@@ -73,7 +73,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
         final TextView nbRep = (TextView) findViewById(R.id.score);
         final TextView nbQuest = (TextView) findViewById(R.id.nbQuestion);
-        final Button acceuil = (Button) findViewById(R.id.Acceuil);
+        final Button acceuil = (Button) findViewById(R.id.Accueil);
         final TextView numQuCorrig = (TextView) findViewById(R.id.calcul);
         final TextView reponse1 = (TextView) findViewById(R.id.reponse1);
         final TextView reponse2 = (TextView) findViewById(R.id.reponse2);
@@ -82,7 +82,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
         final TextView score = (TextView) findViewById(R.id.Score);
         final TextView slash = (TextView) findViewById(R.id.slash);
 
-        acceuil.setText("Acceuil");
+        acceuil.setText("Accueil");
         nextQuest.setText("Voir la correction");
 
         // La réponse est afiché en vert pour plus de visiblité
@@ -143,7 +143,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
                     if(numQuestCorr == reponseJuste.length){
                         score.setText("Ton score");
-                        nextQuest.setText("Acceuil");
+                        nextQuest.setText("Accueil");
                         nextQuest.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
