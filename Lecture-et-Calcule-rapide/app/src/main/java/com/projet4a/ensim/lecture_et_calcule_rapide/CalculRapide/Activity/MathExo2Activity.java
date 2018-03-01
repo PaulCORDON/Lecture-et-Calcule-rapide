@@ -281,48 +281,53 @@ Log.w("exo2","operande 1 :" +exo.getCalcul().get(numQuestAct).getOp1Int());
 
         switch (typeRep) {
             case 1:
-                placementAlea = (int)((Math.random() * 3 )+1);
-                Log.w("choix bornes :" ,"random pour le choix de la borne" + placementAlea);
-                rep0.setText("" + ((int) (Math.random()*100)));
-                rep1.setText("" + ((int) (Math.random()*100)));
-                if (placementAlea == 1) {
-                    Log.w("choix bornes :" ,"GAAUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCCCCCCCCCHHHHHHHHHHHHHHHHHHHHEEEEEEEEEEEEEE");
-                    rep0.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
-                    rep0.setOnClickListener(OCLBonneReponse);
-                    rep1.setOnClickListener(OCLMauvaiseReponse);
-                }else {
-                    Log.w("choix bornes :" ,"DDDDDDDDDRRRRRRRRRRRRRRRRRRRRRRRRRRRRRROIIIIIIIIIIIIIIIIIIIIIIIIIIIIITTTTTTTTTTTTTTTTEEEE");
-                    rep1.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
-                                                                                                            int a = (int)(Math.random()*100);
-                                                                                                                         Log.w("valeur du random : ", "a ====================================="  + a +"++++++++++++++++++"+ rep0.getText());
-                                                                                                                                     rep0.setText(""+a);
-                                                                                                                    Log.w("valeur du random : ", "a ====================================="  + a +"------------------"+ rep0.getText());
+                rep0.setText("" + (int) ((Math.random() * 100)));
+                rep1.setText("" + ((int) (Math.random() * 100)));
+
+                rep0.setOnClickListener(OCLMauvaiseReponse);
+                rep1.setOnClickListener(OCLMauvaiseReponse);
 
 
-                    rep1.setOnClickListener(OCLBonneReponse);
-                    rep0.setOnClickListener(OCLMauvaiseReponse);
+                placementAlea = (int) ((Math.random() * 2)+1);
+                switch (placementAlea) {
+                    case 1:
+                        rep0.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep0.setOnClickListener(OCLBonneReponse);
+                        break;
+                    case 2:
+                        rep1.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep1.setOnClickListener(OCLBonneReponse);
+                        break;
+
                 }
-                rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                 break;
             case 2:
                 rep0.setText("" + (int) ((Math.random() * 100)));
                 rep1.setText("" + ((int) (Math.random() * 100)));
                 rep2.setText("" + ((int) (Math.random() * 100)));
                 rep3.setText("" + ((int) (Math.random() * 100)));
+                rep0.setOnClickListener(OCLMauvaiseReponse);
+                rep1.setOnClickListener(OCLMauvaiseReponse);
+                rep2.setOnClickListener(OCLMauvaiseReponse);
+                rep3.setOnClickListener(OCLMauvaiseReponse);
 
                 placementAlea = (int) ((Math.random() * 4)+1);
                 switch (placementAlea) {
-                    case 0:
-                        rep0.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
-                        break;
                     case 1:
-                        rep1.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep0.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep0.setOnClickListener(OCLBonneReponse);
                         break;
                     case 2:
-                        rep2.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep1.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep1.setOnClickListener(OCLBonneReponse);
                         break;
                     case 3:
+                        rep2.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep2.setOnClickListener(OCLBonneReponse);
+                        break;
+                    case 4:
                         rep3.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep3.setOnClickListener(OCLBonneReponse);
                         break;
                 }
                 break;
