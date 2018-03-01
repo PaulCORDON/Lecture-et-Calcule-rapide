@@ -3,54 +3,31 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 import java.io.Serializable;
 
 public class ParamEm2 extends ParamMath implements Serializable {
+
     private int typeRep;
+
+    private int nbCalcul;
     /**
      * type de réponse à donner par l'élève
      */
 
-    private int nbQuestions;
+    private int valMaxOperande;
     /**
      * Nombre de question
      */
-
-    /*TODO modifier pour l'associer à ordre d'apparition,
-        calcul apparait disparait puis borne apparait
-        OU
-        bornes apparaissent disparaissent puis calcul apparait
-     */
-    private Boolean disparition;
+    private Boolean nombrePair;
+    private Boolean nombreImpair;
 
     /**
      * Vrai : le premier element disparait, Faux : les deux elements s'affiche en meme temps
      */
 
-    private long tempsRestantApparant;
-    /**
-     * temps pendant lequel le premier element affiché reste apparant dans le cas ou il disparait
-     */
-
-    private Boolean ordreApparition;
+    private Boolean repDeuxBornes;
+    private Boolean repQuatreBornes;
+    private Boolean repPaveNum;
     /**
      * Vrai : calcul puis bornes, Faux : bornes puis calcul
      */
-
-    private Boolean borneSelectionnable;
-    /**
-     * Vrai : la borne peut etre le resultat où il faut cliquer, Faux : les bornes ne seront jamais egales aux resultats
-     */
-
-    private Boolean borneEqualsOp;
-    /**
-     * Vrai : une bornes est toujours egale à un opérande à +/- distance , Faux : les bornes sont aléatoires
-     */
-    //TODO paramètre distance entre borne et opérande dans le cas où une borne doit etre proche d'un opérande
-
-    private int valMax;
-
-    /**
-     * Valeur maximale présente dans l'exercice
-     */
-    //TODO ajouter valMin, valeur minimum présente dans l'exercice
     public ParamEm2()
     /**
      * Constructeur de paramètres par défault
@@ -58,29 +35,29 @@ public class ParamEm2 extends ParamMath implements Serializable {
     {
         super();
         typeRep = 3;
-        nbQuestions = 5;
-        disparition = true;
-        tempsRestantApparant = 3000;
-        ordreApparition = true;
-        borneSelectionnable = false;
-        borneEqualsOp = false;
-        valMax = 30;
+        nbCalcul = 5;
+        nombrePair = true;
+        nombreImpair = true;
+        repDeuxBornes = false;
+        repQuatreBornes = false;
+        repPaveNum = true;
+        valMaxOperande = 30;
     }
 
-    public ParamEm2(Long t, Boolean p, Boolean[] o, int nbb, int nbq, Boolean d, long tra, Boolean oa, Boolean bs, Boolean beo, int vm)
+    public ParamEm2(int typeRep,int nbCalcul,int valMaxOperande,boolean nombreImpair,boolean nombrePair,boolean repDeuxBornes,boolean repPaveNum,boolean repQuatreBornes)
     /**
      * Constructeur de paramètres personalisés
      */
     {
-        super(t, p, o);
-        typeRep = nbb;
-        nbQuestions = nbq;
-        disparition = d;
-        tempsRestantApparant = tra;
-        ordreApparition = oa;
-        borneSelectionnable = bs;
-        borneEqualsOp = beo;
-        valMax = vm;
+        super();
+        this.typeRep = typeRep;
+        this.nbCalcul = nbCalcul;
+        this.nombrePair = nombrePair;
+        this.nombreImpair = nombreImpair;
+        this.repDeuxBornes = repDeuxBornes;
+        this.repQuatreBornes = repQuatreBornes;
+        this.repPaveNum = repPaveNum;
+        this.valMaxOperande = valMaxOperande;
     }
 
     /**
@@ -90,52 +67,19 @@ public class ParamEm2 extends ParamMath implements Serializable {
         return typeRep;
     }
 
-    /**
-     * @return nbQuestions
-     */
-    public int getNbQuestions() {
-        return nbQuestions;
-    }
+    public int getNbCalcul() {return nbCalcul;}
 
-    /**
-     * @return disparition
-     */
-    public Boolean getDisparition() {
-        return disparition;
-    }
+    public int getValMaxOperande() {return valMaxOperande;}
 
-    /**
-     * @return tempsRestantApparant
-     */
-    public long getTempsRestantApparant() {
-        return tempsRestantApparant;
-    }
+    public Boolean getNombrePair() {return nombrePair;}
 
-    /**
-     * @return ordreApparition
-     */
-    public Boolean getOrdreApparition() {
-        return ordreApparition;
-    }
+    public Boolean getNombreImpair() {return nombreImpair;}
 
-    /**
-     * @return borneSelectionnable
-     */
-    public Boolean getBorneSelectionnable() {
-        return borneSelectionnable;
-    }
+    public Boolean getRepDeuxBornes() {return repDeuxBornes;}
 
-    /**
-     * @return borneEqualsOp
-     */
-    public Boolean getBorneEqualsOp() {
-        return borneEqualsOp;
-    }
+    public Boolean getRepQuatreBornes() {return repQuatreBornes;}
 
-    /**
-     * @return valMax
-     */
-    public int getValMax() {
-        return valMax;
-    }
+    public Boolean getRepPaveNum() {return repPaveNum;}
+
+
 }

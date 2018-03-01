@@ -330,6 +330,7 @@ Log.w("exo2","operande 1 :" +exo.getCalcul().get(numQuestAct).getOp1Int());
                         rep3.setOnClickListener(OCLBonneReponse);
                         break;
                 }
+
                 break;
             case 0:
                 rep0.setOnClickListener(Pav0);
