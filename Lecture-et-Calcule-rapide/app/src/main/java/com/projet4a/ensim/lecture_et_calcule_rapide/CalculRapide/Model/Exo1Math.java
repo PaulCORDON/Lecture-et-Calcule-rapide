@@ -98,6 +98,7 @@ public class Exo1Math extends Exercice implements Serializable {
                         int swap = operandes[0];
                         operandes[0] = operandes[1];
                         operandes[1] = swap;
+                        resultats[a] = -resultats[a];
                     }
                     calculEnonce.add("" + operandes[0] + " - " + operandes[1]);
                     break;
