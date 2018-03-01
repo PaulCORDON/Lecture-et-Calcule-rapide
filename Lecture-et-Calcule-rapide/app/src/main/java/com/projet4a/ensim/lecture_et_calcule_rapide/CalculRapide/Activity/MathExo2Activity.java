@@ -332,7 +332,7 @@ public class MathExo2Activity extends AppCompatActivity {
                         rep3.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
                 }
-               
+
                 break;
 
             case 0:
