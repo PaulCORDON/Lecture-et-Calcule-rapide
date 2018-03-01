@@ -1,16 +1,13 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity;
-import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
-
 
 public class LectureAccueilActivity extends AppCompatActivity {
     /* booleens pour savoir quel exercice est selectionné */
@@ -20,23 +17,21 @@ public class LectureAccueilActivity extends AppCompatActivity {
     TextView descriptionL;
 
     /**
-     *
-      * @param savedInstanceState
+     * @param savedInstanceState
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_accueil);
 
-
-    /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
+        /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
         final Button exercice1 = (Button) findViewById(R.id.exo1L);
         final Button exercice2 = (Button) findViewById(R.id.exo2L);
         final Button exercice3 = (Button) findViewById(R.id.exo3L);
         /* creation du boutton parametre */
         final Button parametreL = (Button) findViewById(R.id.paramL);
         /*creation du boutton go */
-        final Button go=(Button) findViewById(R.id.goL);
+        final Button go = (Button) findViewById(R.id.goL);
 
         descriptionL = findViewById(R.id.descriptionL);
         parametreL.setVisibility(View.GONE);
@@ -56,12 +51,9 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 isExercice3 = false;
 
                 descriptionL.setText("Exercice 1 de Lecture\nConsigne : Trouve le mot qui est écrit exactement comme le mot de l'énoncé");
-
-
-
-
             }
         });
+
         /** click sur le bouton exercice 2 , on affiche la description et on met le bouton enable */
         exercice2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,11 +68,9 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 isExercice3 = false;
 
                 descriptionL.setText("Exercice 2 de Lecture\nConsigne : ");
-
-
-
             }
         });
+
         /** click sur le bouton exercice 3 , on affiche la description et on met le bouton enable */
         exercice3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,8 +85,6 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 isExercice3 = true;
 
                 descriptionL.setText("Exercice 3 de Lecture\nConsigne : ");
-
-
             }
         });
 
@@ -104,26 +92,22 @@ public class LectureAccueilActivity extends AppCompatActivity {
         parametreL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (isExercice1){
-
+                if (isExercice1) {
                     Intent intent = new Intent(LectureAccueilActivity.this, ModifParamEl1Activity.class);
                     startActivity(intent);
-
                 }
                 //TODO faire pareil pour les autres exercices quand les activités seront créer
-
             }
         });
+
         go.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isExercice1){
+                if (isExercice1) {
                     Intent intent = new Intent(LectureAccueilActivity.this, LectureExo1Activity.class);
                     startActivity(intent);
                 }
             }
         });
-
     }
 }

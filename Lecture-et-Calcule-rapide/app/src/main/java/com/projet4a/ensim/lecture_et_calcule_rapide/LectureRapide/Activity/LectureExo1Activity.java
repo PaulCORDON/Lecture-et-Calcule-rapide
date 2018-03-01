@@ -1,13 +1,11 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
-
-import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +21,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-
 
 /**
  * Activité liée à l'affichage : activity lecture exo 1
@@ -44,10 +41,6 @@ public class LectureExo1Activity extends AppCompatActivity {
      * Compteur du nombre de mauvaises réponses données par l'élève
      */
     int nbMauvaiseRep = 0;
-
-    /**
-     * Variable servant pour le temps
-     */
 
     int nbAppCourent = 0;
     Exo1Lecture exo;
@@ -112,9 +105,7 @@ public class LectureExo1Activity extends AppCompatActivity {
         }
         Log.d("EXO 1 Lecture", "Après la désérialisation");
 
-
         enonce.setText(exo.getEnonce());
-
 
         listeDesBoutons.add(rep1);
         listeDesBoutons.add(rep2);
@@ -197,10 +188,10 @@ public class LectureExo1Activity extends AppCompatActivity {
                 rendreInvisible(rep10);
             }
         });
+
         final long tempsTotal = (param.getTempsApparution() * param.getNbApparution()) / param.getNbAparitionSimultanee();
         timeBar = findViewById(R.id.progressBar);
         timeBar.setMax((int) (param.getTempsApparution() + 0));
-
 
         /**
          * Premier CountDownTimer pour passer d'un groupe d'apparition a un autre
@@ -279,23 +270,19 @@ public class LectureExo1Activity extends AppCompatActivity {
                 intent.putExtra("nbBonneRep", nbBonneRep);
                 intent.putExtra("nbAppCourent", nbAppCourent);
                 startActivity(intent);
-
             }
         }.start();
-
-
     }
 
     //TODO changer le text de la pop up
     @Override
     public void onBackPressed() {
-        Log.d("OnBackPressed","OnBackPressed Exo1Lecture");
+        Log.d("OnBackPressed", "OnBackPressed Exo1Lecture");
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Closing Activity")
                 .setMessage("Are you sure you want to close this activity?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener()
-                {
+                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
@@ -305,8 +292,6 @@ public class LectureExo1Activity extends AppCompatActivity {
                 .setNegativeButton("No", null)
                 .show();
     }
-
-
 
     /**
      * Méthode qui tire un nombre aléatoire entre 1 et 10
@@ -319,7 +304,6 @@ public class LectureExo1Activity extends AppCompatActivity {
         int length = 0;
 
         while (length < x) {
-
             int n = (int) (Math.random() * 9 + 1);
             Log.d("ALEA", " " + n);
             if (!tab.contains(n)) {
@@ -327,8 +311,6 @@ public class LectureExo1Activity extends AppCompatActivity {
                 length += 1;
             }
         }
-
-
         return tab;
     }
 
@@ -341,7 +323,6 @@ public class LectureExo1Activity extends AppCompatActivity {
         int num = (int) Math.random() * (p - 1) + 1;
         return num;
     }
-
 
     /**
      * Méthode qui tire aléatoirement en index situé entre 0 et la taille du tableau qui contient les apparitions
@@ -396,7 +377,6 @@ public class LectureExo1Activity extends AppCompatActivity {
         b.setVisibility(View.GONE);
     }
 
-
     /**
      * methode qui ferme les apparitions non répondu
      */
@@ -413,7 +393,6 @@ public class LectureExo1Activity extends AppCompatActivity {
                 if (!b.getText().equals(enonce.getText())) {
                     nbBonneRep++;
                     scoreBar.setProgress(nbBonneRep * (100 / param.getNbApparution()));
-
                 } else {
                     nbMauvaiseRep++;
                 }

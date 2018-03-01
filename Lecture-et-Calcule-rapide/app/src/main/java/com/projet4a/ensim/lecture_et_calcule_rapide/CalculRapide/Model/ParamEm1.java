@@ -2,10 +2,10 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
 import java.io.Serializable;
 
+/**
+ * classe définissant les paramètres de Exo1Maths
+ */
 public class ParamEm1 extends ParamMath implements Serializable
-        /**
-         * classe définissant les paramètres de Exo1Maths
-         */
 {
     private int nbBornes;
     /**
@@ -55,6 +55,13 @@ public class ParamEm1 extends ParamMath implements Serializable
      * Valeur maximale présente dans l'exercice
      */
     //TODO ajouter valMin, valeur minimum présente dans l'exercice
+
+    private boolean frise;
+
+    /**
+     * boolean pour dire si l'exercice utilisera une frise ou des boutons
+     */
+
     public ParamEm1()
     /**
      * Constructeur de paramètres par défault
@@ -69,14 +76,16 @@ public class ParamEm1 extends ParamMath implements Serializable
         borneSelectionnable = false;
         borneEqualsOp = false;
         valMax = 30;
+        frise = true;
     }
 
-    public ParamEm1(Long t, Boolean p, Boolean[] o, int nbb, int nbq, Boolean d, long tra, Boolean oa, Boolean bs, Boolean beo, int vm)
+    public ParamEm1(boolean f, Long t, Boolean p, Boolean[] o, int nbb, int nbq, Boolean d, long tra, Boolean oa, Boolean bs, Boolean beo, int vm)
     /**
      * Constructeur de paramètres personalisés
      */
     {
         super(t, p, o);
+        frise = f;
         nbBornes = nbb;
         nbQuestions = nbq;
         disparition = d;
@@ -86,7 +95,6 @@ public class ParamEm1 extends ParamMath implements Serializable
         borneEqualsOp = beo;
         valMax = vm;
     }
-
 
     /**
      * @return nbBornes
@@ -123,7 +131,6 @@ public class ParamEm1 extends ParamMath implements Serializable
         return ordreApparition;
     }
 
-
     /**
      * @return borneSelectionnable
      */
@@ -143,5 +150,12 @@ public class ParamEm1 extends ParamMath implements Serializable
      */
     public int getValMax() {
         return valMax;
+    }
+
+    /**
+     * @return frise
+     */
+    public boolean getFrise() {
+        return frise;
     }
 }

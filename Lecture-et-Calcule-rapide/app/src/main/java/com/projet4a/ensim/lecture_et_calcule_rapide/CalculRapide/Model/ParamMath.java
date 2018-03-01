@@ -6,7 +6,6 @@ import java.io.Serializable;
  * Classe definissant les paramètres communs a chaque exercice de maths
  */
 abstract class ParamMath implements Serializable
-
 {
     /**
      * Temps avant de passer à la question suivante
@@ -27,13 +26,10 @@ abstract class ParamMath implements Serializable
      */
     private Boolean operateur[];
 
-
     /**
      * constructeur des paramètres par défault
      */
-    ParamMath()
-
-    {
+    ParamMath() {
         tempsRep = new Long(5000);
         pairOnly = true;
 
@@ -48,9 +44,7 @@ abstract class ParamMath implements Serializable
     /**
      * constructeur des paramètres personnalisés
      */
-    ParamMath(Long t, Boolean p, Boolean[] o)
-
-    {
+    ParamMath(Long t, Boolean p, Boolean[] o) {
         tempsRep = t;
         pairOnly = p;
         operateur = o;

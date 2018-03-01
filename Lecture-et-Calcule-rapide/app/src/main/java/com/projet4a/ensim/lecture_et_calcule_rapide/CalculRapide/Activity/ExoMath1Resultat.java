@@ -2,12 +2,11 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
@@ -18,7 +17,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
-
 
 public class ExoMath1Resultat extends AppCompatActivity {
 
@@ -37,11 +35,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
      */
     private int numQuestCorr = -1;
 
-
     private Exo1Math exoMath = null;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +46,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
         // on récupere le tableau contenant les réponses données par l'élève :
         reponseJuste = intent.getBooleanArrayExtra("ReponseDonnee");
 
-
         //on récupere l'exercice :
-
         try {
             FileInputStream fis = openFileInput("ExoM1.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -67,10 +59,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
-
         //  lien avec le vue
-
         final TextView nbRep = (TextView) findViewById(R.id.score);
         final TextView nbQuest = (TextView) findViewById(R.id.nbQuestion);
         final Button acceuil = (Button) findViewById(R.id.Acceuil);
@@ -89,153 +78,145 @@ public class ExoMath1Resultat extends AppCompatActivity {
         reponse2.setTextColor(Color.GREEN);
 
         // calcul du score de l'élève :
-        for(boolean b : reponseJuste){
-            if(b){
+        for (boolean b : reponseJuste) {
+            if (b) {
                 bonneRep++;
             }
         }
-        nbRep.setText(""+bonneRep);
-        nbQuest.setText(""+reponseJuste.length);
+        nbRep.setText("" + bonneRep);
+        nbQuest.setText("" + reponseJuste.length);
 
-
-          //Affichage de la correction pour chaque question jusqu'a ce que l'on appuie sur correction suivante
-
-            nextQuest.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if(numQuestCorr == -1 ){
-                        numQuestCorr ++;
-                        if(reponseJuste[0]){
-                            score.setText("VRAI");
-                            reponse2.setVisibility(View.INVISIBLE);
-                            reponse1.setVisibility(View.INVISIBLE);
-                            reponse3.setVisibility(View.INVISIBLE);
-                        }else{
-                            score.setText("FAUX");
-                            reponse2.setVisibility(View.VISIBLE);
-                            reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
-                        }
-                        acceuil.setVisibility(View.INVISIBLE);
-                        nextQuest.setText("Correction suivante");
-                        slash.setText("Question "+ (numQuestCorr) + " : ");
-                        numQuCorrig.setText(exoMath.getCalculEnonce().get(0) + " = " + exoMath.getResultats()[0]);
+        //Affichage de la correction pour chaque question jusqu'a ce que l'on appuie sur correction suivante
+        nextQuest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (numQuestCorr == -1) {
+                    numQuestCorr++;
+                    if (reponseJuste[0]) {
+                        score.setText("VRAI");
+                        reponse2.setVisibility(View.INVISIBLE);
+                        reponse1.setVisibility(View.INVISIBLE);
+                        reponse3.setVisibility(View.INVISIBLE);
+                    } else {
+                        score.setText("FAUX");
+                        reponse2.setVisibility(View.VISIBLE);
+                        reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
                     }
-                    if (numQuestCorr > -1 && numQuestCorr < reponseJuste.length +1) {
-                        numQuestCorr ++;
-                        if(reponseJuste[numQuestCorr-1]){
-                            score.setText("VRAI");
-                            reponse2.setVisibility(View.INVISIBLE);
-                            reponse1.setVisibility(View.INVISIBLE);
-                            reponse3.setVisibility(View.INVISIBLE);
-                        }else{
-                            score.setText("FAUX");
-                            reponse2.setVisibility(View.VISIBLE);
-                            reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]).get(0));
-                            reponse1.setVisibility(View.VISIBLE);
-                            reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]).get(1));
-                            reponse3.setVisibility(View.VISIBLE);
-                            reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr-1), exoMath.getResultats()[numQuestCorr-1]).get(2));
-                        }
-                        slash.setText("Question "+ (numQuestCorr) + " : ");
-                        numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr-1)+ " = " + exoMath.getResultats()[numQuestCorr-1]);
-
-                    }
-
-                    if(numQuestCorr == reponseJuste.length){
-                        score.setText("Ton score");
-                        nextQuest.setText("Acceuil");
-                        nextQuest.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent2 = new Intent( ExoMath1Resultat.this ,MenuActivity.class);
-                                startActivity(intent2);
-                            }
-                        });
-                    }
+                    acceuil.setVisibility(View.INVISIBLE);
+                    nextQuest.setText("Correction suivante");
+                    slash.setText("Question " + (numQuestCorr) + " : ");
+                    numQuCorrig.setText(exoMath.getCalculEnonce().get(0) + " = " + exoMath.getResultats()[0]);
                 }
-            });
+                if (numQuestCorr > -1 && numQuestCorr < reponseJuste.length + 1) {
+                    numQuestCorr++;
+                    if (reponseJuste[numQuestCorr - 1]) {
+                        score.setText("VRAI");
+                        reponse2.setVisibility(View.INVISIBLE);
+                        reponse1.setVisibility(View.INVISIBLE);
+                        reponse3.setVisibility(View.INVISIBLE);
+                    } else {
+                        score.setText("FAUX");
+                        reponse2.setVisibility(View.VISIBLE);
+                        reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(0));
+                        reponse1.setVisibility(View.VISIBLE);
+                        reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(1));
+                        reponse3.setVisibility(View.VISIBLE);
+                        reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(2));
+                    }
+                    slash.setText("Question " + (numQuestCorr) + " : ");
+                    numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1) + " = " + exoMath.getResultats()[numQuestCorr - 1]);
 
+                }
+                if (numQuestCorr == reponseJuste.length) {
+                    score.setText("Ton score");
+                    nextQuest.setText("Acceuil");
+                    nextQuest.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent2 = new Intent(ExoMath1Resultat.this, MenuActivity.class);
+                            startActivity(intent2);
+                        }
+                    });
+                }
+            }
+        });
 
-         // bouton pour revenir à l'ecran d'acceuil visible uniquement avant l'affichage de la correction et apres ( pas pendant que les correction sont affichées).
-
-        if(numQuestCorr == -1 || numQuestCorr == reponseJuste.length+1 ){
+        // bouton pour revenir à l'ecran d'acceuil visible uniquement avant l'affichage de la correction et apres ( pas pendant que les correction sont affichées).
+        if (numQuestCorr == -1 || numQuestCorr == reponseJuste.length + 1) {
             acceuil.setVisibility(View.VISIBLE);
             acceuil.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent2 = new Intent( ExoMath1Resultat.this ,MenuActivity.class);
+                    Intent intent2 = new Intent(ExoMath1Resultat.this, MenuActivity.class);
                     startActivity(intent2);
                 }
             });
         }
     }
-        // on renvoi une array list de String, la premiere valeurs correspond à la réponse,
-        // la deuxieme à l'expression de gauche, la derniere à la droite de l'expression.
-    private ArrayList<String> correction(ArrayList<Integer> bornes, int resultat){
 
-        ArrayList<String> rep = new  ArrayList<>();
+    // on renvoi une array list de String, la premiere valeurs correspond à la réponse,
+    // la deuxieme à l'expression de gauche, la derniere à la droite de l'expression.
+    private ArrayList<String> correction(ArrayList<Integer> bornes, int resultat) {
 
-            if(bornes.size() == 1){
-                if(resultat< bornes.get(0)){
-                    rep.add("" + resultat);
-                    rep.add("");
-                    rep.add( " _ < _ " + bornes.get(0));
-                    return rep;
-                }
-                else{
-                    rep.add("" + resultat);
-                    rep.add(" _ " +bornes.get(0) + " _ < _ " );
-                    rep.add("");
-                    return rep;
-                }
-            }
-            if(bornes.size() == 2){
-                if(resultat < bornes.get(0)){
-                    rep.add(""  +resultat);
-                    rep.add("");
-                    rep.add( " < " + bornes.get(0) + " < " + bornes.get(1));
+        ArrayList<String> rep = new ArrayList<>();
 
-                    return rep ;
-                }
-                if(resultat > bornes.get(1)){
-                    rep.add("" +  resultat );
-                    rep.add(" _ " +bornes.get(0) + " < " + bornes.get(1) + " < " );
-                    rep.add("");
-                    return rep ;
-                }
-                rep.add( "" +  resultat );
-                rep.add("_ " + bornes.get(0) +" < " );
-                rep.add(" < " + bornes.get(1));
+        if (bornes.size() == 1) {
+            if (resultat < bornes.get(0)) {
+                rep.add("" + resultat);
+                rep.add("");
+                rep.add(" _ < _ " + bornes.get(0));
+                return rep;
+            } else {
+                rep.add("" + resultat);
+                rep.add(" _ " + bornes.get(0) + " _ < _ ");
+                rep.add("");
                 return rep;
             }
-            if(bornes.size() == 3){
-                if(resultat < bornes.get(0)){
-                    rep.add(""+ resultat);
-                    rep.add("");
-                    rep.add(" < " + bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2));
-                    return rep ;
-                }
-                if(resultat > bornes.get(2)){
-                    rep.add("" +resultat);
-                    rep.add(bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2) + " < " );
-                    rep.add("");
-                    return  rep ;
-                }
-                if(resultat< bornes.get(1)){
-                    rep.add( "" + resultat );
-                    rep.add(""+ bornes.get(0) +" < ");
-                    rep.add( " < " + bornes.get(1) + " < " + bornes.get(2));
-                    return rep ;
-                }
-                else{
-                    rep.add("" +resultat);
-                    rep.add( bornes.get(0) + " < " + bornes.get(1)+ " < " );
-                    rep.add(" < " + bornes.get(2));
-                    return rep;
-                }
+        }
+        if (bornes.size() == 2) {
+            if (resultat < bornes.get(0)) {
+                rep.add("" + resultat);
+                rep.add("");
+                rep.add(" < " + bornes.get(0) + " < " + bornes.get(1));
+
+                return rep;
             }
+            if (resultat > bornes.get(1)) {
+                rep.add("" + resultat);
+                rep.add(" _ " + bornes.get(0) + " < " + bornes.get(1) + " < ");
+                rep.add("");
+                return rep;
+            }
+            rep.add("" + resultat);
+            rep.add("_ " + bornes.get(0) + " < ");
+            rep.add(" < " + bornes.get(1));
+            return rep;
+        }
+        if (bornes.size() == 3) {
+            if (resultat < bornes.get(0)) {
+                rep.add("" + resultat);
+                rep.add("");
+                rep.add(" < " + bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2));
+                return rep;
+            }
+            if (resultat > bornes.get(2)) {
+                rep.add("" + resultat);
+                rep.add(bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2) + " < ");
+                rep.add("");
+                return rep;
+            }
+            if (resultat < bornes.get(1)) {
+                rep.add("" + resultat);
+                rep.add("" + bornes.get(0) + " < ");
+                rep.add(" < " + bornes.get(1) + " < " + bornes.get(2));
+                return rep;
+            } else {
+                rep.add("" + resultat);
+                rep.add(bornes.get(0) + " < " + bornes.get(1) + " < ");
+                rep.add(" < " + bornes.get(2));
+                return rep;
+            }
+        }
         return null;
     }
-
-
 }
