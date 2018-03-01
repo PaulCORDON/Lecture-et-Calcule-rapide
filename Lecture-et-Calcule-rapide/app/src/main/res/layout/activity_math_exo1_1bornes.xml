@@ -118,4 +118,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageViewBar"
+        android:layout_width="48dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        app:layout_constraintStart_toStartOf="@+id/progressBar1"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageViewBar1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBar"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <ImageView
+        android:id="@+id/imageViewBar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/progressBar1"
+        app:layout_constraintStart_toEndOf="@+id/imageViewBar1"
+        app:srcCompat="@mipmap/ic_launcher"
+        tools:layout_editor_absoluteY="25dp" />
+
 </android.support.constraint.ConstraintLayout>

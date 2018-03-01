@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -57,6 +58,7 @@ public class MathExo1Activity extends AppCompatActivity {
     private CountDownTimer timer;
 
     private ProgressBar progress;
+    private ImageView img,img1,img2;
 
     /**
      * OnClickListeners permettant d'enregistrer si l'élève a eu bon ou pas, d'arreter le timer et de passer à la question suivante
@@ -219,6 +221,13 @@ public class MathExo1Activity extends AppCompatActivity {
         final long tempsTotal = exo.getParam().getTempsRep() + exo.getParam().getTempsRestantApparant();
 
         progress = (ProgressBar) findViewById(R.id.progressBar1);
+        img = findViewById(R.id.imageViewBar);
+        img1 = findViewById(R.id.imageViewBar1);
+        img2 = findViewById(R.id.imageViewBar2);
+
+        img.setVisibility(View.INVISIBLE);
+        img1.setVisibility(View.INVISIBLE);
+        img2.setVisibility(View.INVISIBLE);
         progress.setMax((int) tempsTotal);
 
         /**
@@ -228,6 +237,20 @@ public class MathExo1Activity extends AppCompatActivity {
             @Override
             public void onTick(long l) {
                 progress.setProgress(((int) tempsTotal) - ((int) l));
+
+                while(progress.getProgress()!=(int)tempsTotal){
+
+                    if(progress.getProgress()==((int)tempsTotal/3)){
+                        img.setVisibility(View.VISIBLE);
+                    }else
+                        if(progress.getProgress()==((int)tempsTotal/2)){
+                            img1.setVisibility(View.VISIBLE);
+                    }else{
+                            img2.setVisibility(View.VISIBLE);
+                        }
+                }
+
+
                 if (exo.getParam().getDisparition()) {
                     Log.w("ordre apparition", "ordre" + exo.getParam().getOrdreApparition());
                     if (exo.getParam().getOrdreApparition()) {
