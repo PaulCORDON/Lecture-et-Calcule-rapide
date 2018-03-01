@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo1Activity;
@@ -29,8 +30,8 @@ public class MenuActivity extends AppCompatActivity {
         /* creation des boutons maths et lecture*/
 
 
-        final Button math= findViewById(R.id.BtnCalcul);
-        final Button lecture=findViewById(R.id.BtnLecture);
+        final ImageButton math= findViewById(R.id.BtnCalcul);
+        final ImageButton lecture=findViewById(R.id.BtnLecture);
 
 
         /** si on clique sur math on va vers les exercice de maths*/
