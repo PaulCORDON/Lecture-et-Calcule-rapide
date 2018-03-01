@@ -33,7 +33,7 @@ public class MathExo2Activity extends AppCompatActivity {
      * - 1 : 2 reponses,
      * - 2 : 4 reponses possibles.
      */
-    private int typeRep = 0;
+    private int typeRep = 1;
 
     /**
      * tableau des réponses, reponse juste = true dans la case du numero de la question  si il a bien répondue, faux sinon.
@@ -43,13 +43,13 @@ public class MathExo2Activity extends AppCompatActivity {
     /**
      * Le numero de la question actuelle
      */
-    private int numQuestAct = 0;
+    private static int numQuestAct = 0;
 
     /**
      * L'instance de l'exercice qui va comprendre l'ensemble des énoncés, un accés au arametre
      * ainsi que les réponses et les valurs à afficher si il y a lieu
      */
-    private Exo2Math exo = null;
+    private static Exo2Math exo = null;
 
     /**
      * une réponse a-t-elle été donnée ?
@@ -159,7 +159,6 @@ public class MathExo2Activity extends AppCompatActivity {
     private View.OnClickListener Pav9 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Log.w("9", "on appuie sur le 9 " + reponseE);
             reponse.append("9");
             reponseE.setText(reponse.toString());
         }
@@ -167,7 +166,6 @@ public class MathExo2Activity extends AppCompatActivity {
     private View.OnClickListener Pav0 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Log.w("0", "on appuie sur le 0 " + reponseE);
             reponse.append("0");
             reponseE.setText(reponse.toString());
         }
@@ -176,7 +174,10 @@ public class MathExo2Activity extends AppCompatActivity {
     private View.OnClickListener Valider = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            if (reponse.equals(exo.getCalcul().get(numQuestAct).getResultatString())) {
+            reponseDonnee = true;
+            Log.w("exoM2","validation : " + new String(reponse) + ":" +exo.getCalcul().get(numQuestAct).getResultatString() );
+            if (new String(reponse).equals(exo.getCalcul().get(numQuestAct).getResultatString())) {
+                Log.w("exoM2","La reponse donné est bonne!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" );
                 reponseJuste[numQuestAct] = true;
             } else {
                 reponseJuste[numQuestAct] = false;
@@ -211,8 +212,7 @@ public class MathExo2Activity extends AppCompatActivity {
         Button valider = null;
         Button corriger = null;
 
-        //TODO récuperation des parametres de l'exercices de multiplications qui ont été sérialisés :
-        //TODO uncomment code !!!
+
         /**
          * si c'est la premiere fois que l'on lance l'activité de cet exercice, on récupere les parametres et on créer les énoncés
          */
@@ -269,47 +269,60 @@ public class MathExo2Activity extends AppCompatActivity {
                 break;
         }
 
-        final TextView op1 = findViewById(R.id.operande1);
-        final TextView op2 = findViewById(R.id.operande2);
+         TextView op1 = findViewById(R.id.operande1);
+         TextView op2 = findViewById(R.id.operande2);
+        Log.w("exo2","nombre de calcul crée :" +exo.getCalcul().size());
+Log.w("exo2","operande 1 :" +exo.getCalcul().get(numQuestAct).getOp1Int());
+        Log.w("exo2","operande 2 :" +exo.getCalcul().get(numQuestAct).getOp2Int());
+        Log.w("exo2","resultat :" +exo.getCalcul().get(numQuestAct).getResultatString());
 
-        op1.setText(exo.getCalcul().get(numQuestAct).getOp1String());
-        op2.setText(exo.getCalcul().get(numQuestAct).getOp2String());
+        op1.setText(""+exo.getCalcul().get(numQuestAct).getOp1Int());
+        op2.setText(""+exo.getCalcul().get(numQuestAct).getOp2Int());
 
-        switch (typeRep) {       //TODO methode getRep pour exo : return ArrayList<int> + ajout onClickListner !!!
+        switch (typeRep) {
             case 1:
-                placementAlea = (int) (Math.random() * 2);
+                placementAlea = (int)((Math.random() * 3 )+1);
+                Log.w("choix bornes :" ,"random pour le choix de la borne" + placementAlea);
+                rep0.setText("" + ((int) (Math.random()*100)));
+                rep1.setText("" + ((int) (Math.random()*100)));
                 if (placementAlea == 1) {
-                    rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
-                    rep1.setText("" + (int) Math.random() * 100);
+                    Log.w("choix bornes :" ,"GAAUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUCCCCCCCCCHHHHHHHHHHHHHHHHHHHHEEEEEEEEEEEEEE");
+                    rep0.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
                     rep0.setOnClickListener(OCLBonneReponse);
                     rep1.setOnClickListener(OCLMauvaiseReponse);
-                } else {
-                    rep1.setText(exo.getCalcul().get(numQuestAct).getResultatString());
-                    rep0.setText("" + (int) Math.random() * 100);
+                }else {
+                    Log.w("choix bornes :" ,"DDDDDDDDDRRRRRRRRRRRRRRRRRRRRRRRRRRRRRROIIIIIIIIIIIIIIIIIIIIIIIIIIIIITTTTTTTTTTTTTTTTEEEE");
+                    rep1.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
+                                                                                                            int a = (int)(Math.random()*100);
+                                                                                                                         Log.w("valeur du random : ", "a ====================================="  + a +"++++++++++++++++++"+ rep0.getText());
+                                                                                                                                     rep0.setText(""+a);
+                                                                                                                    Log.w("valeur du random : ", "a ====================================="  + a +"------------------"+ rep0.getText());
+
+
                     rep1.setOnClickListener(OCLBonneReponse);
                     rep0.setOnClickListener(OCLMauvaiseReponse);
                 }
                 rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
                 break;
             case 2:
-                rep0.setText("" + (int) Math.random() * 100);
-                rep1.setText("" + (int) Math.random() * 100);
-                rep2.setText("" + (int) Math.random() * 100);
-                rep3.setText("" + (int) Math.random() * 100);
+                rep0.setText("" + (int) ((Math.random() * 100)));
+                rep1.setText("" + ((int) (Math.random() * 100)));
+                rep2.setText("" + ((int) (Math.random() * 100)));
+                rep3.setText("" + ((int) (Math.random() * 100)));
 
-                placementAlea = (int) (Math.random() * 4);
+                placementAlea = (int) ((Math.random() * 4)+1);
                 switch (placementAlea) {
                     case 0:
-                        rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep0.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
                     case 1:
-                        rep1.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep1.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
                     case 2:
-                        rep2.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep2.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
                     case 3:
-                        rep3.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        rep3.setText(""+exo.getCalcul().get(numQuestAct).getResultatString());
                         break;
                 }
                 break;
@@ -338,6 +351,16 @@ public class MathExo2Activity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
+                for (boolean b : reponseJuste) {
+                    if (b) {
+                        Log.w("correction","juste");
+
+                    }else
+                    {
+                        Log.w("exoM2","fauxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" );
+                    }
+                }
+
                 if (!reponseDonnee) {
                     reponseJuste[numQuestAct] = false;
                 }
@@ -345,6 +368,8 @@ public class MathExo2Activity extends AppCompatActivity {
 
                 if (numQuestAct == exo.getParam().getNbQuestions()) {
                     numQuestAct = 0;
+
+
 
                     Intent intent = new Intent(MathExo2Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee", reponseJuste);
@@ -354,7 +379,7 @@ public class MathExo2Activity extends AppCompatActivity {
                     try {
                         outputStream = openFileOutput("ExoM2.txt", Context.MODE_PRIVATE);
                         oos = new ObjectOutputStream(outputStream);
-                        //oos.writeObject(exo);
+                        oos.writeObject(exo);
 
                         oos.flush();
                         oos.close();
