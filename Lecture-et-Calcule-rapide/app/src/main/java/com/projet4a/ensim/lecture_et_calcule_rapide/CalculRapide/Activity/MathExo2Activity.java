@@ -79,6 +79,11 @@ public class MathExo2Activity extends AppCompatActivity {
 
 
     /**
+     * entier aléatoire pour placer la bonne réponse
+     */
+    private int placementAlea;
+
+    /**
      * OnClickListeners permettant d'enregistrer si l'élève a eu bon ou pas, d'arreter le timer et de passer à la question suivante
      */
     private View.OnClickListener OCLBonneReponse = (new View.OnClickListener() {
@@ -161,7 +166,7 @@ public class MathExo2Activity extends AppCompatActivity {
     private View.OnClickListener Pav9 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Log.w("9","on appuie sur le 9 " + reponseE);
+            Log.w("9", "on appuie sur le 9 " + reponseE);
             reponse.append("9");
             reponseE.setText(reponse.toString());
         }
@@ -169,7 +174,7 @@ public class MathExo2Activity extends AppCompatActivity {
     private View.OnClickListener Pav0 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            Log.w("0","on appuie sur le 0 " + reponseE);
+            Log.w("0", "on appuie sur le 0 " + reponseE);
             reponse.append("0");
             reponseE.setText(reponse.toString());
         }
@@ -288,17 +293,46 @@ public class MathExo2Activity extends AppCompatActivity {
 
         switch (typeRep) {       //TODO methode getRep pour exo : return ArrayList<int> + ajout onClickListner !!!
             case 1:
+                placementAlea = (int)(Math.random()*2);
+                if(placementAlea == 1){
+                    rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                    rep1.setText("" + (int) Math.random()*100);
+                    rep0.setOnClickListener(OCLBonneReponse);
+                    rep1.setOnClickListener(OCLMauvaiseReponse);
+                }
+                else {
+                    rep1.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                    rep0.setText("" + (int) Math.random()*100);
+                    rep1.setOnClickListener(OCLBonneReponse);
+                    rep0.setOnClickListener(OCLMauvaiseReponse);
+                }
                 rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
-                //rep1.setText(exo.getRep().get(1));
 
-                // rep0.setOnClickListener();
                 break;
 
             case 2:
-                rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
-                //rep1.setText(exo.getRep().get(1));
-                //rep2.setText(exo.getRep().get(2));
-                //rep3.setText(exo.getRep().get(3));
+
+                rep0.setText("" + (int) Math.random()*100);
+                rep1.setText("" + (int) Math.random()*100);
+                rep2.setText("" + (int) Math.random()*100);
+                rep3.setText("" + (int) Math.random()*100);
+
+                placementAlea = (int) (Math.random()*4);
+                switch (placementAlea){
+                    case 0:
+                        rep0.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        break;
+                    case 1:
+                        rep1.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        break;
+                    case 2 :
+                        rep2.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        break;
+                    case 3 :
+                        rep3.setText(exo.getCalcul().get(numQuestAct).getResultatString());
+                        break;
+                }
+
                 break;
 
             case 0:
