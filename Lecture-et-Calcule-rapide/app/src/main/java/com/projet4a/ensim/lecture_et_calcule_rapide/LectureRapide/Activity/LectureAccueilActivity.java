@@ -9,12 +9,15 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import pl.droidsonroids.gif.GifImageView;
+
 public class LectureAccueilActivity extends AppCompatActivity {
     /* booleens pour savoir quel exercice est selectionné */
     boolean isExercice1;
     boolean isExercice2;
     boolean isExercice3;
     TextView descriptionL;
+
 
     /**
      * @param savedInstanceState
@@ -32,10 +35,12 @@ public class LectureAccueilActivity extends AppCompatActivity {
         final Button parametreL = (Button) findViewById(R.id.paramL);
         /*creation du boutton go */
         final Button go = (Button) findViewById(R.id.goL);
-
+        /*création du gif*/
+        final GifImageView gif = findViewById(R.id.Gif);
         descriptionL = findViewById(R.id.descriptionL);
         parametreL.setVisibility(View.GONE);
         go.setVisibility(View.GONE);
+        gif.setVisibility(View.GONE);
 
         /** click sur le bouton exercice 1 , on affiche la description et on met le bouton enable */
         exercice1.setOnClickListener(new View.OnClickListener() {
@@ -49,7 +54,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 isExercice1 = true;
                 isExercice2 = false;
                 isExercice3 = false;
-
+                gif.setVisibility(View.VISIBLE);
                 descriptionL.setText("Exercice 1 de Lecture\nConsigne : Trouve le mot qui est écrit exactement comme le mot de l'énoncé");
             }
         });
