@@ -235,7 +235,7 @@ public class MathExo2Activity extends AppCompatActivity {
         }
 
         // TODO associé le type de reponse à la variable typeReonse des parametres
-        switch (typeRep) { //exo.getParam().gettypeRep()
+        switch (exo.getParam().gettypeRep()) {
             case 0:
                 setContentView(R.layout.activity_math_exo2_pave_numerique);
                 rep0 = findViewById(R.id.p0);
@@ -279,7 +279,7 @@ Log.w("exo2","operande 1 :" +exo.getCalcul().get(numQuestAct).getOp1Int());
         op1.setText(""+exo.getCalcul().get(numQuestAct).getOp1Int());
         op2.setText(""+exo.getCalcul().get(numQuestAct).getOp2Int());
 
-        switch (typeRep) {
+        switch (exo.getParam().gettypeRep()) {
             case 1:
                 rep0.setText("" + (int) ((Math.random() * 100)));
                 rep1.setText("" + ((int) (Math.random() * 100)));

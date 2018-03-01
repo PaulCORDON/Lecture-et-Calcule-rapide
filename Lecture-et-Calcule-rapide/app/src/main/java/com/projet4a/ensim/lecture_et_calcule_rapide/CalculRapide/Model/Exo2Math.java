@@ -14,12 +14,26 @@ public class Exo2Math {
     private int op1;
     private int op2;
 
+
+    /**
+     * si les bornes sont validée alors on passe à false
+     */
+    private boolean Nvalide = true;
+
     public Exo2Math(ParamEm2 param) {
         this.param = param;
 
         for (int a = 0; a < this.param.getNbQuestions(); a++) {
-            op1 = (int) (Math.random() * 10);
-            op2 = (int) (Math.random() * 10);
+
+            while (Nvalide){
+                op1 = (int) (Math.random() * param.getValMax());
+                op2 = (int) (Math.random() * param.getValMax());
+
+                if()
+            }
+
+
+
 
             enoncees.add(new Calcul(op1, op2, '*'));
         }
