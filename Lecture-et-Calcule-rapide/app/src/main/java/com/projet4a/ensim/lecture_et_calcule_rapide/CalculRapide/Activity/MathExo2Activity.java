@@ -43,13 +43,13 @@ public class MathExo2Activity extends AppCompatActivity {
     /**
      * Le numero de la question actuelle
      */
-    private int numQuestAct = 0;
+    private static int numQuestAct = 0;
 
     /**
      * L'instance de l'exercice qui va comprendre l'ensemble des énoncés, un accés au arametre
      * ainsi que les réponses et les valurs à afficher si il y a lieu
      */
-    private Exo2Math exo = null;
+    private static Exo2Math exo;
 
     /**
      * une réponse a-t-elle été donnée ?

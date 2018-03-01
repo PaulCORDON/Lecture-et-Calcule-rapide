@@ -23,7 +23,6 @@ public class ParamEm1 extends ParamMath implements Serializable
         bornes apparaissent disparaissent puis calcul apparait
      */
     private Boolean disparition;
-
     /**
      * Vrai : le premier element disparait, Faux : les deux elements s'affiche en meme temps
      */
@@ -57,7 +56,6 @@ public class ParamEm1 extends ParamMath implements Serializable
     //TODO ajouter valMin, valeur minimum présente dans l'exercice
 
     private boolean frise;
-
     /**
      * boolean pour dire si l'exercice utilisera une frise ou des boutons
      */

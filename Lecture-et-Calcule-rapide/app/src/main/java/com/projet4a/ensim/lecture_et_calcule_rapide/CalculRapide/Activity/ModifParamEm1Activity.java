@@ -28,9 +28,27 @@ import java.io.ObjectOutputStream;
 
 public class ModifParamEm1Activity extends AppCompatActivity {
 
+    static ParamEm1 param = new ParamEm1();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /**
+         * Pour récupérer les parametres déja sérialisés
+         */
+        try {
+            FileInputStream fis = openFileInput("ParamEm1.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            param = (ParamEm1) ois.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         setContentView(R.layout.activity_modif_param_em1);
 
         /**Radiobutton qui est coché si on veut que l'exercice se fasse avec une frise*/
@@ -41,15 +59,11 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
         /**EditText qui stocke le temps d'apparition de l'enonce ou des bornes*/
         final EditText TpsAvantDisp = findViewById(R.id.tempsAvantDisparition);
-        TpsAvantDisp.setVisibility(View.GONE);
         final EditText TpsAvantDispB = findViewById(R.id.tempsAvantDisparitionB);
-        TpsAvantDispB.setVisibility(View.GONE);
 
         /** TextView qui correspond au titre au dessus du editText pour rentrer le temps avant disparition*/
         final TextView titreTpsAvDisp = findViewById(R.id.TitreTempsAvantDisparition);
-        titreTpsAvDisp.setVisibility(View.GONE);
         final TextView titreTpsAvDispB = findViewById(R.id.TitreTempsAvantDisparitionB);
-        titreTpsAvDispB.setVisibility(View.GONE);
 
         /** Radiobuttons qui correspondent au nomnbre de boutons de l'exo si on fait des boutons*/
         final RadioButton DeuxButtons = findViewById(R.id.Rb2Buttons);
@@ -72,15 +86,13 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
         /** Switch qui permet de savoir si le calcul disparait pendant le choix des reponses*/
         final Switch disparition = findViewById(R.id.ChoixDisparitionCalcul);
-        disparition.setVisibility(View.GONE);
         final Switch disparitionB = findViewById(R.id.ChoixDisparitionCalculB);
-        disparitionB.setVisibility(View.GONE);
 
         /** Switch qui permet de savoir si le joueur peut choisir une borne en reponse*/
         final Switch bornesSelectionnables = findViewById(R.id.ChoixBornesSelectionnables);
 
         /** Switch qui permet de savoir si les reponses peuvent etre les bornes elles-memes*/
-        final Switch bornesEgalesReps = findViewById(R.id.ChoixBornesEgalesRep);
+        final Switch bornesEgalesOp = findViewById(R.id.ChoixBornesEgalesRep);
 
         /** Texte rentré par le parametreur qui donne la valeur max utilisee dans l'exercice*/
         final EditText valMax = findViewById(R.id.ValeurMax);
@@ -90,7 +102,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final EditText tpsReponse = findViewById(R.id.tempsReponse);
         final EditText tpsReponseB = findViewById(R.id.tempsReponseB);
 
-
         /** Switch qui dit si l'exercice ne traitera que des nombres pairs */
         final Switch nbPairsOnly = findViewById(R.id.ChoixNbPairs);
         final Switch nbPairsOnlyB = findViewById(R.id.ChoixNbPairsB);
@@ -98,7 +109,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /**Si cette checkBox est cochee les calculs comporteront des additions*/
         final CheckBox addition = findViewById(R.id.addition);
         final CheckBox additionB = findViewById(R.id.additionB);
-
 
         /**Si cette checkBox est cochee les calculs comporteront des soustractions*/
         final CheckBox soustraction = findViewById(R.id.soustraction);
@@ -121,11 +131,84 @@ public class ModifParamEm1Activity extends AppCompatActivity {
 
         /** Colonne qui comprend les parametres pour l'exercice avec une frise*/
         final LinearLayout colonneFrise = findViewById(R.id.ColonneFrise);
-        colonneFrise.setVisibility(View.GONE);
 
         /** Colonne qui comprend les parametres pour l'exercice avec des boutons*/
         final LinearLayout colonneButton = findViewById(R.id.ColonneButton);
-        colonneButton.setVisibility(View.GONE);
+
+        /**
+         * debut affichage des paramètres
+         */
+        if(param.getFrise()) {
+            rbFrise.setChecked(true);
+            colonneButton.setVisibility(View.GONE);
+        }
+        else {
+            rbButton.setChecked(true);
+            colonneFrise.setVisibility(View.GONE);
+        }
+        //Param frise
+        nbQuestions.setText("" + param.getNbQuestions());
+
+        if(param.getOrdreApparition()) rb1.setChecked(true);
+        else rb2.setChecked(true);
+
+        if(param.getDisparition()){
+            disparition.setChecked(true);
+            TpsAvantDisp.setText("" + param.getTempsRestantApparant()/1000);
+        }
+        else {
+            disparition.setChecked(false);
+            TpsAvantDisp.setVisibility(View.GONE);
+        }
+
+        tpsReponse.setText("" + param.getTempsRep()/1000);
+
+        nbPairsOnly.setChecked(param.getPairOnly());
+
+        valMax.setText("" + param.getValMax());
+
+        addition.setChecked(param.getOperateur()[0]);
+        soustraction.setChecked(param.getOperateur()[1]);
+        multiplication.setChecked(param.getOperateur()[2]);
+        division.setChecked(param.getOperateur()[3]);
+
+        nbBornes.setProgress(param.getNbBornes());
+
+        bornesSelectionnables.setChecked(param.getBorneSelectionnable());
+
+        bornesEgalesOp.setChecked(param.getBorneEqualsOp());
+
+        //Param bouton
+        nbQuestionsB.setText("" + param.getNbQuestions());
+
+        if(param.getOrdreApparition()) rb1B.setChecked(true);
+        else rb2B.setChecked(true);
+
+        if(param.getDisparition()){
+            disparitionB.setChecked(true);
+            TpsAvantDispB.setText("" + param.getTempsRestantApparant()/1000);
+        }
+        else {
+            disparitionB.setChecked(false);
+            TpsAvantDispB.setVisibility(View.GONE);
+        }
+
+        tpsReponseB.setText("" + param.getTempsRep()/1000);
+
+        nbPairsOnlyB.setChecked(param.getPairOnly());
+
+        valMaxB.setText("" + param.getValMax());
+
+        additionB.setChecked(param.getOperateur()[0]);
+        soustractionB.setChecked(param.getOperateur()[1]);
+        multiplicationB.setChecked(param.getOperateur()[2]);
+        divisionB.setChecked(param.getOperateur()[3]);
+
+        DeuxButtons.setChecked(param.getNbBornes()==1);
+        TroisButtons.setChecked(param.getNbBornes()==2);
+        /**
+         * fin de l'affichage des parametres
+         */
 
         rbFrise.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +246,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 }
             }
         });
-
 
         rb1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -239,24 +321,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 long tpsRep;
                 int valeurMax;
                 int nbBoutons;
-                ParamEm1 param = new ParamEm1();
-                Exo1Math exo;
-
-                /**
-                 * Pour récupérer les parametres déja sérialisés
-                 */
-                try {
-                    FileInputStream fis = openFileInput("ParamEm1.txt");
-                    ObjectInputStream ois = new ObjectInputStream(fis);
-                    param = (ParamEm1) ois.readObject();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-                exo = new Exo1Math(param);
 
                 if (rbFrise.isChecked()) ExoFrise = true;
                 else ExoFrise = false;
@@ -267,19 +331,19 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 if (ExoFrise) {
                     if (!TpsAvantDisp.getText().toString().equals(""))
                         tpsAvDisp = Long.parseLong(TpsAvantDisp.getText().toString()) * 1000;
-                    else tpsAvDisp = exo.getParam().getTempsRestantApparant();
+                    else tpsAvDisp = param.getTempsRestantApparant();
 
                     if (!nbQuestions.getText().toString().equals(""))
                         nbQuest = Integer.parseInt(nbQuestions.getText().toString());
-                    else nbQuest = exo.getParam().getNbQuestions();
+                    else nbQuest = param.getNbQuestions();
 
                     if (!tpsReponse.getText().toString().equals(""))
                         tpsRep = Long.parseLong(tpsReponse.getText().toString()) * 1000;
-                    else tpsRep = exo.getParam().getTempsRep();
+                    else tpsRep = param.getTempsRep();
 
                     if (!valMax.getText().toString().equals(""))
                         valeurMax = Integer.parseInt(valMax.getText().toString());
-                    else valeurMax = exo.getParam().getValMax();
+                    else valeurMax = param.getValMax();
 
                     /** Booleen qui est vrai si on affiche le calcul avant la reponse et faux si on affiches les reponses avant le calcul */
                     Boolean ordreApparition = true;
@@ -307,7 +371,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             tpsAvDisp,
                             ordreApparition,
                             bornesSelectionnables.isChecked(),
-                            bornesEgalesReps.isChecked(),
+                            bornesEgalesOp.isChecked(),
                             valeurMax);
 
                     Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
@@ -321,19 +385,19 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 if (!ExoFrise) {
                     if (!TpsAvantDispB.getText().toString().equals(""))
                         tpsAvDisp = Long.parseLong(TpsAvantDispB.getText().toString()) * 1000;
-                    else tpsAvDisp = exo.getParam().getTempsRestantApparant();
+                    else tpsAvDisp = param.getTempsRestantApparant();
 
                     if (!nbQuestionsB.getText().toString().equals(""))
                         nbQuest = Integer.parseInt(nbQuestionsB.getText().toString());
-                    else nbQuest = exo.getParam().getNbQuestions();
+                    else nbQuest = param.getNbQuestions();
 
                     if (!tpsReponseB.getText().toString().equals(""))
                         tpsRep = Long.parseLong(tpsReponseB.getText().toString()) * 1000;
-                    else tpsRep = exo.getParam().getTempsRep();
+                    else tpsRep = param.getTempsRep();
 
                     if (!valMaxB.getText().toString().equals(""))
                         valeurMax = Integer.parseInt(valMaxB.getText().toString());
-                    else valeurMax = exo.getParam().getValMax();
+                    else valeurMax = param.getValMax();
 
                     if (DeuxButtons.isChecked()) nbBoutons = 1;
                     else if (TroisButtons.isChecked()) nbBoutons = 2;
@@ -371,7 +435,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb boutons: " + param.getNbBornes() +
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
-
                 }
 
                 FileOutputStream outputStream;
@@ -391,7 +454,6 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 Intent intent = new Intent(ModifParamEm1Activity.this, MathsActivity.class);
                 startActivity(intent);
             }
-
         });
     }
 }
