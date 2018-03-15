@@ -242,7 +242,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
             exo = new Exo2Math(param);
 
-            reponseJuste = new boolean[param.getNbQuestions()];
+            reponseJuste = new boolean[param.getNbCalcul()];
         }
 
 
@@ -367,7 +367,7 @@ public class MathExo2Activity extends AppCompatActivity {
                 }
                 numQuestAct++;
 
-                if (numQuestAct == exo.getParam().getNbQuestions()) {
+                if (numQuestAct == exo.getParam().getNbCalcul()) {
                     numQuestAct = 0;
 
                     Intent intent = new Intent(MathExo2Activity.this, ExoMath1Resultat.class);

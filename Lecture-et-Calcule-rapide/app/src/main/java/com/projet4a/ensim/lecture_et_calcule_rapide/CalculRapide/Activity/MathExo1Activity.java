@@ -238,16 +238,38 @@ public class MathExo1Activity extends AppCompatActivity {
             public void onTick(long l) {
                 progress.setProgress(((int) tempsTotal) - ((int) l));
 
-                while(progress.getProgress()!=(int)tempsTotal){
+                if(progress.getProgress()<progress.getMax()){
+                    if(progress.getProgress()<progress.getMax()/3){
 
-                    if(progress.getProgress()==((int)tempsTotal/3)){
                         img.setVisibility(View.VISIBLE);
-                    }else
-                        if(progress.getProgress()==((int)tempsTotal/2)){
-                            img1.setVisibility(View.VISIBLE);
-                    }else{
-                            img2.setVisibility(View.VISIBLE);
+                        img1.setVisibility(View.INVISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+
+                    }
+
+                    else if(progress.getProgress()<progress.getMax()/2){
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
+                        img1.setVisibility(View.VISIBLE);
+                        img2.setVisibility(View.INVISIBLE);
+                    }
+                    else{
+                        try {
+                            Thread.sleep(10);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        img2.setVisibility(View.VISIBLE);
+                    }
+
+                }
+                else{
+                    img.setVisibility(View.INVISIBLE);
+                    img1.setVisibility(View.INVISIBLE);
+                    img2.setVisibility(View.INVISIBLE);
                 }
 
 

@@ -21,9 +21,9 @@ public class Exo2Math {
     public Exo2Math(ParamEm2 param){
     this.param = param;
 
-    for (int a =0; a<this.param.getNbQuestions() ; a++){
-        op1 = (int)(Math.random()*param.getValMax());
-        op2 = (int)(Math.random()*param.getValMax());
+    for (int a =0; a<this.param.getNbCalcul() ; a++){
+        op1 = (int)(Math.random()*param.getValMaxOperande());
+        op2 = (int)(Math.random()*param.getValMaxOperande());
 
         enoncees.add(new Calcul(op1,op2,'*'));
     }
