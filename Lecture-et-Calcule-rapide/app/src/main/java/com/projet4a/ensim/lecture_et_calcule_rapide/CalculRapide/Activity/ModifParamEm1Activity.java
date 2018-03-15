@@ -359,6 +359,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     operateurs[1] = soustraction.isChecked();
                     operateurs[2] = multiplication.isChecked();
                     operateurs[3] = division.isChecked();
+                    Log.w("operateur choisis : " , "+" +operateurs[0]+ "-" +operateurs[1]+ "*" +operateurs[2]+ "/" + operateurs[3]);
 
                     param = new ParamEm1(
                             ExoFrise,

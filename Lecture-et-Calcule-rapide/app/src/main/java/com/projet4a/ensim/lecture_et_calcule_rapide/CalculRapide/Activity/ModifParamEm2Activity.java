@@ -33,21 +33,21 @@ public class ModifParamEm2Activity extends AppCompatActivity {
          */
 
         /**Si cette checkBox est cochee les calculs comporteront des additions*/
-        final CheckBox addition = findViewById(R.id.addition);
-        final CheckBox additionB = findViewById(R.id.additionB);
+
+        final CheckBox additionC = findViewById(R.id.additionC);
 
 
         /**Si cette checkBox est cochee les calculs comporteront des soustractions*/
-        final CheckBox soustraction = findViewById(R.id.soustraction);
-        final CheckBox soustractionB = findViewById(R.id.soustractionB);
+
+        final CheckBox soustractionC = findViewById(R.id.soustractionC);
 
         /**Si cette checkBox est cochee les calculs comporteront des divisions*/
-        final CheckBox division = findViewById(R.id.division);
-        final CheckBox divisionB = findViewById(R.id.divisionB);
+
+        final CheckBox divisionC = findViewById(R.id.divisionC);
 
         /**Si cette checkBox est cochee les calculs comporteront des multiplications*/
-        final CheckBox multiplication = findViewById(R.id.multiplication);
-        final CheckBox multiplicationB = findViewById(R.id.multiplicationB);
+
+        final CheckBox multiplicationC = findViewById(R.id.multiplicationC);
 
         /** tableau de booleens qui stockera plus tard les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
         final Boolean[] operateurs = new Boolean[5];
@@ -93,7 +93,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                 /**
                  * declaration des variables
                  */
-                boolean npair=false, nimpair=false,repdeuxbrnes=false,repQuatrebrnes=false,pav=false;
+                boolean npair=false, nimpair=false,repdeuxbrnes=false,repQuatrebrnes=false,pav=true;
                 int typerep = 0;
 
                 /**
@@ -108,10 +108,12 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                 }
                 if(deuxbornes.isChecked()){
                     repdeuxbrnes = true;
+                    pav = false;
                     typerep=1;
                 }else
                 if(quatrebornes.isChecked()){
                     repQuatrebrnes = true;
+                    pav = false;
                     typerep=2;
                 }else
                 if(pavNum.isChecked()){
@@ -121,11 +123,6 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
                 ParamEm2 param = null;
 
-                /**on stocke les booleens correspondant aux operations dans le tableau*/
-                operateurs[0] = addition.isChecked();
-                operateurs[1] = soustraction.isChecked();
-                operateurs[2] = multiplication.isChecked();
-                operateurs[3] = division.isChecked();
 
                 /** Si les deux champs de saisie pour le nombre de calcul et la valeur max des opérandes sont remplis on recupere les valeurs des parametres
                  * et on construit un nouvel objet param avec ces parametres
@@ -192,6 +189,15 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                     Log.w("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
                             "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
                 }
+
+                Boolean operateur[] = new Boolean[4];
+                /**on stocke les booleens correspondant aux operations dans le tableau*/
+                operateur[0] = additionC.isChecked();
+                operateur[1] = soustractionC.isChecked();
+                operateur[2] = multiplicationC.isChecked();
+                operateur[3] = divisionC.isChecked();
+
+                param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);
 
 
                 FileOutputStream outputStream;

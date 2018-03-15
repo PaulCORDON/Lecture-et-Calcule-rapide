@@ -278,18 +278,7 @@ public class MathExo2Activity extends AppCompatActivity {
                 corriger =(Button) findViewById(R.id.correction);
                 reponseE = (TextView) findViewById(R.id.ReponseEleve);
                 break;
-            case 1:
-                setContentView(R.layout.activity_math_exo2_2rep);
-                rep0 = findViewById(R.id.repA);
-                rep1 = findViewById(R.id.repB);
-                break;
-            case 2:
-                setContentView(R.layout.activity_math_exo2_4rep);
-                rep0 = findViewById(R.id.R1);
-                rep1 = findViewById(R.id.R2);
-                rep2 = findViewById(R.id.R3);
-                rep3 = findViewById(R.id.R4);
-                break;
+
         }
 
 

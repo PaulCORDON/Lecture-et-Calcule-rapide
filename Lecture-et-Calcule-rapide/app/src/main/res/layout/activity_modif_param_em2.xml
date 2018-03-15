@@ -225,14 +225,14 @@
                     android:orientation="vertical">
 
                     <CheckBox
-                        android:id="@+id/additionB"
+                        android:id="@+id/additionC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
                         android:text="+" />
 
                     <CheckBox
-                        android:id="@+id/soustractionB"
+                        android:id="@+id/soustractionC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="-" />
@@ -245,13 +245,13 @@
                     android:orientation="vertical">
 
                     <CheckBox
-                        android:id="@+id/multiplicationB"
+                        android:id="@+id/multiplicationC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="X" />
 
                     <CheckBox
-                        android:id="@+id/divisionB"
+                        android:id="@+id/divisionC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
