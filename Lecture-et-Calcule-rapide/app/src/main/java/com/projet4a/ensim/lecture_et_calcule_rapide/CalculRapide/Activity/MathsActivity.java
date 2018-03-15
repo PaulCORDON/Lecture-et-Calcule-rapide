@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -29,7 +30,7 @@ public class MathsActivity extends AppCompatActivity {
         final Button exercice2 = (Button) findViewById(R.id.exo2M);
         final Button exercice3 = (Button) findViewById(R.id.exo3M);
         /* creation du boutton parametre */
-        final Button parametreM = (Button) findViewById(R.id.paramM);
+        final ImageButton parametreM = (ImageButton) findViewById(R.id.paramM);
         /*creation bouton goM */
         final Button go = (Button)findViewById(R.id.goM);
         /* creation de la text view de description */

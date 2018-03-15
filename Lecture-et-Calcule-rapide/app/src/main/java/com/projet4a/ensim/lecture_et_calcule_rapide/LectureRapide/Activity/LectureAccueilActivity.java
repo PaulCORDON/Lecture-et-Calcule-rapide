@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -32,7 +33,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
         final Button exercice2 = (Button) findViewById(R.id.exo2L);
         final Button exercice3 = (Button) findViewById(R.id.exo3L);
         /* creation du boutton parametre */
-        final Button parametreL = (Button) findViewById(R.id.paramL);
+        final ImageButton parametreL = (ImageButton) findViewById(R.id.paramL);
         /*creation du boutton go */
         final Button go = (Button) findViewById(R.id.goL);
         /*création du gif*/
