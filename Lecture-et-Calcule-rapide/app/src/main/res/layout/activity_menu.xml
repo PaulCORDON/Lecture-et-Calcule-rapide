@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ardoise"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity">
 
         <ImageButton
@@ -24,7 +25,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/logolecture" />
+            app:srcCompat="@drawable/logolecture2" />
 
         <TextView
             android:id="@+id/textView2"
@@ -61,7 +62,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/logocalcul" />
+            app:srcCompat="@drawable/logocalcul2" />
 
         <TextView
             android:id="@+id/textView3"
