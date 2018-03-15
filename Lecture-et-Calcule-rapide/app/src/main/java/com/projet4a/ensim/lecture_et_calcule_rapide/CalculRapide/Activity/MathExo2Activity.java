@@ -33,7 +33,7 @@ public class MathExo2Activity extends AppCompatActivity {
      * - 1 : 2 reponses,
      * - 2 : 4 reponses possibles.
      */
-    private int typeRep = 1;
+
 
     /**
      * tableau des réponses, reponse juste = true dans la case du numero de la question  si il a bien répondue, faux sinon.
@@ -76,6 +76,8 @@ public class MathExo2Activity extends AppCompatActivity {
      */
     private int placementAlea;
 
+    private TextView operande1 ;
+    private TextView operande2 ;
     /**
      * OnClickListeners permettant d'enregistrer si l'élève a eu bon ou pas, d'arreter le timer et de passer à la question suivante
      */
@@ -104,70 +106,70 @@ public class MathExo2Activity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             reponse.append("1");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+ reponse.toString());
         }
     });
     private View.OnClickListener Pav2 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("2");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav3 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("3");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav4 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("4");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav5 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("5");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav6 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("6");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav7 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("7");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav8 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("8");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav9 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("9");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
     private View.OnClickListener Pav0 = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             reponse.append("0");
-            reponseE.setText(reponse.toString());
+            reponseE.setText(""+reponse.toString());
         }
     });
 
@@ -231,12 +233,30 @@ public class MathExo2Activity extends AppCompatActivity {
             }
 
             exo = new Exo2Math(param);
-            reponseJuste = new boolean[param.getNbQuestions()];
+            reponseJuste = new boolean[param.getNbCalcul()];
         }
 
-        // TODO associé le type de reponse à la variable typeReonse des parametres
+
         switch (exo.getParam().gettypeRep()) {
-            case 0:
+            case 1:
+                setContentView(R.layout.activity_math_exo2_2rep);
+                rep0 = findViewById(R.id.repA);
+                rep1 = findViewById(R.id.repB);
+
+                operande1 = findViewById(R.id.operande1);
+                operande2 = findViewById(R.id.operande2);
+                break;
+            case 2:
+                setContentView(R.layout.activity_math_exo2_4rep);
+                rep0 = findViewById(R.id.R1);
+                rep1 = findViewById(R.id.R2);
+                rep2 = findViewById(R.id.R3);
+                rep3 = findViewById(R.id.R4);
+
+                 operande1 = findViewById(R.id.operande1);
+                 operande2 = findViewById(R.id.operande2);
+                break;
+            default:
                 setContentView(R.layout.activity_math_exo2_pave_numerique);
                 rep0 = findViewById(R.id.p0);
                 rep1 = findViewById(R.id.p1);
@@ -249,35 +269,26 @@ public class MathExo2Activity extends AppCompatActivity {
                 rep8 = findViewById(R.id.p8);
                 rep9 = findViewById(R.id.p9);
 
+                operande1 = findViewById(R.id.operande1);
+                operande2 = findViewById(R.id.operande2);
+
                 final TextView reponseDonne = findViewById(R.id.ReponseEleve);
                 reponseE = reponseDonne;
                 valider = findViewById(R.id.Validation);
                 corriger = findViewById(R.id.correction);
                 reponseE = findViewById(R.id.ReponseEleve);
                 break;
-            case 1:
-                setContentView(R.layout.activity_math_exo2_2rep);
-                rep0 = findViewById(R.id.repA);
-                rep1 = findViewById(R.id.repB);
-                break;
-            case 2:
-                setContentView(R.layout.activity_math_exo2_4rep);
-                rep0 = findViewById(R.id.R1);
-                rep1 = findViewById(R.id.R2);
-                rep2 = findViewById(R.id.R3);
-                rep3 = findViewById(R.id.R4);
-                break;
         }
 
-         TextView op1 = findViewById(R.id.operande1);
-         TextView op2 = findViewById(R.id.operande2);
+
         Log.w("exo2","nombre de calcul crée :" +exo.getCalcul().size());
-Log.w("exo2","operande 1 :" +exo.getCalcul().get(numQuestAct).getOp1Int());
+        Log.w("exo2","operande 1 :" +exo.getCalcul().get(numQuestAct).getOp1Int());
         Log.w("exo2","operande 2 :" +exo.getCalcul().get(numQuestAct).getOp2Int());
         Log.w("exo2","resultat :" +exo.getCalcul().get(numQuestAct).getResultatString());
 
-        op1.setText(""+exo.getCalcul().get(numQuestAct).getOp1Int());
-        op2.setText(""+exo.getCalcul().get(numQuestAct).getOp2Int());
+        operande1.setText("" + exo.getCalcul().get(numQuestAct).getOp1Int()); //exo.getCalcul().get(numQuestAct).getOp1Int());
+
+        operande2.setText("" + exo.getCalcul().get(numQuestAct).getOp2Int() ); //+exo.getCalcul().get(numQuestAct).getOp2Int());
 
         switch (exo.getParam().gettypeRep()) {
             case 1:
@@ -372,7 +383,7 @@ Log.w("exo2","operande 1 :" +exo.getCalcul().get(numQuestAct).getOp1Int());
                 }
                 numQuestAct++;
 
-                if (numQuestAct == exo.getParam().getNbQuestions()) {
+                if (numQuestAct == exo.getParam().getNbCalcul()) {
                     numQuestAct = 0;
 
 

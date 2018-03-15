@@ -1,5 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 public class Exo2Math {
@@ -13,29 +15,57 @@ public class Exo2Math {
 
     private int op1;
     private int op2;
+    private int choixOp;
 
 
+    private boolean choixOpVali = true;
     /**
      * si les bornes sont validée alors on passe à false
      */
-    private boolean Nvalide = true;
-
+    private static boolean Nvalide = true;
+    private static int a = 0;
     public Exo2Math(ParamEm2 param) {
         this.param = param;
 
-        for (int a = 0; a < this.param.getNbQuestions(); a++) {
-
-            while (Nvalide){
-                op1 = (int) (Math.random() * param.getValMax());
-                op2 = (int) (Math.random() * param.getValMax());
-
-                if()
-            }
+        while (a < this.param.getNbCalcul()){
 
 
+                Log.w("création operande","opeeeeeeerrrrrrrrrrrandeeeeeeeee");
+                op1 = (int) (Math.random() * param.getValMaxOperande());
+                op2 = (int) (Math.random() * param.getValMaxOperande());
+                Log.w("création operande","NUm question : " + a + " 1 :" + op1 + "   2 : " + op2);
+                if(param.getNombrePair()){
+                    if(op1%2 == 0 && op2%2==0){
+                        choixOpVali = true;
+                        do{
+                            choixOp = (int) (Math.random() * 5);
+                            if (param.getOperateur()[choixOp]){
+                                choixOpVali = false;
+                            }
+                        }while (choixOpVali);
+
+                        switch (choixOp){
+                            case 0:
+                                enoncees.add(new Calcul(op1, op2, '+'));
+                                break;
+                            case 1:
+                                enoncees.add(new Calcul(op1, op2, '-'));
+                                break;
+                            case 2:
+                                enoncees.add(new Calcul(op1, op2, '*'));
+                                break;
+                            case 3 :
+
+                                break;
 
 
-            enoncees.add(new Calcul(op1, op2, '*'));
+                        }
+
+                        a++;
+                    }
+                }
+
+
         }
     }
 

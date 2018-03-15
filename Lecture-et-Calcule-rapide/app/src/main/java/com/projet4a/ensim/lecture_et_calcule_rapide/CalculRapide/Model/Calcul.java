@@ -27,13 +27,21 @@ public class Calcul {
                 resultat = operande1 + operande2;
                 break;
             case '-':
+                if (operande1 < operande2) {
+                    int tempo = operande1;
+                    operande1 = operande2;
+                    operande2 = tempo;
+                }
                 resultat = operande1 - operande2;
                 break;
             case '*':
                 resultat = operande1 * operande2;
                 break;
             case '/':
-                resultat = operande1 / operande2;
+                resultat = operande1 * operande2;
+                int tempo = resultat;
+                resultat = operande2;
+                operande2= resultat;
                 break;
         }
     }

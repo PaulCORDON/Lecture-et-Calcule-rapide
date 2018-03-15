@@ -32,15 +32,38 @@ public class ModifParamEm2Activity extends AppCompatActivity {
          * recupération des différents id de activity_modif_paramEm2.xml
          */
 
-        final EditText  nbCal=  findViewById(R.id.NbCalcul);
-        final EditText  valeurMax=  findViewById(R.id.ValMaxOperandes);
+        /**Si cette checkBox est cochee les calculs comporteront des additions*/
+        final CheckBox addition = findViewById(R.id.addition);
+        final CheckBox additionB = findViewById(R.id.additionB);
 
-        final CheckBox  nbpair = findViewById(R.id.NbPair);
-        final CheckBox  nbimpair = findViewById(R.id.NbImpair);
 
-        final RadioButton deuxbornes = findViewById(R.id.DeuxBornes);
-        final RadioButton quatrebornes = findViewById(R.id.QuatreBornes);
-        final RadioButton pavNum = findViewById(R.id.PaveNum);
+        /**Si cette checkBox est cochee les calculs comporteront des soustractions*/
+        final CheckBox soustraction = findViewById(R.id.soustraction);
+        final CheckBox soustractionB = findViewById(R.id.soustractionB);
+
+        /**Si cette checkBox est cochee les calculs comporteront des divisions*/
+        final CheckBox division = findViewById(R.id.division);
+        final CheckBox divisionB = findViewById(R.id.divisionB);
+
+        /**Si cette checkBox est cochee les calculs comporteront des multiplications*/
+        final CheckBox multiplication = findViewById(R.id.multiplication);
+        final CheckBox multiplicationB = findViewById(R.id.multiplicationB);
+
+        /** tableau de booleens qui stockera plus tard les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
+        final Boolean[] operateurs = new Boolean[5];
+        final Boolean[] operateursB = new Boolean[5];
+
+
+
+        final EditText  nbCal= (EditText)  findViewById(R.id.NbCalcul);
+        final EditText  valeurMax= (EditText)  findViewById(R.id.ValMaxOperandes);
+
+        final CheckBox  nbpair =  (CheckBox) findViewById(R.id.NbPair);
+        final CheckBox  nbimpair =  (CheckBox) findViewById(R.id.NbImpair);
+
+        final RadioButton deuxbornes = (RadioButton) findViewById(R.id.DeuxBornes);
+        final RadioButton quatrebornes = (RadioButton) findViewById(R.id.QuatreBornes);
+        final RadioButton pavNum = (RadioButton) findViewById(R.id.PaveNum);
 
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
         Button valider=  findViewById(R.id.BtonValider);
@@ -80,7 +103,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                     npair=true;
                 }
 
-                if(nbpair.isChecked()){
+                if(nbimpair.isChecked()){
                     nimpair=true;
                 }
                 if(deuxbornes.isChecked()){
@@ -97,6 +120,12 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                 }
 
                 ParamEm2 param = null;
+
+                /**on stocke les booleens correspondant aux operations dans le tableau*/
+                operateurs[0] = addition.isChecked();
+                operateurs[1] = soustraction.isChecked();
+                operateurs[2] = multiplication.isChecked();
+                operateurs[3] = division.isChecked();
 
                 /** Si les deux champs de saisie pour le nombre de calcul et la valeur max des opérandes sont remplis on recupere les valeurs des parametres
                  * et on construit un nouvel objet param avec ces parametres
@@ -127,7 +156,8 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                             repdeuxbrnes,
                             pav,
                             repQuatrebrnes);
-                    Log.i("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
+
+                    Log.w("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
                             "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
                 }
                 /** Si le champ de saisie pour le nombre de calcul est rempli on recupere les valeurs des parametres
@@ -143,7 +173,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                             repdeuxbrnes,
                             pav,
                             repQuatrebrnes);
-                    Log.i("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
+                    Log.w("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
                             "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
                 }
                 /** Si le champ de saisie pour la valeur max des operandes est rempli on recupere les valeurs des parametres
@@ -159,7 +189,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                             repdeuxbrnes,
                             pav,
                             repQuatrebrnes);
-                    Log.i("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
+                    Log.w("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
                             "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
                 }
 

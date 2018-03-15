@@ -5,16 +5,17 @@ import java.io.Serializable;
 public class ParamEm2 extends ParamMath implements Serializable {
 
     private int typeRep;
-
-    private int nbCalcul;
     /**
      * type de réponse à donner par l'élève
      */
 
-    private int valMaxOperande;
+    private int nbCalcul;
     /**
      * Nombre de question
      */
+
+    private int valMaxOperande;
+
     private Boolean nombrePair;
     private Boolean nombreImpair;
 
@@ -25,23 +26,24 @@ public class ParamEm2 extends ParamMath implements Serializable {
     private Boolean repDeuxBornes;
     private Boolean repQuatreBornes;
     private Boolean repPaveNum;
-    /**
-     * Vrai : calcul puis bornes, Faux : bornes puis calcul
-     */
+
+
+
+
     public ParamEm2()
     /**
      * Constructeur de paramètres par défault
      */
     {
         super();
-        typeRep = 3;
+        typeRep = 0;
         nbCalcul = 5;
         nombrePair = true;
         nombreImpair = true;
         repDeuxBornes = false;
         repQuatreBornes = false;
         repPaveNum = true;
-        valMaxOperande = 30;
+        valMaxOperande = 10;
     }
 
     public ParamEm2(int typeRep,int nbCalcul,int valMaxOperande,boolean nombreImpair,boolean nombrePair,boolean repDeuxBornes,boolean repPaveNum,boolean repQuatreBornes)

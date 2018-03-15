@@ -73,7 +73,7 @@ public class MathsActivity extends AppCompatActivity {
                 isExercice2 = true;
                 isExercice3 = false;
 
-                descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : ");
+                descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : Fait les multiplications");
             }
         });
 
@@ -101,6 +101,10 @@ public class MathsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (isExercice1) {
                     Intent intent = new Intent(MathsActivity.this, ModifParamEm1Activity.class);
+                    startActivity(intent);
+                }
+                if (isExercice2) {
+                    Intent intent = new Intent(MathsActivity.this, ModifParamEm2Activity.class);
                     startActivity(intent);
                 }
                 //TODO faire pareil pour les autres exercices quand les activités seront créer

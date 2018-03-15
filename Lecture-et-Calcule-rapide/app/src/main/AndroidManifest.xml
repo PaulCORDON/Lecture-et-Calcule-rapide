@@ -35,6 +35,9 @@
             android:name=".CalculRapide.Activity.ModifParamEm1Activity"
             android:screenOrientation="landscape" />
         <activity
+            android:name=".CalculRapide.Activity.ModifParamEm2Activity"
+            android:screenOrientation="landscape" />
+        <activity
             android:name=".LectureRapide.Activity.LectureExo1Activity"
             android:screenOrientation="landscape" />
         <activity
