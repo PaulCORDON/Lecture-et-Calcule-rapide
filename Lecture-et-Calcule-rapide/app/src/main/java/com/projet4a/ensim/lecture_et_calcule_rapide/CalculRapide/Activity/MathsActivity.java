@@ -25,17 +25,17 @@ public class MathsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_maths);
 
         /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
-        final Button exercice1 = findViewById(R.id.exo1M);
+        final Button exercice1 = (Button) findViewById(R.id.exo1M);
         final Button exercice2 = (Button) findViewById(R.id.exo2M);
         final Button exercice3 = (Button) findViewById(R.id.exo3M);
         /* creation du boutton parametre */
         final Button parametreM = (Button) findViewById(R.id.paramM);
         /*creation bouton goM */
-        final Button go = findViewById(R.id.goM);
+        final Button go = (Button)findViewById(R.id.goM);
         /* creation de la text view de description */
-        final TextView descriptionM = findViewById(R.id.descriptionM);
+        final TextView descriptionM = (TextView)findViewById(R.id.descriptionM);
 
-        final GifImageView gifExo = findViewById(R.id.Gif);
+        final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
 
         gifExo.setVisibility(View.GONE);
         parametreM.setVisibility(View.GONE);

@@ -49,7 +49,7 @@ public class MathExo2Activity extends AppCompatActivity {
      * L'instance de l'exercice qui va comprendre l'ensemble des énoncés, un accés au arametre
      * ainsi que les réponses et les valurs à afficher si il y a lieu
      */
-    private static Exo2Math exo = null;
+    private static Exo2Math exo;
 
     /**
      * une réponse a-t-elle été donnée ?
@@ -258,25 +258,37 @@ public class MathExo2Activity extends AppCompatActivity {
                 break;
             default:
                 setContentView(R.layout.activity_math_exo2_pave_numerique);
-                rep0 = findViewById(R.id.p0);
-                rep1 = findViewById(R.id.p1);
-                rep2 = findViewById(R.id.p2);
-                rep3 = findViewById(R.id.p3);
-                rep4 = findViewById(R.id.p4);
-                rep5 = findViewById(R.id.p5);
-                rep6 = findViewById(R.id.p6);
-                rep7 = findViewById(R.id.p7);
-                rep8 = findViewById(R.id.p8);
-                rep9 = findViewById(R.id.p9);
+                rep0 = (Button)findViewById(R.id.p0);
+                rep1 = (Button)findViewById(R.id.p1);
+                rep2 = (Button)findViewById(R.id.p2);
+                rep3 = (Button)findViewById(R.id.p3);
+                rep4 = (Button)findViewById(R.id.p4);
+                rep5 = (Button)findViewById(R.id.p5);
+                rep6 = (Button)findViewById(R.id.p6);
+                rep7 = (Button)findViewById(R.id.p7);
+                rep8 = (Button)findViewById(R.id.p8);
+                rep9 = (Button)findViewById(R.id.p9);
 
                 operande1 = findViewById(R.id.operande1);
                 operande2 = findViewById(R.id.operande2);
 
                 final TextView reponseDonne = findViewById(R.id.ReponseEleve);
                 reponseE = reponseDonne;
-                valider = findViewById(R.id.Validation);
-                corriger = findViewById(R.id.correction);
-                reponseE = findViewById(R.id.ReponseEleve);
+                valider =(Button) findViewById(R.id.Validation);
+                corriger =(Button) findViewById(R.id.correction);
+                reponseE = (TextView) findViewById(R.id.ReponseEleve);
+                break;
+            case 1:
+                setContentView(R.layout.activity_math_exo2_2rep);
+                rep0 = findViewById(R.id.repA);
+                rep1 = findViewById(R.id.repB);
+                break;
+            case 2:
+                setContentView(R.layout.activity_math_exo2_4rep);
+                rep0 = findViewById(R.id.R1);
+                rep1 = findViewById(R.id.R2);
+                rep2 = findViewById(R.id.R3);
+                rep3 = findViewById(R.id.R4);
                 break;
         }
 
