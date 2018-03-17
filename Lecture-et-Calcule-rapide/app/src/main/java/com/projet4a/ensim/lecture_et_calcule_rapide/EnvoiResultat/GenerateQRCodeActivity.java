@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +29,12 @@ public class GenerateQRCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_generate_qrcode);
 
         /*
+        Récupération des notes de l'élève
+         */
+        final Intent intent = getIntent();
+        final Integer bonneRep =intent.getIntExtra("bonneRep",0);
+        final Integer nbRep = intent.getIntExtra("nbRep",0);
+        /*
         lien avec la vue
          */
         final ImageView qrCode = (ImageView) findViewById(R.id.QRCode);
@@ -40,10 +47,10 @@ public class GenerateQRCodeActivity extends AppCompatActivity {
         generer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message=nom.getText()+" "+prenom.getText()+" "+getIntent().getIntegerArrayListExtra("bonneRep")+" "+getIntent().getIntegerArrayListExtra("nbRep");
+                String message=nom.getText()+" "+prenom.getText()+" "+bonneRep+" "+nbRep;
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try{
-                    BitMatrix bitMatrix=multiFormatWriter.encode(message, BarcodeFormat.QR_CODE,200,200);
+                    BitMatrix bitMatrix=multiFormatWriter.encode(message, BarcodeFormat.QR_CODE,300,300);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                     Bitmap bitmap=barcodeEncoder.createBitmap(bitMatrix);
                     qrCode.setImageBitmap(bitmap);
