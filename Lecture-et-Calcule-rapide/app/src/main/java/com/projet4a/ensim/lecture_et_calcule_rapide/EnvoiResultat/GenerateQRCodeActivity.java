@@ -51,7 +51,7 @@ public class GenerateQRCodeActivity extends AppCompatActivity {
                 String message=prenom.getText()+" "+nom.getText()+" "+exo+" "+bonneRep+" "+nbRep;
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try{
-                    BitMatrix bitMatrix=multiFormatWriter.encode(message, BarcodeFormat.QR_CODE,300,300);
+                    BitMatrix bitMatrix=multiFormatWriter.encode(message, BarcodeFormat.QR_CODE,500,500);
                     BarcodeEncoder barcodeEncoder = new BarcodeEncoder();
                     Bitmap bitmap=barcodeEncoder.createBitmap(bitMatrix);
                     qrCode.setImageBitmap(bitmap);
