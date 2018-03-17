@@ -20,12 +20,15 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="8dp"
-        android:background="@android:color/background_light"
+        android:background="@android:color/transparent"
+        android:padding="50dp"
         android:src="@drawable/giphylecture"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/goL"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionL" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionL"
+        tools:maxHeight="250px"
+        tools:maxWidth="480px" />
 
     <Button
         android:id="@+id/exo1L"
@@ -87,6 +90,8 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text="Choisit l'exercice que tu veux faire.\nExercice 1 : Trouver le mot identique\n Exercice 2 :..."
+        android:textColor="@android:color/background_light"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
