@@ -78,6 +78,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ExoMath1Resultat.this, GenerateQRCodeActivity.class);
+                intent.putExtra("exo","Mathematiques exercice 1");
                 intent.putExtra("bonneRep",bonneRep);
                 intent.putExtra("nbRep",reponseJuste.length);
                 startActivity(intent);

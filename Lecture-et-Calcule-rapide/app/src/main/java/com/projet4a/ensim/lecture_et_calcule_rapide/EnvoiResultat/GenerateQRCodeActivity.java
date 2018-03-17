@@ -32,6 +32,7 @@ public class GenerateQRCodeActivity extends AppCompatActivity {
         Récupération des notes de l'élève
          */
         final Intent intent = getIntent();
+        final String exo = intent.getStringExtra("exo");
         final Integer bonneRep =intent.getIntExtra("bonneRep",0);
         final Integer nbRep = intent.getIntExtra("nbRep",0);
         /*
@@ -47,7 +48,7 @@ public class GenerateQRCodeActivity extends AppCompatActivity {
         generer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String message=nom.getText()+" "+prenom.getText()+" "+bonneRep+" "+nbRep;
+                String message=prenom.getText()+" "+nom.getText()+" "+exo+" "+bonneRep+" "+nbRep;
                 MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
                 try{
                     BitMatrix bitMatrix=multiFormatWriter.encode(message, BarcodeFormat.QR_CODE,300,300);
