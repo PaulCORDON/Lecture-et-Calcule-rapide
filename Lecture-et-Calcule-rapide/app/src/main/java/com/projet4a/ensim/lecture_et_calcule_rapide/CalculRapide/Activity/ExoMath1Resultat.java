@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
+import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.GenerateQRCodeActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -68,8 +69,22 @@ public class ExoMath1Resultat extends AppCompatActivity {
         final TextView reponse2 = (TextView) findViewById(R.id.reponse2);
         final TextView reponse3 = (TextView) findViewById(R.id.reponse3);
         final Button nextQuest = (Button) findViewById(R.id.nextQuest);
+        final Button btnqrcode = (Button) findViewById(R.id.BtnQRCode);
         final TextView score = (TextView) findViewById(R.id.Score);
         final TextView slash = (TextView) findViewById(R.id.slash);
+
+
+        btnqrcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ExoMath1Resultat.this, GenerateQRCodeActivity.class);
+                intent.putExtra("exo","Mathematiques exercice 1");
+                intent.putExtra("bonneRep",bonneRep);
+                intent.putExtra("nbRep",reponseJuste.length);
+                startActivity(intent);
+            }
+        });
+
 
         acceuil.setText("Acceuil");
         nextQuest.setText("Voir la correction");
