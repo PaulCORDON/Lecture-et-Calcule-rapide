@@ -14,7 +14,6 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 import com.xw.repo.BubbleSeekBar;
@@ -123,8 +122,8 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final CheckBox multiplicationB = findViewById(R.id.multiplicationB);
 
         /** tableau de booleens qui stockera plus tard les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
-        final Boolean[] operateurs = new Boolean[5];
-        final Boolean[] operateursB = new Boolean[5];
+        final Boolean[] operateurs = new Boolean[4];
+        final Boolean[] operateursB = new Boolean[4];
 
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
         Button valider = findViewById(R.id.BoutonValider);
@@ -138,30 +137,28 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /**
          * debut affichage des paramètres
          */
-        if(param.getFrise()) {
+        if (param.getFrise()) {
             rbFrise.setChecked(true);
             colonneButton.setVisibility(View.GONE);
-        }
-        else {
+        } else {
             rbButton.setChecked(true);
             colonneFrise.setVisibility(View.GONE);
         }
         //Param frise
         nbQuestions.setText("" + param.getNbQuestions());
 
-        if(param.getOrdreApparition()) rb1.setChecked(true);
+        if (param.getOrdreApparition()) rb1.setChecked(true);
         else rb2.setChecked(true);
 
-        if(param.getDisparition()){
+        if (param.getDisparition()) {
             disparition.setChecked(true);
-            TpsAvantDisp.setText("" + param.getTempsRestantApparant()/1000);
-        }
-        else {
+            TpsAvantDisp.setText("" + param.getTempsRestantApparant() / 1000);
+        } else {
             disparition.setChecked(false);
             TpsAvantDisp.setVisibility(View.GONE);
         }
 
-        tpsReponse.setText("" + param.getTempsRep()/1000);
+        tpsReponse.setText("" + param.getTempsRep() / 1000);
 
         nbPairsOnly.setChecked(param.getPairOnly());
 
@@ -181,19 +178,18 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         //Param bouton
         nbQuestionsB.setText("" + param.getNbQuestions());
 
-        if(param.getOrdreApparition()) rb1B.setChecked(true);
+        if (param.getOrdreApparition()) rb1B.setChecked(true);
         else rb2B.setChecked(true);
 
-        if(param.getDisparition()){
+        if (param.getDisparition()) {
             disparitionB.setChecked(true);
-            TpsAvantDispB.setText("" + param.getTempsRestantApparant()/1000);
-        }
-        else {
+            TpsAvantDispB.setText("" + param.getTempsRestantApparant() / 1000);
+        } else {
             disparitionB.setChecked(false);
             TpsAvantDispB.setVisibility(View.GONE);
         }
 
-        tpsReponseB.setText("" + param.getTempsRep()/1000);
+        tpsReponseB.setText("" + param.getTempsRep() / 1000);
 
         nbPairsOnlyB.setChecked(param.getPairOnly());
 
@@ -204,8 +200,8 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         multiplicationB.setChecked(param.getOperateur()[2]);
         divisionB.setChecked(param.getOperateur()[3]);
 
-        DeuxButtons.setChecked(param.getNbBornes()==1);
-        TroisButtons.setChecked(param.getNbBornes()==2);
+        DeuxButtons.setChecked(param.getNbBornes() == 1);
+        TroisButtons.setChecked(param.getNbBornes() == 2);
         /**
          * fin de l'affichage des parametres
          */
