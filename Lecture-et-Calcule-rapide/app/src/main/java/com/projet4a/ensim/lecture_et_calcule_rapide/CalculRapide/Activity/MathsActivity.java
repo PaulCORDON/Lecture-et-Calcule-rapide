@@ -38,6 +38,12 @@ public class MathsActivity extends AppCompatActivity {
 
         final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
 
+        /* on modifie la transparence des boutons */
+        exercice1.getBackground().setAlpha(100);
+        exercice2.getBackground().setAlpha(100);
+        exercice3.getBackground().setAlpha(100);
+
+
         gifExo.setVisibility(View.GONE);
         parametreM.setVisibility(View.GONE);
         go.setVisibility(View.GONE);
@@ -59,6 +65,7 @@ public class MathsActivity extends AppCompatActivity {
                 descriptionM.setText("Exercice 1 de Mathématiques\nConsigne : Trouve où se situe le résultat du calcule");
             }
         });
+
 
         /** click sur le bouton exercice 2 , on affiche la description et on met le bouton enable */
         exercice2.setOnClickListener(new View.OnClickListener() {

@@ -40,6 +40,7 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text="exercice1"
+        style="@style/RbButton.Inverse.Rounded.Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -57,6 +58,7 @@
         android:layout_marginTop="8dp"
         android:layout_weight="1"
         android:text="exercice2"
+        style="@style/RbButton.Inverse.Rounded.Black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/exo3L"
         app:layout_constraintStart_toEndOf="@+id/exo1L"
@@ -66,6 +68,7 @@
     <Button
         android:id="@+id/exo3L"
         android:layout_width="wrap_content"
+        style="@style/RbButton.Inverse.Rounded.Black"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
