@@ -2,6 +2,8 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model;
 
 import android.util.Log;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
@@ -50,27 +52,17 @@ public class Exo1Lecture {
      * @return Tableau de chaine de caractère contenant l'énoncé et des mots similaires.
      */
     private ArrayList<String> genererApparition() throws FileNotFoundException {
-        //TODO Il peut il y avoir des beugs avec les indices qui peuvent sortir du tableau
+        //TODO Il peut il y avoir des bugs avec les indices qui peuvent sortir du tableau
 
-        ArrayList<String> enonc = new ArrayList<>();
-        enonc.add("cha");
-        enonc.add("chat");
-        enonc.add("cat");
-        enonc.add("caht");
-
-        /*ParseDB parseDB = new ParseDB("C:\\Users\\paul cordon\\Documents\\GitHubLectureEtCalculeRapide\\Lecture-et-Calcule-rapide\\app\\src\\main\\res\\data.txt");
-        parseDB.execute();
-         on tire un chiffre aléatoire pour savoir ou on commence a tirer les mots
-        int index = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(parseDB.listMot.size());
-        ArrayList<String> enonc = new ArrayList<>();
-          on rempli l'enoncé partir d'un nombre aléatoire
-        for (int i =index; i<index+6 ; i++ ) {
-            if (i< parseDB.listMot.size()) {
-                enonc.add(parseDB.listMot.get(i));
-                Log.d("parse", "le mot est : " + enonc.get(i));
-            }
-        }*/
-        return enonc;
+        String[] tousLesMots = "@string/listeExo1Lecture".split(" ");
+        int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesMots.length-5);
+        ArrayList<String> enonce=new ArrayList<>();
+        enonce.add(tousLesMots[i]);
+        enonce.add(tousLesMots[i+1]);
+        enonce.add(tousLesMots[i+2]);
+        enonce.add(tousLesMots[i+3]);
+        enonce.add(tousLesMots[i+4]);
+        return enonce;
     }
 
     /**

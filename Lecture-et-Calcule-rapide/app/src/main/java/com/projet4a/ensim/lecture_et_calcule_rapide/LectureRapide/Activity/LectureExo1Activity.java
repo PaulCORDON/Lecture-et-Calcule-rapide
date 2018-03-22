@@ -71,19 +71,19 @@ public class LectureExo1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_exo1);
-        Log.d("EXO 1 Lecture", "Dans le on crete");
-        rep1 = findViewById(R.id.Rep1);
-        rep2 = findViewById(R.id.Rep2);
-        rep3 = findViewById(R.id.Rep3);
-        rep4 = findViewById(R.id.Rep4);
-        rep5 = findViewById(R.id.Rep5);
-        rep6 = findViewById(R.id.Rep6);
-        rep7 = findViewById(R.id.Rep7);
-        rep8 = findViewById(R.id.Rep8);
-        rep9 = findViewById(R.id.Rep9);
-        rep10 = findViewById(R.id.Rep10);
-        scoreBar = findViewById(R.id.scoreBar);
-        enonce = findViewById(R.id.EnonceLectureEx1);
+        Log.d("EXO 1 Lecture", "Dans le on create");
+        rep1 = (Button) findViewById(R.id.Rep1);
+        rep2 = (Button) findViewById(R.id.Rep2);
+        rep3 = (Button) findViewById(R.id.Rep3);
+        rep4 = (Button) findViewById(R.id.Rep4);
+        rep5 = (Button) findViewById(R.id.Rep5);
+        rep6 = (Button) findViewById(R.id.Rep6);
+        rep7 = (Button) findViewById(R.id.Rep7);
+        rep8 = (Button) findViewById(R.id.Rep8);
+        rep9 = (Button) findViewById(R.id.Rep9);
+        rep10 = (Button) findViewById(R.id.Rep10);
+        scoreBar = (ProgressBar) findViewById(R.id.scoreBar);
+        enonce = (TextView) findViewById(R.id.EnonceLectureEx1);
 
         try {
             FileInputStream fis = openFileInput("ParamEl1.txt");
@@ -190,7 +190,7 @@ public class LectureExo1Activity extends AppCompatActivity {
         });
 
         final long tempsTotal = (param.getTempsApparution() * param.getNbApparution()) / param.getNbAparitionSimultanee();
-        timeBar = findViewById(R.id.progressBar);
+        timeBar = (ProgressBar) findViewById(R.id.progressBar);
         timeBar.setMax((int) (param.getTempsApparution() + 0));
 
         /**
@@ -280,16 +280,16 @@ public class LectureExo1Activity extends AppCompatActivity {
         Log.d("OnBackPressed", "OnBackPressed Exo1Lecture");
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Closing Activity")
-                .setMessage("Are you sure you want to close this activity?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setTitle("Quitter")
+                .setMessage("Etes vous sûr de vouloir quitter l'exercice?")
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         timer.cancel();
                     }
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton("Non", null)
                 .show();
     }
 
