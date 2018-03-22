@@ -102,6 +102,10 @@ public class LectureExo1Activity extends AppCompatActivity {
 
         exo = new Exo1Lecture(param, listeMots);
 
+        int score = 0;
+        while ((score+=param.getNbAparitionSimultanee())<param.getNbApparution());
+        scoreBar.setMax(score);
+        Log.w("Score","score total " +score);
 
         enonce.setText(exo.getEnonce());
 
@@ -187,14 +191,14 @@ public class LectureExo1Activity extends AppCompatActivity {
             }
         });
 
-        final long tempsTotal = (param.getTempsApparution() * param.getNbApparution()) / param.getNbAparitionSimultanee();
+        final long tempsTotal = score/param.getNbAparitionSimultanee()*param.getTempsApparution()+1000;
         timeBar = (ProgressBar) findViewById(R.id.progressBar);
-        timeBar.setMax((int) (param.getTempsApparution() + 0));
+        timeBar.setMax(param.getTempsApparution().intValue());
 
         /**
          * Premier CountDownTimer pour passer d'un groupe d'apparition a un autre
          */
-        timer = new CountDownTimer(tempsTotal + 100, param.getTempsApparution()) {
+        timer = new CountDownTimer(tempsTotal, param.getTempsApparution()) {
             /**
              * A chaque tick un groupe d'apparition apparait
              * @param l
@@ -212,7 +216,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                      */
                     @Override
                     public void onTick(long m) {
-                        timeBar.setProgress((int) (param.getTempsApparution() - m));
+                        timeBar.setProgress((int) (param.getTempsApparution() - m +200));
                     }
 
                     /**
@@ -230,6 +234,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                 Log.d("Nb bonne rep", "" + nbBonneRep);
                 Log.d("Nb mauvaise rep", "" + nbMauvaiseRep);
                 Log.d("Nb app courrent", "" + nbAppCourent);
+                Log.w("Nb app courrent", "" + nbAppCourent);
                 if (nbAppCourent >= param.getNbApparution()) {
                     Log.d("EXO 1 Lecture", "l'exo va finir");
 
@@ -359,7 +364,9 @@ public class LectureExo1Activity extends AppCompatActivity {
         if (b.getText().equals(enonce.getText())) {
             Log.d("BONNE REP", "");
             nbBonneRep++;
-            scoreBar.setProgress(nbBonneRep * (100 / param.getNbApparution()));
+            scoreBar.setProgress(nbBonneRep+1);
+            Log.w("Score en cours", "score " + nbBonneRep);
+
         } else {
             Log.d("Mauvaise REP", "");
             nbMauvaiseRep++;
@@ -390,7 +397,8 @@ public class LectureExo1Activity extends AppCompatActivity {
                  */
                 if (!b.getText().equals(enonce.getText())) {
                     nbBonneRep++;
-                    scoreBar.setProgress(nbBonneRep * (100 / param.getNbApparution()));
+                    scoreBar.setProgress(nbBonneRep+1);
+                    Log.w("Score en cours", "score " + nbBonneRep);
                 } else {
                     nbMauvaiseRep++;
                 }
