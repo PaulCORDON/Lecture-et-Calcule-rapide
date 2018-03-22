@@ -32,6 +32,9 @@ public class MenuActivity extends AppCompatActivity {
 
         final ImageButton math= findViewById(R.id.BtnCalcul);
         final ImageButton lecture=findViewById(R.id.BtnLecture);
+        final TextView lec = findViewById(R.id.textView2);
+
+
 
 
         /** si on clique sur math on va vers les exercice de maths*/
