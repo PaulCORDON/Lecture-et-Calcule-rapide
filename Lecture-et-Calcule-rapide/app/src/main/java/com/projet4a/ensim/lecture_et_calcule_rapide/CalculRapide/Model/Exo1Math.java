@@ -53,7 +53,7 @@ public class Exo1Math extends Exercice implements Serializable {
 
             // choix de l'operateur
             do {
-                choixOperateur = (int) (Math.random() * 5);
+                choixOperateur = (int) (Math.random() * 4);
             }
             while (!this.param.getOperateur()[choixOperateur]);   //tant que l'opérateur ne correspond pas aux paramètres
 
@@ -103,7 +103,7 @@ public class Exo1Math extends Exercice implements Serializable {
 
             //initialisation des bornes
             ArrayList<Integer> bornesTempo = new ArrayList<>(param.getNbBornes());
-
+            
             //pour chaque borne
             for (int j = 0; j < param.getNbBornes(); j++) {
                 //on génère un entier correspondant aux paramètres
