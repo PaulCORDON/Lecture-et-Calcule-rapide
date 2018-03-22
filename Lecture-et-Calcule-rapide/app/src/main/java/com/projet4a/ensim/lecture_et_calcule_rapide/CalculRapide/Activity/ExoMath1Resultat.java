@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo2Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -36,7 +37,16 @@ public class ExoMath1Resultat extends AppCompatActivity {
      */
     private int numQuestCorr = -1;
 
+    /**
+     * le type d'exercice de math que l'on a fait avant
+     */
+    private int type = 0;
+
+    /**
+     * les exercices que l'on a fait avant que l'on va récuperer selon le type
+     */
     private Exo1Math exoMath = null;
+    private Exo2Math exo2Math = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +56,17 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
         // on récupere le tableau contenant les réponses données par l'élève :
         reponseJuste = intent.getBooleanArrayExtra("ReponseDonnee");
+        type = intent.getIntExtra("TypeExo",1);
 
-        //on récupere l'exercice :
+Log.w("passage activités :","valeur de type ::::::::::::::::::::::::::::::::::::: " + type);
+        //on récupere l'exercice avec la bonne instance :
+switch(type){
+    case 1 :
         try {
             FileInputStream fis = openFileInput("ExoM1.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
             exoMath = (Exo1Math) ois.readObject();
+            Log.w("récupération ","On récupere bien les valeurs de exo1Math " + type);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -59,11 +74,31 @@ public class ExoMath1Resultat extends AppCompatActivity {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
+        break;
+
+    case 2:
+        try {
+            FileInputStream fis = openFileInput("ExoM2.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            exo2Math = (Exo2Math) ois.readObject();
+            Log.w("récupération ","On récupere bien les valeurs de exo2Math  " + type);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        break;
+
+}
+        Log.w("récupération ","On a passé la récupération !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + type);
+
 
         //  lien avec le vue
         final TextView nbRep = (TextView) findViewById(R.id.score);
         final TextView nbQuest = (TextView) findViewById(R.id.nbQuestion);
-        final Button acceuil = (Button) findViewById(R.id.Acceuil);
+        final Button accueil = (Button) findViewById(R.id.Acceuil);
         final TextView numQuCorrig = (TextView) findViewById(R.id.calcul);
         final TextView reponse1 = (TextView) findViewById(R.id.reponse1);
         final TextView reponse2 = (TextView) findViewById(R.id.reponse2);
@@ -72,10 +107,10 @@ public class ExoMath1Resultat extends AppCompatActivity {
         final TextView score = (TextView) findViewById(R.id.Score);
         final TextView slash = (TextView) findViewById(R.id.slash);
 
-        acceuil.setText("Acceuil");
+        accueil.setText("Accueil");
         nextQuest.setText("Voir la correction");
 
-        // La réponse est afiché en vert pour plus de visiblité
+        // La réponse est affichée en vert pour plus de visiblité
         reponse2.setTextColor(Color.GREEN);
 
         // calcul du score de l'élève :
@@ -102,12 +137,34 @@ public class ExoMath1Resultat extends AppCompatActivity {
                     } else {
                         score.setText("FAUX");
                         reponse2.setVisibility(View.VISIBLE);
-                        reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
+                        switch (type){
+                            case 2:
+                                reponse1.setText(""+exo2Math.getCalcul().get(0).ToString());
+                                Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(0).ToString());
+
+                                break;
+                            default:
+                                reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
+                                break;
+
+                        }
+
                     }
-                    acceuil.setVisibility(View.INVISIBLE);
+                    accueil.setVisibility(View.INVISIBLE);
                     nextQuest.setText("Correction suivante");
                     slash.setText("Question " + (numQuestCorr) + " : ");
-                    numQuCorrig.setText(exoMath.getCalculEnonce().get(0) + " = " + exoMath.getResultats()[0]);
+                    switch (type){
+                        case 2:
+                           numQuCorrig.setText( "" + exo2Math.getCalcul().get(0).ToString());
+                            Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(0).toString());
+
+                            break;
+                        default:
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0) + " = " + exoMath.getResultats()[0]);
+                            break;
+
+                    }
+
                 }
                 if (numQuestCorr > -1 && numQuestCorr < reponseJuste.length + 1) {
                     numQuestCorr++;
@@ -119,14 +176,37 @@ public class ExoMath1Resultat extends AppCompatActivity {
                     } else {
                         score.setText("FAUX");
                         reponse2.setVisibility(View.VISIBLE);
-                        reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(0));
-                        reponse1.setVisibility(View.VISIBLE);
-                        reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(1));
-                        reponse3.setVisibility(View.VISIBLE);
-                        reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(2));
+
+                        switch (type){
+                            case 2:
+                               reponse1.setText("" + exo2Math.getCalcul().get(numQuestCorr - 1).ToString());
+                                Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
+
+                                break;
+                            default:
+                                reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(0));
+                                reponse1.setVisibility(View.VISIBLE);
+                                reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(1));
+                                reponse3.setVisibility(View.VISIBLE);
+                                reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(2));
+                                break;
+
+                        }
+
                     }
                     slash.setText("Question " + (numQuestCorr) + " : ");
-                    numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1) + " = " + exoMath.getResultats()[numQuestCorr - 1]);
+
+                    switch (type){
+                        case 2:
+                            numQuCorrig.setText("" + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
+                            Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
+                            break;
+                        default:
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1) + " = " + exoMath.getResultats()[numQuestCorr - 1]);
+                            break;
+
+                    }
+
 
                 }
                 if (numQuestCorr == reponseJuste.length) {
@@ -143,10 +223,10 @@ public class ExoMath1Resultat extends AppCompatActivity {
             }
         });
 
-        // bouton pour revenir à l'ecran d'acceuil visible uniquement avant l'affichage de la correction et apres ( pas pendant que les correction sont affichées).
+        // bouton pour revenir à l'ecran d'accueil visible uniquement avant l'affichage de la correction et apres ( pas pendant que les correction sont affichées).
         if (numQuestCorr == -1 || numQuestCorr == reponseJuste.length + 1) {
-            acceuil.setVisibility(View.VISIBLE);
-            acceuil.setOnClickListener(new View.OnClickListener() {
+            accueil.setVisibility(View.VISIBLE);
+            accueil.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent2 = new Intent(ExoMath1Resultat.this, MenuActivity.class);

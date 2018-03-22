@@ -1,9 +1,11 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import java.io.Serializable;
+
 /**
  * classe d'un calcul
  */
-public class Calcul {
+public class Calcul implements Serializable {
     private int operande1;
     private int operande2;
 
@@ -77,4 +79,6 @@ public class Calcul {
     public String getResultatString() {
         return "" + resultat;
     }
+
+    public String ToString() { return "" + operande1 + " " + operation + " " + operande2; }
 }

@@ -120,14 +120,6 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
-            <ImageView
-                android:id="@+id/imageView12"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="1"
-                app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
-
             <Button
                 android:id="@+id/correction"
                 android:layout_width="wrap_content"
@@ -141,6 +133,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_column="12"
+                android:layout_row="1" />
+
+            <TextView
+                android:id="@+id/Operateur"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
                 android:layout_row="1" />
 
         </GridLayout>

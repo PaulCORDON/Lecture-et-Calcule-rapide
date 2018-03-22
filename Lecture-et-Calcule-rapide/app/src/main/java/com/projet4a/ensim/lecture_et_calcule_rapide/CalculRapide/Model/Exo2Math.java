@@ -2,9 +2,10 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Exo2Math {
+public class Exo2Math implements Serializable {
 
     /**
      * liste des calculs
@@ -55,7 +56,7 @@ public class Exo2Math {
                                 enoncees.add(new Calcul(op1, op2, '*'));
                                 break;
                             case 3 :
-
+                                enoncees.add(new Calcul(op1,op2,'/'));
                                 break;
 
 
@@ -63,6 +64,34 @@ public class Exo2Math {
 
                         a++;
                     }
+                }
+                else{
+                    choixOpVali = true;
+                    do{
+                        choixOp = (int) (Math.random() * 5);
+                        if (param.getOperateur()[choixOp]){
+                            choixOpVali = false;
+                        }
+                    }while (choixOpVali);
+
+                    switch (choixOp){
+                        case 0:
+                            enoncees.add(new Calcul(op1, op2, '+'));
+                            break;
+                        case 1:
+                            enoncees.add(new Calcul(op1, op2, '-'));
+                            break;
+                        case 2:
+                            enoncees.add(new Calcul(op1, op2, '*'));
+                            break;
+                        case 3 :
+                            enoncees.add(new Calcul(op1,op2,'/'));
+                            break;
+
+
+                    }
+
+                    a++;
                 }
 
 

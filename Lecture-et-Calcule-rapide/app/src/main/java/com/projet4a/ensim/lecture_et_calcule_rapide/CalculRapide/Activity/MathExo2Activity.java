@@ -78,6 +78,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
     private TextView operande1 ;
     private TextView operande2 ;
+    private TextView operateur ;
     /**
      * OnClickListeners permettant d'enregistrer si l'élève a eu bon ou pas, d'arreter le timer et de passer à la question suivante
      */
@@ -245,6 +246,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
                 operande1 = findViewById(R.id.operande1);
                 operande2 = findViewById(R.id.operande2);
+                operateur = findViewById(R.id.Operateur);
                 break;
             case 2:
                 setContentView(R.layout.activity_math_exo2_4rep);
@@ -255,6 +257,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
                  operande1 = findViewById(R.id.operande1);
                  operande2 = findViewById(R.id.operande2);
+                operateur = findViewById(R.id.Operateur);
                 break;
             default:
                 setContentView(R.layout.activity_math_exo2_pave_numerique);
@@ -271,6 +274,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
                 operande1 = findViewById(R.id.operande1);
                 operande2 = findViewById(R.id.operande2);
+                operateur = findViewById(R.id.Operateur);
 
                 final TextView reponseDonne = findViewById(R.id.ReponseEleve);
                 reponseE = reponseDonne;
@@ -291,6 +295,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
         operande2.setText("" + exo.getCalcul().get(numQuestAct).getOp2Int() ); //+exo.getCalcul().get(numQuestAct).getOp2Int());
 
+        operateur.setText("" + exo.getCalcul().get(numQuestAct).getOperation());
         switch (exo.getParam().gettypeRep()) {
             case 1:
                 rep0.setText("" + (int) ((Math.random() * 100)));
@@ -391,7 +396,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
                     Intent intent = new Intent(MathExo2Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee", reponseJuste);
-
+                    intent.putExtra("TypeExo",2);
                     FileOutputStream outputStream;
                     ObjectOutputStream oos;
                     try {
