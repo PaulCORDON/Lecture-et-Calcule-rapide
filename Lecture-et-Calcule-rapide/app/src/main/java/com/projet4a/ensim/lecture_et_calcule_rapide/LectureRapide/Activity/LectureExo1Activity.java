@@ -1,5 +1,6 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -71,19 +72,19 @@ public class LectureExo1Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_exo1);
-        Log.d("EXO 1 Lecture", "Dans le on crete");
-        rep1 = findViewById(R.id.Rep1);
-        rep2 = findViewById(R.id.Rep2);
-        rep3 = findViewById(R.id.Rep3);
-        rep4 = findViewById(R.id.Rep4);
-        rep5 = findViewById(R.id.Rep5);
-        rep6 = findViewById(R.id.Rep6);
-        rep7 = findViewById(R.id.Rep7);
-        rep8 = findViewById(R.id.Rep8);
-        rep9 = findViewById(R.id.Rep9);
-        rep10 = findViewById(R.id.Rep10);
-        scoreBar = findViewById(R.id.scoreBar);
-        enonce = findViewById(R.id.EnonceLectureEx1);
+        Log.d("EXO 1 Lecture", "Dans le on create");
+        rep1 = (Button) findViewById(R.id.Rep1);
+        rep2 = (Button) findViewById(R.id.Rep2);
+        rep3 = (Button) findViewById(R.id.Rep3);
+        rep4 = (Button) findViewById(R.id.Rep4);
+        rep5 = (Button) findViewById(R.id.Rep5);
+        rep6 = (Button) findViewById(R.id.Rep6);
+        rep7 = (Button) findViewById(R.id.Rep7);
+        rep8 = (Button) findViewById(R.id.Rep8);
+        rep9 = (Button) findViewById(R.id.Rep9);
+        rep10 = (Button) findViewById(R.id.Rep10);
+        scoreBar = (ProgressBar) findViewById(R.id.scoreBar);
+        enonce = (TextView) findViewById(R.id.EnonceLectureEx1);
 
         try {
             FileInputStream fis = openFileInput("ParamEl1.txt");
@@ -96,14 +97,15 @@ public class LectureExo1Activity extends AppCompatActivity {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        try {
-            exo = new Exo1Lecture(param);
-            Log.d("Dans le try", "On a cree un EXo1Lecture");
-        } catch (FileNotFoundException e) {
-            Log.d("Dans le catch", "On a pas réussi a cree un EXo1Lecture");
-            e.printStackTrace();
-        }
-        Log.d("EXO 1 Lecture", "Après la désérialisation");
+
+        String [] listeMots = this.getResources().getString(R.string.listeExo1Lecture).split(" ");
+
+        exo = new Exo1Lecture(param, listeMots);
+
+        int score = 0;
+        while ((score+=param.getNbAparitionSimultanee())<param.getNbApparution());
+        scoreBar.setMax(score);
+        Log.w("Score","score total " +score);
 
         enonce.setText(exo.getEnonce());
 
@@ -189,14 +191,14 @@ public class LectureExo1Activity extends AppCompatActivity {
             }
         });
 
-        final long tempsTotal = (param.getTempsApparution() * param.getNbApparution()) / param.getNbAparitionSimultanee();
-        timeBar = findViewById(R.id.progressBar);
-        timeBar.setMax((int) (param.getTempsApparution() + 0));
+        final long tempsTotal = score/param.getNbAparitionSimultanee()*param.getTempsApparution()+1000;
+        timeBar = (ProgressBar) findViewById(R.id.progressBar);
+        timeBar.setMax(param.getTempsApparution().intValue());
 
         /**
          * Premier CountDownTimer pour passer d'un groupe d'apparition a un autre
          */
-        timer = new CountDownTimer(tempsTotal + 100, param.getTempsApparution()) {
+        timer = new CountDownTimer(tempsTotal, param.getTempsApparution()) {
             /**
              * A chaque tick un groupe d'apparition apparait
              * @param l
@@ -214,7 +216,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                      */
                     @Override
                     public void onTick(long m) {
-                        timeBar.setProgress((int) (param.getTempsApparution() - m));
+                        timeBar.setProgress((int) (param.getTempsApparution() - m +200));
                     }
 
                     /**
@@ -232,6 +234,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                 Log.d("Nb bonne rep", "" + nbBonneRep);
                 Log.d("Nb mauvaise rep", "" + nbMauvaiseRep);
                 Log.d("Nb app courrent", "" + nbAppCourent);
+                Log.w("Nb app courrent", "" + nbAppCourent);
                 if (nbAppCourent >= param.getNbApparution()) {
                     Log.d("EXO 1 Lecture", "l'exo va finir");
 
@@ -280,16 +283,16 @@ public class LectureExo1Activity extends AppCompatActivity {
         Log.d("OnBackPressed", "OnBackPressed Exo1Lecture");
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Closing Activity")
-                .setMessage("Are you sure you want to close this activity?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setTitle("Quitter")
+                .setMessage("Etes vous sûr de vouloir quitter l'exercice?")
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         timer.cancel();
                     }
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton("Non", null)
                 .show();
     }
 
@@ -361,7 +364,9 @@ public class LectureExo1Activity extends AppCompatActivity {
         if (b.getText().equals(enonce.getText())) {
             Log.d("BONNE REP", "");
             nbBonneRep++;
-            scoreBar.setProgress(nbBonneRep * (100 / param.getNbApparution()));
+            scoreBar.setProgress(nbBonneRep+1);
+            Log.w("Score en cours", "score " + nbBonneRep);
+
         } else {
             Log.d("Mauvaise REP", "");
             nbMauvaiseRep++;
@@ -392,7 +397,8 @@ public class LectureExo1Activity extends AppCompatActivity {
                  */
                 if (!b.getText().equals(enonce.getText())) {
                     nbBonneRep++;
-                    scoreBar.setProgress(nbBonneRep * (100 / param.getNbApparution()));
+                    scoreBar.setProgress(nbBonneRep+1);
+                    Log.w("Score en cours", "score " + nbBonneRep);
                 } else {
                     nbMauvaiseRep++;
                 }
