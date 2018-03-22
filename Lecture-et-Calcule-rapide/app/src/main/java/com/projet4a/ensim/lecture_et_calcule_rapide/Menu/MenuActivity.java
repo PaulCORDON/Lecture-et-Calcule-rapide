@@ -1,6 +1,7 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.Menu;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -18,6 +19,8 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.Lectu
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import static java.lang.Thread.sleep;
+
 public class MenuActivity extends AppCompatActivity {
 
 
@@ -32,13 +35,36 @@ public class MenuActivity extends AppCompatActivity {
         /* creation des boutons maths et lecture*/
 
 
+
         final ImageButton math= findViewById(R.id.BtnCalcul);
         final ImageButton lecture=findViewById(R.id.BtnLecture);
-
         final ImageView bonhomme1= findViewById(R.id.bonhomme);
         final ImageView bonhomme2= findViewById(R.id.bonhomme2);
         bonhomme2.setVisibility(View.GONE);
+        final ImageView bulle1= findViewById(R.id.bulle1);
+        final ImageView bulle2= findViewById(R.id.bulle2);
+        bulle2.setVisibility(View.GONE);
 
+
+        TranslateAnimation animate = new TranslateAnimation(0, 0, 200, 0);
+        animate.setDuration(500);
+        animate.setFillAfter(true);
+        bonhomme1.startAnimation(animate);
+
+        TranslateAnimation animate2 = new TranslateAnimation(0, 0, 400, 0);
+        animate2.setDuration(800);
+        animate2.setFillAfter(false);
+        bulle1.startAnimation(animate2);
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                bonhomme1.setVisibility(View.GONE);
+                bulle1.setVisibility(View.GONE);
+                bonhomme2.setVisibility(View.VISIBLE);
+                bulle2.setVisibility(View.VISIBLE);
+            }
+        },3000);
 
 
 

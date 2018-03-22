@@ -2,6 +2,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
@@ -50,6 +51,14 @@ public class MathsActivity extends AppCompatActivity {
         animate.setFillAfter(true);
         bonhomme.startAnimation(animate);
 
+        final ImageView bulle1= findViewById(R.id.bulle1);
+        final TranslateAnimation animate2 = new TranslateAnimation(0, 0, -500, 0);
+        animate2.setDuration(500);
+        animate2.setFillAfter(false);
+        bulle1.startAnimation(animate2);
+
+        final ImageView bulle2=findViewById(R.id.bulle2);
+        bulle2.setVisibility(View.GONE);
 
         final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
 
@@ -74,6 +83,9 @@ public class MathsActivity extends AppCompatActivity {
                 animate.setDuration(500);
                 animate.setFillAfter(true);
                 bonhomme.startAnimation(animate);
+                bulle1.setVisibility(View.GONE);
+                bulle2.setVisibility(View.VISIBLE);
+                bulle2.startAnimation(animate2);
 
                 descriptionM.setText("Exercice 1 de Mathématiques\nConsigne : Trouve où se situe le résultat du calcul");
             }
@@ -96,6 +108,7 @@ public class MathsActivity extends AppCompatActivity {
                 animate.setDuration(500);
                 animate.setFillAfter(true);
                 bonhomme.startAnimation(animate);
+                bulle1.setVisibility(View.GONE);
 
                 descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : ");
             }
@@ -118,6 +131,7 @@ public class MathsActivity extends AppCompatActivity {
                 animate.setDuration(500);
                 animate.setFillAfter(true);
                 bonhomme.startAnimation(animate);
+                bulle1.setVisibility(View.GONE);
 
                 descriptionM.setText("Exercice 3 de Mathématiques\nConsigne : ");
             }
