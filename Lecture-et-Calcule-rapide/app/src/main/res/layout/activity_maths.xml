@@ -7,12 +7,6 @@
     android:background="@drawable/ardoise"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathsActivity">
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/logocalcul2" />
-
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/Gif"
         android:layout_width="0dp"
@@ -25,8 +19,27 @@
         android:src="@drawable/giphy"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/goM"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionM" />
+        app:layout_constraintTop_toBottomOf="@+id/descriptionM"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/bonhomme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/bonhomme8"
+        />
 
     <Button
         android:id="@+id/exo1M"
