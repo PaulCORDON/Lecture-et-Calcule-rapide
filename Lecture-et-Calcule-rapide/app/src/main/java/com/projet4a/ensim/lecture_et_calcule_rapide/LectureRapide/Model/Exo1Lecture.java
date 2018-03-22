@@ -1,8 +1,11 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model;
 
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
+import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -39,10 +42,10 @@ public class Exo1Lecture {
      * Constructeur de la classe Exo1Lecture.
      * Elle charge les paramètres et génere l'énoncé ainsi que le tableau des apparition.
      */
-    public Exo1Lecture(ParamEl1 param) throws FileNotFoundException {
+    public Exo1Lecture(ParamEl1 param, String[] listeMots) {
         Log.d("Exo1Lecture", "On est dans le constructeur");
         paramEl1 = param;
-        apparition = genererApparition();
+        apparition = genererApparition(listeMots);
         enonce = genererEnonce();
     }
 
@@ -51,10 +54,11 @@ public class Exo1Lecture {
      *
      * @return Tableau de chaine de caractère contenant l'énoncé et des mots similaires.
      */
-    private ArrayList<String> genererApparition() throws FileNotFoundException {
+    private ArrayList<String> genererApparition(String [] listeMots){
         //TODO Il peut il y avoir des bugs avec les indices qui peuvent sortir du tableau
 
-        String[] tousLesMots = "@string/listeExo1Lecture".split(" ");
+        String[] tousLesMots = listeMots;
+        for(String s: tousLesMots) Log.w("Liste String", "Affichage des mots " + s);
         int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesMots.length-5);
         ArrayList<String> enonce=new ArrayList<>();
         enonce.add(tousLesMots[i]);
@@ -62,6 +66,7 @@ public class Exo1Lecture {
         enonce.add(tousLesMots[i+2]);
         enonce.add(tousLesMots[i+3]);
         enonce.add(tousLesMots[i+4]);
+        for(String s: enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);
         return enonce;
     }
 

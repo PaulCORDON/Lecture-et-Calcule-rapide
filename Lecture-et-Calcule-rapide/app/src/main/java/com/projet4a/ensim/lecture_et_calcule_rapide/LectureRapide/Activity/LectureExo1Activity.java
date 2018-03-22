@@ -1,5 +1,6 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -96,14 +97,11 @@ public class LectureExo1Activity extends AppCompatActivity {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        try {
-            exo = new Exo1Lecture(param);
-            Log.d("Dans le try", "On a cree un EXo1Lecture");
-        } catch (FileNotFoundException e) {
-            Log.d("Dans le catch", "On a pas réussi a cree un EXo1Lecture");
-            e.printStackTrace();
-        }
-        Log.d("EXO 1 Lecture", "Après la désérialisation");
+
+        String [] listeMots = this.getResources().getString(R.string.listeExo1Lecture).split(" ");
+
+        exo = new Exo1Lecture(param, listeMots);
+
 
         enonce.setText(exo.getEnonce());
 
