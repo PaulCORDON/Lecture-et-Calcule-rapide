@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ExoMath1Resultat;
+import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.GenerateQRCodeActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -18,7 +20,7 @@ public class ExoLecture1Resultat extends AppCompatActivity {
     String contenuBouton;
     int reponseJuste;
     int nbDapparitionTotal;
-
+    Button btnqrcode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +40,7 @@ public class ExoLecture1Resultat extends AppCompatActivity {
         accueil = findViewById(R.id.AcceuilBtn);
         score = findViewById(R.id.scoreTxt);
         scoreMax = findViewById(R.id.nbAppTxt);
+        btnqrcode =findViewById(R.id.BtnQRCode);
 
         /**
          * on remplit les champs textes avec ce qu'on a récupérer au dessus
@@ -54,6 +57,17 @@ public class ExoLecture1Resultat extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ExoLecture1Resultat.this, MenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnqrcode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ExoLecture1Resultat.this, GenerateQRCodeActivity.class);
+                intent.putExtra("exo","Lecture exercice 1");
+                intent.putExtra("bonneRep",reponseJuste);
+                intent.putExtra("nbRep",nbDapparitionTotal);
                 startActivity(intent);
             }
         });

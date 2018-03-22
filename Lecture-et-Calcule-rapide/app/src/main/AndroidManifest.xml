@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.projet4a.ensim.lecture_et_calcule_rapide">
-
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/logo"
@@ -11,8 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Menu.MainActivity"
-            android:screenOrientation="sensorLandscape"
-            >
+            android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
@@ -52,9 +53,13 @@
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".LectureRapide.Activity.ExoLecture1Resultat"
-            android:screenOrientation="sensorLandscape"
-            />
-        <activity android:name=".CalculRapide.Activity.MathExo2Activity"
             android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".CalculRapide.Activity.MathExo2Activity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".EnvoiResultat.GenerateQRCodeActivity"
+            android:screenOrientation="sensorLandscape"/>
     </application>
+
 </manifest>

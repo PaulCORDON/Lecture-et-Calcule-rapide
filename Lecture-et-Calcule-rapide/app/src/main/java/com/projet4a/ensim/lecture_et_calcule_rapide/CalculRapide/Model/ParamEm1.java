@@ -5,8 +5,7 @@ import java.io.Serializable;
 /**
  * classe définissant les paramètres de Exo1Maths
  */
-public class ParamEm1 extends ParamMath implements Serializable
-{
+public class ParamEm1 extends ParamMath implements Serializable {
     private int nbBornes;
     /**
      * Nombre de bornes
@@ -56,6 +55,7 @@ public class ParamEm1 extends ParamMath implements Serializable
     //TODO ajouter valMin, valeur minimum présente dans l'exercice
 
     private boolean frise;
+
     /**
      * boolean pour dire si l'exercice utilisera une frise ou des boutons
      */
