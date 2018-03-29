@@ -18,10 +18,8 @@ public class ParamEm2 extends ParamMath implements Serializable {
 
     private Boolean nombrePair;
     private Boolean nombreImpair;
+    private int typeNombre;
 
-    /**
-     * Vrai : le premier element disparait, Faux : les deux elements s'affiche en meme temps
-     */
 
     private Boolean repDeuxBornes;
     private Boolean repQuatreBornes;
@@ -44,6 +42,7 @@ public class ParamEm2 extends ParamMath implements Serializable {
         repQuatreBornes = false;
         repPaveNum = true;
         valMaxOperande = 10;
+        typeNombre = 0;
     }
 
     public ParamEm2(int typeRep,int nbCalcul,int valMaxOperande,boolean nombreImpair,boolean nombrePair,boolean repDeuxBornes,boolean repPaveNum,boolean repQuatreBornes)
@@ -60,6 +59,17 @@ public class ParamEm2 extends ParamMath implements Serializable {
         this.repQuatreBornes = repQuatreBornes;
         this.repPaveNum = repPaveNum;
         this.valMaxOperande = valMaxOperande;
+        if (nombrePair){
+            this.typeNombre = 0;
+        }
+        if(nombreImpair){
+            this.typeNombre = 1;
+        }
+        if(nombreImpair && nombrePair){
+            this.typeNombre = 2;
+        }
+
+
     }
 
     /**
@@ -83,5 +93,6 @@ public class ParamEm2 extends ParamMath implements Serializable {
 
     public Boolean getRepPaveNum() {return repPaveNum;}
 
+    public int getTypeNombre(){return typeNombre;}
 
 }
