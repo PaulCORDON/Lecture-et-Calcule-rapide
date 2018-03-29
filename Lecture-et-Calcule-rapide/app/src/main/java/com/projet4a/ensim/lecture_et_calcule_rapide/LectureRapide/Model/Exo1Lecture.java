@@ -79,14 +79,17 @@ public class Exo1Lecture {
         //TODO Il peut il y avoir des bugs avec les indices qui peuvent sortir du tableau
         String[] tousLesNom = listeMots2;
         String[] tousLesDeterminant = listeMots;
-        int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesNom.length-5);
+        Log.i("tout les noms taille = ",tousLesNom.length+"");
+        Log.i("tout les deters = ",tousLesDeterminant.length+"");
+        int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesNom.length-3);
+        Log.i("i = ",i+"");
         ArrayList<String> enonce=new ArrayList<>();
-        for (int j=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesDeterminant.length-4);j<j+3;j++){
+        int index=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesDeterminant.length-3);
+        Log.i("index = ",index+"");
+        for (int j=index;j<index+3;j++){
             enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i]);
             enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+1]);
             enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+2]);
-            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+3]);
-            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+4]);
         }
 
         for(String s: enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);

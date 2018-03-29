@@ -344,7 +344,8 @@ public class LectureExo1Activity extends AppCompatActivity {
      * @return entier entre 1 et le nombre mit en paramêtre
      */
     public static int tirageAleatoireEntre1EtLeNombreMitEnParam(int p) {
-        int num = (int) Math.random() * (p - 1) + 1;
+        int num =1+(int)(Math.random() * (p - 1)) ;
+
         return num;
     }
 
