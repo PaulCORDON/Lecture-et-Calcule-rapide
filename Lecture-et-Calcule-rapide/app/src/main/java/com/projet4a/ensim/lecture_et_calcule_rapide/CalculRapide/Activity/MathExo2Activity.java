@@ -219,7 +219,9 @@ public class MathExo2Activity extends AppCompatActivity {
         /**
          * si c'est la premiere fois que l'on lance l'activité de cet exercice, on récupere les parametres et on créer les énoncés
          */
+        Log.w("Création de l'exo 2", "on créer l'exo car NumQuestAct = " + numQuestAct);
         if (numQuestAct == 0) {
+            Log.w("Création de l'exo 2", "Donc on est bien ici");
             ParamEm2 param = new ParamEm2();
             try {
                 FileInputStream out = openFileInput("ParamEm2.txt");
@@ -291,11 +293,20 @@ public class MathExo2Activity extends AppCompatActivity {
         Log.w("exo2","operande 2 :" +exo.getCalcul().get(numQuestAct).getOp2Int());
         Log.w("exo2","resultat :" +exo.getCalcul().get(numQuestAct).getResultatString());
 
-        operande1.setText("" + exo.getCalcul().get(numQuestAct).getOp1Int()); //exo.getCalcul().get(numQuestAct).getOp1Int());
+        String opera;
+        opera = exo.getCalcul().get(numQuestAct).getOperation();
+        if(exo.getCalcul().get(numQuestAct).getOperation().equals("*")){
+            opera = "x";
+        }
 
-        operande2.setText("" + exo.getCalcul().get(numQuestAct).getOp2Int() ); //+exo.getCalcul().get(numQuestAct).getOp2Int());
+        operande1.setText("" + exo.getCalcul().get(numQuestAct).getOp1Int() + " " + opera + " " + exo.getCalcul().get(numQuestAct).getOp2Int() ); //exo.getCalcul().get(numQuestAct).getOp1Int());
 
-        operateur.setText("" + exo.getCalcul().get(numQuestAct).getOperation());
+        //operande2.setText("" + exo.getCalcul().get(numQuestAct).getOp2Int() ); //+exo.getCalcul().get(numQuestAct).getOp2Int());
+
+       // operateur.setText("" + exo.getCalcul().get(numQuestAct).getOperation());
+        //if(exo.getCalcul().get(numQuestAct).getOperation().equals("*")){
+       //     operateur.setText("x");
+       // }
         switch (exo.getParam().gettypeRep()) {
             case 1:
                 rep0.setText("" + (int) ((Math.random() * 100)));
@@ -391,7 +402,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
                 if (numQuestAct == exo.getParam().getNbCalcul()) {
                     numQuestAct = 0;
-
+                    Log.w("fin activité exo 2","on a bien remit numQuestAct à : " +numQuestAct);
 
 
                     Intent intent = new Intent(MathExo2Activity.this, ExoMath1Resultat.class);

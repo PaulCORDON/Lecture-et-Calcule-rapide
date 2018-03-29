@@ -42,8 +42,13 @@ public class Calcul implements Serializable {
             case '/':
                 resultat = operande1 * operande2;
                 int tempo = resultat;
-                resultat = operande2;
-                operande2= resultat;
+                resultat = operande1;
+                operande1= operande2;
+                operande2=tempo;
+
+                tempo = operande1;
+                operande1 = operande2;
+                operande2 = tempo;
                 break;
         }
     }
@@ -80,5 +85,5 @@ public class Calcul implements Serializable {
         return "" + resultat;
     }
 
-    public String ToString() { return "" + operande1 + " " + operation + " " + operande2; }
+    public String ToString() { return "" + operande1 + " " + operation + " " + operande2 + " = " + resultat; }
 }

@@ -53,7 +53,7 @@ public class Exo1Math extends Exercice implements Serializable {
 
             // choix de l'operateur
             do {
-                choixOperateur = (int) (Math.random() * 5);
+                choixOperateur = (int) (Math.random() * 4);
             }
             while (!this.param.getOperateur()[choixOperateur]);   //tant que l'opérateur ne correspond pas aux paramètres
 

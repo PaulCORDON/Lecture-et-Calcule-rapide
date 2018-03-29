@@ -49,6 +49,11 @@ public class ExoMath1Resultat extends AppCompatActivity {
     private Exo1Math exoMath = null;
     private Exo2Math exo2Math = null;
 
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,7 +127,7 @@ switch(type){
         });
 
 
-        acceuil.setText("Acceuil");
+        accueil.setText("Accueil");
         nextQuest.setText("Voir la correction");
 
         // La réponse est affichée en vert pour plus de visiblité
@@ -213,7 +218,7 @@ switch(type){
 
                     switch (type){
                         case 2:
-                            numQuCorrig.setText("" + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
+                            numQuCorrig.setText("" + exo2Math.getCalcul().get(numQuestCorr - 1).ToString());
                             Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
                             break;
                         default:

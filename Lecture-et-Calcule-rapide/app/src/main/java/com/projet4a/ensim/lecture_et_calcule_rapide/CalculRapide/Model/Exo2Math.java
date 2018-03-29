@@ -24,7 +24,7 @@ public class Exo2Math implements Serializable {
      * si les bornes sont validée alors on passe à false
      */
     private static boolean Nvalide = true;
-    private static int a = 0;
+    private  int a = 0;
     public Exo2Math(ParamEm2 param) {
         this.param = param;
 
@@ -34,12 +34,14 @@ public class Exo2Math implements Serializable {
                 Log.w("création operande","opeeeeeeerrrrrrrrrrrandeeeeeeeee");
                 op1 = (int) (Math.random() * param.getValMaxOperande());
                 op2 = (int) (Math.random() * param.getValMaxOperande());
+                op1 = op1+1;
+                op2 = op2+1;
                 Log.w("création operande","NUm question : " + a + " 1 :" + op1 + "   2 : " + op2);
                 if(param.getNombrePair()){
                     if(op1%2 == 0 && op2%2==0){
                         choixOpVali = true;
                         do{
-                            choixOp = (int) (Math.random() * 5);
+                            choixOp = (int) (Math.random() * 4);
                             if (param.getOperateur()[choixOp]){
                                 choixOpVali = false;
                             }

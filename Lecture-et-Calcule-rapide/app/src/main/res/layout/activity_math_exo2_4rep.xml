@@ -5,9 +5,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_width="505dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/operande1"
@@ -15,7 +18,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Operande1" />
+            android:textSize="24sp" />
 
 
         <TextView
@@ -24,12 +27,14 @@
             android:layout_height="wrap_content"
             android:layout_column="12"
             android:layout_row="0" />
+
         <TextView
-        android:id="@+id/Operateur"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="1" />
+            android:id="@+id/Operateur"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:textSize="24sp" />
 
 
         <Button
@@ -72,7 +77,7 @@
             android:layout_row="2"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="Operande2" />
+            android:textSize="24sp" />
 
     </GridLayout>
 
