@@ -30,6 +30,8 @@ public class Exo1Lecture {
      */
     ParamEl1 paramEl1;
 
+
+
     public String getEnonce() {
         return enonce;
     }
@@ -43,12 +45,17 @@ public class Exo1Lecture {
      * Elle charge les paramètres et génere l'énoncé ainsi que le tableau des apparition.
      */
     public Exo1Lecture(ParamEl1 param, String[] listeMots) {
-        Log.d("Exo1Lecture", "On est dans le constructeur");
+        Log.d("Exo1Lecture", "On est dans le constructeur avec un énonce d'un mot");
         paramEl1 = param;
         apparition = genererApparition(listeMots);
         enonce = genererEnonce();
     }
-
+    public Exo1Lecture(ParamEl1 param, String[] listeMots, String[] listeMots2) {
+        Log.d("Exo1Lecture", "On est dans le constructeur avec un énoncé de deux mots");
+        paramEl1 = param;
+        apparition = genererApparition(listeMots,listeMots2);
+        enonce = genererEnonce();
+    }
     /**
      * Methode qui génère le tableau des apparition.
      *
@@ -56,9 +63,8 @@ public class Exo1Lecture {
      */
     private ArrayList<String> genererApparition(String [] listeMots){
         //TODO Il peut il y avoir des bugs avec les indices qui peuvent sortir du tableau
-
         String[] tousLesMots = listeMots;
-        for(String s: tousLesMots) Log.w("Liste String", "Affichage des mots " + s);
+
         int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesMots.length-5);
         ArrayList<String> enonce=new ArrayList<>();
         enonce.add(tousLesMots[i]);
@@ -66,6 +72,23 @@ public class Exo1Lecture {
         enonce.add(tousLesMots[i+2]);
         enonce.add(tousLesMots[i+3]);
         enonce.add(tousLesMots[i+4]);
+        for(String s: enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);
+        return enonce;
+    }
+    private ArrayList<String> genererApparition(String [] listeMots,String [] listeMots2){
+        //TODO Il peut il y avoir des bugs avec les indices qui peuvent sortir du tableau
+        String[] tousLesNom = listeMots2;
+        String[] tousLesDeterminant = listeMots;
+        int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesNom.length-5);
+        ArrayList<String> enonce=new ArrayList<>();
+        for (int j=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesDeterminant.length-3);j<=j+3;j++){
+            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i]);
+            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+1]);
+            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+2]);
+            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+3]);
+            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+4]);
+        }
+
         for(String s: enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);
         return enonce;
     }
