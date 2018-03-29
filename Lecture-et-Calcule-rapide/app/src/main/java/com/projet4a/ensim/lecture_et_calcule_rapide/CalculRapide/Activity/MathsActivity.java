@@ -2,10 +2,18 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -36,6 +44,22 @@ public class MathsActivity extends AppCompatActivity {
         /* creation de la text view de description */
         final TextView descriptionM = (TextView)findViewById(R.id.descriptionM);
 
+        /*création de l'image du bonhomme et de son animation*/
+        final ImageView bonhomme= (ImageView) findViewById(R.id.bonhomme);
+        TranslateAnimation animate = new TranslateAnimation(500, 0, 0, 0);
+        animate.setDuration(500);
+        animate.setFillAfter(true);
+        bonhomme.startAnimation(animate);
+
+        final ImageView bulle1= findViewById(R.id.bulle1);
+        final TranslateAnimation animate2 = new TranslateAnimation(0, 0, -500, 0);
+        animate2.setDuration(500);
+        animate2.setFillAfter(false);
+        bulle1.startAnimation(animate2);
+
+        final ImageView bulle2=findViewById(R.id.bulle2);
+        bulle2.setVisibility(View.GONE);
+
         final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
 
         gifExo.setVisibility(View.GONE);
@@ -55,8 +79,15 @@ public class MathsActivity extends AppCompatActivity {
                 isExercice1 = true;
                 isExercice2 = false;
                 isExercice3 = false;
+                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                animate.setDuration(500);
+                animate.setFillAfter(true);
+                bonhomme.startAnimation(animate);
+                bulle1.setVisibility(View.GONE);
+                bulle2.setVisibility(View.VISIBLE);
+                bulle2.startAnimation(animate2);
 
-                descriptionM.setText("Exercice 1 de Mathématiques\nConsigne : Trouve où se situe le résultat du calcule");
+                descriptionM.setText("Exercice 1 de Mathématiques\nConsigne : Trouve où se situe le résultat du calcul");
             }
         });
 
@@ -73,6 +104,11 @@ public class MathsActivity extends AppCompatActivity {
                 isExercice1 = false;
                 isExercice2 = true;
                 isExercice3 = false;
+                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                animate.setDuration(500);
+                animate.setFillAfter(true);
+                bonhomme.startAnimation(animate);
+                bulle1.setVisibility(View.GONE);
 
                 descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : Fait les multiplications");
             }
@@ -91,6 +127,11 @@ public class MathsActivity extends AppCompatActivity {
                 isExercice1 = false;
                 isExercice2 = false;
                 isExercice3 = true;
+                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                animate.setDuration(500);
+                animate.setFillAfter(true);
+                bonhomme.startAnimation(animate);
+                bulle1.setVisibility(View.GONE);
 
                 descriptionM.setText("Exercice 3 de Mathématiques\nConsigne : ");
             }

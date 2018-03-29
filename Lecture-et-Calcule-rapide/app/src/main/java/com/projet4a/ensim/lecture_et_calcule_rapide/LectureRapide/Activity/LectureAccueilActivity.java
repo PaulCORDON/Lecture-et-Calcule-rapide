@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -27,6 +29,14 @@ public class LectureAccueilActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lecture_accueil);
+
+        /*création de l'image du bonhomme et de son animation*/
+        final ImageView bonhomme= (ImageView) findViewById(R.id.bonhomme);
+        TranslateAnimation animate = new TranslateAnimation(500, 0, 0, 0);
+        animate.setDuration(500);
+        animate.setFillAfter(true);
+        bonhomme.startAnimation(animate);
+
 
         /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
         final Button exercice1 = (Button) findViewById(R.id.exo1L);
@@ -56,6 +66,10 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 isExercice2 = false;
                 isExercice3 = false;
                 gif.setVisibility(View.VISIBLE);
+                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                animate.setDuration(500);
+                animate.setFillAfter(true);
+                bonhomme.startAnimation(animate);
                 descriptionL.setText("Exercice 1 de Lecture\nConsigne : Trouve le mot qui est écrit exactement comme le mot de l'énoncé");
             }
         });
@@ -72,6 +86,10 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 isExercice1 = false;
                 isExercice2 = true;
                 isExercice3 = false;
+                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                animate.setDuration(500);
+                animate.setFillAfter(true);
+                bonhomme.startAnimation(animate);
 
                 descriptionL.setText("Exercice 2 de Lecture\nConsigne : ");
             }
@@ -89,6 +107,10 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 isExercice1 = false;
                 isExercice2 = false;
                 isExercice3 = true;
+                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                animate.setDuration(500);
+                animate.setFillAfter(true);
+                bonhomme.startAnimation(animate);
 
                 descriptionL.setText("Exercice 3 de Lecture\nConsigne : ");
             }

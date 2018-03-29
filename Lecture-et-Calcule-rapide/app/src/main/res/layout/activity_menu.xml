@@ -7,24 +7,78 @@
     android:background="@drawable/ardoise"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity">
 
+        <ImageView
+            android:id="@+id/bulle1"
+            android:layout_width="351dp"
+            android:layout_height="230dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.263"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/bienvenue" />
+
+        <ImageView
+            android:id="@+id/bulle2"
+            android:layout_width="351dp"
+            android:layout_height="230dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="96dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.263"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.94"
+            app:srcCompat="@drawable/choixmatiere" />
+
+        <ImageView
+            android:id="@+id/bonhomme"
+            android:layout_width="250dp"
+            android:layout_height="226dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/bonhommebigsmile" />
+
+        <ImageView
+            android:id="@+id/bonhomme2"
+            android:layout_width="250dp"
+            android:layout_height="226dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/bonhommesmile" />
+
         <ImageButton
             android:id="@+id/BtnLecture"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="32dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:contentDescription="logo lecture rapide"
-            android:padding="5dp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toStartOf="@+id/textView6"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/logolecture2" />
 
         <TextView
@@ -44,25 +98,23 @@
             app:layout_constraintEnd_toEndOf="@+id/BtnLecture"
             app:layout_constraintStart_toStartOf="@+id/BtnLecture"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
             tools:text="Lecture" />
 
         <ImageButton
             android:id="@+id/BtnCalcul"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginBottom="32dp"
+            android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             android:contentDescription="logo calcul rapide"
-            android:padding="5dp"
             app:layout_constraintBottom_toTopOf="@+id/textView3"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/textView6"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@drawable/logocalcul2" />
 
         <TextView
@@ -80,9 +132,9 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/BtnCalcul"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="@+id/BtnCalcul"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
             tools:text="Calcul" />
 
         <TextView

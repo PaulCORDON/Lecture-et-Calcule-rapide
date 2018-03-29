@@ -8,10 +8,20 @@
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureAccueilActivity">
 
     <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="wrap_content"
+        android:id="@+id/bonhomme"
+        android:layout_width="398dp"
         android:layout_height="wrap_content"
-        android:src="@drawable/logolecture2" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/bonhomme8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/Gif"

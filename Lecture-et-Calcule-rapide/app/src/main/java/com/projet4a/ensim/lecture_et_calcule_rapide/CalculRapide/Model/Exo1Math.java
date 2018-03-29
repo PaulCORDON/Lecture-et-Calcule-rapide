@@ -103,7 +103,7 @@ public class Exo1Math extends Exercice implements Serializable {
 
             //initialisation des bornes
             ArrayList<Integer> bornesTempo = new ArrayList<>(param.getNbBornes());
-
+            
             //pour chaque borne
             for (int j = 0; j < param.getNbBornes(); j++) {
                 //on génère un entier correspondant aux paramètres
