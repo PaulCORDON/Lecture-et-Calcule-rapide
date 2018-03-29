@@ -37,40 +37,41 @@ public class Exo2Math implements Serializable {
                 op1 = op1+1;
                 op2 = op2+1;
                 Log.w("création operande","NUm question : " + a + " 1 :" + op1 + "   2 : " + op2);
-                if(param.getNombrePair()){
-                    if(op1%2 == 0 && op2%2==0){
-                        choixOpVali = true;
-                        do{
-                            choixOp = (int) (Math.random() * 4);
-                            if (param.getOperateur()[choixOp]){
-                                choixOpVali = false;
-                            }
-                        }while (choixOpVali);
-
-                        switch (choixOp){
-                            case 0:
-                                enoncees.add(new Calcul(op1, op2, '+'));
-                                break;
-                            case 1:
-                                enoncees.add(new Calcul(op1, op2, '-'));
-                                break;
-                            case 2:
-                                enoncees.add(new Calcul(op1, op2, '*'));
-                                break;
-                            case 3 :
-                                enoncees.add(new Calcul(op1,op2,'/'));
-                                break;
-
-
+                if(this.param.getTypeNombre() == 1) {
+                    if(op1%2 != 0 && op2%2 != 0){
+                    choixOpVali = true;
+                    do {
+                        choixOp = (int) (Math.random() * 4);
+                        if (param.getOperateur()[choixOp]) {
+                            choixOpVali = false;
                         }
+                    } while (choixOpVali);
 
-                        a++;
+                    switch (choixOp) {
+                        case 0:
+                            enoncees.add(new Calcul(op1, op2, '+'));
+                            break;
+                        case 1:
+                            enoncees.add(new Calcul(op1, op2, '-'));
+                            break;
+                        case 2:
+                            enoncees.add(new Calcul(op1, op2, '*'));
+                            break;
+                        case 3:
+                            enoncees.add(new Calcul(op1, op2, '/'));
+                            break;
+
+
                     }
+
+                    a++;
                 }
-                else{
+                }
+                if(this.param.getTypeNombre() == 0){
+            if(op1%2 == 0 && op2%2==0){
                     choixOpVali = true;
                     do{
-                        choixOp = (int) (Math.random() * 5);
+                        choixOp = (int) (Math.random() * 4);
                         if (param.getOperateur()[choixOp]){
                             choixOpVali = false;
                         }
@@ -96,6 +97,38 @@ public class Exo2Math implements Serializable {
                     a++;
                 }
 
+                }
+                if (this.param.getTypeNombre() == 2){
+
+                    choixOpVali = true;
+                    do{
+                        choixOp = (int) (Math.random() * 4);
+                        if (param.getOperateur()[choixOp]){
+                            choixOpVali = false;
+                        }
+                    }while (choixOpVali);
+
+                    switch (choixOp){
+                        case 0:
+                            enoncees.add(new Calcul(op1, op2, '+'));
+                            break;
+                        case 1:
+                            enoncees.add(new Calcul(op1, op2, '-'));
+                            break;
+                        case 2:
+                            enoncees.add(new Calcul(op1, op2, '*'));
+                            break;
+                        case 3 :
+                            enoncees.add(new Calcul(op1,op2,'/'));
+                            break;
+
+
+                    }
+
+                    a++;
+
+
+            }
 
         }
     }
