@@ -101,22 +101,22 @@ public class LectureExo1Activity extends AppCompatActivity {
         String [] listeMots = null;
         String [] listeMots2 = null;
         if (param.getNbEnonce()==1){
-            listeMots = this.getResources().getString(R.string.listeMotSeul).split("\n");
+            listeMots = this.getResources().getString(R.string.listeMotSeul).split(" ");
             exo = new Exo1Lecture(param, listeMots);
         }
         else {
             switch (tirageAleatoireEntre1EtLeNombreMitEnParam(3)){
                 case 1 :
-                    listeMots = this.getResources().getString(R.string.DeterminantsMasculins).split("\n");
-                    listeMots2 = this.getResources().getString(R.string.NomsMasculins).split("\n");
+                    listeMots = this.getResources().getString(R.string.DeterminantsMasculins).split(" ");
+                    listeMots2 = this.getResources().getString(R.string.NomsMasculins).split(" ");
                     break;
                 case 2 :
-                    listeMots = this.getResources().getString(R.string.DeterminantsFeminins).split("\n");
-                    listeMots2 = this.getResources().getString(R.string.NomsFeminins).split("\n");
+                    listeMots = this.getResources().getString(R.string.DeterminantsFeminins).split(" ");
+                    listeMots2 = this.getResources().getString(R.string.NomsFeminins).split(" ");
                     break;
                 case 3 :
-                    listeMots = this.getResources().getString(R.string.DeterminantsPluriels).split("\n");
-                    listeMots2 = this.getResources().getString(R.string.NomsPluriels).split("\n");
+                    listeMots = this.getResources().getString(R.string.DeterminantsPluriels).split(" ");
+                    listeMots2 = this.getResources().getString(R.string.NomsPluriels).split(" ");
                     break;
             }
             exo = new Exo1Lecture(param, listeMots,listeMots2);
