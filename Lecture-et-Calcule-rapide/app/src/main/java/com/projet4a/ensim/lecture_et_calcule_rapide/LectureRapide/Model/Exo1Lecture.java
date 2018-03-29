@@ -81,7 +81,7 @@ public class Exo1Lecture {
         String[] tousLesDeterminant = listeMots;
         int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesNom.length-5);
         ArrayList<String> enonce=new ArrayList<>();
-        for (int j=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesDeterminant.length-3);j<=j+3;j++){
+        for (int j=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesDeterminant.length-4);j<j+3;j++){
             enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i]);
             enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+1]);
             enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+2]);
