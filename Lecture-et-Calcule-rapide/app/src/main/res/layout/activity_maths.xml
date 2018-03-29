@@ -70,19 +70,7 @@
         app:srcCompat="@drawable/bonhomme8"
         />
 
-    <Button
-        android:id="@+id/exo1M"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:text="exercice1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+
 
         <pl.droidsonroids.gif.GifImageView
             android:id="@+id/Gif"
