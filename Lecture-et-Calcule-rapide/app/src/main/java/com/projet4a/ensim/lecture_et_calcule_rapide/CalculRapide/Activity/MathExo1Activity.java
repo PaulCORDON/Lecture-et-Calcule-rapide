@@ -320,22 +320,21 @@ public class MathExo1Activity extends AppCompatActivity {
         }.start();
     }
 
-    //TODO changer le text de la pop up
     @Override
     public void onBackPressed() {
         Log.d("onBackPressed", "onBackPressed Exo1Math");
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Closing Activity")
-                .setMessage("Are you sure you want to close this activity?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setTitle("Quitter")
+                .setMessage("Etes vous sûr de vouloir quitter l'exercice?")
+                .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
                         timer.cancel();
                     }
                 })
-                .setNegativeButton("No", null)
+                .setNegativeButton("Non", null)
                 .show();
     }
 }

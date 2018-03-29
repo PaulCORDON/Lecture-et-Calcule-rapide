@@ -42,6 +42,13 @@ public class LectureAccueilActivity extends AppCompatActivity {
         final Button exercice1 = (Button) findViewById(R.id.exo1L);
         final Button exercice2 = (Button) findViewById(R.id.exo2L);
         final Button exercice3 = (Button) findViewById(R.id.exo3L);
+
+        /* on modifie la transparence des boutons */
+        exercice1.getBackground().setAlpha(100);
+        exercice2.getBackground().setAlpha(100);
+        exercice3.getBackground().setAlpha(100);
+
+
         /* creation du boutton parametre */
         final ImageButton parametreL = (ImageButton) findViewById(R.id.paramL);
         /*creation du boutton go */
