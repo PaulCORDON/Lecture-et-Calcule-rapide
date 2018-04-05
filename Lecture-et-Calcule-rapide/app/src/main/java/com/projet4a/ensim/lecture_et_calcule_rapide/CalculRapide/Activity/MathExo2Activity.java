@@ -29,12 +29,6 @@ import java.io.ObjectOutputStream;
  */
 public class MathExo2Activity extends AppCompatActivity {
 
-    /**
-     * le type d'écran de réponse choisis dans les parametres :
-     * - 0 : pavé numérique,
-     * - 1 : 2 reponses,
-     * - 2 : 4 reponses possibles.
-     */
 
 
     /**
@@ -311,7 +305,7 @@ public class MathExo2Activity extends AppCompatActivity {
        // }
         switch (exo.getParam().gettypeRep()) {
             case 1:
-                rep0.setText("" + (int) ((Math.random() * 100)));
+                rep0.setText("" + ((int) (Math.random() * 100)));
                 rep1.setText("" + ((int) (Math.random() * 100)));
 
                 rep0.setOnClickListener(OCLMauvaiseReponse);
@@ -332,7 +326,7 @@ public class MathExo2Activity extends AppCompatActivity {
                 }
                 break;
             case 2:
-                rep0.setText("" + (int) ((Math.random() * 100)));
+                rep0.setText("" + ((int) (Math.random() * 100)));
                 rep1.setText("" + ((int) (Math.random() * 100)));
                 rep2.setText("" + ((int) (Math.random() * 100)));
                 rep3.setText("" + ((int) (Math.random() * 100)));
@@ -435,7 +429,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Log.d("onBackPressed", "onBackPressed Exo1Math");
+        Log.d("onBackPressed", "onBackPressed Exo2Math");
         new AlertDialog.Builder(this)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Quitter")
