@@ -98,9 +98,30 @@ public class LectureExo1Activity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String [] listeMots = this.getResources().getString(R.string.listeExo1Lecture).split(" ");
+        String [] listeMots = null;
+        String [] listeMots2 = null;
+        if (param.getNbEnonce()==1){
+            listeMots = this.getResources().getString(R.string.listeMotSeul).split(" ");
+            exo = new Exo1Lecture(param, listeMots);
+        }
+        else {
+            switch (tirageAleatoireEntre1EtLeNombreMitEnParam(3)){
+                case 1 :
+                    listeMots = this.getResources().getString(R.string.DeterminantsMasculins).split(" ");
+                    listeMots2 = this.getResources().getString(R.string.NomsMasculins).split(" ");
+                    break;
+                case 2 :
+                    listeMots = this.getResources().getString(R.string.DeterminantsFeminins).split(" ");
+                    listeMots2 = this.getResources().getString(R.string.NomsFeminins).split(" ");
+                    break;
+                case 3 :
+                    listeMots = this.getResources().getString(R.string.DeterminantsPluriels).split(" ");
+                    listeMots2 = this.getResources().getString(R.string.NomsPluriels).split(" ");
+                    break;
+            }
+            exo = new Exo1Lecture(param, listeMots,listeMots2);
+        }
 
-        exo = new Exo1Lecture(param, listeMots);
 
         int score = 0;
         while ((score+=param.getNbAparitionSimultanee())<param.getNbApparution());
@@ -323,7 +344,8 @@ public class LectureExo1Activity extends AppCompatActivity {
      * @return entier entre 1 et le nombre mit en paramêtre
      */
     public static int tirageAleatoireEntre1EtLeNombreMitEnParam(int p) {
-        int num = (int) Math.random() * (p - 1) + 1;
+        int num =1+(int)(Math.random() * (p - 1)) ;
+
         return num;
     }
 
