@@ -7,61 +7,84 @@
     android:background="@drawable/ardoise"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity">
 
-        <ImageView
-            android:id="@+id/bulle1"
-            android:layout_width="351dp"
-            android:layout_height="230dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.263"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/bienvenue" />
+    <ImageView
+        android:id="@+id/bulle1"
+        android:layout_width="351dp"
+        android:layout_height="230dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:adjustViewBounds="false"
+        android:cropToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textLecture"
+        app:layout_constraintTop_toBottomOf="@+id/textLecture"
+        app:srcCompat="@mipmap/bienvenue" />
 
-        <ImageView
-            android:id="@+id/bulle2"
-            android:layout_width="351dp"
-            android:layout_height="230dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="96dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.263"
-            app:layout_constraintStart_toStartOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.94"
-            app:srcCompat="@drawable/choixmatiere" />
+    <ImageView
+        android:id="@+id/bulle2"
+        android:layout_width="351dp"
+        android:layout_height="230dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/textLecture"
+        app:layout_constraintTop_toBottomOf="@+id/textLecture"
+        app:srcCompat="@mipmap/choixmatiere" />
 
-        <ImageView
-            android:id="@+id/bonhomme"
-            android:layout_width="250dp"
-            android:layout_height="226dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@drawable/bonhommebigsmile" />
+    <com.cpiz.android.bubbleview.BubbleTextView
+        android:id="@+id/bb1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="6dp"
+        android:text="Coucou les enfants!!!"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="50sp"
+        app:bb_arrowDirection="Right"
+        app:bb_arrowHeight="20dp"
+        app:bb_arrowWidth="20dp"
+        app:bb_borderColor="@android:color/white"
+        app:bb_borderWidth="3dp"
+        app:bb_cornerRadius="60dp"
+        app:bb_fillColor="@color/zxing_transparent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme2"
+        app:layout_constraintStart_toStartOf="@+id/textLecture"
+        app:layout_constraintTop_toBottomOf="@+id/textLecture" />
 
-        <ImageView
-            android:id="@+id/bonhomme2"
-            android:layout_width="250dp"
-            android:layout_height="226dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.7"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0"
-            app:srcCompat="@mipmap/bonhommesmile" />
+    <ImageView
+        android:id="@+id/bonhomme"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textCalcul"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/bonhommebigsmile" />
+
+    <ImageView
+        android:id="@+id/bonhomme2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="200dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/textCalcul"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/bonhommesmile" />
 
     <ImageButton
         android:id="@+id/BtnLecture"
@@ -72,7 +95,7 @@
         android:layout_weight="1"
         android:background="@android:color/transparent"
         android:contentDescription="logo lecture rapide"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/textLecture"
         app:layout_constraintEnd_toStartOf="@+id/textView6"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +104,7 @@
         app:srcCompat="@mipmap/logolecture2" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textLecture"
             android:layout_width="213dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -109,7 +132,7 @@
         android:background="@android:color/transparent"
         android:contentDescription="logo calcul rapide"
         android:cropToPadding="false"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
+        app:layout_constraintBottom_toTopOf="@+id/textCalcul"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -118,7 +141,7 @@
         app:srcCompat="@mipmap/logocalcul2" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/textCalcul"
             android:layout_width="185dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
