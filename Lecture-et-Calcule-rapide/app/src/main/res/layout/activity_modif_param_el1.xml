@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Modification des paramètres de l'exercice de lecture"
+                android:text="@string/paramLect1"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
                 android:textSize="28sp"
@@ -49,7 +49,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:text="Nombre de mots dans l'énoncé"
+                        android:text="@string/nbMotEnonce"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
@@ -82,7 +82,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:text="Temps d'apparition (en secondes)"
+                        android:text="@string/tpsAppSec"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
@@ -103,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:text="Nombre de mots à faire apparaitre"
+                        android:text="@string/nbMotAFaireApp"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
@@ -124,7 +124,7 @@
                         android:layout_height="37dp"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:text="Faire apparaitre plusieurs propositions à la fois"
+                        android:text="@string/FaireAppPlusProp"
                         android:textColor="@android:color/background_dark" />
 
                     <com.xw.repo.BubbleSeekBar
@@ -153,7 +153,7 @@
                         android:layout_height="37dp"
                         android:layout_marginBottom="20dp"
                         android:layout_weight="1"
-                        android:text="Faire disparaitre l'énoncé aucours de l'éxercice"
+                        android:text="@string/FaireDispEnonce"
                         android:textColor="@android:color/background_dark" />
 
                 </LinearLayout>
@@ -163,10 +163,10 @@
                 android:id="@+id/Valider"
                 android:layout_width="match_parent"
                 android:layout_height="61dp"
+                android:layout_marginBottom="20dp"
                 android:layout_weight="1"
-                android:text="Valider"
-                tools:layout_editor_absoluteY="603dp"
-                android:layout_marginBottom="20dp"/>
+                android:text="@string/valider"
+                tools:layout_editor_absoluteY="603dp" />
         </LinearLayout>
     </ScrollView>
 

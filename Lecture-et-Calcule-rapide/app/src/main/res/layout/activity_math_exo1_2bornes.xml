@@ -152,7 +152,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Trouve où se situe le résultat du calcul sur la frise."
+        android:text="@string/consigneExo1m"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
