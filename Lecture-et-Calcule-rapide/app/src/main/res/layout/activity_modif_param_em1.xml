@@ -73,14 +73,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Frise" />
+                        android:text="@string/frise" />
 
                     <RadioButton
                         android:id="@+id/RbButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="Boutons" />
+                        android:text="@string/boutons" />
                 </RadioGroup>
             </LinearLayout>
 
@@ -96,7 +96,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Nombre de boutons"
+                    android:text="@string/nbBoutons"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -127,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Nombre de questions"
+                    android:text="@string/nbQuest"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -150,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Ordre d'apparition"
+                    android:text="@string/ordreApp"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -168,14 +168,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Calcul avant boutons" />
+                        android:text="@string/calcAvBoutton" />
 
                     <CheckBox
                         android:id="@+id/ChoixRepAvantCalculB"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Boutons avant calcul" />
+                        android:text="@string/btnAvCalc" />
 
                 </LinearLayout>
 
@@ -185,7 +185,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Disparition du calcul"
+                    android:text="@string/dispCalc"
                     android:textColor="@android:color/background_dark" />
 
 
@@ -194,7 +194,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
-                    android:text="Temps avant disparition du calcul"
+                    android:text="@string/tempsAvDispCalc"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="18sp" />
@@ -216,7 +216,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
-                    android:text="Temps de réponse (en secondes)"
+                    android:text="@string/tpsRepSec"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -236,7 +236,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Mettre seulement des chiffres pairs"
+                    android:text="@string/seulChiffrePairs"
                     android:textColor="@android:color/background_dark" />
 
                 <TextView
@@ -244,7 +244,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Valeur maximale"
+                    android:text="@string/valMax"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -263,7 +263,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Opérateurs à utiliser"
+                    android:text="@string/OpAUtilisé"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -291,7 +291,7 @@
                             android:id="@+id/soustractionB"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="-" />
+                            android:text="@string/moins" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -329,7 +329,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Nombre de bornes"
+                    android:text="@string/nbBornes"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -369,7 +369,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Nombre de questions"
+                    android:text="@string/nbQuest"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -400,7 +400,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
                     android:layout_weight="1"
-                    android:text="Ordre d'apparition"
+                    android:text="@string/ordreApp"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -418,14 +418,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Calcul avant réponses" />
+                        android:text="@string/calcAvRep" />
 
                     <CheckBox
                         android:id="@+id/ChoixRepAvantCalcul"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Bornes avant calcul" />
+                        android:text="@string/borneAvCalc" />
 
                 </LinearLayout>
 
@@ -435,7 +435,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Disparition du calcul ou des bornes (selon le choix ci-dessus)"
+                    android:text="@string/dispCalcOuBorne"
                     android:textColor="@android:color/background_dark" />
 
 
@@ -444,7 +444,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
-                    android:text="Temps avant disparition du calcul ou des bornes (selon le choix ci-dessus)"
+                    android:text="@string/TmpAvDisp"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="18sp" />
@@ -466,7 +466,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="0dp"
-                    android:text="Temps de réponse (en secondes)"
+                    android:text="@string/tpsRepSec"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -486,7 +486,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Mettre seulement des chiffres pairs"
+                    android:text="@string/seulChiffrePairs"
                     android:textColor="@android:color/background_dark" />
 
                 <Switch
@@ -494,7 +494,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Bornes sélectionnables"
+                    android:text="@string/borneSelec"
                     android:textColor="@android:color/background_dark" />
 
                 <Switch
@@ -502,7 +502,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="Bornes égales à un des opérandes"
+                    android:text="@string/borneEgaleOperendes"
                     android:textColor="@android:color/background_dark" />
 
                 <TextView
@@ -510,7 +510,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Valeur maximale"
+                    android:text="@string/valMax"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -529,7 +529,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:text="Opérateurs à utiliser"
+                    android:text="@string/operateurAUtiliser"
                     android:textAlignment="center"
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
@@ -551,13 +551,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="+" />
+                            android:text="@string/plus" />
 
                         <CheckBox
                             android:id="@+id/soustraction"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="-" />
+                            android:text="@string/sous" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -570,14 +570,14 @@
                             android:id="@+id/multiplication"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="X" />
+                            android:text="@string/mult" />
 
                         <CheckBox
                             android:id="@+id/division"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="20dp"
-                            android:text="/" />
+                            android:text="@string/slash" />
                     </LinearLayout>
                 </LinearLayout>
 
@@ -589,7 +589,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="61dp"
                 android:layout_weight="1"
-                android:text="Valider"
+                android:text="@string/valider"
                 android:textColor="@android:color/background_dark"
                 app:layout_constraintTop_toBottomOf="@+id/TitrePage"
                 tools:layout_editor_absoluteX="255dp" />

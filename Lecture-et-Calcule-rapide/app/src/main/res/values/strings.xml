@@ -2780,5 +2780,47 @@
     voyages
     vues
     </string>
-
+    <string name="paramLect1">Modification des paramètres de l\'exercice de lecture</string>
+    <string name="nbMotEnonce">Nombre de mots dans l\'énoncé</string>
+    <string name="tpsAppSec">Temps d\'apparition (en secondes)</string>
+    <string name="nbMotAFaireApp">Nombre de mots à faire apparaitre</string>
+    <string name="FaireAppPlusProp">Faire apparaitre plusieurs propositions à la fois</string>
+    <string name="FaireDispEnonce">Faire disparaitre l\'énoncé aucours de l\'éxercice</string>
+    <string name="valider">Valider</string>
+    <string name="paramMath1">Modification des paramètres de l\'exercice 1</string>
+    <string name="choixRep">Choix du type de réponse</string>
+    <string name="frise">Frise</string>
+    <string name="boutons">Boutons</string>
+    <string name="nbBoutons">Nombre de boutons</string>
+    <string name="nbQuest">Nombre de questions</string>
+    <string name="ordreApp">Ordre d\'apparition</string>
+    <string name="calcAvBoutton">Calcul avant boutons</string>
+    <string name="btnAvCalc">Boutons avant calcul</string>
+    <string name="dispCalc">Disparition du calcul</string>
+    <string name="tempsAvDispCalc">Temps avant disparition du calcul</string>
+    <string name="tpsRepSec">Temps de réponse (en secondes)</string>
+    <string name="seulChiffrePairs">Mettre seulement des chiffres pairs</string>
+    <string name="borneSelec">Bornes sélectionnables</string>
+    <string name="borneEgaleOperendes">Bornes égales à un des opérandes</string>
+    <string name="valMax">Valeur maximale</string>
+    <string name="operateurAUtiliser">Opérateurs à utiliser</string>
+    <string name="plus">+</string>
+    <string name="mult">X</string>
+    <string name="moins">-</string>
+    <string name="nbBornes">Nombre de bornes</string>
+    <string name="calcAvRep">Calcul avant réponses</string>
+    <string name="borneAvCalc">Bornes avant calcul</string>
+    <string name="dispCalcOuBorne">Disparition du calcul ou des bornes (selon le choix ci-dessus)</string>
+    <string name="TmpAvDisp">Temps avant disparition du calcul ou des bornes (selon le choix ci-dessus)</string>
+    <string name="OpAUtilisé">Opérateurs à utiliser</string>
+    <string name="sous">-</string>
+    <string name="paramMath2">Modification des paramètres de l\'exercice 2</string>
+    <string name="valMaxOp">Valeur  maximale des opérandes</string>
+    <string name="typeDeNombre">Type de nombres</string>
+    <string name="pair">Pair</string>
+    <string name="impair">Impair</string>
+    <string name="affModeRep">Affichage du mode de reponses</string>
+    <string name="deuxBtn">Deux bouttons</string>
+    <string name="quatreBtn">Quatre bouttons</string>
+    <string name="paveNum">Pavé numérique</string>
 </resources>
