@@ -8,9 +8,8 @@ import java.io.Serializable;
 public class Calcul implements Serializable {
     private int operande1;
     private int operande2;
-
     private char operation;
-
+    private boolean multiOp = false;
     private int resultat;
 
     /**
@@ -38,6 +37,7 @@ public class Calcul implements Serializable {
                 break;
             case '*':
                 resultat = operande1 * operande2;
+                operation='X';
                 break;
             case '/':
                 resultat = operande1 * operande2;
@@ -51,9 +51,16 @@ public class Calcul implements Serializable {
                 operande2 = tempo;
                 break;
         }
+
     }
 
+
+
     public String getCalculString() {
+        if(multiOp){
+            //return "" + cal.getOp1Int() + " " + cal.getOperation() + " " + cal.getOp2Int() + " " + operande2;
+        }
+
         return "" + operande1 + operation + operande2;
     }
 
@@ -85,5 +92,21 @@ public class Calcul implements Serializable {
         return "" + resultat;
     }
 
-    public String ToString() { return "" + operande1 + " " + operation + " " + operande2 + " = " + resultat; }
+    public String ToString() {
+        if(multiOp){
+           //return "" + cal.getOp1Int() + " " + cal.getOperation() + " " + cal.getOp2Int() + " " + operande2 + " = " + resultat;
+        }
+            return "" + operande1 + " " + operation + " " + operande2 + " = " + resultat; }
+
+
+
+    private void setOperande1(int Op){operande1 = Op;}
+
+    private void setOperande2(int Op){operande2 = Op;}
+
+    private void setOperation(char Op){operation = Op;}
+
+    public Calcul(){
+
+    }
 }

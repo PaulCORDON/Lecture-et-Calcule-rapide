@@ -189,6 +189,7 @@ public class MathExo2Activity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             reponse.deleteCharAt(reponse.length() - 1);
+            reponseE.setText(""+reponse.toString());
         }
     });
 
@@ -296,7 +297,7 @@ public class MathExo2Activity extends AppCompatActivity {
         }
 
         operande1.setText("" + exo.getCalcul().get(numQuestAct).getOp1Int() + " " + opera + " " + exo.getCalcul().get(numQuestAct).getOp2Int() ); //exo.getCalcul().get(numQuestAct).getOp1Int());
-
+        //operande1.setText("" + exo.getCalcul().get(numQuestAct).getOperation());
         //operande2.setText("" + exo.getCalcul().get(numQuestAct).getOp2Int() ); //+exo.getCalcul().get(numQuestAct).getOp2Int());
 
        // operateur.setText("" + exo.getCalcul().get(numQuestAct).getOperation());
@@ -404,6 +405,8 @@ public class MathExo2Activity extends AppCompatActivity {
                     Intent intent = new Intent(MathExo2Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee", reponseJuste);
                     intent.putExtra("TypeExo",2);
+                    intent.putExtra("exoMath2",exo );
+ /*
                     FileOutputStream outputStream;
                     ObjectOutputStream oos;
                     try {
@@ -416,7 +419,7 @@ public class MathExo2Activity extends AppCompatActivity {
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
+*/
                     finish();
                     startActivity(intent);
                 } else {

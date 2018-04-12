@@ -83,6 +83,8 @@ switch(type){
         break;
 
     case 2:
+        exo2Math = intent.getParcelableExtra("exoMath2");
+
         try {
             FileInputStream fis = openFileInput("ExoM2.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
