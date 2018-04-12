@@ -17,7 +17,7 @@ public class Exo1Math extends Exercice implements Parcelable {
     /**
      * Liste des énoncés
      */
-    private ArrayList<String> calculEnonce;
+    private ArrayList<Calcul> calculEnonce;
 
     /**
      * Liste des listes de bornes
@@ -88,19 +88,19 @@ public class Exo1Math extends Exercice implements Parcelable {
             //on construit l'énoncé selon l'opérateur puis on l'ajoute à la liste
             switch (choixOperateur) {
                 case 0:
-                    calculEnonce.add(operandes[0] + " + " + operandes[1]);
+                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'+'));
                     break;
                 case 1:
-                    calculEnonce.add(operandes[0] + " - " + operandes[1]);
+                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'-'));
                     break;
                 case 2:
-                    calculEnonce.add(operandes[0] + " x " + operandes[1]);
+                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'*'));
                     break;
                 case 3: //passage par une multiplication afin de toujours avoir des nombres entiers
                     int swap = resultats[i];
                     resultats[i] = operandes[0];
                     operandes[0] = swap;
-                    calculEnonce.add("" + operandes[0] + " / " + operandes[1]);
+                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'/'));
                     break;
             }
 
@@ -211,7 +211,7 @@ public class Exo1Math extends Exercice implements Parcelable {
     /**
      * @return calculEnonce
      */
-    public ArrayList<String> getCalculEnonce() {
+    public ArrayList<Calcul> getCalculEnonce() {
         return calculEnonce;
     }
 
@@ -243,14 +243,15 @@ public class Exo1Math extends Exercice implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeStringList(this.calculEnonce);
+        dest.writeList(this.calculEnonce);
         dest.writeList(this.bornes);
         dest.writeIntArray(this.resultats);
         dest.writeSerializable(this.param);
     }
 
     protected Exo1Math(Parcel in) {
-        this.calculEnonce = in.createStringArrayList();
+        this.calculEnonce = new ArrayList<Calcul>();
+        in.readList(this.calculEnonce, Calcul.class.getClassLoader());
         this.bornes = new ArrayList<borne>();
         in.readList(this.bornes, borne.class.getClassLoader());
         this.resultats = in.createIntArray();
