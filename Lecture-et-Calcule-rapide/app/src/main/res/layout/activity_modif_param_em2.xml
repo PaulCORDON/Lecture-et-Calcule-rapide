@@ -34,7 +34,7 @@
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="4dp"
-                android:text="Modification des paramètres de l'exercice 2"
+                android:text="@string/paramMath2"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
                 android:textSize="28sp"
@@ -66,7 +66,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:text="Nombre de calculs"
+                        android:text="@string/nbQuest"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
@@ -95,7 +95,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:text="Valeur  maximale des opérandes"
+                        android:text="@string/valMaxOp"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
@@ -126,7 +126,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
-                        android:text="Type de nombres"
+                        android:text="@string/typeDeNombre"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
@@ -141,18 +141,18 @@
 
                         <CheckBox
                             android:id="@+id/NbPair"
-                            android:checked="true"
                             android:layout_width="178dp"
                             android:layout_height="wrap_content"
+                            android:checked="true"
                             android:gravity="center"
-                            android:text="Pair" />
+                            android:text="@string/pair" />
 
                         <CheckBox
                             android:id="@+id/NbImpair"
                             android:layout_width="216dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Impair" />
+                            android:text="@string/impair" />
 
                     </LinearLayout>
 
@@ -163,7 +163,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:layout_weight="1"
-                        android:text="Affichage du mode de reponses"
+                        android:text="@string/affModeRep"
                         android:textAlignment="center"
                         android:textColor="@android:color/background_dark"
                         android:textSize="20sp"
@@ -180,21 +180,21 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Deux bornes" />
+                            android:text="@string/deuxBtn" />
 
                         <RadioButton
                             android:id="@+id/QuatreBornes"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Quatre bornes" />
+                            android:text="@string/quatreBtn" />
 
                         <RadioButton
                             android:id="@+id/PaveNum"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="Pavé numérique" />
+                            android:text="@string/paveNum" />
 
                     </LinearLayout>
 
@@ -207,7 +207,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
-                android:text="Opérateurs à utiliser"
+                android:text="@string/OpAUtilisé"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
                 android:textSize="20sp"
@@ -230,13 +230,13 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:checked="true"
-                        android:text="+" />
+                        android:text="@string/plus" />
 
                     <CheckBox
                         android:id="@+id/soustractionC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="-" />
+                        android:text="@string/moins" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -249,18 +249,16 @@
                         android:id="@+id/multiplicationC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="X" />
+                        android:text="@string/mult" />
 
                     <CheckBox
                         android:id="@+id/divisionC"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:text="/" />
+                        android:text="@string/slash" />
                 </LinearLayout>
             </LinearLayout>
-
-
 
 
             <Button
@@ -268,7 +266,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="61dp"
                 android:layout_weight="1"
-                android:text="Valider"
+                android:text="@string/valider"
                 android:textColor="@android:color/background_dark"
                 app:layout_constraintTop_toBottomOf="@+id/TitrePage"
                 tools:layout_editor_absoluteX="255dp" />
