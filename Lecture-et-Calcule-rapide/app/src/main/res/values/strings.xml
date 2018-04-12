@@ -1,4 +1,31 @@
 <resources>
+
+
+
+    <string name="entre">entre</string>
+    <string name="plusGrand">plus grand que</string>
+    <string name="plusPetit">plus petit que</string>
+    <string name="consigneExo1.1m">Le résultat du calcul est-il plus petit ou plus grand que le nombre proposé?</string>
+    <string name="consigneExo1.2m">Le résultat est-il plus petit, plus grand ou entre les nombres proposés?</string>
+    <string name="consigneExo1m">Trouve où se situe le résultat du calcul sur la frise.</string>
+    <string name="temps">TEMPS : </string>
+    <string name="score">SCORE : </string>
+    <string name="exo1">exercice1</string>
+    <string name="exo2">exercice2</string>
+    <string name="exo3">exercice3</string>
+    <string name="listeExoLecture">Choisit l\'exercice que tu veux faire.\nExercice 1 : Trouver le mot identique\n Exercice 2 :...</string>
+    <string name="listeExoMath">Choisit l\'exercice que tu veux faire.\nExercice 1 : Les Intervales\nExercice 2 : Les tables de multiplications</string>
+    <string name="generer">Générer</string>
+    <string name="go">GO</string>
+    <string name="name">Nom</string>
+    <string name="prenom">Prénom</string>
+    <string name="qSuivante">Question suivante</string>
+    <string name="slash">/</string>
+    <string name="qrCode">QRCODE</string>
+    <string name="accueil">Accueil</string>
+    <string name="tonScore">Ton score :</string>
+    <string name="calcul">Calcul</string>
+    <string name="lecture">Lecture</string>
     <string name="app_name">A+C</string>
     <string name="listeMotSeul">abandonner
     abattre
@@ -2744,4 +2771,13 @@
     voyages
     vues
     </string>
+    <string name="paramLect1">Modification des paramètres de l\'exercice de lecture</string>
+    <string name="nbMotEnonce">Nombre de mots dans l\'énoncé</string>
+    <string name="tpsAppSec">Temps d\'apparition (en secondes)</string>
+    <string name="nbMotAFaireApp">Nombre de mots à faire apparaitre</string>
+    <string name="FaireAppPlusProp">Faire apparaitre plusieurs propositions à la fois</string>
+    <string name="FaireDispEnonce">Faire disparaitre l\'énoncé aucours de l\'éxercice</string>
+    <string name="valider">Valider</string>
+    <string name="paramMath1">Modification des paramètres de l\'exercice 1</string>
+    <string name="choixRep">Choix du type de réponse</string>
 </resources>
