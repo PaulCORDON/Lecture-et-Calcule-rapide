@@ -161,7 +161,7 @@ public class MathExo1Activity extends AppCompatActivity {
          * Affichage de l'énoncé pour la question actuelle.
          */
         final TextView enonce = (TextView) findViewById(R.id.Enonce);
-        enonce.setText(exo.getCalculEnonce().get(numQuestAct));
+        enonce.setText(exo.getCalculEnonce().get(numQuestAct).getCalculString());
 
         /**
          *  Initialisation des bornes avec les valeurs de l'exercice
