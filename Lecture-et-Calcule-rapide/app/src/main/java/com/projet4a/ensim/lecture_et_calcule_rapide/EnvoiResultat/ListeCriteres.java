@@ -4,13 +4,15 @@ import java.util.HashMap;
 
 public class ListeCriteres {
 
-    public HashMap<String, Critere> getListeCritere() {
+    public static HashMap<String, Critere> getListeCritere() {
         return listeCritere;
     }
 
-    private HashMap<String,Critere> listeCritere;
+    private static HashMap<String,Critere> listeCritere = new HashMap<>();
 
-    public void update(String key, boolean reponseBonne){
-        if(listeCritere.containsKey(key)) listeCritere.get(key).update(reponseBonne);
+    public static void update(String key, boolean reponseBonne){
+        if(!listeCritere.containsKey(key)) listeCritere.put(key,new Critere());
+
+        listeCritere.get(key).update(reponseBonne);
     }
 }
