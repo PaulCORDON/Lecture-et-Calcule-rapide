@@ -1,5 +1,8 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
 
 import java.io.Serializable;
@@ -9,7 +12,7 @@ import java.util.ArrayList;
  * Classe contenant la liste d'énoncé avec la liste des bornes correspondantes
  * Ces listes sont créées en fonction des paramètres de l'exercice
  */
-public class Exo1Math extends Exercice implements Serializable {
+public class Exo1Math extends Exercice implements Parcelable {
 
     /**
      * Liste des énoncés
@@ -19,7 +22,7 @@ public class Exo1Math extends Exercice implements Serializable {
     /**
      * Liste des listes de bornes
      */
-    private ArrayList<ArrayList<Integer>> bornes;
+    private ArrayList<borne> bornes;
 
     /**
      * Liste des résultats
@@ -102,7 +105,7 @@ public class Exo1Math extends Exercice implements Serializable {
             }
 
             //initialisation des bornes
-            ArrayList<Integer> bornesTempo = new ArrayList<>(param.getNbBornes());
+            borne bornesTempo = new borne(param.getNbBornes());
             
             //pour chaque borne
             for (int j = 0; j < param.getNbBornes(); j++) {
@@ -117,7 +120,7 @@ public class Exo1Math extends Exercice implements Serializable {
                     if ((!param.getBorneSelectionnable() && borne == resultats[i]) || borne == 0)
                         correct = false;
 
-                    for (int b : bornesTempo) {
+                    for (int b : bornesTempo.bornes) {
                         if (borne == b) correct = false;
                     }
 
@@ -153,7 +156,7 @@ public class Exo1Math extends Exercice implements Serializable {
                 int numOperande = 0;
 
                 //on cherche la borne la plus proche de la valeur d'un opérande
-                for (int b : bornesTempo) {
+                for (int b : bornesTempo.bornes) {
                     if (Math.abs(b - operandes[0]) < min) {
                         min = Math.abs(b - operandes[0]);
                         numBorne = bornesTempo.indexOf(b);
@@ -222,7 +225,7 @@ public class Exo1Math extends Exercice implements Serializable {
     /**
      * @return bornes
      */
-    public ArrayList<ArrayList<Integer>> getBornes() {
+    public ArrayList<borne> getBornes() {
         return bornes;
     }
 
@@ -232,4 +235,37 @@ public class Exo1Math extends Exercice implements Serializable {
     public int[] getResultats() {
         return resultats;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeStringList(this.calculEnonce);
+        dest.writeList(this.bornes);
+        dest.writeIntArray(this.resultats);
+        dest.writeSerializable(this.param);
+    }
+
+    protected Exo1Math(Parcel in) {
+        this.calculEnonce = in.createStringArrayList();
+        this.bornes = new ArrayList<borne>();
+        in.readList(this.bornes, borne.class.getClassLoader());
+        this.resultats = in.createIntArray();
+        this.param = (ParamEm1) in.readSerializable();
+    }
+
+    public static final Parcelable.Creator<Exo1Math> CREATOR = new Parcelable.Creator<Exo1Math>() {
+        @Override
+        public Exo1Math createFromParcel(Parcel source) {
+            return new Exo1Math(source);
+        }
+
+        @Override
+        public Exo1Math[] newArray(int size) {
+            return new Exo1Math[size];
+        }
+    };
 }
