@@ -2,9 +2,11 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.speech.tts.TextToSpeech;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -87,8 +89,9 @@ public class MathsActivity extends AppCompatActivity {
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                tts.speak("Bonjour tête de gland je suis la femme de momo le pédo", TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+                Resources res = getResources();
+                String text = res.getString(R.string.consigneExo1m);
+                tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
 
             }
         });
