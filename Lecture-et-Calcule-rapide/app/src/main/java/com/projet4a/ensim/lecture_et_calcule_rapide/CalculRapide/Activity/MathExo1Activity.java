@@ -124,35 +124,35 @@ public class MathExo1Activity extends AppCompatActivity {
             switch (exo.getParam().getNbBornes()) {
                 case 3:
                     setContentView(R.layout.activity_math_exo1_3bornes);
-                    RepF1 = findViewById(R.id.BtnRepA);
-                    RepF2 = findViewById(R.id.BtnRepB);
-                    RepF3 = findViewById(R.id.BtnRepC);
-                    RepF4 = findViewById(R.id.BtnRepD);
+                    RepF1 = (Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button) findViewById(R.id.BtnRepB);
+                    RepF3 = (Button) findViewById(R.id.BtnRepC);
+                    RepF4 = (Button) findViewById(R.id.BtnRepD);
                     break;
                 case 2:
                     setContentView(R.layout.activity_math_exo1_2bornes);
-                    RepF1 = findViewById(R.id.BtnRepA);
-                    RepF2 = findViewById(R.id.BtnRepB);
-                    RepF3 = findViewById(R.id.BtnRepC);
+                    RepF1 = (Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button) findViewById(R.id.BtnRepB);
+                    RepF3 = (Button) findViewById(R.id.BtnRepC);
                     break;
                 case 1:
                     setContentView(R.layout.activity_math_exo1_1bornes);
-                    RepF1 = findViewById(R.id.BtnRepA);
-                    RepF2 = findViewById(R.id.BtnRepC);
+                    RepF1 = (Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button) findViewById(R.id.BtnRepC);
                     break;
             }
         } else {
             switch (exo.getParam().getNbBornes()) {
                 case 2:
                     setContentView(R.layout.activity_math_exo1_compris_entre);
-                    RepF1 = findViewById(R.id.BtnRepA);
-                    RepF2 = findViewById(R.id.BtnRepB);
-                    RepF3 = findViewById(R.id.BtnRepC);
+                    RepF1 = (Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button) findViewById(R.id.BtnRepB);
+                    RepF3 = (Button) findViewById(R.id.BtnRepC);
                     break;
                 case 1:
                     setContentView(R.layout.activity_math_exo1_comparaison);
-                    RepF1 = findViewById(R.id.BtnRepA);
-                    RepF2 = findViewById(R.id.BtnRepC);
+                    RepF1 = (Button) findViewById(R.id.BtnRepA);
+                    RepF2 = (Button) findViewById(R.id.BtnRepC);
                     break;
             }
         }
@@ -160,8 +160,8 @@ public class MathExo1Activity extends AppCompatActivity {
         /**
          * Affichage de l'énoncé pour la question actuelle.
          */
-        final TextView enonce = findViewById(R.id.Enonce);
-        enonce.setText(exo.getCalculEnonce().get(numQuestAct));
+        final TextView enonce = (TextView) findViewById(R.id.Enonce);
+        enonce.setText(exo.getCalculEnonce().get(numQuestAct).getCalculString());
 
         /**
          *  Initialisation des bornes avec les valeurs de l'exercice
@@ -169,7 +169,7 @@ public class MathExo1Activity extends AppCompatActivity {
         switch (exo.getParam().getNbBornes()) //r1 b1 r2 b2 r3 b3 r4
         {
             case 3:
-                final TextView Borne3 = findViewById(R.id.Borne3);
+                final TextView Borne3 = (TextView) findViewById(R.id.Borne3);
                 Borne3.setText("" + exo.getBornes().get(numQuestAct).get(2));
 
                 if (exo.getResultats()[numQuestAct] > exo.getBornes().get(numQuestAct).get(2))
@@ -180,7 +180,7 @@ public class MathExo1Activity extends AppCompatActivity {
                     Borne3.setOnClickListener(OCLBonneReponse);
                 else Borne3.setOnClickListener(OCLMauvaiseReponse);
             case 2:
-                final TextView Borne2 = findViewById(R.id.Borne2);
+                final TextView Borne2 = (TextView) findViewById(R.id.Borne2);
                 Borne2.setText("" + exo.getBornes().get(numQuestAct).get(1));
 
                 if (exo.getParam().getNbBornes() == 2) {
@@ -221,7 +221,7 @@ public class MathExo1Activity extends AppCompatActivity {
         }
 
         final long tempsTotal = exo.getParam().getTempsRep() + exo.getParam().getTempsRestantApparant();
-        progress = findViewById(R.id.progressBar1);
+        progress = (ProgressBar) findViewById(R.id.progressBar1);
         progress.setMax((int) tempsTotal);
 
         /**
@@ -237,26 +237,26 @@ public class MathExo1Activity extends AppCompatActivity {
                         if (l <= exo.getParam().getTempsRep()) {
                             switch (exo.getParam().getNbBornes()) {
                                 case 3:
-                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    TextView Borne3 = (TextView) findViewById(R.id.Borne3);
                                     Borne3.setVisibility(View.VISIBLE);
                                 case 2:
-                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    TextView Borne2 = (TextView) findViewById(R.id.Borne2);
                                     Borne2.setVisibility(View.VISIBLE);
                                 case 1:
-                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    TextView Borne1 = (TextView) findViewById(R.id.Borne1);
                                     Borne1.setVisibility(View.VISIBLE);
                             }
                             enonce.setVisibility(View.INVISIBLE);
                         } else {
                             switch (exo.getParam().getNbBornes()) {
                                 case 3:
-                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    TextView Borne3 = (TextView) findViewById(R.id.Borne3);
                                     Borne3.setVisibility(View.INVISIBLE);
                                 case 2:
-                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    TextView Borne2 = (TextView) findViewById(R.id.Borne2);
                                     Borne2.setVisibility(View.INVISIBLE);
                                 case 1:
-                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    TextView Borne1 = (TextView) findViewById(R.id.Borne1);
                                     Borne1.setVisibility(View.INVISIBLE);
                             }
                         }
@@ -264,13 +264,13 @@ public class MathExo1Activity extends AppCompatActivity {
                         if (l <= exo.getParam().getTempsRep()) {
                             switch (exo.getParam().getNbBornes()) {
                                 case 3:
-                                    TextView Borne3 = findViewById(R.id.Borne3);
+                                    TextView Borne3 = (TextView) findViewById(R.id.Borne3);
                                     Borne3.setVisibility(View.INVISIBLE);
                                 case 2:
-                                    TextView Borne2 = findViewById(R.id.Borne2);
+                                    TextView Borne2 = (TextView) findViewById(R.id.Borne2);
                                     Borne2.setVisibility(View.INVISIBLE);
                                 case 1:
-                                    TextView Borne1 = findViewById(R.id.Borne1);
+                                    TextView Borne1 = (TextView) findViewById(R.id.Borne1);
                                     Borne1.setVisibility(View.INVISIBLE);
                             }
                             enonce.setVisibility(View.VISIBLE);
