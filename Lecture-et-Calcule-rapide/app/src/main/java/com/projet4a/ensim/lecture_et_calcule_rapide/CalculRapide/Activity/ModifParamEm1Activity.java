@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -158,11 +159,11 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     ordreApparition=false;
                 }
 
-                /**on stocke les booleens correspondant aux operations dans le tableau*/
                 operateurs[0]=addition.isChecked();
                 operateurs[1]=soustraction.isChecked();
                 operateurs[2]=multiplication.isChecked();
                 operateurs[3]=division.isChecked();
+
 
                 ParamEm1 param = null;
 
@@ -266,10 +267,19 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 }
 
 
+                /**on stocke les booleens correspondant aux operations dans le tableau*/
+                if((!addition.isChecked())&&(!soustraction.isChecked())&&(!multiplication.isChecked())&&(!division.isChecked()))
+                {
+                    Toast.makeText(getApplicationContext(), "vous devez choisir au moins un opérateur", Toast.LENGTH_SHORT).show();
+                }
+                else{
 
-                /** quand on a clique sur le bouton valider on reviens au menu*/
-                Intent intent=new Intent(ModifParamEm1Activity.this, MathsActivity.class);
-                startActivity(intent);
+                    /** quand on a clique sur le bouton valider on reviens au menu*/
+                    Intent intent=new Intent(ModifParamEm1Activity.this, MathsActivity.class);
+                    startActivity(intent);
+                }
+
+
             }
 
         });

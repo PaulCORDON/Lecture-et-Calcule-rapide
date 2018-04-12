@@ -2,11 +2,14 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -24,7 +27,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
 import static java.lang.System.currentTimeMillis;
 
 /**
@@ -218,17 +220,36 @@ public class MathExo1Activity extends AppCompatActivity {
                 break;
         }
 
+        /**
+         *
+         * recuperation du temps total pour la progress bar
+         */
         final long tempsTotal = exo.getParam().getTempsRep() + exo.getParam().getTempsRestantApparant();
 
+        /**
+         * declaration des variables de la progress bar
+         */
         progress = (ProgressBar) findViewById(R.id.progressBar1);
-        img = findViewById(R.id.imageViewBar);
-        img1 = findViewById(R.id.imageViewBar1);
-        img2 = findViewById(R.id.imageViewBar2);
+        /**
+         * img = findViewById(R.id.imageViewBar);
+         img.setImageResource(R.drawable.car);
+         img.setVisibility(View.INVISIBLE);
+         */
 
-        img.setVisibility(View.INVISIBLE);
-        img1.setVisibility(View.INVISIBLE);
-        img2.setVisibility(View.INVISIBLE);
         progress.setMax((int) tempsTotal);
+        /**
+         * création d'une image animée*
+         *
+         * final TranslateAnimation transanim  = new TranslateAnimation(TranslateAnimation.RELATIVE_TO_PARENT,-0.5f,
+         TranslateAnimation.RELATIVE_TO_PARENT,0.0f,
+         TranslateAnimation.RELATIVE_TO_PARENT,0.0f,
+         TranslateAnimation.RELATIVE_TO_PARENT,0.0f);
+
+         transanim.setDuration(((int) tempsTotal));
+         img.startAnimation(transanim);
+         img.setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
+         */
+
 
         /**
          * Définition des actions du timer
@@ -237,39 +258,15 @@ public class MathExo1Activity extends AppCompatActivity {
             @Override
             public void onTick(long l) {
                 progress.setProgress(((int) tempsTotal) - ((int) l));
-
-                if(progress.getProgress()<progress.getMax()){
-                    if(progress.getProgress()<progress.getMax()/3){
-
-                        img.setVisibility(View.VISIBLE);
-                        img1.setVisibility(View.INVISIBLE);
-                        img2.setVisibility(View.INVISIBLE);
-
-                    }
-
-                    else if(progress.getProgress()<progress.getMax()/2){
-                        try {
-                            Thread.sleep(10);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        img1.setVisibility(View.VISIBLE);
-                        img2.setVisibility(View.INVISIBLE);
-                    }
-                    else{
-                        try {
-                            Thread.sleep(10);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        img2.setVisibility(View.VISIBLE);
-                    }
-
-                }
-                else{
-                    img.setVisibility(View.INVISIBLE);
-                    img1.setVisibility(View.INVISIBLE);
-                    img2.setVisibility(View.INVISIBLE);
+                if(progress.getProgress()<=((int) tempsTotal)/2){
+                    progress.getProgressDrawable().setColorFilter(
+                            Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+                }else if(progress.getProgress()<=((int) tempsTotal)-2000){
+                    progress.getProgressDrawable().setColorFilter(
+                            Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+                }else{
+                    progress.getProgressDrawable().setColorFilter(
+                            Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
                 }
 
 
