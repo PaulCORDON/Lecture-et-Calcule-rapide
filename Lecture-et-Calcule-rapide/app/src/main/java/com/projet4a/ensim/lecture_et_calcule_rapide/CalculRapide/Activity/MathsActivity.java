@@ -1,9 +1,14 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.speech.tts.TextToSpeech;
+import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,6 +23,8 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.util.Locale;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class MathsActivity extends AppCompatActivity {
@@ -27,6 +34,7 @@ public class MathsActivity extends AppCompatActivity {
     boolean isExercice2;
     boolean isExercice3;
     TextView descriptionM;
+    TextToSpeech tts ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,10 +65,36 @@ public class MathsActivity extends AppCompatActivity {
         animate2.setFillAfter(false);
         bulle1.startAnimation(animate2);
 
+
+
         final ImageView bulle2=findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
 
         final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
+        final ImageButton volume = findViewById(R.id.volume);
+        TextToSpeech.OnInitListener listener =
+                new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(final int status) {
+                        if (status == TextToSpeech.SUCCESS) {
+                            Log.d("TTS", "Text to speech engine started successfully.");
+                            tts.setLanguage(Locale.FRANCE);
+                        } else {
+                            Log.d("TTS", "Error starting the text to speech engine.");
+                        }
+                    }
+                };
+       tts = new TextToSpeech(getApplicationContext(),listener);
+
+        volume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Resources res = getResources();
+                String text = res.getString(R.string.consigneExo1m);
+                tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+
+            }
+        });
 
         /* on modifie la transparence des boutons */
         exercice1.getBackground().setAlpha(100);
