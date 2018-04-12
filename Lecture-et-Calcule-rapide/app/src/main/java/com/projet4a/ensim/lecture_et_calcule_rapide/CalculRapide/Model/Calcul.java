@@ -1,6 +1,9 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.Critere;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * classe d'un calcul
@@ -11,7 +14,7 @@ public class Calcul implements Serializable {
     private char operation;
     private boolean multiOp = false;
     private int resultat;
-
+    private ArrayList<Critere> listCrit;
     /**
      * Constructeur de la classe calcul.
      *

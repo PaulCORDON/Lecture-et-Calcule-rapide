@@ -9,9 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Calcul;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo2Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.GenerateQRCodeActivity;
+import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.ListeCriteres;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -27,6 +29,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
      * tableau des reponses de l'élève
      */
     private static boolean[] reponseJuste;
+
 
     /**
      * nombre de bonne reponse de l'élève
@@ -157,6 +160,7 @@ switch(type){
                         reponse1.setVisibility(View.INVISIBLE);
                         reponse3.setVisibility(View.INVISIBLE);
                     } else {
+
                         score.setText("FAUX");
                         reponse2.setVisibility(View.VISIBLE);
                         switch (type){
@@ -182,7 +186,7 @@ switch(type){
 
                             break;
                         default:
-                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0) + " = " + exoMath.getResultats()[0]);
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0).toString() );
                             break;
 
                     }
@@ -219,6 +223,7 @@ switch(type){
                     slash.setText("Question " + (numQuestCorr) + " : ");
 
                     switch (type){
+
                         case 2:
                             numQuCorrig.setText("" + exo2Math.getCalcul().get(numQuestCorr - 1).ToString());
                             Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
@@ -323,4 +328,6 @@ switch(type){
         }
         return null;
     }
+
+    
 }
