@@ -163,9 +163,9 @@ switch(type){
                                 Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(0).ToString());
 
                                 break;
-                            default:
+                            default:/*
                                 reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
-                                break;
+                                */break;
 
                         }
 
@@ -203,13 +203,13 @@ switch(type){
                                 Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
 
                                 break;
-                            default:
+                            default:/*
                                 reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(0));
                                 reponse1.setVisibility(View.VISIBLE);
                                 reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(1));
                                 reponse3.setVisibility(View.VISIBLE);
                                 reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(2));
-                                break;
+                               */ break;
 
                         }
 

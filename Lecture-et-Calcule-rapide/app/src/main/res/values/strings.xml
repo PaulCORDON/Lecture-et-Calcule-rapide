@@ -2780,15 +2780,7 @@
     voyages
     vues
     </string>
-    <string name="paramLect1">Modification des paramètres de l\'exercice de lecture</string>
-    <string name="nbMotEnonce">Nombre de mots dans l\'énoncé</string>
-    <string name="tpsAppSec">Temps d\'apparition (en secondes)</string>
-    <string name="nbMotAFaireApp">Nombre de mots à faire apparaitre</string>
-    <string name="FaireAppPlusProp">Faire apparaitre plusieurs propositions à la fois</string>
-    <string name="FaireDispEnonce">Faire disparaitre l\'énoncé aucours de l\'éxercice</string>
-    <string name="valider">Valider</string>
-    <string name="paramMath1">Modification des paramètres de l\'exercice 1</string>
-    <string name="choixRep">Choix du type de réponse</string>
+
     <string name="frise">Frise</string>
     <string name="boutons">Boutons</string>
     <string name="nbBoutons">Nombre de boutons</string>

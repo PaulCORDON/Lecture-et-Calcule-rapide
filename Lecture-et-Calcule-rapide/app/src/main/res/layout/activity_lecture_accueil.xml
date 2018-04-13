@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ardoise"
-    tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureAccueilActivity">
+    tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity">
 
     <ImageView
         android:id="@+id/bonhomme"

@@ -64,6 +64,7 @@ public class MathExo1Activity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
+            Log.d("MathExo1Activity","Dans le on clic");
             reponseDonnee = true;
             reponseJuste[numQuestAct] = true;
             timer.cancel();
@@ -74,6 +75,7 @@ public class MathExo1Activity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
+            Log.d("MathExo1Activity","Dans le on clic");
             reponseDonnee = true;
             reponseJuste[numQuestAct] = false;
             timer.cancel();
@@ -156,6 +158,12 @@ public class MathExo1Activity extends AppCompatActivity {
                     break;
             }
         }
+        /**
+         * Récupération du textView pour l'affichage du nombre de questions restantes
+         */
+        final TextView numQuestion = (TextView) findViewById(R.id.numQuestion);
+        int numQuestActPlusUn=numQuestAct+1;
+        numQuestion.setText("Question "+ numQuestActPlusUn +"/"+exo.getParam().getNbQuestions());
 
         /**
          * Affichage de l'énoncé pour la question actuelle.
