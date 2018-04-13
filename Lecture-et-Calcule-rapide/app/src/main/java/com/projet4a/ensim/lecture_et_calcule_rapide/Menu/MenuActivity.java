@@ -19,6 +19,8 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.Lectu
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.util.TimerTask;
+
 import static java.lang.Thread.sleep;
 
 public class MenuActivity extends AppCompatActivity {
@@ -35,15 +37,16 @@ public class MenuActivity extends AppCompatActivity {
         /* creation des boutons maths et lecture*/
 
 
-
-        final ImageButton math= findViewById(R.id.BtnCalcul);
-        final ImageButton lecture=findViewById(R.id.BtnLecture);
-        final ImageView bonhomme1= findViewById(R.id.bonhomme);
-        final ImageView bonhomme2= findViewById(R.id.bonhomme2);
+        final ImageButton math = findViewById(R.id.BtnCalcul);
+        final ImageButton lecture = findViewById(R.id.BtnLecture);
+        final ImageView bonhomme1 = findViewById(R.id.bonhomme);
+        final ImageView bonhomme2 = findViewById(R.id.bonhomme2);
         bonhomme2.setVisibility(View.GONE);
-        final ImageView bulle1= findViewById(R.id.bulle1);
-        final ImageView bulle2= findViewById(R.id.bulle2);
+        final ImageView bulle1 = findViewById(R.id.bulle1);
+        final ImageView bulle2 = findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
+        final TextView textCalcul=findViewById(R.id.textCalcul);
+        final TextView textLecture=findViewById(R.id.textLecture);
 
 
         TranslateAnimation animate = new TranslateAnimation(0, 0, 200, 0);
@@ -56,18 +59,6 @@ public class MenuActivity extends AppCompatActivity {
         animate2.setFillAfter(false);
         bulle1.startAnimation(animate2);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                bonhomme1.setVisibility(View.GONE);
-                bulle1.setVisibility(View.GONE);
-                bonhomme2.setVisibility(View.VISIBLE);
-                bulle2.setVisibility(View.VISIBLE);
-            }
-        },3000);
-
-
-
 
         /** si on clique sur math on va vers les exercice de maths*/
         math.setOnClickListener(new View.OnClickListener() {
@@ -78,34 +69,77 @@ public class MenuActivity extends AppCompatActivity {
                 intent = new Intent(MenuActivity.this, MathsActivity.class);
                 startActivity(intent);
 
+            }
+        });
 
+        textCalcul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent;
+                intent = new Intent(MenuActivity.this, MathsActivity.class);
+                startActivity(intent);
 
             }
         });
-        /*si on clique sur lecture on va vers les exercices de lectures*/
+
+
+        /**si on clique sur lecture on va vers les exercices de lectures*/
 
 
         /**Bouton pour aller vers les exercices de lectures*/
-
 
 
         lecture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Intent intent;
+                intent = new Intent(MenuActivity.this, LectureAccueilActivity.class);
+                startActivity(intent);
 
+            }
 
+        });
+
+        textLecture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
                 Intent intent;
                 intent = new Intent(MenuActivity.this, LectureAccueilActivity.class);
                 startActivity(intent);
 
-
-                }
+            }
 
         });
 
 
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    if (bonhomme1.isShown()) {
+                        bonhomme1.setVisibility(View.GONE);
+                        bulle1.setVisibility(View.GONE);
+                        bonhomme2.setVisibility(View.VISIBLE);
+                        bulle2.setVisibility(View.VISIBLE);
+                    } else {
+                        bonhomme1.setVisibility(View.VISIBLE);
+                        bulle1.setVisibility(View.VISIBLE);
+                        bonhomme2.setVisibility(View.GONE);
+                        bulle2.setVisibility(View.GONE);
+                    }
+
+                }
+            }, 3000);
+
+
+
+
+
     }
+
+
 
 }

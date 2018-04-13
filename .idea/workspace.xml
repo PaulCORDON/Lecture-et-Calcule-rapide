@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbc234f6-7de4-43c1-b1b5-9c36d89cc2f3" name="Default" comment="" />
+    <list default="true" id="bbc234f6-7de4-43c1-b1b5-9c36d89cc2f3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Lecture-et-Calcule-rapide/app/src/main/java/com/projet4a/ensim/lecture_et_calcule_rapide/CalculRapide/Activity/MathExo2Activity.java" afterPath="$PROJECT_DIR$/Lecture-et-Calcule-rapide/app/src/main/java/com/projet4a/ensim/lecture_et_calcule_rapide/CalculRapide/Activity/MathExo2Activity.java" />
+      <change beforePath="$PROJECT_DIR$/Lecture-et-Calcule-rapide/app/src/main/java/com/projet4a/ensim/lecture_et_calcule_rapide/CalculRapide/Model/Calcul.java" afterPath="$PROJECT_DIR$/Lecture-et-Calcule-rapide/app/src/main/java/com/projet4a/ensim/lecture_et_calcule_rapide/CalculRapide/Model/Calcul.java" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,8 +43,19 @@
     <panes>
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Lecture-et-Calcule-rapide" type="1abcf292:AndroidViewProjectNode" />
+              <item name="Lecture-et-Calcule-rapide" type="e9137016:NonAndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
     </panes>
   </component>
