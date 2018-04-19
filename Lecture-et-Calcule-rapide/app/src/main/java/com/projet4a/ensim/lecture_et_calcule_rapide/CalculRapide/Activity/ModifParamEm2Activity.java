@@ -109,6 +109,8 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                         npair=false;
                     }
                 }
+
+
                 if(deuxbornes.isChecked()){
                     repdeuxbrnes = true;
                     pav = false;
@@ -126,72 +128,8 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
                 ParamEm2 param = null;
 
-//
-//                /** Si les deux champs de saisie pour le nombre de calcul et la valeur max des opérandes sont remplis on recupere les valeurs des parametres
-//                 * et on construit un nouvel objet param avec ces parametres
-//                 */
-//                if(!valeurMax.getText().toString().equals("") && !nbCal.getText().toString().equals("")) {
-//                    param = new ParamEm2(
-//                            typerep,
-//                            nbcal,
-//                            valMax,
-//                            nimpair,
-//                            npair,
-//                            repdeuxbrnes,
-//                            pav,
-//                            repQuatrebrnes);
-//                    Log.i("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
-//                            "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
-//                }
-//                /** Si le champ de saisie pour le nombre de calcul et la valeur max des opérandes ne sont pas remplis on recupere les valeurs des parametres
-//                 * et on construit un nouvel objet param avec ces parametres
-//                 */
-//                if(valeurMax.getText().toString().equals("") && nbCal.getText().toString().equals("")) {
-//                    param = new ParamEm2(
-//                            typerep,
-//                            10,
-//                            10,
-//                            nimpair,
-//                            npair,
-//                            repdeuxbrnes,
-//                            pav,
-//                            repQuatrebrnes);
-//
-//                    Log.w("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
-//                            "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
-//                }
-//                /** Si le champ de saisie pour le nombre de calcul est rempli on recupere les valeurs des parametres
-//                 * et on construit un nouvel objet param avec ces parametres
-//                 */
-//                if(valeurMax.getText().toString().equals("") && !nbCal.getText().toString().equals("")) {
-//                    param = new ParamEm2(
-//                            typerep,
-//                            nbcal,
-//                            10,
-//                            nimpair,
-//                            npair,
-//                            repdeuxbrnes,
-//                            pav,
-//                            repQuatrebrnes);
-//                    Log.w("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
-//                            "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
-//                }
-//                /** Si le champ de saisie pour la valeur max des operandes est rempli on recupere les valeurs des parametres
-//                 * et on construit un nouvel objet param avec ces parametres
-//                 */
-//                if(!valeurMax.getText().toString().equals("") && nbCal.getText().toString().equals("")) {
-//                    param = new ParamEm2(
-//                            typerep,
-//                            10,
-//                            valMax,
-//                            nimpair,
-//                            npair,
-//                            repdeuxbrnes,
-//                            pav,
-//                            repQuatrebrnes);
-//                    Log.w("info", "type de reponse:"+param.gettypeRep()+"nb calcul: " + param.getNbCalcul() + "\nvaleur max des operandes: " + param.getValMaxOperande() + "\nnombre pair: " + param.getNombrePair() + "\nnb impair: " + param.getNombreImpair() +
-//                            "\ndeux bornes: " + param.getRepDeuxBornes() + "\npave num: " + param.getRepPaveNum() + "\nquatre bornes: " + param.getRepQuatreBornes());
-//                }
+
+
 
                 param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes);
 

@@ -161,7 +161,7 @@ public class MathExo1Activity extends AppCompatActivity {
         /**
          * Récupération du textView pour l'affichage du nombre de questions restantes
          */
-        final TextView numQuestion = (TextView) findViewById(R.id.numQuestion);
+        final TextView numQuestion = (TextView) findViewById(R.id.NumQuestion);
         int numQuestActPlusUn=numQuestAct+1;
         numQuestion.setText("Question "+ numQuestActPlusUn +"/"+exo.getParam().getNbQuestions());
 

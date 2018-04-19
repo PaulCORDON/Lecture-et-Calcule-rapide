@@ -121,6 +121,27 @@
 
 
                     <TextView
+                        android:id="@+id/CalculEnChaine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="@string/CalculChaine"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Switch
+                        android:id="@+id/CalculChaine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="20dp" />
+
+                    <TextView
                         android:id="@+id/TypeNbre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -169,11 +190,26 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <LinearLayout
+                    <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="120dp">
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/PaveNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="@string/paveNum" />
+
+                        <RadioButton
+                            android:id="@+id/QuatreBornes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:text="@string/quatreBtn" />
 
                         <RadioButton
                             android:id="@+id/DeuxBornes"
@@ -181,22 +217,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/deuxBtn" />
-
-                        <RadioButton
-                            android:id="@+id/QuatreBornes"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/quatreBtn" />
-
-                        <RadioButton
-                            android:id="@+id/PaveNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/paveNum" />
-
-                    </LinearLayout>
+                    </RadioGroup>
 
                 </LinearLayout>
 
