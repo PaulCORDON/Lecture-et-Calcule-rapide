@@ -213,12 +213,8 @@ public class LectureExo1Activity extends AppCompatActivity {
                 rendreInvisible(rep10);
             }
         });
-        passer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-            }
-        });
+
         final long tempsTotal = score/param.getNbAparitionSimultanee()*param.getTempsApparution()+1000;
         timeBar = (ProgressBar) findViewById(R.id.progressBar);
         timeBar.setMax(param.getTempsApparution().intValue());
@@ -257,6 +253,15 @@ public class LectureExo1Activity extends AppCompatActivity {
                         }
                     }
                 }.start();
+                passer.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        timer.cancel();
+                        timer.start();
+                        t.cancel();
+
+                    }
+                });
 
                 Log.d("EXO 1 Lecture", "dans le on tick");
                 Log.d("Nb bonne rep", "" + nbBonneRep);
@@ -296,7 +301,6 @@ public class LectureExo1Activity extends AppCompatActivity {
 
                 Log.d("NB BONNE REP", "" + nbBonneRep);
                 Log.d("NB MAUVAISE REP", "" + nbMauvaiseRep);
-
                 Intent intent = new Intent(LectureExo1Activity.this, ExoLecture1Resultat.class);
                 intent.putExtra("nbBonneRep", nbBonneRep);
                 intent.putExtra("nbAppCourent", nbAppCourent);
@@ -435,4 +439,5 @@ public class LectureExo1Activity extends AppCompatActivity {
             }
         }
     }
+
 }
