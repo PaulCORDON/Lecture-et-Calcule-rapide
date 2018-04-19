@@ -21,8 +21,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Locale;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -89,8 +94,38 @@ public class MathsActivity extends AppCompatActivity {
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            /* on recuprere les parametre de maths */
+                ParamEm1 param = new ParamEm1();
+                try {
+                    FileInputStream fis = openFileInput("ParamEm1.txt");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    param = (ParamEm1) ois.readObject();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+
+                String text = null;
                 Resources res = getResources();
-                String text = res.getString(R.string.consigneExo1m);
+                    if (param.getFrise()) {
+                         text = res.getString(R.string.consigneExo1m);
+                    }
+                    else{ if (param.getNbBornes() == 2 ){
+                        text = res.getString(R.string.consigneExo1_2m);
+
+
+                    }
+                    else {
+
+                        text = res.getString(R.string.consigneExo1_1m);
+
+
+                    }
+                }
                 tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
 
             }

@@ -1,8 +1,11 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.util.Locale;
+
 import pl.droidsonroids.gif.GifImageView;
 
 public class LectureAccueilActivity extends AppCompatActivity {
@@ -20,6 +25,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
     boolean isExercice2;
     boolean isExercice3;
     TextView descriptionL;
+    TextToSpeech tts ;
 
 
     /**
@@ -47,6 +53,34 @@ public class LectureAccueilActivity extends AppCompatActivity {
         exercice1.getBackground().setAlpha(100);
         exercice2.getBackground().setAlpha(100);
         exercice3.getBackground().setAlpha(100);
+
+        /* Bouton volume pour les parametre*/
+        final ImageButton volume = findViewById(R.id.volumeLec);
+        TextToSpeech.OnInitListener listener =
+                new TextToSpeech.OnInitListener() {
+                    @Override
+                    public void onInit(final int status) {
+                        if (status == TextToSpeech.SUCCESS) {
+                            Log.d("TTS", "Text to speech engine started successfully.");
+                            tts.setLanguage(Locale.FRANCE);
+                        } else {
+                            Log.d("TTS", "Error starting the text to speech engine.");
+                        }
+                    }
+                };
+        tts = new TextToSpeech(getApplicationContext(),listener);
+
+        volume.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Resources res = getResources();
+                String text = res.getString(R.string.consigneExo1m);
+                tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+
+            }
+        });
+
+
 
 
         /* creation du boutton parametre */
