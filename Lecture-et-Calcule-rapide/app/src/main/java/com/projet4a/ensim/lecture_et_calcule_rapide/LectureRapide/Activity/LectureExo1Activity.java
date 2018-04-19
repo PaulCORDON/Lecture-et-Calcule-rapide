@@ -57,6 +57,7 @@ public class LectureExo1Activity extends AppCompatActivity {
     Button rep8;
     Button rep9;
     Button rep10;
+    Button passer;
     ProgressBar scoreBar;
     ProgressBar timeBar;
     ArrayList<Button> listeDesBoutons = new ArrayList<>();
@@ -83,6 +84,7 @@ public class LectureExo1Activity extends AppCompatActivity {
         rep8 = (Button) findViewById(R.id.Rep8);
         rep9 = (Button) findViewById(R.id.Rep9);
         rep10 = (Button) findViewById(R.id.Rep10);
+        passer = (Button) findViewById(R.id.BtnPasser);
         scoreBar = (ProgressBar) findViewById(R.id.scoreBar);
         enonce = (TextView) findViewById(R.id.EnonceLectureEx1);
 
@@ -211,7 +213,12 @@ public class LectureExo1Activity extends AppCompatActivity {
                 rendreInvisible(rep10);
             }
         });
+        passer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
         final long tempsTotal = score/param.getNbAparitionSimultanee()*param.getTempsApparution()+1000;
         timeBar = (ProgressBar) findViewById(R.id.progressBar);
         timeBar.setMax(param.getTempsApparution().intValue());
