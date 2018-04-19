@@ -25,6 +25,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
     boolean isExercice2;
     boolean isExercice3;
     TextView descriptionL;
+    /* speaker*/
     TextToSpeech tts ;
 
 
@@ -74,7 +75,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Resources res = getResources();
-                String text = res.getString(R.string.consigneExo1m);
+                String text = res.getString(R.string.consigneExoLect1);
                 tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
 
             }
