@@ -2,6 +2,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -311,6 +313,8 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             @Override
             /** si le bouton valider a ete cliqué on rentre dans cette methode*/
             public void onClick(View view) {
+                boolean parametresCorrects = true;
+
                 long tpsAvDisp;
                 int nbQuest;
                 boolean ExoFrise;
@@ -357,23 +361,43 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     operateurs[3] = division.isChecked();
                     Log.w("operateur choisis : " , "+" +operateurs[0]+ "-" +operateurs[1]+ "*" +operateurs[2]+ "/" + operateurs[3]);
 
-                    param = new ParamEm1(
-                            ExoFrise,
-                            tpsRep,
-                            nbPairsOnly.isChecked(),
-                            operateurs,
-                            nbBornes.getProgress(),
-                            nbQuest,
-                            disparition.isChecked(),
-                            tpsAvDisp,
-                            ordreApparition,
-                            bornesSelectionnables.isChecked(),
-                            bornesEgalesOp.isChecked(),
-                            valeurMax);
+                    if( tpsAvDisp <= tpsRep-1000 && (operateurs[0] || operateurs[1] || operateurs[2] || operateurs[3])){
+                        param = new ParamEm1(
+                                ExoFrise,
+                                tpsRep,
+                                nbPairsOnly.isChecked(),
+                                operateurs,
+                                nbBornes.getProgress(),
+                                nbQuest,
+                                disparition.isChecked(),
+                                tpsAvDisp,
+                                ordreApparition,
+                                bornesSelectionnables.isChecked(),
+                                bornesEgalesOp.isChecked(),
+                                valeurMax);
 
-                    Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
-                            "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
+                        Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb bornes: " + param.getNbBornes() +
+                                "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
+                                "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
+
+                    }
+                    else {
+                        parametresCorrects = false;
+                        if (tpsAvDisp > tpsRep-1000) {
+                            TpsAvantDisp.setTextColor(Color.RED);
+
+                            Toast.makeText(ModifParamEm1Activity.this,"Le temps avant la disparition du calcul doit être plus petit",Toast.LENGTH_SHORT).show();
+
+                        }
+                        if (!operateurs[0] && !operateurs[1] && !operateurs[2] && !operateurs[3]) {
+                            Toast.makeText(ModifParamEm1Activity.this,"Selectionne au moins un opérateur",Toast.LENGTH_SHORT).show();
+
+                            addition.setTextColor(Color.RED);
+                            soustraction.setTextColor(Color.RED);
+                            multiplication.setTextColor(Color.RED);
+                            division.setTextColor(Color.RED);
+                        }
+                    }
                 }
 
                 /**
@@ -415,42 +439,107 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     operateursB[2] = multiplicationB.isChecked();
                     operateursB[3] = divisionB.isChecked();
 
-                    param = new ParamEm1(
-                            ExoFrise,
-                            tpsRep,
-                            nbPairsOnlyB.isChecked(),
-                            operateursB,
-                            nbBoutons,
-                            nbQuest,
-                            disparitionB.isChecked(),
-                            tpsAvDisp,
-                            ordreApparition,
-                            false,
-                            false,
-                            valeurMax);
+                    if( tpsAvDisp <= tpsRep-1000 && (operateurs[0] || operateurs[1] || operateurs[2] || operateurs[3])){
+                        param = new ParamEm1(
+                                ExoFrise,
+                                tpsRep,
+                                nbPairsOnlyB.isChecked(),
+                                operateursB,
+                                nbBoutons,
+                                nbQuest,
+                                disparitionB.isChecked(),
+                                tpsAvDisp,
+                                ordreApparition,
+                                false,
+                                false,
+                                valeurMax);
 
-                    Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb boutons: " + param.getNbBornes() +
-                            "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
-                            "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
+                        Log.i("info", "frise ou pas:" + ExoFrise + "\ntps avant disparition:" + param.getTempsRestantApparant() + "\ntps reponse: " + param.getTempsRep() + "\nnbs pairs seulement: " + param.getPairOnly() + "\noperateurs: " + param.getOperateur()[0] + param.getOperateur()[1] + param.getOperateur()[2] + param.getOperateur()[3] + "\nnb boutons: " + param.getNbBornes() +
+                                "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
+                                "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
+
+                    }
+                    else {
+                        parametresCorrects = false;
+                        if (tpsAvDisp > tpsRep-1000){
+                            TpsAvantDispB.setTextColor(Color.RED);
+
+                            Toast.makeText(ModifParamEm1Activity.this,"Le temps avant la disparition du calcul doit être plus petit",Toast.LENGTH_SHORT).show();
+                        }
+                        if (!operateurs[0] && !operateurs[1] && !operateurs[2] && !operateurs[3]) {
+                            Toast.makeText(ModifParamEm1Activity.this,"Selectionne au moins un opérateur",Toast.LENGTH_SHORT).show();
+
+                            additionB.setTextColor(Color.RED);
+                            soustractionB.setTextColor(Color.RED);
+                            multiplicationB.setTextColor(Color.RED);
+                            divisionB.setTextColor(Color.RED);
+                        }
+                    }
+
                 }
 
-                FileOutputStream outputStream;
-                ObjectOutputStream oos;
-                try {
-                    outputStream = openFileOutput("ParamEm1.txt", Context.MODE_PRIVATE);
-                    oos = new ObjectOutputStream(outputStream);
-                    oos.writeObject(param);
+                if(parametresCorrects) {
+                    FileOutputStream outputStream;
+                    ObjectOutputStream oos;
+                    try {
+                        outputStream = openFileOutput("ParamEm1.txt", Context.MODE_PRIVATE);
+                        oos = new ObjectOutputStream(outputStream);
+                        oos.writeObject(param);
 
-                    oos.flush();
-                    oos.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                        oos.flush();
+                        oos.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    /** quand on a clique sur le bouton valider on reviens au menu*/
+                    Intent intent = new Intent(ModifParamEm1Activity.this, MathsActivity.class);
+                    startActivity(intent);
                 }
-
-                /** quand on a clique sur le bouton valider on reviens au menu*/
-                Intent intent = new Intent(ModifParamEm1Activity.this, MathsActivity.class);
-                startActivity(intent);
             }
         });
+
+        View.OnClickListener retourEcritEnNoir = (new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                addition.setTextColor(Color.BLACK);
+                soustraction.setTextColor(Color.BLACK);
+                division.setTextColor(Color.BLACK);
+                multiplication.setTextColor(Color.BLACK);
+
+                additionB.setTextColor(Color.BLACK);
+                soustractionB.setTextColor(Color.BLACK);
+                divisionB.setTextColor(Color.BLACK);
+                multiplicationB.setTextColor(Color.BLACK);
+            }
+        });
+
+        TpsAvantDisp.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                TpsAvantDisp.setTextColor(Color.BLACK);
+            }
+        });
+
+        TpsAvantDispB.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                TpsAvantDispB.setTextColor(Color.BLACK);
+            }
+        });
+
+        addition.setOnClickListener(retourEcritEnNoir);
+        soustraction.setOnClickListener(retourEcritEnNoir);
+        division.setOnClickListener(retourEcritEnNoir);
+        multiplication.setOnClickListener(retourEcritEnNoir);
+
+        additionB.setOnClickListener(retourEcritEnNoir);
+        soustractionB.setOnClickListener(retourEcritEnNoir);
+        divisionB.setOnClickListener(retourEcritEnNoir);
+        multiplicationB.setOnClickListener(retourEcritEnNoir);
+
     }
 }
