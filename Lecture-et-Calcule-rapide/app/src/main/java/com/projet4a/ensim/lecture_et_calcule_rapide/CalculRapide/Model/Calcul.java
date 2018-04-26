@@ -64,7 +64,7 @@ public class Calcul implements Serializable {
             //return "" + cal.getOp1Int() + " " + cal.getOperation() + " " + cal.getOp2Int() + " " + operande2;
         }
 
-        return "" + operande1 + operation + operande2;
+        return "" + operande1 + operation + operande2 + " =";
     }
 
     public String getOp1String() {

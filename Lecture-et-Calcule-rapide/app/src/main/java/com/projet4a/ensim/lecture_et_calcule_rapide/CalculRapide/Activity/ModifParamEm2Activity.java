@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Switch;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm2;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -49,6 +50,12 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
         final CheckBox multiplicationC = findViewById(R.id.multiplicationC);
 
+        /** on a forcement une case de validée */
+        if (!additionC.isChecked() && !soustractionC.isChecked() &&!multiplicationC.isChecked() && !divisionC.isChecked()){
+            additionC.setChecked(true);
+        }
+
+
         /** tableau de booleens qui stockera plus tard les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
         final Boolean[] operateurs = new Boolean[5];
         final Boolean[] operateursB = new Boolean[5];
@@ -67,6 +74,9 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
         Button valider=  findViewById(R.id.BtonValider);
+
+        /**  Bouton qui permet d'activer les calculs en chaine**/
+        final Switch chaine = findViewById(R.id.CalculChaine);
 
         /**
          * si on clique sur le bouton valider
@@ -126,20 +136,30 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                     typerep=0;
                 }
 
+                boolean chaineB = false ;
+                if(chaine.isChecked()){
+                    chaineB = true;
+                }
+
+
                 ParamEm2 param = null;
 
 
 
 
-                param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes);
+                param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes,chaineB);
 
                 Boolean operateur[] = new Boolean[4];
                 /**on stocke les booleens correspondant aux operations dans le tableau*/
+
                 operateur[0] = additionC.isChecked();
                 operateur[1] = soustractionC.isChecked();
                 operateur[2] = multiplicationC.isChecked();
                 operateur[3] = divisionC.isChecked();
 
+                if(!operateur[0] && !operateur[1] && !operateur[2] && !operateur[3]){
+                    operateur[0] = true;
+                }
                 param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);
 
 
@@ -156,7 +176,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                /** quand on a clique sur le bouton valider on reviens au menu*/
+                /** quand on a cliqué sur le bouton valider on reviens au menu*/
                 Intent intent=new Intent(ModifParamEm2Activity.this, MathsActivity.class);
                 startActivity(intent);
 
