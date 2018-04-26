@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cpiz.android.bubbleview.BubbleTextView;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -64,7 +65,7 @@ public class MathsActivity extends AppCompatActivity {
         animate.setFillAfter(true);
         bonhomme.startAnimation(animate);
 
-        final ImageView bulle1= findViewById(R.id.bulle1);
+        final BubbleTextView bulle1= findViewById(R.id.bulle1);
         final TranslateAnimation animate2 = new TranslateAnimation(0, 0, -500, 0);
         animate2.setDuration(500);
         animate2.setFillAfter(false);
@@ -72,7 +73,7 @@ public class MathsActivity extends AppCompatActivity {
 
 
 
-        final ImageView bulle2=findViewById(R.id.bulle2);
+        final BubbleTextView bulle2=findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
 
         final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
