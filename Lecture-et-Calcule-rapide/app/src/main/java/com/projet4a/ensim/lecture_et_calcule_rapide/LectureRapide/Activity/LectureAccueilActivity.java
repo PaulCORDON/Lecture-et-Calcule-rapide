@@ -22,8 +22,6 @@ import pl.droidsonroids.gif.GifImageView;
 public class LectureAccueilActivity extends AppCompatActivity {
     /* booleens pour savoir quel exercice est selectionné */
     boolean isExercice1;
-    boolean isExercice2;
-    boolean isExercice3;
     TextView descriptionL;
     /* speaker*/
     TextToSpeech tts ;
@@ -47,13 +45,11 @@ public class LectureAccueilActivity extends AppCompatActivity {
 
         /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
         final Button exercice1 = (Button) findViewById(R.id.exo1L);
-        final Button exercice2 = (Button) findViewById(R.id.exo2L);
-        final Button exercice3 = (Button) findViewById(R.id.exo3L);
+
 
         /* on modifie la transparence des boutons */
         exercice1.getBackground().setAlpha(100);
-        exercice2.getBackground().setAlpha(100);
-        exercice3.getBackground().setAlpha(100);
+
 
         /* Bouton volume pour les parametre*/
         final ImageButton volume = findViewById(R.id.volumeLec);
@@ -100,13 +96,9 @@ public class LectureAccueilActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 exercice1.setEnabled(false);
-                exercice2.setEnabled(true);
-                exercice3.setEnabled(true);
                 parametreL.setVisibility(View.VISIBLE);
                 go.setVisibility(View.VISIBLE);
                 isExercice1 = true;
-                isExercice2 = false;
-                isExercice3 = false;
                 gif.setVisibility(View.VISIBLE);
                 TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
                 animate.setDuration(500);
@@ -116,47 +108,6 @@ public class LectureAccueilActivity extends AppCompatActivity {
             }
         });
 
-        /** click sur le bouton exercice 2 , on affiche la description et on met le bouton enable */
-        exercice2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                exercice1.setEnabled(true);
-                exercice2.setEnabled(false);
-                exercice3.setEnabled(true);
-                parametreL.setVisibility(View.VISIBLE);
-                go.setVisibility(View.VISIBLE);
-                isExercice1 = false;
-                isExercice2 = true;
-                isExercice3 = false;
-                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
-                animate.setDuration(500);
-                animate.setFillAfter(true);
-                bonhomme.startAnimation(animate);
-
-                descriptionL.setText("Exercice 2 de Lecture\nConsigne : ");
-            }
-        });
-
-        /** click sur le bouton exercice 3 , on affiche la description et on met le bouton enable */
-        exercice3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                exercice1.setEnabled(true);
-                exercice2.setEnabled(true);
-                exercice3.setEnabled(false);
-                parametreL.setVisibility(View.VISIBLE);
-                go.setVisibility(View.VISIBLE);
-                isExercice1 = false;
-                isExercice2 = false;
-                isExercice3 = true;
-                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
-                animate.setDuration(500);
-                animate.setFillAfter(true);
-                bonhomme.startAnimation(animate);
-
-                descriptionL.setText("Exercice 3 de Lecture\nConsigne : ");
-            }
-        });
 
         /** click sur le bouton parametre qui renvoie sur la bonne activité en fonction des booleens */
         parametreL.setOnClickListener(new View.OnClickListener() {
