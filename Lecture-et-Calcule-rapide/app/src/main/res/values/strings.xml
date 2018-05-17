@@ -2817,4 +2817,5 @@
     <string name="paveNum">Pavé numérique</string>
     <string name="consigneExoLect1">Tape sur les mots écrits comme :</string>
     <string name="passer">J\'ai trouvé\\ntous les mots</string>
+    <string name="CalculChaine">Mettre des calculs qui s enchainent \n ( ex : 7+8 puis 7+18) </string>
 </resources>

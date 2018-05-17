@@ -71,6 +71,8 @@ Log.w("passage activités :","valeur de type :::::::::::::::::::::::::::::::::::
         //on récupere l'exercice avec la bonne instance :
 switch(type){
     case 1 :
+        exoMath = intent.getParcelableExtra("exoMath");
+
         try {
             FileInputStream fis = openFileInput("ExoM1.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -169,9 +171,9 @@ switch(type){
                                 Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(0).ToString());
 
                                 break;
-                            default:/*
-                                reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
-                                */break;
+                            default:
+                                reponse1.setText(exoMath.getCalculEnonce().get(0).ToString());
+                                break;
 
                         }
 
@@ -186,7 +188,7 @@ switch(type){
 
                             break;
                         default:
-                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0).toString() );
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0).ToString() );
                             break;
 
                     }
@@ -209,13 +211,11 @@ switch(type){
                                 Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
 
                                 break;
-                            default:/*
-                                reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(0));
-                                reponse1.setVisibility(View.VISIBLE);
-                                reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(1));
-                                reponse3.setVisibility(View.VISIBLE);
-                                reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(2));
-                               */ break;
+                            default:
+                                numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1).ToString() );
+
+
+                                break;
 
                         }
 
@@ -229,7 +229,7 @@ switch(type){
                             Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
                             break;
                         default:
-                            numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1) + " = " + exoMath.getResultats()[numQuestCorr - 1]);
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1).ToString() );
                             break;
 
                     }
@@ -265,69 +265,7 @@ switch(type){
 
     // on renvoi une array list de String, la premiere valeurs correspond à la réponse,
     // la deuxieme à l'expression de gauche, la derniere à la droite de l'expression.
-    private ArrayList<String> correction(ArrayList<Integer> bornes, int resultat) {
 
-        ArrayList<String> rep = new ArrayList<>();
-
-        if (bornes.size() == 1) {
-            if (resultat < bornes.get(0)) {
-                rep.add("" + resultat);
-                rep.add("");
-                rep.add(" _ < _ " + bornes.get(0));
-                return rep;
-            } else {
-                rep.add("" + resultat);
-                rep.add(" _ " + bornes.get(0) + " _ < _ ");
-                rep.add("");
-                return rep;
-            }
-        }
-        if (bornes.size() == 2) {
-            if (resultat < bornes.get(0)) {
-                rep.add("" + resultat);
-                rep.add("");
-                rep.add(" < " + bornes.get(0) + " < " + bornes.get(1));
-
-                return rep;
-            }
-            if (resultat > bornes.get(1)) {
-                rep.add("" + resultat);
-                rep.add(" _ " + bornes.get(0) + " < " + bornes.get(1) + " < ");
-                rep.add("");
-                return rep;
-            }
-            rep.add("" + resultat);
-            rep.add("_ " + bornes.get(0) + " < ");
-            rep.add(" < " + bornes.get(1));
-            return rep;
-        }
-        if (bornes.size() == 3) {
-            if (resultat < bornes.get(0)) {
-                rep.add("" + resultat);
-                rep.add("");
-                rep.add(" < " + bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2));
-                return rep;
-            }
-            if (resultat > bornes.get(2)) {
-                rep.add("" + resultat);
-                rep.add(bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2) + " < ");
-                rep.add("");
-                return rep;
-            }
-            if (resultat < bornes.get(1)) {
-                rep.add("" + resultat);
-                rep.add("" + bornes.get(0) + " < ");
-                rep.add(" < " + bornes.get(1) + " < " + bornes.get(2));
-                return rep;
-            } else {
-                rep.add("" + resultat);
-                rep.add(bornes.get(0) + " < " + bornes.get(1) + " < ");
-                rep.add(" < " + bornes.get(2));
-                return rep;
-            }
-        }
-        return null;
-    }
 
     
 }

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
@@ -174,8 +175,8 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
 
                 if(parametresCorrects){
-                    param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes);
 
+                     param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes,false);
 
 
                     param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);

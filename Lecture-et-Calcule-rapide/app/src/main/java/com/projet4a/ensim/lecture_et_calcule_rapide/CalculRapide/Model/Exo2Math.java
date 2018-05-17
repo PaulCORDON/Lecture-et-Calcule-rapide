@@ -19,7 +19,7 @@ public class Exo2Math implements Parcelable {
     private int op1;
     private int op2;
     private int choixOp;
-
+    private  int calcChaineAdd = 1;
 
     private boolean choixOpVali = true;
     /**
@@ -123,8 +123,6 @@ public class Exo2Math implements Parcelable {
                         case 3 :
                             enoncees.add(new Calcul(op1,op2,'/'));
                             break;
-
-
                     }
 
                     a++;
@@ -132,6 +130,24 @@ public class Exo2Math implements Parcelable {
 
             }
 
+            if (param.getCalcChaine()){
+                calcChaineAdd = (int) (Math.random()*4) +1;
+                switch (choixOp){
+                    case 0:
+                        enoncees.add(new Calcul(op1, op2 + (10*calcChaineAdd), '+'));
+                        break;
+                    case 1:
+                        enoncees.add(new Calcul(op1, op2+ (10*calcChaineAdd), '-'));
+                        break;
+                    case 2:
+                        enoncees.add(new Calcul(op1, op2+ (10*calcChaineAdd), '*'));
+                        break;
+                    case 3 :
+                        enoncees.add(new Calcul(op1,op2+ (10*calcChaineAdd),'/'));
+                        break;
+                }
+                a++;
+            }
         }
     }
 

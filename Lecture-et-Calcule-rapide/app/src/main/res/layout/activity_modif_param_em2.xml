@@ -7,7 +7,7 @@
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity">
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_margin="8dp"
         android:layout_marginBottom="8dp"
@@ -15,10 +15,10 @@
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -121,10 +121,41 @@
 
 
                     <TextView
+                        android:id="@+id/CalculEnChaine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="20dp"
+                        android:text="@string/CalculChaine"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/background_dark"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <Switch
+                            android:id="@+id/CalculChaine"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="280dp"
+                            android:layout_marginStart="280dp"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="20sp"
+                            android:textStyle="bold"
+                            android:layout_marginLeft="10dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+                    </android.support.constraint.ConstraintLayout>
+
+                    <TextView
                         android:id="@+id/TypeNbre"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
                         android:layout_weight="1"
                         android:text="@string/typeDeNombre"
                         android:textAlignment="center"
@@ -169,11 +200,26 @@
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
-                    <LinearLayout
+                    <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="120dp">
+                        android:layout_weight="1">
+
+                        <RadioButton
+                            android:id="@+id/PaveNum"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="true"
+                            android:text="@string/paveNum" />
+
+                        <RadioButton
+                            android:id="@+id/QuatreBornes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:checked="false"
+                            android:text="@string/quatreBtn" />
 
                         <RadioButton
                             android:id="@+id/DeuxBornes"
@@ -181,22 +227,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="@string/deuxBtn" />
-
-                        <RadioButton
-                            android:id="@+id/QuatreBornes"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/quatreBtn" />
-
-                        <RadioButton
-                            android:id="@+id/PaveNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="@string/paveNum" />
-
-                    </LinearLayout>
+                    </RadioGroup>
 
                 </LinearLayout>
 

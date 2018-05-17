@@ -4,156 +4,133 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ardoise"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo2Activity">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <GridLayout
+        <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:alwaysDrawnWithCache="false"
+            android:columnCount="4"
+            android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/operande1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
-
-
-            <Button
-                android:id="@+id/p8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="11"
-                android:layout_row="4"
-                android:text="8" />
-
-            <Button
-                android:id="@+id/p7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="10"
-                android:layout_row="4"
-                android:text="7" />
-
-            <Button
-                android:id="@+id/p9"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="12"
-                android:layout_row="4"
-                android:text="9" />
-
-            <Button
-                android:id="@+id/Validation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="12"
-                android:layout_row="5"
-                android:text="Valider" />
-
-            <Button
-                android:id="@+id/p4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="10"
-                android:layout_row="3"
-                android:text="4" />
-
-            <Button
-                android:id="@+id/p5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="11"
-                android:layout_row="3"
-                android:text="5" />
-
-            <Button
-                android:id="@+id/p6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="12"
-                android:layout_row="3"
-                android:text="6" />
+            app:layout_constraintEnd_toEndOf="@+id/ReponseEleve"
+            app:layout_constraintStart_toStartOf="@+id/ReponseEleve"
+            app:layout_constraintTop_toBottomOf="@+id/ReponseEleve">
 
             <Button
                 android:id="@+id/p1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="10"
-                android:layout_row="2"
                 android:text="1" />
 
             <Button
                 android:id="@+id/p2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="11"
-                android:layout_row="2"
                 android:text="2" />
 
             <Button
                 android:id="@+id/p3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="12"
-                android:layout_row="2"
                 android:text="3" />
 
             <Button
+                android:text=" "
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/p4"
+                android:text="4" />
+
+            <Button
+                android:id="@+id/p5"
+                android:text="5" />
+
+            <Button
+                android:id="@+id/p6"
+                android:text="6" />
+
+            <Button
+                android:text="-"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/p7"
+                android:text="7" />
+
+            <Button
+                android:id="@+id/p8"
+                android:text="8" />
+
+            <Button
+                android:id="@+id/p9"
+                android:text="9" />
+
+            <Button
+                android:id="@+id/Validation"
+                android:layout_gravity="fill"
+                android:layout_rowSpan="3"
+                android:text="Valider"
+
+                />
+
+            <Button
                 android:id="@+id/p0"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="11"
-                android:layout_row="5"
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
                 android:text="0" />
 
-            <TextView
-                android:id="@+id/operande2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="2"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:textSize="24sp" />
 
             <Button
                 android:id="@+id/correction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="10"
-                android:layout_row="5"
-                android:text="corriger" />
-
-            <TextView
-                android:id="@+id/ReponseEleve"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_column="12"
-                android:layout_row="1"
-                android:textSize="24sp" />
-
-            <TextView
-                android:id="@+id/Operateur"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_column="0"
-                android:layout_row="1"
-                android:textSize="24sp" />
+                android:layout_columnSpan="3"
+                android:layout_gravity="fill"
+                android:text="Effacer le dernier chiffre" />
 
         </GridLayout>
+
+        <TextView
+            android:id="@+id/operande1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/rb__button_inverse_red"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/ReponseEleve"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@color/rb__button_inverse_red"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/operande1"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="Écrit la bonne réponse pour le calcul suivant :"
+            android:textAlignment="textStart"
+            android:textColor="@color/rb__button_inverse_red"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

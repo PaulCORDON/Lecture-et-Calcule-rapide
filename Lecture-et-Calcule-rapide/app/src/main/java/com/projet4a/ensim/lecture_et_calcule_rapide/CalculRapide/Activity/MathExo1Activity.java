@@ -3,6 +3,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
@@ -239,6 +240,19 @@ public class MathExo1Activity extends AppCompatActivity {
             @Override
             public void onTick(long l) {
                 progress.setProgress(((int) tempsTotal) - ((int) l));
+            /*
+            evolution de la plage de couleur progress bar
+             */
+                if(progress.getProgress()<=((int) tempsTotal)/2){
+                    progress.getProgressDrawable().setColorFilter(
+                            Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
+                }else if(progress.getProgress()<=((int) tempsTotal)-2000){
+                    progress.getProgressDrawable().setColorFilter(
+                            Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
+                }else {
+                    progress.getProgressDrawable().setColorFilter(
+                            Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
+                }
                 if (exo.getParam().getDisparition()) {
                     Log.w("ordre apparition", "ordre" + exo.getParam().getOrdreApparition());
                     if (exo.getParam().getOrdreApparition()) {
@@ -304,19 +318,20 @@ public class MathExo1Activity extends AppCompatActivity {
 
                     Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee", reponseJuste);
+                    intent.putExtra("exoMath",exo );
 
-                    FileOutputStream outputStream;
-                    ObjectOutputStream oos;
-                    try {
-                        outputStream = openFileOutput("ExoM1.txt", Context.MODE_PRIVATE);
-                        oos = new ObjectOutputStream(outputStream);
-                        oos.writeObject(exo);
-
-                        oos.flush();
-                        oos.close();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+//                    FileOutputStream outputStream;
+//                    ObjectOutputStream oos;
+//                    try {
+//                        outputStream = openFileOutput("ExoM1.txt", Context.MODE_PRIVATE);
+//                        oos = new ObjectOutputStream(outputStream);
+//                        oos.writeObject(exo);
+//
+//                        oos.flush();
+//                        oos.close();
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
 
                     finish();
                     startActivity(intent);
