@@ -172,7 +172,7 @@ switch(type){
 
                                 break;
                             default:
-                                reponse1.setText(correction(exoMath.getBornes().get(0).getBornes(), exoMath.getResultats()[0]).get(0));
+                                reponse1.setText(exoMath.getCalculEnonce().get(0).ToString());
                                 break;
 
                         }
@@ -265,69 +265,7 @@ switch(type){
 
     // on renvoi une array list de String, la premiere valeurs correspond à la réponse,
     // la deuxieme à l'expression de gauche, la derniere à la droite de l'expression.
-    private ArrayList<String> correction(ArrayList<Integer> bornes, int resultat) {
 
-        ArrayList<String> rep = new ArrayList<>();
-
-        if (bornes.size() == 1) {
-            if (resultat < bornes.get(0)) {
-                rep.add("" + resultat);
-                rep.add("");
-                rep.add(" _ < _ " + bornes.get(0));
-                return rep;
-            } else {
-                rep.add("" + resultat);
-                rep.add(" _ " + bornes.get(0) + " _ < _ ");
-                rep.add("");
-                return rep;
-            }
-        }
-        if (bornes.size() == 2) {
-            if (resultat < bornes.get(0)) {
-                rep.add("" + resultat);
-                rep.add("");
-                rep.add(" < " + bornes.get(0) + " < " + bornes.get(1));
-
-                return rep;
-            }
-            if (resultat > bornes.get(1)) {
-                rep.add("" + resultat);
-                rep.add(" _ " + bornes.get(0) + " < " + bornes.get(1) + " < ");
-                rep.add("");
-                return rep;
-            }
-            rep.add("" + resultat);
-            rep.add("_ " + bornes.get(0) + " < ");
-            rep.add(" < " + bornes.get(1));
-            return rep;
-        }
-        if (bornes.size() == 3) {
-            if (resultat < bornes.get(0)) {
-                rep.add("" + resultat);
-                rep.add("");
-                rep.add(" < " + bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2));
-                return rep;
-            }
-            if (resultat > bornes.get(2)) {
-                rep.add("" + resultat);
-                rep.add(bornes.get(0) + " < " + bornes.get(1) + " < " + bornes.get(2) + " < ");
-                rep.add("");
-                return rep;
-            }
-            if (resultat < bornes.get(1)) {
-                rep.add("" + resultat);
-                rep.add("" + bornes.get(0) + " < ");
-                rep.add(" < " + bornes.get(1) + " < " + bornes.get(2));
-                return rep;
-            } else {
-                rep.add("" + resultat);
-                rep.add(bornes.get(0) + " < " + bornes.get(1) + " < ");
-                rep.add(" < " + bornes.get(2));
-                return rep;
-            }
-        }
-        return null;
-    }
 
     
 }
