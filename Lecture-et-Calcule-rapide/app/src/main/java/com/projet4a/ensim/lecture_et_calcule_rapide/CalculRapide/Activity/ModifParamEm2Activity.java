@@ -2,6 +2,7 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -11,22 +12,42 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
+import android.widget.Toast;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm2;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-/**
- * Created by HP on 22/02/2018.
- */
-
 public class ModifParamEm2Activity extends AppCompatActivity {
+
+    static ParamEm2 param = new ParamEm2();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /**
+         * Pour récupérer les parametres déja sérialisés
+         */
+        try {
+            FileInputStream fis = openFileInput("ParamEm2.txt");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            param = (ParamEm2) ois.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
         setContentView(R.layout.activity_modif_param_em2);
         /**
          *
@@ -50,17 +71,6 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
         final CheckBox multiplicationC = findViewById(R.id.multiplicationC);
 
-        /** on a forcement une case de validée */
-        if (!additionC.isChecked() && !soustractionC.isChecked() &&!multiplicationC.isChecked() && !divisionC.isChecked()){
-            additionC.setChecked(true);
-        }
-
-
-        /** tableau de booleens qui stockera plus tard les reponses des checkBoxs concernant les operations (addition, soustraction, division, multiplication)*/
-        final Boolean[] operateurs = new Boolean[5];
-        final Boolean[] operateursB = new Boolean[5];
-
-
 
         final EditText  nbCal= (EditText)  findViewById(R.id.NbCalcul);
         final EditText  valeurMax= (EditText)  findViewById(R.id.ValMaxOperandes);
@@ -75,8 +85,28 @@ public class ModifParamEm2Activity extends AppCompatActivity {
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
         Button valider=  findViewById(R.id.BtonValider);
 
-        /**  Bouton qui permet d'activer les calculs en chaine**/
-        final Switch chaine = findViewById(R.id.CalculChaine);
+        additionC.setChecked(param.getOperateur()[0]);
+        soustractionC.setChecked(param.getOperateur()[1]);
+        multiplicationC.setChecked(param.getOperateur()[2]);
+        divisionC.setChecked(param.getOperateur()[3]);
+
+        nbCal.setText(""+param.getNbCalcul());
+        valeurMax.setText(""+param.getValMaxOperande());
+
+        nbpair.setChecked(param.getNombrePair());
+        nbimpair.setChecked(param.getNombreImpair());
+
+        switch (param.gettypeRep()){
+            case 0 :
+                pavNum.setChecked(true);
+                break;
+            case 1 :
+                deuxbornes.setChecked(true);
+                break;
+            case 2 :
+                quatrebornes.setChecked(true);
+                break;
+        }
 
         /**
          * si on clique sur le bouton valider
@@ -86,104 +116,144 @@ public class ModifParamEm2Activity extends AppCompatActivity {
             /** si le bouton valider a ete cliqué on rentre dans cette methode*/
             public void onClick(View view) {
 
-                int nbcal = 10;
-                int valMax = 10;
+                boolean parametresCorrects = true;
+
+                int nbcal;
+                int valMax;
 
                 /**
                  * verifier si les valeurs de nombre max de calcul et des opérandes sont saisies
                  */
                 if (!nbCal.getText().toString().equals(""))
                     nbcal = Integer.parseInt(nbCal.getText().toString());
-                else nbcal = 10;
+                else nbcal = param.getNbCalcul();
 
                 if (!valeurMax.getText().toString().equals(""))
                     valMax = Integer.parseInt(valeurMax.getText().toString());
-                else valMax = 10;
+                else valMax = param.getValMaxOperande();
 
                 /**
                  * declaration des variables
-                 */
-                boolean npair=false, nimpair=false,repdeuxbrnes=false,repQuatrebrnes=false,pav=true;
-                int typerep = 0;
-
-                /**
                  * récupération des valeurs entrées par l'utilisateur
                  */
-                if(nbpair.isChecked()){
-                    npair=true;
-                }
-
-                if(nbimpair.isChecked()){
-                    nimpair=true;
-                    if(!nbpair.isChecked()){
-                        npair=false;
-                    }
-                }
-
-
-                if(deuxbornes.isChecked()){
-                    repdeuxbrnes = true;
-                    pav = false;
-                    typerep=1;
-                }else
-                if(quatrebornes.isChecked()){
-                    repQuatrebrnes = true;
-                    pav = false;
-                    typerep=2;
-                }else
-                if(pavNum.isChecked()){
-                    pav = true;
-                    typerep=0;
-                }
-
-                boolean chaineB = false ;
-                if(chaine.isChecked()){
-                    chaineB = true;
-                }
-
-
-                ParamEm2 param = null;
-
-
-
-
-                param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes,chaineB);
+                boolean npair = nbpair.isChecked();
+                boolean nimpair = nbimpair.isChecked();
+                boolean repdeuxbrnes = deuxbornes.isChecked();
+                boolean repQuatrebrnes = quatrebornes.isChecked();
+                boolean pav = pavNum.isChecked();
+                int typerep = 0;
+                if(pav) typerep = 0;
+                else if(repdeuxbrnes) typerep = 1;
+                else if(repQuatrebrnes) typerep = 2;
+                else parametresCorrects = false;
 
                 Boolean operateur[] = new Boolean[4];
                 /**on stocke les booleens correspondant aux operations dans le tableau*/
-
                 operateur[0] = additionC.isChecked();
                 operateur[1] = soustractionC.isChecked();
                 operateur[2] = multiplicationC.isChecked();
                 operateur[3] = divisionC.isChecked();
 
-                if(!operateur[0] && !operateur[1] && !operateur[2] && !operateur[3]){
-                    operateur[0] = true;
+                if (!operateur[0] && !operateur[1] && !operateur[2] && !operateur[3]) {
+                    Toast.makeText(ModifParamEm2Activity.this,"Selectionne au moins un opérateur",Toast.LENGTH_SHORT).show();
+
+                    additionC.setTextColor(Color.RED);
+                    soustractionC.setTextColor(Color.RED);
+                    multiplicationC.setTextColor(Color.RED);
+                    divisionC.setTextColor(Color.RED);
+
+                    parametresCorrects = false;
                 }
-                param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);
+                if(!nimpair && !npair){
+                    Toast.makeText(ModifParamEm2Activity.this,"Selectionne au moins un type de nombre pair ou impair",Toast.LENGTH_SHORT).show();
 
+                    nbimpair.setTextColor(Color.RED);
+                    nbpair.setTextColor(Color.RED);
 
-                FileOutputStream outputStream;
-                ObjectOutputStream oos;
-                try {
-                    outputStream = openFileOutput("ParamEm2.txt", Context.MODE_PRIVATE);
-                    oos = new ObjectOutputStream(outputStream);
-                    oos.writeObject(param);
-
-                    oos.flush();
-                    oos.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    parametresCorrects = false;
                 }
 
-                /** quand on a cliqué sur le bouton valider on reviens au menu*/
-                Intent intent=new Intent(ModifParamEm2Activity.this, MathsActivity.class);
-                startActivity(intent);
 
+                if(parametresCorrects){
+                    param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes);
+
+
+
+                    param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);
+
+
+                    FileOutputStream outputStream;
+                    ObjectOutputStream oos;
+                    try {
+                        outputStream = openFileOutput("ParamEm2.txt", Context.MODE_PRIVATE);
+                        oos = new ObjectOutputStream(outputStream);
+                        oos.writeObject(param);
+
+                        oos.flush();
+                        oos.close();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                    /** quand on a clique sur le bouton valider on reviens au menu*/
+                    Intent intent=new Intent(ModifParamEm2Activity.this, MathsActivity.class);
+                    startActivity(intent);
+                }
             }
 
         });
 
+        View.OnClickListener retourEcritEnNoir = (new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                additionC.setTextColor(Color.BLACK);
+                soustractionC.setTextColor(Color.BLACK);
+                divisionC.setTextColor(Color.BLACK);
+                multiplicationC.setTextColor(Color.BLACK);
+            }
+        });
+
+        additionC.setOnClickListener(retourEcritEnNoir);
+        soustractionC.setOnClickListener(retourEcritEnNoir);
+        divisionC.setOnClickListener(retourEcritEnNoir);
+        multiplicationC.setOnClickListener(retourEcritEnNoir);
+
+        View.OnClickListener retourEcritEnNoirParite = (new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                nbimpair.setTextColor(Color.BLACK);
+                nbpair.setTextColor(Color.BLACK);
+            }
+        });
+
+        nbimpair.setOnClickListener(retourEcritEnNoirParite);
+        nbpair.setOnClickListener(retourEcritEnNoirParite);
+
+        pavNum.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                deuxbornes.setChecked(false);
+                quatrebornes.setChecked(false);
+            }
+        });
+
+        deuxbornes.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                pavNum.setChecked(false);
+                quatrebornes.setChecked(false);
+            }
+        });
+
+        quatrebornes.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                deuxbornes.setChecked(false);
+                pavNum.setChecked(false);
+            }
+        });
     }
 }
 

@@ -11,64 +11,85 @@
         android:id="@+id/Gif"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:background="@color/zxing_transparent"
-        android:padding="50dp"
+        android:padding="60dp"
         android:src="@drawable/giphy"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme"
         app:layout_constraintStart_toEndOf="@+id/goM"
         app:layout_constraintTop_toBottomOf="@+id/descriptionM"
         app:layout_constraintVertical_bias="0.0" />
 
-    <ImageView
-        android:id="@+id/bulle1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.667"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.291"
-        app:srcCompat="@drawable/choixexomath" />
-
-    <ImageView
-        android:id="@+id/bulle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="88dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076"
-        app:srcCompat="@drawable/exo1" />
 
     <ImageView
         android:id="@+id/bonhomme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="114dp"
+        android:layout_height="238dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Gif"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@mipmap/bonhommemenu" />
+
+    <com.cpiz.android.bubbleview.BubbleTextView
+        android:id="@+id/bulle1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:text="Choisis parmi \n ces trois exercices \n de calcul."
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:bb_arrowDirection="Down"
+        app:bb_arrowHeight="20dp"
+        app:bb_arrowWidth="20dp"
+        app:bb_borderColor="@android:color/white"
+        app:bb_borderWidth="3dp"
+        app:bb_cornerRadius="30dp"
+        app:bb_fillColor="@color/zxing_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/bonhomme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.74"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.cpiz.android.bubbleview.BubbleTextView
+        android:id="@+id/bulle2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:text="Voici le tutoriel de l'exercice 1.\n Appuie sur GO \nsi tu veux commencer !"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:bb_arrowDirection="Down"
+        app:bb_arrowHeight="20dp"
+        app:bb_arrowWidth="20dp"
+        app:bb_borderColor="@android:color/white"
+        app:bb_borderWidth="3dp"
+        app:bb_cornerRadius="30dp"
+        app:bb_fillColor="@color/zxing_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/bonhomme"
+        app:layout_constraintEnd_toStartOf="@+id/paramM"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/bonhomme8"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 
 
     <Button
@@ -93,7 +114,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
@@ -101,45 +121,25 @@
 
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/exo3M"
         app:layout_constraintStart_toEndOf="@+id/exo1M"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/exo3M"
-        style="@style/RbButton.Inverse.Rounded.Black"
+    <ImageButton
+        android:id="@+id/paramM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_weight="1"
-        android:text="@string/exo3"
-
+        android:background="@android:color/transparent"
+        android:src="@drawable/settings"
+        android:text="parametre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.23"
-        app:layout_constraintStart_toEndOf="@+id/exo1M"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
-        <ImageButton
-            android:id="@+id/paramM"
-            android:src="@drawable/settings"
-            android:background="@android:color/transparent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_weight="1"
-            android:text="parametre"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/descriptionM"

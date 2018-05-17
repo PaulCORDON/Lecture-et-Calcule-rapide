@@ -21,8 +21,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.cpiz.android.bubbleview.BubbleTextView;
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Locale;
 
 import pl.droidsonroids.gif.GifImageView;
@@ -32,7 +38,6 @@ public class MathsActivity extends AppCompatActivity {
     /* booleens pour savoir quel exercice est selectionné */
     boolean isExercice1;
     boolean isExercice2;
-    boolean isExercice3;
     TextView descriptionM;
     TextToSpeech tts ;
 
@@ -44,7 +49,6 @@ public class MathsActivity extends AppCompatActivity {
         /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
         final Button exercice1 = (Button) findViewById(R.id.exo1M);
         final Button exercice2 = (Button) findViewById(R.id.exo2M);
-        final Button exercice3 = (Button) findViewById(R.id.exo3M);
         /* creation du boutton parametre */
         final ImageButton parametreM = (ImageButton) findViewById(R.id.paramM);
         /*creation bouton goM */
@@ -59,7 +63,7 @@ public class MathsActivity extends AppCompatActivity {
         animate.setFillAfter(true);
         bonhomme.startAnimation(animate);
 
-        final ImageView bulle1= findViewById(R.id.bulle1);
+        final BubbleTextView bulle1= findViewById(R.id.bulle1);
         final TranslateAnimation animate2 = new TranslateAnimation(0, 0, -500, 0);
         animate2.setDuration(500);
         animate2.setFillAfter(false);
@@ -67,7 +71,7 @@ public class MathsActivity extends AppCompatActivity {
 
 
 
-        final ImageView bulle2=findViewById(R.id.bulle2);
+        final BubbleTextView bulle2=findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
 
         final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
@@ -89,8 +93,38 @@ public class MathsActivity extends AppCompatActivity {
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+            /* on recuprere les parametre de maths */
+                ParamEm1 param = new ParamEm1();
+                try {
+                    FileInputStream fis = openFileInput("ParamEm1.txt");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    param = (ParamEm1) ois.readObject();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
+
+                String text = null;
                 Resources res = getResources();
-                String text = res.getString(R.string.consigneExo1m);
+                    if (param.getFrise()) {
+                         text = res.getString(R.string.consigneExo1m);
+                    }
+                    else{ if (param.getNbBornes() == 2 ){
+                        text = res.getString(R.string.consigneExo1_2m);
+
+
+                    }
+                    else {
+
+                        text = res.getString(R.string.consigneExo1_1m);
+
+
+                    }
+                }
                 tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
 
             }
@@ -99,7 +133,6 @@ public class MathsActivity extends AppCompatActivity {
         /* on modifie la transparence des boutons */
         exercice1.getBackground().setAlpha(100);
         exercice2.getBackground().setAlpha(100);
-        exercice3.getBackground().setAlpha(100);
 
 
         gifExo.setVisibility(View.GONE);
@@ -112,13 +145,11 @@ public class MathsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 exercice1.setEnabled(false);
                 exercice2.setEnabled(true);
-                exercice3.setEnabled(true);
                 parametreM.setVisibility(View.VISIBLE);
                 go.setVisibility(View.VISIBLE);
                 gifExo.setVisibility(View.VISIBLE);
                 isExercice1 = true;
                 isExercice2 = false;
-                isExercice3 = false;
                 TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
                 animate.setDuration(500);
                 animate.setFillAfter(true);
@@ -138,13 +169,11 @@ public class MathsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 exercice1.setEnabled(true);
                 exercice2.setEnabled(false);
-                exercice3.setEnabled(true);
                 parametreM.setVisibility(View.VISIBLE);
                 go.setVisibility(View.VISIBLE);
                 gifExo.setVisibility(View.VISIBLE);
                 isExercice1 = false;
                 isExercice2 = true;
-                isExercice3 = false;
                 TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
                 animate.setDuration(500);
                 animate.setFillAfter(true);
@@ -155,28 +184,6 @@ public class MathsActivity extends AppCompatActivity {
             }
         });
 
-        /** click sur le bouton exercice 3 , on affiche la description et on met le bouton enable */
-        exercice3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                exercice1.setEnabled(true);
-                exercice2.setEnabled(true);
-                exercice3.setEnabled(false);
-                parametreM.setVisibility(View.VISIBLE);
-                go.setVisibility(View.VISIBLE);
-                gifExo.setVisibility(View.VISIBLE);
-                isExercice1 = false;
-                isExercice2 = false;
-                isExercice3 = true;
-                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
-                animate.setDuration(500);
-                animate.setFillAfter(true);
-                bonhomme.startAnimation(animate);
-                bulle1.setVisibility(View.GONE);
-
-                descriptionM.setText("Exercice 3 de Mathématiques\nConsigne : ");
-            }
-        });
 
         /** click sur le bouton parametre qui renvoie sur la bonne activité en fonction des booleens */
         parametreM.setOnClickListener(new View.OnClickListener() {

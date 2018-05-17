@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cpiz.android.bubbleview.BubbleTextView;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathsActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity;
@@ -42,8 +43,8 @@ public class MenuActivity extends AppCompatActivity {
         final ImageView bonhomme1 = findViewById(R.id.bonhomme);
         final ImageView bonhomme2 = findViewById(R.id.bonhomme2);
         bonhomme2.setVisibility(View.GONE);
-        final ImageView bulle1 = findViewById(R.id.bulle1);
-        final ImageView bulle2 = findViewById(R.id.bulle2);
+        final BubbleTextView bulle1 = findViewById(R.id.bulle1);
+        final BubbleTextView bulle2 = findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
         final TextView textCalcul=findViewById(R.id.textCalcul);
         final TextView textLecture=findViewById(R.id.textLecture);
