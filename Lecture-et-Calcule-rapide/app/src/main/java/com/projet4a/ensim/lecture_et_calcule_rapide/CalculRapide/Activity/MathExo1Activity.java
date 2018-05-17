@@ -304,19 +304,20 @@ public class MathExo1Activity extends AppCompatActivity {
 
                     Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee", reponseJuste);
+                    intent.putExtra("exoMath",exo );
 
-                    FileOutputStream outputStream;
-                    ObjectOutputStream oos;
-                    try {
-                        outputStream = openFileOutput("ExoM1.txt", Context.MODE_PRIVATE);
-                        oos = new ObjectOutputStream(outputStream);
-                        oos.writeObject(exo);
-
-                        oos.flush();
-                        oos.close();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+//                    FileOutputStream outputStream;
+//                    ObjectOutputStream oos;
+//                    try {
+//                        outputStream = openFileOutput("ExoM1.txt", Context.MODE_PRIVATE);
+//                        oos = new ObjectOutputStream(outputStream);
+//                        oos.writeObject(exo);
+//
+//                        oos.flush();
+//                        oos.close();
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
 
                     finish();
                     startActivity(intent);

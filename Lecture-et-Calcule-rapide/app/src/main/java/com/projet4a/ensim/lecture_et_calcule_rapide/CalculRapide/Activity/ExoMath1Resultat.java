@@ -71,6 +71,8 @@ Log.w("passage activités :","valeur de type :::::::::::::::::::::::::::::::::::
         //on récupere l'exercice avec la bonne instance :
 switch(type){
     case 1 :
+        exoMath = intent.getParcelableExtra("exoMath");
+
         try {
             FileInputStream fis = openFileInput("ExoM1.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);
@@ -169,9 +171,9 @@ switch(type){
                                 Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(0).ToString());
 
                                 break;
-                            default:/*
-                                reponse1.setText(correction(exoMath.getBornes().get(0), exoMath.getResultats()[0]).get(0));
-                                */break;
+                            default:
+                                reponse1.setText(correction(exoMath.getBornes().get(0).getBornes(), exoMath.getResultats()[0]).get(0));
+                                break;
 
                         }
 
@@ -186,7 +188,7 @@ switch(type){
 
                             break;
                         default:
-                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0).toString() );
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0).ToString() );
                             break;
 
                     }
@@ -209,13 +211,11 @@ switch(type){
                                 Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
 
                                 break;
-                            default:/*
-                                reponse2.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(0));
-                                reponse1.setVisibility(View.VISIBLE);
-                                reponse1.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(1));
-                                reponse3.setVisibility(View.VISIBLE);
-                                reponse3.setText(correction(exoMath.getBornes().get(numQuestCorr - 1), exoMath.getResultats()[numQuestCorr - 1]).get(2));
-                               */ break;
+                            default:
+                                numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1).ToString() );
+
+
+                                break;
 
                         }
 
@@ -229,7 +229,7 @@ switch(type){
                             Log.w("calcul.toString() :","voilà ce que l'on a : " + exo2Math.getCalcul().get(numQuestCorr - 1).toString());
                             break;
                         default:
-                            numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1) + " = " + exoMath.getResultats()[numQuestCorr - 1]);
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(numQuestCorr - 1).ToString() );
                             break;
 
                     }
