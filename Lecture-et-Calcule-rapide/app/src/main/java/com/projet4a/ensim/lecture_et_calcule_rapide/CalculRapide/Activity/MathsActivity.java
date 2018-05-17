@@ -74,6 +74,9 @@ public class MathsActivity extends AppCompatActivity {
         final BubbleTextView bulle2=findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
 
+        final BubbleTextView bulle3=findViewById(R.id.bulle3);
+        bulle3.setVisibility(View.GONE);
+
         final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
         final ImageButton volume = findViewById(R.id.volume);
         TextToSpeech.OnInitListener listener =
@@ -143,6 +146,7 @@ public class MathsActivity extends AppCompatActivity {
         exercice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                bulle3.setVisibility(View.GONE);
                 exercice1.setEnabled(false);
                 exercice2.setEnabled(true);
                 parametreM.setVisibility(View.VISIBLE);
@@ -150,7 +154,7 @@ public class MathsActivity extends AppCompatActivity {
                 gifExo.setVisibility(View.VISIBLE);
                 isExercice1 = true;
                 isExercice2 = false;
-                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                TranslateAnimation animate = new TranslateAnimation(0, 100, 0, 0);
                 animate.setDuration(500);
                 animate.setFillAfter(true);
                 bonhomme.startAnimation(animate);
@@ -167,6 +171,7 @@ public class MathsActivity extends AppCompatActivity {
         exercice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                bulle2.setVisibility(View.GONE);
                 exercice1.setEnabled(true);
                 exercice2.setEnabled(false);
                 parametreM.setVisibility(View.VISIBLE);
@@ -174,12 +179,13 @@ public class MathsActivity extends AppCompatActivity {
                 gifExo.setVisibility(View.VISIBLE);
                 isExercice1 = false;
                 isExercice2 = true;
-                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                TranslateAnimation animate = new TranslateAnimation(0, 100, 0, 0);
                 animate.setDuration(500);
                 animate.setFillAfter(true);
                 bonhomme.startAnimation(animate);
                 bulle1.setVisibility(View.GONE);
-
+                bulle3.setVisibility(View.VISIBLE);
+                bulle3.startAnimation(animate2);
                 descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : Fait les multiplications");
             }
         });
