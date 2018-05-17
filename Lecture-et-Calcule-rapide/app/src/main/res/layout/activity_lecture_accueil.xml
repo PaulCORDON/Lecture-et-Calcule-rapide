@@ -7,6 +7,58 @@
     android:background="@drawable/ardoise"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity">
 
+    <com.cpiz.android.bubbleview.BubbleTextView
+        android:id="@+id/bulle1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:text="Choisis parmi \n ces exercices \n de lecture."
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+
+        app:bb_arrowDirection="Down"
+        app:bb_arrowHeight="20dp"
+        app:bb_arrowWidth="20dp"
+        app:bb_borderColor="@android:color/white"
+        app:bb_borderWidth="3dp"
+        app:bb_cornerRadius="30dp"
+        app:bb_fillColor="@color/zxing_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/bonhomme"
+        app:layout_constraintEnd_toEndOf="@+id/bonhomme"
+        app:layout_constraintStart_toEndOf="@+id/descriptionL"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.cpiz.android.bubbleview.BubbleTextView
+        android:id="@+id/bulle2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center_vertical"
+        android:padding="6dp"
+        android:text="Voici le tutoriel de l'exercice 1.\n Appuie sur GO \nsi tu veux commencer !"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+
+        app:bb_arrowDirection="Down"
+        app:bb_arrowHeight="20dp"
+        app:bb_arrowWidth="20dp"
+        app:bb_borderColor="@android:color/white"
+        app:bb_borderWidth="3dp"
+        app:bb_cornerRadius="30dp"
+        app:bb_fillColor="@color/zxing_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/bonhomme"
+        app:layout_constraintEnd_toEndOf="@+id/bonhomme"
+        app:layout_constraintStart_toEndOf="@+id/descriptionL"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
     <ImageView
         android:id="@+id/bonhomme"
         android:layout_width="114dp"
@@ -18,7 +70,7 @@
         android:src="@mipmap/bonhommemenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -28,13 +80,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@android:color/transparent"
         android:padding="50dp"
         android:src="@drawable/giphylecture"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme"
         app:layout_constraintStart_toEndOf="@+id/goL"
         app:layout_constraintTop_toBottomOf="@+id/descriptionL"
         tools:maxHeight="250px"
@@ -60,8 +112,8 @@
 
     <TextView
         android:id="@+id/descriptionL"
-        android:layout_width="match_parent"
-        android:layout_height="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
@@ -72,6 +124,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/exo1L"
         app:layout_constraintVertical_bias="0.0" />
@@ -110,10 +163,16 @@
 
     <ImageButton
         android:id="@+id/volumeLec"
-        android:layout_width="88dp"
-        android:layout_height="66dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:background="@color/zxing_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/goL"
+        app:layout_constraintEnd_toEndOf="@+id/descriptionL"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/descriptionL"
         app:srcCompat="@drawable/volume" />
