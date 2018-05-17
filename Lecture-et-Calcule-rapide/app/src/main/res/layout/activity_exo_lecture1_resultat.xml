@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ardoise"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ExoLecture1Resultat">
 
     <Button
@@ -22,6 +23,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.89"
         tools:text="@string/accueil" />
+
+    <ImageView
+        android:id="@+id/bonhommebof"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/AcceuilBtn"
+        app:layout_constraintEnd_toStartOf="@+id/bulle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@mipmap/bonhommebof" />
+
+    <com.cpiz.android.bubbleview.BubbleTextView
+        android:id="@+id/bulle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="8dp"
+
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:padding="6dp"
+        android:text="Dommage, \n tu feras mieux \nla prochaine fois !"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        app:bb_arrowDirection="Left"
+        app:bb_arrowHeight="20dp"
+        app:bb_arrowWidth="20dp"
+        app:bb_borderColor="@android:color/white"
+        app:bb_borderWidth="3dp"
+        app:bb_cornerRadius="30dp"
+        app:bb_fillColor="@color/zxing_transparent"
+        app:layout_constraintBottom_toTopOf="@+id/AcceuilBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bonhommebof"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -42,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@android:color/white"
             android:textAlignment="center"
             android:textSize="36sp" />
 
@@ -51,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/slash"
+            android:textColor="@android:color/white"
             android:textAlignment="center"
             android:textSize="36sp" />
 
@@ -60,6 +104,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textAlignment="center"
+            android:textColor="@android:color/white"
             android:textSize="36sp" />
     </LinearLayout>
 
@@ -74,6 +119,7 @@
         android:text="@string/tonScore"
         android:textAlignment="center"
         android:textSize="36sp"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

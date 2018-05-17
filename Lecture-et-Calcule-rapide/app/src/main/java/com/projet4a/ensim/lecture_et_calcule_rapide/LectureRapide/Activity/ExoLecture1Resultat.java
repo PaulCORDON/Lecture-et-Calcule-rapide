@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ExoMath1Resultat;
@@ -18,6 +19,7 @@ public class ExoLecture1Resultat extends AppCompatActivity {
     TextView score;
     TextView scoreMax;
     String contenuBouton;
+    ImageView bonhommebof;
     int reponseJuste;
     int nbDapparitionTotal;
     Button btnqrcode;
@@ -41,6 +43,16 @@ public class ExoLecture1Resultat extends AppCompatActivity {
         score = findViewById(R.id.scoreTxt);
         scoreMax = findViewById(R.id.nbAppTxt);
         btnqrcode =findViewById(R.id.BtnQRCode);
+        bonhommebof=findViewById(R.id.bonhommebof);
+        bonhommebof.setVisibility(View.GONE);
+
+
+        /**
+         * on affiche l'image du bonhomme en fonction du score
+         */
+
+        if(reponseJuste<=3)bonhommebof.setVisibility(View.VISIBLE);
+
 
         /**
          * on remplit les champs textes avec ce qu'on a récupérer au dessus
