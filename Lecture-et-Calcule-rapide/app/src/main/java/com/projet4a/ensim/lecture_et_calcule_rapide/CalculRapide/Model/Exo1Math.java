@@ -236,6 +236,7 @@ public class Exo1Math extends Exercice implements Parcelable {
         return resultats;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -258,7 +259,7 @@ public class Exo1Math extends Exercice implements Parcelable {
         this.param = (ParamEm1) in.readSerializable();
     }
 
-    public static final Parcelable.Creator<Exo1Math> CREATOR = new Parcelable.Creator<Exo1Math>() {
+    public static final Creator<Exo1Math> CREATOR = new Creator<Exo1Math>() {
         @Override
         public Exo1Math createFromParcel(Parcel source) {
             return new Exo1Math(source);

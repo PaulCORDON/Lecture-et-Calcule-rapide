@@ -1,5 +1,8 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.Critere;
 
 import java.io.Serializable;
@@ -8,7 +11,7 @@ import java.util.ArrayList;
 /**
  * classe d'un calcul
  */
-public class Calcul implements Serializable {
+public class Calcul implements Parcelable {
     private int operande1;
     private int operande2;
     private char operation;
@@ -112,4 +115,41 @@ public class Calcul implements Serializable {
     public Calcul(){
 
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.operande1);
+        dest.writeInt(this.operande2);
+        dest.writeInt(this.operation);
+        dest.writeByte(this.multiOp ? (byte) 1 : (byte) 0);
+        dest.writeInt(this.resultat);
+        dest.writeList(this.listCrit);
+    }
+
+    protected Calcul(Parcel in) {
+        this.operande1 = in.readInt();
+        this.operande2 = in.readInt();
+        this.operation = (char) in.readInt();
+        this.multiOp = in.readByte() != 0;
+        this.resultat = in.readInt();
+        this.listCrit = new ArrayList<Critere>();
+        in.readList(this.listCrit, Critere.class.getClassLoader());
+    }
+
+    public static final Creator<Calcul> CREATOR = new Creator<Calcul>() {
+        @Override
+        public Calcul createFromParcel(Parcel source) {
+            return new Calcul(source);
+        }
+
+        @Override
+        public Calcul[] newArray(int size) {
+            return new Calcul[size];
+        }
+    };
 }

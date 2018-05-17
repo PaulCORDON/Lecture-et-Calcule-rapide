@@ -71,6 +71,7 @@ Log.w("passage activités :","valeur de type :::::::::::::::::::::::::::::::::::
         //on récupere l'exercice avec la bonne instance :
 switch(type){
     case 1 :
+
         try {
             FileInputStream fis = openFileInput("ExoM1.txt");
             ObjectInputStream ois = new ObjectInputStream(fis);

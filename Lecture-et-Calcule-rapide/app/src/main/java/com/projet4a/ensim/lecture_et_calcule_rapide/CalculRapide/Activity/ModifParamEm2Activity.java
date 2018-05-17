@@ -175,8 +175,8 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
 
                 if(parametresCorrects){
-                    param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes);
 
+                     param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes,false);
 
 
                     param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);

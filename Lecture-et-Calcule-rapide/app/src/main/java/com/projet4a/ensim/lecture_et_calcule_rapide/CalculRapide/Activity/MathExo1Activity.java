@@ -304,7 +304,7 @@ public class MathExo1Activity extends AppCompatActivity {
 
                     Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee", reponseJuste);
-
+                    intent.putExtra("exo1Math",exo);
                     FileOutputStream outputStream;
                     ObjectOutputStream oos;
                     try {

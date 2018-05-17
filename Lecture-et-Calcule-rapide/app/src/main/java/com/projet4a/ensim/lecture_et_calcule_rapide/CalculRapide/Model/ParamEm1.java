@@ -1,11 +1,14 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.io.Serializable;
 
 /**
  * classe définissant les paramètres de Exo1Maths
  */
-public class ParamEm1 extends ParamMath implements Serializable {
+public class ParamEm1 extends ParamMath implements Parcelable {
     private int nbBornes;
     /**
      * Nombre de bornes
@@ -156,4 +159,46 @@ public class ParamEm1 extends ParamMath implements Serializable {
     public boolean getFrise() {
         return frise;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(this.nbBornes);
+        dest.writeInt(this.nbQuestions);
+        dest.writeValue(this.disparition);
+        dest.writeLong(this.tempsRestantApparant);
+        dest.writeValue(this.ordreApparition);
+        dest.writeValue(this.borneSelectionnable);
+        dest.writeValue(this.borneEqualsOp);
+        dest.writeInt(this.valMax);
+        dest.writeByte(this.frise ? (byte) 1 : (byte) 0);
+    }
+
+    protected ParamEm1(Parcel in) {
+        this.nbBornes = in.readInt();
+        this.nbQuestions = in.readInt();
+        this.disparition = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.tempsRestantApparant = in.readLong();
+        this.ordreApparition = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.borneSelectionnable = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.borneEqualsOp = (Boolean) in.readValue(Boolean.class.getClassLoader());
+        this.valMax = in.readInt();
+        this.frise = in.readByte() != 0;
+    }
+
+    public static final Creator<ParamEm1> CREATOR = new Creator<ParamEm1>() {
+        @Override
+        public ParamEm1 createFromParcel(Parcel source) {
+            return new ParamEm1(source);
+        }
+
+        @Override
+        public ParamEm1[] newArray(int size) {
+            return new ParamEm1[size];
+        }
+    };
 }
