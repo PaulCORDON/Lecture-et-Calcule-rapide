@@ -56,6 +56,8 @@
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".CalculRapide.Activity.MathExo2Activity"
+            android:windowSoftInputMode="adjustResize"
+
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".EnvoiResultat.GenerateQRCodeActivity"

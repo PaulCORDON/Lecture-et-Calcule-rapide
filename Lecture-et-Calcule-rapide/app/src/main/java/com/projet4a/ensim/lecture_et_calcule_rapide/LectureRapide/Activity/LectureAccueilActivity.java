@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.cpiz.android.bubbleview.BubbleTextView;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.util.Locale;
@@ -41,6 +42,16 @@ public class LectureAccueilActivity extends AppCompatActivity {
         animate.setDuration(500);
         animate.setFillAfter(true);
         bonhomme.startAnimation(animate);
+
+
+        final BubbleTextView bulle1= findViewById(R.id.bulle1);
+        final TranslateAnimation animate2 = new TranslateAnimation(0, 0, -500, 0);
+        animate2.setDuration(500);
+        animate2.setFillAfter(false);
+        bulle1.startAnimation(animate2);
+
+        final BubbleTextView bulle2=findViewById(R.id.bulle2);
+        bulle2.setVisibility(View.GONE);
 
 
         /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
@@ -100,11 +111,14 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 go.setVisibility(View.VISIBLE);
                 isExercice1 = true;
                 gif.setVisibility(View.VISIBLE);
-                TranslateAnimation animate = new TranslateAnimation(0, 310, 0, 0);
+                TranslateAnimation animate = new TranslateAnimation(0, 100, 0, 0);
                 animate.setDuration(500);
                 animate.setFillAfter(true);
                 bonhomme.startAnimation(animate);
-                descriptionL.setText("Exercice 1 de Lecture\nConsigne : Trouve le mot qui est écrit exactement comme le mot de l'énoncé");
+                bulle1.setVisibility(View.GONE);
+                bulle2.setVisibility(View.VISIBLE);
+                bulle2.startAnimation(animate2);
+                descriptionL.setText("Exercice 1 de Lecture\nConsigne : Trouve le mot qui est écrit exactement\n comme le mot de l'énoncé");
             }
         });
 

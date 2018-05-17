@@ -13,8 +13,8 @@
     <string name="exo1">exercice1</string>
     <string name="exo2">exercice2</string>
     <string name="exo3">exercice3</string>
-    <string name="listeExoLecture">Choisit l\'exercice que tu veux faire.\nExercice 1 : Trouver le mot identique\n Exercice 2 :...</string>
-    <string name="listeExoMath">Choisit l\'exercice que tu veux faire.\nExercice 1 : Les Intervales\nExercice 2 : Les tables de multiplications</string>
+    <string name="listeExoLecture">Choisis l\'exercice que tu veux faire.\nExercice 1 : Trouver le mot identique</string>
+    <string name="listeExoMath">Choisis l\'exercice que tu veux faire.\nExercice 1 : Les Intervales\nExercice 2 : Les tables de multiplications</string>
     <string name="generer">Générer</string>
     <string name="go">GO</string>
     <string name="name">Nom</string>
@@ -2817,4 +2817,5 @@
     <string name="paveNum">Pavé numérique</string>
     <string name="consigneExoLect1">Tape sur les mots écrits comme :</string>
     <string name="passer">J\'ai trouvé\\ntous les mots</string>
+    <string name="CalculChaine">Mettre des calculs qui s enchainent \n ( ex : 7+8 puis 7+18) </string>
 </resources>

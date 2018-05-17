@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo2Math;
@@ -188,8 +189,11 @@ public class MathExo2Activity extends AppCompatActivity {
     private View.OnClickListener Corriger = (new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            reponse.deleteCharAt(reponse.length() - 1);
-            reponseE.setText(""+reponse.toString());
+        if(reponse.length()!=0){
+        reponse.deleteCharAt(reponse.length() - 1);
+        reponseE.setText(""+reponse.toString());
+        }
+
         }
     });
 
@@ -272,8 +276,8 @@ public class MathExo2Activity extends AppCompatActivity {
                 rep9 = (Button)findViewById(R.id.p9);
 
                 operande1 = findViewById(R.id.operande1);
-                operande2 = findViewById(R.id.operande2);
-                operateur = findViewById(R.id.Operateur);
+               // operande2 = findViewById(R.id.operande2);
+               // operateur = findViewById(R.id.Operateur);
 
                 final TextView reponseDonne = findViewById(R.id.ReponseEleve);
                 reponseE = reponseDonne;
@@ -296,7 +300,7 @@ public class MathExo2Activity extends AppCompatActivity {
             opera = "x";
         }
 
-        operande1.setText("" + exo.getCalcul().get(numQuestAct).getOp1Int() + " " + opera + " " + exo.getCalcul().get(numQuestAct).getOp2Int() ); //exo.getCalcul().get(numQuestAct).getOp1Int());
+        operande1.setText("" + exo.getCalcul().get(numQuestAct).getOp1Int() + " " + opera + " " + exo.getCalcul().get(numQuestAct).getOp2Int() + " = " ); //exo.getCalcul().get(numQuestAct).getOp1Int());
         //operande1.setText("" + exo.getCalcul().get(numQuestAct).getOperation());
         //operande2.setText("" + exo.getCalcul().get(numQuestAct).getOp2Int() ); //+exo.getCalcul().get(numQuestAct).getOp2Int());
 
@@ -358,7 +362,7 @@ public class MathExo2Activity extends AppCompatActivity {
 
                 break;
             case 0:
-                rep0.setOnClickListener(Pav0);
+               rep0.setOnClickListener(Pav0);
                 rep1.setOnClickListener(Pav1);
                 rep2.setOnClickListener(Pav2);
                 rep3.setOnClickListener(Pav3);
