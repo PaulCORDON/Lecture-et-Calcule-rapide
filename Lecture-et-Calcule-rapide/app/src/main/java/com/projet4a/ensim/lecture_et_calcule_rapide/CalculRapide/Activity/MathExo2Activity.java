@@ -248,7 +248,7 @@ public class MathExo2Activity extends AppCompatActivity {
                 rep1 = findViewById(R.id.repB);
 
                 operande1 = findViewById(R.id.operande1);
-                operande2 = findViewById(R.id.operande2);
+               // operande2 = findViewById(R.id.operande2);
                 operateur = findViewById(R.id.Operateur);
                 break;
             case 2:
@@ -259,7 +259,7 @@ public class MathExo2Activity extends AppCompatActivity {
                 rep3 = findViewById(R.id.R4);
 
                  operande1 = findViewById(R.id.operande1);
-                 operande2 = findViewById(R.id.operande2);
+                // operande2 = findViewById(R.id.operande2);
                 operateur = findViewById(R.id.Operateur);
                 break;
             default:
