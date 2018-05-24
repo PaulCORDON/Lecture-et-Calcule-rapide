@@ -1,756 +1,562 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:scrollbars="vertical"
+    tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity">
 
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <android.support.constraint.Guideline
+        android:id="@+id/top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scrollbars="vertical"
-        tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity">
-
-        <android.support.constraint.Guideline
-            android:id="@+id/left_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.2" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/right_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.8" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/top_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
-
-        <android.support.constraint.Guideline
-            android:id="@+id/bottom_guideline"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.0" />
-
-
-    <TextView
-        android:id="@+id/TitrePage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/paramMath1"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toTopOf="@+id/top_guideline"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/choixRep"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/TitrePage"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <RadioButton
-        android:id="@+id/RbFrise"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/frise"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-    <RadioButton
-        android:id="@+id/RbButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/boutons"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <TextView
-        android:id="@+id/TitreNbButtons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/nbBoutons"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/RbFrise"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <RadioButton
-        android:id="@+id/Rb2Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:text="2"
-        app:layout_constraintEnd_toStartOf="@+id/TitreNbButtons"
-        app:layout_constraintTop_toBottomOf="@+id/TitreNbButtons"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-    <RadioButton
-        android:id="@+id/Rb3Buttons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="3"
-        app:layout_constraintStart_toEndOf="@+id/TitreNbButtons"
-        app:layout_constraintTop_toBottomOf="@+id/TitreNbButtons"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <TextView
-        android:id="@+id/NbQuestions"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/nbQuest"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/Rb2Buttons"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <EditText
-        android:id="@+id/ChoixNbQuestionsB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="number"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/NbQuestions"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <TextView
-        android:id="@+id/TitreOrdreApparitionB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/ordreApp"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/ChoixNbQuestionsB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <CheckBox
-        android:id="@+id/ChoixCalculAvantRepB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/calcAvBoutton"
-        app:layout_constraintEnd_toStartOf="@+id/TitreOrdreApparitionB"
-        app:layout_constraintTop_toBottomOf="@+id/TitreOrdreApparitionB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-    <CheckBox
-        android:id="@+id/ChoixRepAvantCalculB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:text="@string/btnAvCalc"
-        app:layout_constraintStart_toEndOf="@+id/TitreOrdreApparitionB"
-        app:layout_constraintTop_toBottomOf="@+id/TitreOrdreApparitionB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <Switch
-        android:id="@+id/ChoixDisparitionCalculB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/dispCalc"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/ChoixCalculAvantRepB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <TextView
-        android:id="@+id/TitreTempsAvantDisparitionB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/tempsAvDispCalc"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/ChoixDisparitionCalculB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <EditText
-        android:id="@+id/tempsAvantDisparitionB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="number"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/TitreTempsAvantDisparitionB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <TextView
-        android:id="@+id/TitreTempsReponseB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:text="@string/tpsRepSec"
-        android:textAlignment="center"
-        android:textColor="@android:color/background_dark"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/tempsAvantDisparitionB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-    <EditText
-        android:id="@+id/tempsReponseB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="number"
-        android:textColor="@android:color/background_dark"
-        app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-        app:layout_constraintStart_toStartOf="@+id/left_guideline"
-        app:layout_constraintTop_toBottomOf="@+id/TitreTempsReponseB"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp" />
-
-        <Switch
-            android:id="@+id/ChoixNbPairsB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/seulChiffrePairs"
-            android:textColor="@android:color/background_dark"
-            app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-            app:layout_constraintStart_toStartOf="@+id/left_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/tempsReponseB"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-        <TextView
-            android:id="@+id/titreNbValMaxB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="30dp"
-            android:text="@string/valMax"
-            android:textAlignment="center"
-            android:textColor="@android:color/background_dark"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/right_guideline"
-            app:layout_constraintStart_toStartOf="@+id/left_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/ChoixNbPairsB"
-            tools:layout_conversion_absoluteHeight="0dp"
-            tools:layout_conversion_absoluteWidth="0dp" />
-
-                <EditText
-                    android:id="@+id/ValeurMaxB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <TextView
-                    android:id="@+id/titreChoixOperateursB"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/OpAUtilisé"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-
-                        <CheckBox
-                            android:id="@+id/additionB"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="+"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-                        <CheckBox
-                            android:id="@+id/soustractionB"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/moins"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-                        <CheckBox
-                            android:id="@+id/multiplicationB"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="X"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-                        <CheckBox
-                            android:id="@+id/divisionB"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="/"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-
-
-
-                <TextView
-                    android:id="@+id/TitreNbBornes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nbBornes"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-                    <RadioButton
-                        android:id="@+id/ChoixNbBornes1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/UneBorne"
-                        tools:layout_conversion_absoluteHeight="0dp"
-                        tools:layout_editor_absoluteY="0dp"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_conversion_absoluteWidth="0dp" />
-
-                    <RadioButton
-                        android:id="@+id/ChoixNbBornes2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/DeuxBornes"
-                        tools:layout_conversion_absoluteHeight="0dp"
-                        tools:layout_editor_absoluteY="0dp"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_conversion_absoluteWidth="0dp" />
-                    <RadioButton
-                        android:id="@+id/ChoixNbBornes3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/TroisBornes"
-                        tools:layout_conversion_absoluteHeight="0dp"
-                        tools:layout_editor_absoluteY="0dp"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-                <TextView
-                    android:id="@+id/TitreNbQuestions"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/nbQuest"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-                <EditText
-                    android:id="@+id/ChoixNbQuestions"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:textColor="@android:color/background_dark"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-                <TextView
-                    android:id="@+id/TitreOrdreApparition"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ordreApp"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-                    <CheckBox
-                        android:id="@+id/ChoixCalculAvantRep"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/calcAvRep"
-                        tools:layout_conversion_absoluteHeight="0dp"
-                        tools:layout_editor_absoluteY="0dp"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_conversion_absoluteWidth="0dp" />
-
-                    <CheckBox
-                        android:id="@+id/ChoixRepAvantCalcul"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/borneAvCalc"
-                        tools:layout_conversion_absoluteHeight="0dp"
-                        tools:layout_editor_absoluteY="0dp"
-                        tools:layout_editor_absoluteX="0dp"
-                        tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-                <Switch
-                    android:id="@+id/ChoixDisparitionCalcul"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/dispCalcOuBorne"
-                    android:textColor="@android:color/background_dark"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-                <TextView
-                    android:id="@+id/TitreTempsAvantDisparition"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/TmpAvDisp"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="18sp"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-                <EditText
-                    android:id="@+id/tempsAvantDisparition"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:textColor="@android:color/background_dark"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-                <TextView
-                    android:id="@+id/TitreTempsReponse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tpsRepSec"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <EditText
-                    android:id="@+id/tempsReponse"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    android:textColor="@android:color/background_dark"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <Switch
-                    android:id="@+id/ChoixNbPairs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/seulChiffrePairs"
-                    android:textColor="@android:color/background_dark"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <Switch
-                    android:id="@+id/ChoixBornesSelectionnables"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/borneSelec"
-                    android:textColor="@android:color/background_dark"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <Switch
-                    android:id="@+id/ChoixBornesEgalesRep"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/borneEgaleOperendes"
-                    android:textColor="@android:color/background_dark"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <TextView
-                    android:id="@+id/titreNbValMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/valMax"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <EditText
-                    android:id="@+id/ValeurMax"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="number"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-                <TextView
-                    android:id="@+id/titreChoixOperateurs"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/operateurAUtiliser"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/background_dark"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    tools:layout_conversion_absoluteHeight="0dp"
-                    tools:layout_editor_absoluteY="0dp"
-                    tools:layout_editor_absoluteX="0dp"
-                    tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-
-                        <CheckBox
-                            android:id="@+id/addition"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:checked="true"
-                            android:text="@string/plus"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-                        <CheckBox
-                            android:id="@+id/soustraction"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/sous"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-
-
-                        <CheckBox
-                            android:id="@+id/multiplication"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/mult"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-                        <CheckBox
-                            android:id="@+id/division"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/slash"
-                            tools:layout_conversion_absoluteHeight="0dp"
-                            tools:layout_editor_absoluteY="0dp"
-                            tools:layout_editor_absoluteX="0dp"
-                            tools:layout_conversion_absoluteWidth="0dp" />
-
-
-    <Button
-        android:id="@+id/BoutonValider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/valider"
-        android:textColor="@android:color/background_dark"
-        tools:layout_conversion_absoluteHeight="0dp"
-        tools:layout_conversion_absoluteWidth="0dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Button"
-            tools:layout_editor_absoluteX="40dp"
-            tools:layout_editor_absoluteY="1556dp" />
-
-
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/top_guideline">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/left_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/right_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="250dp" />
+
+
+            <TextView
+                android:id="@+id/TitrePage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/paramMath1"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/choixRep"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/TitrePage"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <RadioButton
+                android:id="@+id/RbFrise"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/frise"
+                app:layout_constraintEnd_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <RadioButton
+                android:id="@+id/RbButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/boutons"
+                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <TextView
+                android:id="@+id/TitreNbButtons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/nbBoutons"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/RbFrise"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <RadioButton
+                android:id="@+id/Rb2Buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/deuxBouttons"
+                app:layout_constraintEnd_toStartOf="@+id/TitreNbButtons"
+                app:layout_constraintTop_toBottomOf="@+id/TitreNbButtons"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <RadioButton
+                android:id="@+id/Rb3Buttons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/troisBouttons"
+                app:layout_constraintStart_toEndOf="@+id/TitreNbButtons"
+                app:layout_constraintTop_toBottomOf="@+id/TitreNbButtons"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <TextView
+                android:id="@+id/NbQuestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/nbQuest"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toTopOf="@+id/guideline"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <EditText
+                android:id="@+id/ChoixNbQuestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/NbQuestions"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <TextView
+                android:id="@+id/TitreOrdreApparition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/ordreApp"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ChoixNbQuestions"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <CheckBox
+                android:id="@+id/ChoixCalculAvantRep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/calcAvBoutton"
+                app:layout_constraintEnd_toStartOf="@+id/TitreOrdreApparition"
+                app:layout_constraintTop_toBottomOf="@+id/TitreOrdreApparition"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <CheckBox
+                android:id="@+id/ChoixRepAvantCalcul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="@string/btnAvCalc"
+                app:layout_constraintStart_toEndOf="@+id/TitreOrdreApparition"
+                app:layout_constraintTop_toBottomOf="@+id/TitreOrdreApparition"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <Switch
+                android:id="@+id/ChoixDisparitionCalcul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/dispCalc"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ChoixCalculAvantRep"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <TextView
+                android:id="@+id/TitreTempsAvantDisparition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tempsAvDispCalc"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ChoixDisparitionCalcul"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <EditText
+                android:id="@+id/tempsAvantDisparition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/TitreTempsAvantDisparition"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <TextView
+                android:id="@+id/TitreTempsReponse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tpsRepSec"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tempsAvantDisparition"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <EditText
+                android:id="@+id/tempsReponse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/TitreTempsReponse"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <Switch
+                android:id="@+id/ChoixNbPairs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/seulChiffrePairs"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/tempsReponse"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <TextView
+                android:id="@+id/titreNbValMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/valMax"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ChoixBornesEgalesRep"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <EditText
+                android:id="@+id/ValeurMax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/titreNbValMax"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <TextView
+                android:id="@+id/titreChoixOperateurs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/OpAUtilisé"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ValeurMax"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <CheckBox
+                android:id="@+id/addition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:checked="true"
+                android:text="@string/plus"
+                app:layout_constraintEnd_toStartOf="@+id/titreChoixOperateurs"
+                app:layout_constraintTop_toBottomOf="@+id/titreChoixOperateurs"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <CheckBox
+                android:id="@+id/soustraction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/moins"
+                app:layout_constraintStart_toStartOf="@+id/addition"
+                app:layout_constraintTop_toBottomOf="@+id/addition"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <CheckBox
+                android:id="@+id/multiplication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/mult"
+                app:layout_constraintStart_toEndOf="@+id/titreChoixOperateurs"
+                app:layout_constraintTop_toBottomOf="@+id/titreChoixOperateurs"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <CheckBox
+                android:id="@+id/division"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/slash"
+                app:layout_constraintStart_toStartOf="@+id/multiplication"
+                app:layout_constraintTop_toBottomOf="@+id/multiplication"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <TextView
+                android:id="@+id/TitreNbBornes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/nbBornes"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/RbFrise"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <RadioButton
+                android:id="@+id/ChoixNbBornes1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/UneBorne"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/TitreNbBornes"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <RadioButton
+                android:id="@+id/ChoixNbBornes2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/DeuxBornes"
+                app:layout_constraintEnd_toStartOf="@+id/ChoixNbBornes3"
+                app:layout_constraintStart_toEndOf="@+id/ChoixNbBornes1"
+                app:layout_constraintTop_toBottomOf="@+id/TitreNbBornes"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <RadioButton
+                android:id="@+id/ChoixNbBornes3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/TroisBornes"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/TitreNbBornes"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <Switch
+                android:id="@+id/ChoixBornesSelectionnables"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/borneSelec"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ChoixNbPairs"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+            <Switch
+                android:id="@+id/ChoixBornesEgalesRep"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/borneEgaleOperendes"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/ChoixBornesSelectionnables"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+
+            <Button
+                android:id="@+id/BoutonValider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/valider"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/soustraction"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
+
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
