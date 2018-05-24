@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/ardoise"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <GridLayout
@@ -23,6 +24,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Operande1"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <TextView
@@ -31,6 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_column="1"
             android:layout_row="1"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
         <TextView
@@ -38,7 +41,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="12"
-            android:layout_row="0" />
+            android:layout_row="0"
+            android:textColor="@android:color/white" />
 
 
         <Button
@@ -46,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="10"
-            android:layout_row="3"
+            android:layout_row="1"
             android:text="repA" />
 
         <Button
@@ -54,19 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="12"
-            android:layout_row="3"
+            android:layout_row="1"
             android:text="RepB" />
-
-        <TextView
-            android:id="@+id/operande2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_column="0"
-            android:layout_row="2"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Operande2"
-            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView7"
@@ -74,6 +67,7 @@
             android:layout_height="wrap_content"
             android:layout_column="0"
             android:layout_row="1"
+            android:textColor="@android:color/white"
             android:textSize="24sp" />
 
     </GridLayout>
