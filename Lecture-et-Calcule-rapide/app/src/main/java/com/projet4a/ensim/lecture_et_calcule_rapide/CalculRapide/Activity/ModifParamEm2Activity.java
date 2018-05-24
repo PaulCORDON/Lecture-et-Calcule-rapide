@@ -75,8 +75,10 @@ public class ModifParamEm2Activity extends AppCompatActivity {
         final EditText  nbCal= (EditText)  findViewById(R.id.NbCalcul);
         final EditText  valeurMax= (EditText)  findViewById(R.id.ValMaxOperandes);
 
-        final CheckBox  nbpair =  (CheckBox) findViewById(R.id.NbPair);
-        final CheckBox  nbimpair =  (CheckBox) findViewById(R.id.NbImpair);
+        final Switch  nbpair =  (Switch) findViewById(R.id.NbPair);
+        final Switch  nbimpair =  (Switch) findViewById(R.id.NbImpair);
+
+        final Switch calcChaine = (Switch) findViewById(R.id.CalculChaine);
 
         final RadioButton deuxbornes = (RadioButton) findViewById(R.id.DeuxBornes);
         final RadioButton quatrebornes = (RadioButton) findViewById(R.id.QuatreBornes);
@@ -95,6 +97,8 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
         nbpair.setChecked(param.getNombrePair());
         nbimpair.setChecked(param.getNombreImpair());
+
+        calcChaine.setChecked(param.getCalcChaine());
 
         switch (param.gettypeRep()){
             case 0 :
@@ -141,6 +145,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                 boolean repdeuxbrnes = deuxbornes.isChecked();
                 boolean repQuatrebrnes = quatrebornes.isChecked();
                 boolean pav = pavNum.isChecked();
+                boolean chaine = calcChaine.isChecked();
                 int typerep = 0;
                 if(pav) typerep = 0;
                 else if(repdeuxbrnes) typerep = 1;
@@ -176,7 +181,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
                 if(parametresCorrects){
 
-                     param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes,false);
+                     param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes,chaine);
 
 
                     param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);
