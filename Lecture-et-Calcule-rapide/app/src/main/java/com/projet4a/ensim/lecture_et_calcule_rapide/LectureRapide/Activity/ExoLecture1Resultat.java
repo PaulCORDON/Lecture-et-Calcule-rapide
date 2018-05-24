@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ExoMath1Resultat;
 import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.GenerateQRCodeActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
@@ -20,6 +19,8 @@ public class ExoLecture1Resultat extends AppCompatActivity {
     TextView scoreMax;
     String contenuBouton;
     ImageView bonhommebof;
+    ImageView bonhommecool;
+    ImageView bonhommebigsmile;
     int reponseJuste;
     int nbDapparitionTotal;
     Button btnqrcode;
@@ -45,6 +46,10 @@ public class ExoLecture1Resultat extends AppCompatActivity {
         btnqrcode =findViewById(R.id.BtnQRCode);
         bonhommebof=findViewById(R.id.bonhommebof);
         bonhommebof.setVisibility(View.GONE);
+        bonhommecool=findViewById(R.id.bonhommecool);
+        bonhommecool.setVisibility(View.GONE);
+        bonhommebigsmile=findViewById(R.id.bonhommebigsmile);
+        bonhommebigsmile.setVisibility(View.GONE);
 
 
         /**
@@ -52,6 +57,9 @@ public class ExoLecture1Resultat extends AppCompatActivity {
          */
 
         if(reponseJuste<=3)bonhommebof.setVisibility(View.VISIBLE);
+        if(reponseJuste>3 && reponseJuste<8)bonhommecool.setVisibility(View.VISIBLE);
+        if(reponseJuste>=8)bonhommebigsmile.setVisibility(View.VISIBLE);
+
 
 
         /**
