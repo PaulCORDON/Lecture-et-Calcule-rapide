@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
-import com.xw.repo.BubbleSeekBar;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -55,7 +54,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         /**Radiobutton qui est coché si on veut que l'exercice se fasse avec une frise*/
         final RadioButton rbFrise = findViewById(R.id.RbFrise);
 
-        /**Radiobutton qui est coché si on veut que l'exercice se fasse avec une frise*/
+        /**Radiobutton qui est coché si on veut que l'exercice se fasse avec des boutons*/
         final RadioButton rbButton = findViewById(R.id.RbButton);
 
         /**EditText qui stocke le temps d'apparition de l'enonce ou des bornes*/
@@ -66,12 +65,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         final TextView titreTpsAvDisp = findViewById(R.id.TitreTempsAvantDisparition);
         final TextView titreTpsAvDispB = findViewById(R.id.TitreTempsAvantDisparitionB);
 
-        /** Radiobuttons qui correspondent au nomnbre de boutons de l'exo si on fait des boutons*/
+        /** Radiobuttons qui correspondent au nombre de boutons de l'exo si on fait des boutons*/
         final RadioButton DeuxButtons = findViewById(R.id.Rb2Buttons);
         final RadioButton TroisButtons = findViewById(R.id.Rb3Buttons);
 
         /** seekBar qui stocke le nombre de bornes de la phrise */
-        final BubbleSeekBar nbBornes = findViewById(R.id.ChoixNbBornes);
+        final RadioButton UneBornes = findViewById(R.id.ChoixNbBornes1);
+        final RadioButton DeuxBornes = findViewById(R.id.ChoixNbBornes2);
+        final RadioButton TroisBornes = findViewById(R.id.ChoixNbBornes3);
 
         /** EditText qui stocke le nombre de questions de l'exercice */
         final EditText nbQuestions = findViewById(R.id.ChoixNbQuestions);
@@ -171,7 +172,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
         multiplication.setChecked(param.getOperateur()[2]);
         division.setChecked(param.getOperateur()[3]);
 
-        nbBornes.setProgress(param.getNbBornes());
+        switch(param.getNbBornes()){
+            case 1 :
+                UneBornes.setChecked(true);
+                break;
+            case 2 :
+                DeuxBornes.setChecked(true);
+                break;
+            case 3 :
+                TroisBornes.setChecked(true);
+                break;
+        }
 
         bornesSelectionnables.setChecked(param.getBorneSelectionnable());
 
@@ -321,6 +332,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 long tpsRep;
                 int valeurMax;
                 int nbBoutons;
+                int nombreDeBornes = 1;
 
                 if (rbFrise.isChecked()) ExoFrise = true;
                 else ExoFrise = false;
@@ -345,6 +357,12 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                         valeurMax = Integer.parseInt(valMax.getText().toString());
                     else valeurMax = param.getValMax();
 
+                    if(UneBornes.isChecked()){nombreDeBornes=1;}
+                    if(DeuxBornes.isChecked()){nombreDeBornes=2;}
+                    if(TroisBornes.isChecked()){nombreDeBornes=3;}
+
+
+
                     /** Booleen qui est vrai si on affiche le calcul avant la reponse et faux si on affiches les reponses avant le calcul */
                     Boolean ordreApparition = true;
                     if (rb1.isChecked()) {
@@ -367,7 +385,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                                 tpsRep,
                                 nbPairsOnly.isChecked(),
                                 operateurs,
-                                nbBornes.getProgress(),
+                                nombreDeBornes, /////////////////////////////////////////////////
                                 nbQuest,
                                 disparition.isChecked(),
                                 tpsAvDisp,

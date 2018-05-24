@@ -334,7 +334,7 @@
                     android:textColor="@android:color/background_dark"
                     android:textSize="20sp"
                     android:textStyle="bold" />
-
+<!--
                 <com.xw.repo.BubbleSeekBar
                     android:id="@+id/ChoixNbBornes"
                     style="@style/Widget.AppCompat.SeekBar.Discrete"
@@ -354,15 +354,35 @@
                     app:bsb_touch_to_seek="true"
 
                     />
+-->
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp">
 
-                <!-- <SeekBar
-                        android:id="@+id/ChoixNbBornes"
-                        style="@style/Widget.AppCompat.SeekBar.Discrete"
-                        android:layout_width="match_parent"
+                    <RadioButton
+                        android:id="@+id/ChoixNbBornes1"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:max="3"
-                       />-->
+                        android:layout_weight="1"
+                        android:text="@string/UneBorne" />
+
+                    <RadioButton
+                        android:id="@+id/ChoixNbBornes2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/DeuxBornes" />
+                    <RadioButton
+                        android:id="@+id/ChoixNbBornes3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/TroisBornes" />
+                </RadioGroup>
+
+
 
                 <TextView
                     android:id="@+id/TitreNbQuestions"
