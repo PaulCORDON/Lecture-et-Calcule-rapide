@@ -2794,7 +2794,7 @@
     <string name="seulChiffrePairs">Mettre seulement des chiffres pairs</string>
     <string name="borneSelec">Bornes sélectionnables</string>
     <string name="borneEgaleOperendes">Bornes égales à un des opérandes</string>
-    <string name="valMax">Valeur maximale</string>
+    <string name="valMax">Valeur maximale du résultat</string>
     <string name="operateurAUtiliser">Opérateurs à utiliser</string>
     <string name="plus">+</string>
     <string name="mult">X</string>
@@ -2818,4 +2818,7 @@
     <string name="consigneExoLect1">Tape sur les mots écrits comme :</string>
     <string name="passer">J\'ai trouvé\\ntous les mots</string>
     <string name="CalculChaine">Mettre des calculs qui s enchainent \n ( ex : 7+8 puis 7+18) </string>
+    <string name="UneBorne">1 borne</string>
+    <string name="DeuxBornes">2 borne</string>
+    <string name="TroisBornes">3 borne</string>
 </resources>
