@@ -171,10 +171,6 @@ public class MathExo1Activity extends AppCompatActivity {
             }
         }
 
-
-
-
-
         /**
          * Récupération du textView pour l'affichage du nombre de questions restantes
          */
@@ -357,6 +353,7 @@ public class MathExo1Activity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         finish();
+                        numQuestAct=0;
                         timer.cancel();
                     }
                 })
