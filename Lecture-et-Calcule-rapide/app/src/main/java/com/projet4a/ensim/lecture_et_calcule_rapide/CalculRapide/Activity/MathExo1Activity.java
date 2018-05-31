@@ -127,10 +127,10 @@ public class MathExo1Activity extends AppCompatActivity {
                     RepF2 = (Button) findViewById(R.id.BtnRepB);
                     RepF3 = (Button) findViewById(R.id.BtnRepC);
                     RepF4 = (Button) findViewById(R.id.BtnRepD);
-                    RepF1.getBackground().setAlpha(100);
-                    RepF2.getBackground().setAlpha(100);
-                    RepF3.getBackground().setAlpha(100);
-                    RepF4.getBackground().setAlpha(100);
+                    RepF1.getBackground().setAlpha(0);
+                    RepF2.getBackground().setAlpha(0);
+                    RepF3.getBackground().setAlpha(0);
+                    RepF4.getBackground().setAlpha(0);
 
                     break;
                 case 2:
@@ -138,16 +138,16 @@ public class MathExo1Activity extends AppCompatActivity {
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepB);
                     RepF3 = (Button) findViewById(R.id.BtnRepC);
-                    RepF1.getBackground().setAlpha(100);
-                    RepF2.getBackground().setAlpha(100);
-                    RepF3.getBackground().setAlpha(100);
+                    RepF1.getBackground().setAlpha(0);
+                    RepF2.getBackground().setAlpha(0);
+                    RepF3.getBackground().setAlpha(0);
                     break;
                 case 1:
                     setContentView(R.layout.activity_math_exo1_1bornes);
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepC);
-                    RepF1.getBackground().setAlpha(100);
-                    RepF2.getBackground().setAlpha(100);
+                    RepF1.getBackground().setAlpha(0);
+                    RepF2.getBackground().setAlpha(0);
                     break;
             }
         } else {
@@ -157,16 +157,16 @@ public class MathExo1Activity extends AppCompatActivity {
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepB);
                     RepF3 = (Button) findViewById(R.id.BtnRepC);
-                    RepF1.getBackground().setAlpha(100);
-                    RepF2.getBackground().setAlpha(100);
-                    RepF3.getBackground().setAlpha(100);
+                    RepF1.getBackground().setAlpha(0);
+                    RepF2.getBackground().setAlpha(0);
+                    RepF3.getBackground().setAlpha(0);
                     break;
                 case 1:
                     setContentView(R.layout.activity_math_exo1_comparaison);
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepC);
-                    RepF1.getBackground().setAlpha(100);
-                    RepF2.getBackground().setAlpha(100);
+                    RepF1.getBackground().setAlpha(0);
+                    RepF2.getBackground().setAlpha(0);
                     break;
             }
         }
