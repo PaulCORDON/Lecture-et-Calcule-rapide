@@ -25,8 +25,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
     boolean isExercice1;
     TextView descriptionL;
     /* speaker*/
-    TextToSpeech tts ;
-
+    TextToSpeech tts;
 
     /**
      * @param savedInstanceState
@@ -37,30 +36,26 @@ public class LectureAccueilActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lecture_accueil);
 
         /*création de l'image du bonhomme et de son animation*/
-        final ImageView bonhomme= (ImageView) findViewById(R.id.bonhomme);
+        final ImageView bonhomme = (ImageView) findViewById(R.id.bonhomme);
         TranslateAnimation animate = new TranslateAnimation(500, 0, 0, 0);
         animate.setDuration(500);
         animate.setFillAfter(true);
         bonhomme.startAnimation(animate);
 
-
-        final BubbleTextView bulle1= findViewById(R.id.bulle1);
+        final BubbleTextView bulle1 = findViewById(R.id.bulle1);
         final TranslateAnimation animate2 = new TranslateAnimation(0, 0, -500, 0);
         animate2.setDuration(500);
         animate2.setFillAfter(false);
         bulle1.startAnimation(animate2);
 
-        final BubbleTextView bulle2=findViewById(R.id.bulle2);
+        final BubbleTextView bulle2 = findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
-
 
         /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
         final Button exercice1 = (Button) findViewById(R.id.exo1L);
 
-
         /* on modifie la transparence des boutons */
         exercice1.getBackground().setAlpha(100);
-
 
         /* Bouton volume pour les parametre*/
         final ImageButton volume = findViewById(R.id.volumeLec);
@@ -76,7 +71,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
                         }
                     }
                 };
-        tts = new TextToSpeech(getApplicationContext(),listener);
+        tts = new TextToSpeech(getApplicationContext(), listener);
 
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,12 +79,8 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 Resources res = getResources();
                 String text = res.getString(R.string.consigneExoLect1);
                 tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
-
             }
         });
-
-
-
 
         /* creation du boutton parametre */
         final ImageButton parametreL = (ImageButton) findViewById(R.id.paramL);
@@ -121,7 +112,6 @@ public class LectureAccueilActivity extends AppCompatActivity {
                 descriptionL.setText("Exercice 1 de Lecture\nConsigne : Trouve le mot qui est écrit exactement\n comme le mot de l'énoncé");
             }
         });
-
 
         /** click sur le bouton parametre qui renvoie sur la bonne activité en fonction des booleens */
         parametreL.setOnClickListener(new View.OnClickListener() {

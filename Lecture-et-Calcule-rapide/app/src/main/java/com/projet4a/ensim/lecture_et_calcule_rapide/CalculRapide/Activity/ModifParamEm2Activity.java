@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -14,7 +13,6 @@ import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm2;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
@@ -55,28 +53,24 @@ public class ModifParamEm2Activity extends AppCompatActivity {
          */
 
         /**Si cette checkBox est cochee les calculs comporteront des additions*/
-
         final CheckBox additionC = findViewById(R.id.additionC);
 
 
         /**Si cette checkBox est cochee les calculs comporteront des soustractions*/
-
         final CheckBox soustractionC = findViewById(R.id.soustractionC);
 
         /**Si cette checkBox est cochee les calculs comporteront des divisions*/
-
         final CheckBox divisionC = findViewById(R.id.divisionC);
 
         /**Si cette checkBox est cochee les calculs comporteront des multiplications*/
-
         final CheckBox multiplicationC = findViewById(R.id.multiplicationC);
 
 
-        final EditText  nbCal= (EditText)  findViewById(R.id.NbCalcul);
-        final EditText  valeurMax= (EditText)  findViewById(R.id.ValMaxOperandes);
+        final EditText nbCal = (EditText) findViewById(R.id.NbCalcul);
+        final EditText valeurMax = (EditText) findViewById(R.id.ValMaxOperandes);
 
-        final Switch  nbpair =  (Switch) findViewById(R.id.NbPair);
-        final Switch  nbimpair =  (Switch) findViewById(R.id.NbImpair);
+        final Switch nbpair = (Switch) findViewById(R.id.NbPair);
+        final Switch nbimpair = (Switch) findViewById(R.id.NbImpair);
 
         final Switch calcChaine = (Switch) findViewById(R.id.CalculChaine);
 
@@ -85,29 +79,29 @@ public class ModifParamEm2Activity extends AppCompatActivity {
         final RadioButton pavNum = (RadioButton) findViewById(R.id.PaveNum);
 
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
-        Button valider=  findViewById(R.id.BtonValider);
+        Button valider = findViewById(R.id.BtonValider);
 
         additionC.setChecked(param.getOperateur()[0]);
         soustractionC.setChecked(param.getOperateur()[1]);
         multiplicationC.setChecked(param.getOperateur()[2]);
         divisionC.setChecked(param.getOperateur()[3]);
 
-        nbCal.setText(""+param.getNbCalcul());
-        valeurMax.setText(""+param.getValMaxOperande());
+        nbCal.setText("" + param.getNbCalcul());
+        valeurMax.setText("" + param.getValMaxOperande());
 
         nbpair.setChecked(param.getNombrePair());
         nbimpair.setChecked(param.getNombreImpair());
 
         calcChaine.setChecked(param.getCalcChaine());
 
-        switch (param.gettypeRep()){
-            case 0 :
+        switch (param.gettypeRep()) {
+            case 0:
                 pavNum.setChecked(true);
                 break;
-            case 1 :
+            case 1:
                 deuxbornes.setChecked(true);
                 break;
-            case 2 :
+            case 2:
                 quatrebornes.setChecked(true);
                 break;
         }
@@ -147,9 +141,9 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                 boolean pav = pavNum.isChecked();
                 boolean chaine = calcChaine.isChecked();
                 int typerep = 0;
-                if(pav) typerep = 0;
-                else if(repdeuxbrnes) typerep = 1;
-                else if(repQuatrebrnes) typerep = 2;
+                if (pav) typerep = 0;
+                else if (repdeuxbrnes) typerep = 1;
+                else if (repQuatrebrnes) typerep = 2;
                 else parametresCorrects = false;
 
                 Boolean operateur[] = new Boolean[4];
@@ -160,7 +154,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                 operateur[3] = divisionC.isChecked();
 
                 if (!operateur[0] && !operateur[1] && !operateur[2] && !operateur[3]) {
-                    Toast.makeText(ModifParamEm2Activity.this,"Selectionne au moins un opérateur",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ModifParamEm2Activity.this, "Selectionne au moins un opérateur", Toast.LENGTH_SHORT).show();
 
                     additionC.setTextColor(Color.RED);
                     soustractionC.setTextColor(Color.RED);
@@ -169,8 +163,8 @@ public class ModifParamEm2Activity extends AppCompatActivity {
 
                     parametresCorrects = false;
                 }
-                if(!nimpair && !npair){
-                    Toast.makeText(ModifParamEm2Activity.this,"Selectionne au moins un type de nombre pair ou impair",Toast.LENGTH_SHORT).show();
+                if (!nimpair && !npair) {
+                    Toast.makeText(ModifParamEm2Activity.this, "Selectionne au moins un type de nombre pair ou impair", Toast.LENGTH_SHORT).show();
 
                     nbimpair.setTextColor(Color.RED);
                     nbpair.setTextColor(Color.RED);
@@ -178,14 +172,9 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                     parametresCorrects = false;
                 }
 
-
-                if(parametresCorrects){
-
-                     param = new ParamEm2(typerep,nbcal,valMax,nimpair,npair,repdeuxbrnes,pav,repQuatrebrnes,chaine);
-
-
-                    param.setOperateur(operateur[0],operateur[1],operateur[2],operateur[3]);
-
+                if (parametresCorrects) {
+                    param = new ParamEm2(typerep, nbcal, valMax, nimpair, npair, repdeuxbrnes, pav, repQuatrebrnes, chaine);
+                    param.setOperateur(operateur[0], operateur[1], operateur[2], operateur[3]);
 
                     FileOutputStream outputStream;
                     ObjectOutputStream oos;
@@ -201,8 +190,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
                     }
 
                     /** quand on a clique sur le bouton valider on reviens au menu*/
-                    Intent intent=new Intent(ModifParamEm2Activity.this, MathsActivity.class);
-                    startActivity(intent);
+                    finish();
                 }
             }
 
@@ -236,7 +224,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
         nbimpair.setOnClickListener(retourEcritEnNoirParite);
         nbpair.setOnClickListener(retourEcritEnNoirParite);
 
-        pavNum.setOnClickListener(new View.OnClickListener(){
+        pavNum.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 deuxbornes.setChecked(false);
@@ -244,7 +232,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
             }
         });
 
-        deuxbornes.setOnClickListener(new View.OnClickListener(){
+        deuxbornes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 pavNum.setChecked(false);
@@ -252,7 +240,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
             }
         });
 
-        quatrebornes.setOnClickListener(new View.OnClickListener(){
+        quatrebornes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 deuxbornes.setChecked(false);

@@ -72,15 +72,16 @@ abstract class ParamMath implements Serializable {
 
     /**
      * boolean :
+     *
      * @param a add
      * @param b sous
      * @param c mult
      * @param d div
      */
-    public void setOperateur(boolean a,boolean b,boolean c,boolean d){
-        operateur[0] = a ;
-        operateur[1] = b ;
-        operateur[2] = c ;
-        operateur[3] = d ;
+    public void setOperateur(boolean a, boolean b, boolean c, boolean d) {
+        operateur[0] = a;
+        operateur[1] = b;
+        operateur[2] = c;
+        operateur[3] = d;
     }
 }

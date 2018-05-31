@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -135,14 +134,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             DeuxButtons.setVisibility(View.GONE);
             TroisButtons.setVisibility(View.GONE);
 
-            switch(param.getNbBornes()){
-                case 1 :
+            switch (param.getNbBornes()) {
+                case 1:
                     UneBornes.setChecked(true);
                     break;
-                case 2 :
+                case 2:
                     DeuxBornes.setChecked(true);
                     break;
-                case 3 :
+                case 3:
                     TroisBornes.setChecked(true);
                     break;
             }
@@ -241,7 +240,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 boolean ExoFrise;
                 long tpsRep;
                 int valeurMax;
-                int nbBornes=1;
+                int nbBornes = 1;
 
                 if (rbFrise.isChecked()) ExoFrise = true;
                 else ExoFrise = false;
@@ -263,7 +262,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 /**
                  * Si on utilise des boutons dans l'exercice on prend les parametre qui y sont associés
                  */
-                else{
+                else {
                     if (DeuxButtons.isChecked()) nbBornes = 1;
                     else if (TroisButtons.isChecked()) nbBornes = 2;
                     else nbBornes = 1;
@@ -299,9 +298,9 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 operateurs[1] = soustraction.isChecked();
                 operateurs[2] = multiplication.isChecked();
                 operateurs[3] = division.isChecked();
-                Log.w("operateur choisis : " , "+" +operateurs[0]+ "-" +operateurs[1]+ "*" +operateurs[2]+ "/" + operateurs[3]);
+                Log.w("operateur choisis : ", "+" + operateurs[0] + "-" + operateurs[1] + "*" + operateurs[2] + "/" + operateurs[3]);
 
-                if( tpsAvDisp <= tpsRep-1000 && (operateurs[0] || operateurs[1] || operateurs[2] || operateurs[3])){
+                if (tpsAvDisp <= tpsRep - 1000 && (operateurs[0] || operateurs[1] || operateurs[2] || operateurs[3])) {
                     param = new ParamEm1(
                             ExoFrise,
                             tpsRep,
@@ -320,16 +319,15 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                             "\nnb questions: " + param.getNbQuestions() + "\ndisparition du calcul: " + param.getDisparition() + "\nordre apparition: " + param.getOrdreApparition() +
                             "\nbornes selectionnables: " + param.getBorneSelectionnable() + "\nbornes egales reponses: " + param.getBorneEqualsOp() + "\nvaleur max: " + param.getValMax());
 
-                }
-                else {
+                } else {
                     parametresCorrects = false;
-                    if (tpsAvDisp > tpsRep-1000) {
+                    if (tpsAvDisp > tpsRep - 1000) {
                         TpsAvantDisp.setTextColor(Color.RED);
 
-                        Toast.makeText(ModifParamEm1Activity.this,"Le temps avant la disparition du calcul doit être plus petit",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ModifParamEm1Activity.this, "Le temps avant la disparition du calcul doit être plus petit", Toast.LENGTH_SHORT).show();
                     }
                     if (!operateurs[0] && !operateurs[1] && !operateurs[2] && !operateurs[3]) {
-                        Toast.makeText(ModifParamEm1Activity.this,"Selectionne au moins un opérateur",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ModifParamEm1Activity.this, "Selectionne au moins un opérateur", Toast.LENGTH_SHORT).show();
 
                         addition.setTextColor(Color.RED);
                         soustraction.setTextColor(Color.RED);
@@ -338,7 +336,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     }
                 }
 
-                if(parametresCorrects) {
+                if (parametresCorrects) {
                     FileOutputStream outputStream;
                     ObjectOutputStream oos;
                     try {
@@ -353,8 +351,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     }
 
                     /** quand on a clique sur le bouton valider on reviens au menu*/
-                    Intent intent = new Intent(ModifParamEm1Activity.this, MathsActivity.class);
-                    startActivity(intent);
+                    finish();
                 }
             }
         });
@@ -370,7 +367,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             }
         });
 
-        TpsAvantDisp.setOnClickListener(new View.OnClickListener(){
+        TpsAvantDisp.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
@@ -432,7 +429,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             }
         });
 
-        UneBornes.setOnClickListener(new View.OnClickListener(){
+        UneBornes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DeuxBornes.setChecked(false);
@@ -440,7 +437,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             }
         });
 
-        DeuxBornes.setOnClickListener(new View.OnClickListener(){
+        DeuxBornes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 UneBornes.setChecked(false);
@@ -448,7 +445,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             }
         });
 
-        TroisBornes.setOnClickListener(new View.OnClickListener(){
+        TroisBornes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 UneBornes.setChecked(false);
@@ -456,14 +453,14 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             }
         });
 
-        DeuxButtons.setOnClickListener(new View.OnClickListener(){
+        DeuxButtons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TroisButtons.setChecked(false);
             }
         });
 
-        TroisButtons.setOnClickListener(new View.OnClickListener(){
+        TroisButtons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 DeuxButtons.setChecked(false);

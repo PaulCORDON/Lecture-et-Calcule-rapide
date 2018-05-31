@@ -23,7 +23,7 @@ public class ExoLecture1Resultat extends AppCompatActivity {
     ImageView bonhommebigsmile;
     int reponseJuste;
     int nbDapparitionTotal;
-    Button btnqrcode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,24 +43,19 @@ public class ExoLecture1Resultat extends AppCompatActivity {
         accueil = findViewById(R.id.AcceuilBtn);
         score = findViewById(R.id.scoreTxt);
         scoreMax = findViewById(R.id.nbAppTxt);
-        btnqrcode =findViewById(R.id.BtnQRCode);
-        bonhommebof=findViewById(R.id.bonhommebof);
+        bonhommebof = findViewById(R.id.bonhommebof);
         bonhommebof.setVisibility(View.GONE);
-        bonhommecool=findViewById(R.id.bonhommecool);
+        bonhommecool = findViewById(R.id.bonhommecool);
         bonhommecool.setVisibility(View.GONE);
-        bonhommebigsmile=findViewById(R.id.bonhommebigsmile);
+        bonhommebigsmile = findViewById(R.id.bonhommebigsmile);
         bonhommebigsmile.setVisibility(View.GONE);
-
 
         /**
          * on affiche l'image du bonhomme en fonction du score
          */
-
-        if(reponseJuste<=3)bonhommebof.setVisibility(View.VISIBLE);
-        if(reponseJuste>3 && reponseJuste<8)bonhommecool.setVisibility(View.VISIBLE);
-        if(reponseJuste>=8)bonhommebigsmile.setVisibility(View.VISIBLE);
-
-
+        if (reponseJuste <= 3) bonhommebof.setVisibility(View.VISIBLE);
+        if (reponseJuste > 3 && reponseJuste < 8) bonhommecool.setVisibility(View.VISIBLE);
+        if (reponseJuste >= 8) bonhommebigsmile.setVisibility(View.VISIBLE);
 
         /**
          * on remplit les champs textes avec ce qu'on a récupérer au dessus
@@ -76,19 +71,7 @@ public class ExoLecture1Resultat extends AppCompatActivity {
         accueil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ExoLecture1Resultat.this, MenuActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        btnqrcode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ExoLecture1Resultat.this, GenerateQRCodeActivity.class);
-                intent.putExtra("exo","Lecture exercice 1");
-                intent.putExtra("bonneRep",reponseJuste);
-                intent.putExtra("nbRep",nbDapparitionTotal);
-                startActivity(intent);
+                finish();
             }
         });
     }
