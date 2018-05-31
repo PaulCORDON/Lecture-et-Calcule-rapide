@@ -314,7 +314,7 @@ public class LectureExo1Activity extends AppCompatActivity {
     public void onBackPressed() {
         Log.d("OnBackPressed", "OnBackPressed Exo1Lecture");
         new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setIcon(R.mipmap.bonhommebof)
                 .setTitle("Quitter")
                 .setMessage("Etes vous sûr de vouloir quitter l'exercice?")
                 .setPositiveButton("Oui", new DialogInterface.OnClickListener() {

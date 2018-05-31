@@ -438,9 +438,9 @@ public class MathExo2Activity extends AppCompatActivity {
     public void onBackPressed() {
         Log.d("onBackPressed", "onBackPressed Exo2Math");
         new AlertDialog.Builder(this)
-                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setIcon(R.mipmap.bonhommebof)
                 .setTitle("Quitter")
-                .setMessage("Etes vous sûr de vouloir quitter l'exercice?")
+                .setMessage("Etes-vous sûr de vouloir quitter l'exercice?")
                 .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
