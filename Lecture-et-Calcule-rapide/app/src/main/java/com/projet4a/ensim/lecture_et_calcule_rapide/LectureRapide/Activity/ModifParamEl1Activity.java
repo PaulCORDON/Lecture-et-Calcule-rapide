@@ -50,12 +50,6 @@ public class ModifParamEl1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_modif_param_el1);
 
         /**
-         * recuperation de la valeur du nombre d'énoncé
-         */
-        final BubbleSeekBar nbEnonce = findViewById(R.id.seekNbEnonce);
-        nbEnonce.setProgress(param.getNbEnonce());
-
-        /**
          * recuperation des valeurs du temps d'apparition, nombre d'apparition,
          * apparition multiple, mode d'apparition
          */
@@ -116,7 +110,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                  */
                 if (tempsApparution.getText().toString().equals("") && !nbApp.getText().toString().equals("")) {
                     Long t = new Long(3000);
-                    param = new ParamEl1(nbEnonce.getProgress(), t, Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
+                    param = new ParamEl1(1, t, Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
                     Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + param.getNbApparution() + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait() + "apparitions multiples:" + nombreApparition);
                 }
                 /**
@@ -126,7 +120,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                  */
                 else if (nbApp.getText().toString().equals("") && !tempsApparution.getText().toString().equals("")) {
                     Integer nb = 10;
-                    param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()) * 1000, nb, multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
+                    param = new ParamEl1(1, Long.parseLong(tempsApparution.getText().toString()) * 1000, nb, multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
                     Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + param.getTempsApparution() + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait());
                 }
                 /**
@@ -138,14 +132,14 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                 else if (tempsApparution.getText().toString().equals("") && nbApp.getText().toString().equals("")) {
                     Long t = new Long(3000);
                     Integer nb = 10;
-                    param = new ParamEl1(nbEnonce.getProgress(), t, nb, multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
+                    param = new ParamEl1(1, t, nb, multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
                     Log.i("Info", "NbEnonce : " + param.getNbEnonce() + "\nTempsApp : " + t + "NbMots : " + nb + "MultipleApparution : " + param.getMultipleApparution() + "EnonceDisparait : " + param.getEnonceDisparait() + "apparitions multiples:" + nombreApparition);
                 }
                 /**
                  * Si tout les champs sont remplis, on modifie les valeurs dans le constructeur
                  */
                 else {
-                    param = new ParamEl1(nbEnonce.getProgress(), Long.parseLong(tempsApparution.getText().toString()) * 1000, Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
+                    param = new ParamEl1(1, Long.parseLong(tempsApparution.getText().toString()) * 1000, Integer.parseInt(nbApp.getText().toString()), multipleApparution.isChecked(), enonceDisparait.isChecked(), nombreApparition);
                     /**
                      * test de fonctionnement avec les logs
                      */

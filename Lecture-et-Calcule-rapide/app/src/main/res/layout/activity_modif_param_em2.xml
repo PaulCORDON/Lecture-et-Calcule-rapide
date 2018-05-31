@@ -342,7 +342,7 @@
                 tools:layout_conversion_absoluteWidth="0dp" />
 
             <Button
-                android:id="@+id/BtonValider"
+                android:id="@+id/Valider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
