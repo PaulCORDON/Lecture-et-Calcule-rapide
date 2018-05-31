@@ -2811,13 +2811,15 @@
     <string name="pair">Pair</string>
     <string name="impair">Impair</string>
     <string name="affModeRep">Affichage du mode de reponses</string>
+    <string name="deuxBouttons">2 bouttons</string>
+    <string name="troisBouttons">3 bouttons</string>
     <string name="deuxBtn">Deux bouttons</string>
     <string name="quatreBtn">Quatre bouttons</string>
     <string name="paveNum">Pavé numérique</string>
     <string name="consigneExoLect1">Tape sur les mots écrits comme :</string>
     <string name="passer">J\'ai trouvé\ntous les mots</string>
-    <string name="CalculChaine">Mettre des calculs qui s enchainent \n ( ex : 7+8 puis 7+18) </string>
+    <string name="CalculChaine">Mettre des calculs qui s\'enchainent \n ( ex : 7+8 puis 7+18) </string>
     <string name="UneBorne">1 borne</string>
-    <string name="DeuxBornes">2 borne</string>
-    <string name="TroisBornes">3 borne</string>
+    <string name="DeuxBornes">2 bornes</string>
+    <string name="TroisBornes">3 bornes</string>
 </resources>
