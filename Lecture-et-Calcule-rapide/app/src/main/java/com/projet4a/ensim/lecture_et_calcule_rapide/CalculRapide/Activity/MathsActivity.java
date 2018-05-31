@@ -1,24 +1,16 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.speech.tts.TextToSpeech;
-import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cpiz.android.bubbleview.BubbleTextView;
@@ -39,7 +31,7 @@ public class MathsActivity extends AppCompatActivity {
     boolean isExercice1;
     boolean isExercice2;
     TextView descriptionM;
-    TextToSpeech tts ;
+    TextToSpeech tts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,32 +44,30 @@ public class MathsActivity extends AppCompatActivity {
         /* creation du boutton parametre */
         final ImageButton parametreM = (ImageButton) findViewById(R.id.paramM);
         /*creation bouton goM */
-        final Button go = (Button)findViewById(R.id.goM);
+        final Button go = (Button) findViewById(R.id.goM);
         /* creation de la text view de description */
-        final TextView descriptionM = (TextView)findViewById(R.id.descriptionM);
+        final TextView descriptionM = (TextView) findViewById(R.id.descriptionM);
 
         /*création de l'image du bonhomme et de son animation*/
-        final ImageView bonhomme= (ImageView) findViewById(R.id.bonhomme);
+        final ImageView bonhomme = (ImageView) findViewById(R.id.bonhomme);
         TranslateAnimation animate = new TranslateAnimation(500, 0, 0, 0);
         animate.setDuration(500);
         animate.setFillAfter(true);
         bonhomme.startAnimation(animate);
 
-        final BubbleTextView bulle1= findViewById(R.id.bulle1);
+        final BubbleTextView bulle1 = findViewById(R.id.bulle1);
         final TranslateAnimation animate2 = new TranslateAnimation(0, 0, -500, 0);
         animate2.setDuration(500);
         animate2.setFillAfter(false);
         bulle1.startAnimation(animate2);
 
-
-
-        final BubbleTextView bulle2=findViewById(R.id.bulle2);
+        final BubbleTextView bulle2 = findViewById(R.id.bulle2);
         bulle2.setVisibility(View.GONE);
 
-        final BubbleTextView bulle3=findViewById(R.id.bulle3);
+        final BubbleTextView bulle3 = findViewById(R.id.bulle3);
         bulle3.setVisibility(View.GONE);
 
-        final GifImageView gifExo = (GifImageView)findViewById(R.id.Gif);
+        final GifImageView gifExo = (GifImageView) findViewById(R.id.Gif);
         final ImageButton volume = findViewById(R.id.volume);
         TextToSpeech.OnInitListener listener =
                 new TextToSpeech.OnInitListener() {
@@ -91,7 +81,7 @@ public class MathsActivity extends AppCompatActivity {
                         }
                     }
                 };
-       tts = new TextToSpeech(getApplicationContext(),listener);
+        tts = new TextToSpeech(getApplicationContext(), listener);
 
         volume.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,33 +100,24 @@ public class MathsActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-
                 String text = null;
                 Resources res = getResources();
-                    if (param.getFrise()) {
-                         text = res.getString(R.string.consigneExo1m);
-                    }
-                    else{ if (param.getNbBornes() == 2 ){
+                if (param.getFrise()) {
+                    text = res.getString(R.string.consigneExo1m);
+                } else {
+                    if (param.getNbBornes() == 2) {
                         text = res.getString(R.string.consigneExo1_2m);
-
-
-                    }
-                    else {
-
+                    } else {
                         text = res.getString(R.string.consigneExo1_1m);
-
-
                     }
                 }
                 tts.speak(text, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
-
             }
         });
 
         /* on modifie la transparence des boutons */
         exercice1.getBackground().setAlpha(100);
         exercice2.getBackground().setAlpha(100);
-
 
         gifExo.setVisibility(View.GONE);
         parametreM.setVisibility(View.GONE);
@@ -166,7 +147,6 @@ public class MathsActivity extends AppCompatActivity {
             }
         });
 
-
         /** click sur le bouton exercice 2 , on affiche la description et on met le bouton enable */
         exercice2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -186,10 +166,10 @@ public class MathsActivity extends AppCompatActivity {
                 bulle1.setVisibility(View.GONE);
                 bulle3.setVisibility(View.VISIBLE);
                 bulle3.startAnimation(animate2);
+
                 descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : Fait les multiplications");
             }
         });
-
 
         /** click sur le bouton parametre qui renvoie sur la bonne activité en fonction des booleens */
         parametreM.setOnClickListener(new View.OnClickListener() {

@@ -3,8 +3,6 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
 /**
  * classe définissant les paramètres de Exo1Maths
  */

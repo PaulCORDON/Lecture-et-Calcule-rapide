@@ -1,6 +1,5 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,7 +9,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -21,10 +19,8 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 
 /**
  * Activité gérant l'exercice 1 de maths, un calcul apparait ainsi qu'une frise avec des bornes, l'élève doit séléctionner le bon intervalle dans
@@ -65,7 +61,7 @@ public class MathExo1Activity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            Log.d("MathExo1Activity","Dans le on clic");
+            Log.d("MathExo1Activity", "Dans le on clic");
             reponseDonnee = true;
             reponseJuste[numQuestAct] = true;
             timer.cancel();
@@ -76,7 +72,7 @@ public class MathExo1Activity extends AppCompatActivity {
 
         @Override
         public void onClick(View view) {
-            Log.d("MathExo1Activity","Dans le on clic");
+            Log.d("MathExo1Activity", "Dans le on clic");
             reponseDonnee = true;
             reponseJuste[numQuestAct] = false;
             timer.cancel();
@@ -163,8 +159,8 @@ public class MathExo1Activity extends AppCompatActivity {
          * Récupération du textView pour l'affichage du nombre de questions restantes
          */
         final TextView numQuestion = (TextView) findViewById(R.id.NumQuestion);
-        int numQuestActPlusUn=numQuestAct+1;
-        numQuestion.setText("Question "+ numQuestActPlusUn +"/"+exo.getParam().getNbQuestions());
+        int numQuestActPlusUn = numQuestAct + 1;
+        numQuestion.setText("Question " + numQuestActPlusUn + "/" + exo.getParam().getNbQuestions());
 
         /**
          * Affichage de l'énoncé pour la question actuelle.
@@ -243,13 +239,13 @@ public class MathExo1Activity extends AppCompatActivity {
             /*
             evolution de la plage de couleur progress bar
              */
-                if(progress.getProgress()<=((int) tempsTotal)/2){
+                if (progress.getProgress() <= ((int) tempsTotal) / 2) {
                     progress.getProgressDrawable().setColorFilter(
                             Color.GREEN, android.graphics.PorterDuff.Mode.SRC_IN);
-                }else if(progress.getProgress()<=((int) tempsTotal)-2000){
+                } else if (progress.getProgress() <= ((int) tempsTotal) - 2000) {
                     progress.getProgressDrawable().setColorFilter(
                             Color.YELLOW, android.graphics.PorterDuff.Mode.SRC_IN);
-                }else {
+                } else {
                     progress.getProgressDrawable().setColorFilter(
                             Color.RED, android.graphics.PorterDuff.Mode.SRC_IN);
                 }
@@ -318,20 +314,7 @@ public class MathExo1Activity extends AppCompatActivity {
 
                     Intent intent = new Intent(MathExo1Activity.this, ExoMath1Resultat.class);
                     intent.putExtra("ReponseDonnee", reponseJuste);
-                    intent.putExtra("exoMath",exo );
-
-//                    FileOutputStream outputStream;
-//                    ObjectOutputStream oos;
-//                    try {
-//                        outputStream = openFileOutput("ExoM1.txt", Context.MODE_PRIVATE);
-//                        oos = new ObjectOutputStream(outputStream);
-//                        oos.writeObject(exo);
-//
-//                        oos.flush();
-//                        oos.close();
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
+                    intent.putExtra("exoMath", exo);
 
                     finish();
                     startActivity(intent);

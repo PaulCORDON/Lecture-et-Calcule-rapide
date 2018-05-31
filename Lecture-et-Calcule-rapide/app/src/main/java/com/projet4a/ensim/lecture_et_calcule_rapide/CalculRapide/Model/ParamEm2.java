@@ -47,7 +47,7 @@ public class ParamEm2 extends ParamMath implements Serializable {
         calcChaine = false;
     }
 
-    public ParamEm2(int typeRep,int nbCalcul,int valMaxOperande,boolean nombreImpair,boolean nombrePair,boolean repDeuxBornes,boolean repPaveNum,boolean repQuatreBornes, boolean chaine)
+    public ParamEm2(int typeRep, int nbCalcul, int valMaxOperande, boolean nombreImpair, boolean nombrePair, boolean repDeuxBornes, boolean repPaveNum, boolean repQuatreBornes, boolean chaine)
     /**
      * Constructeur de paramètres personalisés
      */
@@ -62,13 +62,13 @@ public class ParamEm2 extends ParamMath implements Serializable {
         this.repPaveNum = repPaveNum;
         this.valMaxOperande = valMaxOperande;
         this.calcChaine = chaine;
-        if (nombrePair){
+        if (nombrePair) {
             this.typeNombre = 0;
         }
-        if(nombreImpair){
+        if (nombreImpair) {
             this.typeNombre = 1;
         }
-        if(nombreImpair && nombrePair){
+        if (nombreImpair && nombrePair) {
             this.typeNombre = 2;
         }
 
@@ -82,22 +82,40 @@ public class ParamEm2 extends ParamMath implements Serializable {
         return typeRep;
     }
 
-    public int getNbCalcul() {return nbCalcul;}
+    public int getNbCalcul() {
+        return nbCalcul;
+    }
 
-    public int getValMaxOperande() {return valMaxOperande;}
+    public int getValMaxOperande() {
+        return valMaxOperande;
+    }
 
-    public Boolean getNombrePair() {return nombrePair;}
+    public Boolean getNombrePair() {
+        return nombrePair;
+    }
 
-    public Boolean getNombreImpair() {return nombreImpair;}
+    public Boolean getNombreImpair() {
+        return nombreImpair;
+    }
 
-    public Boolean getRepDeuxBornes() {return repDeuxBornes;}
+    public Boolean getRepDeuxBornes() {
+        return repDeuxBornes;
+    }
 
-    public Boolean getRepQuatreBornes() {return repQuatreBornes;}
+    public Boolean getRepQuatreBornes() {
+        return repQuatreBornes;
+    }
 
-    public Boolean getRepPaveNum() {return repPaveNum;}
+    public Boolean getRepPaveNum() {
+        return repPaveNum;
+    }
 
-    public int getTypeNombre(){return typeNombre;}
+    public int getTypeNombre() {
+        return typeNombre;
+    }
 
-    public boolean getCalcChaine(){return calcChaine;}
+    public boolean getCalcChaine() {
+        return calcChaine;
+    }
 
 }
