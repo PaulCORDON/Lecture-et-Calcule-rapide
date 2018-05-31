@@ -90,6 +90,8 @@
 
     <Button
         android:id="@+id/BtnRepB"
+        style="@style/RbButton.Inverse.Rounded.Green"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -106,6 +108,8 @@
 
     <Button
         android:id="@+id/BtnRepA"
+        style="@style/RbButton.Inverse.Rounded.Green"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -122,6 +126,8 @@
 
     <Button
         android:id="@+id/BtnRepC"
+        style="@style/RbButton.Inverse.Rounded.Green"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -138,6 +144,8 @@
 
     <Button
         android:id="@+id/BtnRepD"
+        style="@style/RbButton.Inverse.Rounded.Green"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
