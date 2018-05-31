@@ -127,17 +127,27 @@ public class MathExo1Activity extends AppCompatActivity {
                     RepF2 = (Button) findViewById(R.id.BtnRepB);
                     RepF3 = (Button) findViewById(R.id.BtnRepC);
                     RepF4 = (Button) findViewById(R.id.BtnRepD);
+                    RepF1.getBackground().setAlpha(100);
+                    RepF2.getBackground().setAlpha(100);
+                    RepF3.getBackground().setAlpha(100);
+                    RepF4.getBackground().setAlpha(100);
+
                     break;
                 case 2:
                     setContentView(R.layout.activity_math_exo1_2bornes);
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepB);
                     RepF3 = (Button) findViewById(R.id.BtnRepC);
+                    RepF1.getBackground().setAlpha(100);
+                    RepF2.getBackground().setAlpha(100);
+                    RepF3.getBackground().setAlpha(100);
                     break;
                 case 1:
                     setContentView(R.layout.activity_math_exo1_1bornes);
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepC);
+                    RepF1.getBackground().setAlpha(100);
+                    RepF2.getBackground().setAlpha(100);
                     break;
             }
         } else {
@@ -147,14 +157,24 @@ public class MathExo1Activity extends AppCompatActivity {
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepB);
                     RepF3 = (Button) findViewById(R.id.BtnRepC);
+                    RepF1.getBackground().setAlpha(100);
+                    RepF2.getBackground().setAlpha(100);
+                    RepF3.getBackground().setAlpha(100);
                     break;
                 case 1:
                     setContentView(R.layout.activity_math_exo1_comparaison);
                     RepF1 = (Button) findViewById(R.id.BtnRepA);
                     RepF2 = (Button) findViewById(R.id.BtnRepC);
+                    RepF1.getBackground().setAlpha(100);
+                    RepF2.getBackground().setAlpha(100);
                     break;
             }
         }
+
+
+
+
+
         /**
          * Récupération du textView pour l'affichage du nombre de questions restantes
          */
