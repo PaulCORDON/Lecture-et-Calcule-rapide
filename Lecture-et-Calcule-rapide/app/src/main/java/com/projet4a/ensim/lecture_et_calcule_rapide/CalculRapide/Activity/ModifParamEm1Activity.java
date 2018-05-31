@@ -351,9 +351,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                     }
 
                     /** quand on a clique sur le bouton valider on reviens au menu*/
-                    Intent intent = new Intent(ModifParamEm1Activity.this, MathsActivity.class);
                     finish();
-                    startActivity(intent);
                 }
             }
         });

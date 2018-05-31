@@ -165,11 +165,7 @@ public class ModifParamEl1Activity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                /**
-                 * redirection vers la page StartActivity
-                 */
-                Intent intent = new Intent(ModifParamEl1Activity.this, LectureAccueilActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

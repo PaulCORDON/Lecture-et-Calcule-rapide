@@ -207,9 +207,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
                     nextQuest.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intent2 = new Intent(ExoMath1Resultat.this, MenuActivity.class);
                             finish();
-                            startActivity(intent2);
                         }
                     });
                 }
@@ -222,9 +220,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
             accueil.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent2 = new Intent(ExoMath1Resultat.this, MenuActivity.class);
                     finish();
-                    startActivity(intent2);
                 }
             });
         }
