@@ -4,7 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Exo2Math implements Parcelable {
@@ -19,28 +18,29 @@ public class Exo2Math implements Parcelable {
     private int op1;
     private int op2;
     private int choixOp;
-    private  int calcChaineAdd = 1;
+    private int calcChaineAdd = 1;
 
     private boolean choixOpVali = true;
     /**
      * si les bornes sont validée alors on passe à false
      */
     private static boolean Nvalide = true;
-    private  int a = 0;
+    private int a = 0;
+
     public Exo2Math(ParamEm2 param) {
         this.param = param;
 
-        while (a < this.param.getNbCalcul()){
+        while (a < this.param.getNbCalcul()) {
 
 
-                Log.w("création operande","opeeeeeeerrrrrrrrrrrandeeeeeeeee");
-                op1 = (int) (Math.random() * param.getValMaxOperande());
-                op2 = (int) (Math.random() * param.getValMaxOperande());
-                op1 = op1+1;
-                op2 = op2+1;
-                Log.w("création operande","NUm question : " + a + " 1 :" + op1 + "   2 : " + op2);
-                if(this.param.getTypeNombre() == 1) {
-                    if(op1%2 != 0 && op2%2 != 0){
+            Log.w("création operande", "opeeeeeeerrrrrrrrrrrandeeeeeeeee");
+            op1 = (int) (Math.random() * param.getValMaxOperande());
+            op2 = (int) (Math.random() * param.getValMaxOperande());
+            op1 = op1 + 1;
+            op2 = op2 + 1;
+            Log.w("création operande", "NUm question : " + a + " 1 :" + op1 + "   2 : " + op2);
+            if (this.param.getTypeNombre() == 1) {
+                if (op1 % 2 != 0 && op2 % 2 != 0) {
                     choixOpVali = true;
                     do {
                         choixOp = (int) (Math.random() * 4);
@@ -68,18 +68,18 @@ public class Exo2Math implements Parcelable {
 
                     a++;
                 }
-                }
-                if(this.param.getTypeNombre() == 0){
-            if(op1%2 == 0 && op2%2==0){
+            }
+            if (this.param.getTypeNombre() == 0) {
+                if (op1 % 2 == 0 && op2 % 2 == 0) {
                     choixOpVali = true;
-                    do{
+                    do {
                         choixOp = (int) (Math.random() * 4);
-                        if (param.getOperateur()[choixOp]){
+                        if (param.getOperateur()[choixOp]) {
                             choixOpVali = false;
                         }
-                    }while (choixOpVali);
+                    } while (choixOpVali);
 
-                    switch (choixOp){
+                    switch (choixOp) {
                         case 0:
                             enoncees.add(new Calcul(op1, op2, '+'));
                             break;
@@ -89,8 +89,8 @@ public class Exo2Math implements Parcelable {
                         case 2:
                             enoncees.add(new Calcul(op1, op2, '*'));
                             break;
-                        case 3 :
-                            enoncees.add(new Calcul(op1,op2,'/'));
+                        case 3:
+                            enoncees.add(new Calcul(op1, op2, '/'));
                             break;
 
 
@@ -99,51 +99,51 @@ public class Exo2Math implements Parcelable {
                     a++;
                 }
 
-                }
-                if (this.param.getTypeNombre() == 2){
+            }
+            if (this.param.getTypeNombre() == 2) {
 
-                    choixOpVali = true;
-                    do{
-                        choixOp = (int) (Math.random() * 4);
-                        if (param.getOperateur()[choixOp]){
-                            choixOpVali = false;
-                        }
-                    }while (choixOpVali);
-
-                    switch (choixOp){
-                        case 0:
-                            enoncees.add(new Calcul(op1, op2, '+'));
-                            break;
-                        case 1:
-                            enoncees.add(new Calcul(op1, op2, '-'));
-                            break;
-                        case 2:
-                            enoncees.add(new Calcul(op1, op2, '*'));
-                            break;
-                        case 3 :
-                            enoncees.add(new Calcul(op1,op2,'/'));
-                            break;
+                choixOpVali = true;
+                do {
+                    choixOp = (int) (Math.random() * 4);
+                    if (param.getOperateur()[choixOp]) {
+                        choixOpVali = false;
                     }
+                } while (choixOpVali);
 
-                    a++;
+                switch (choixOp) {
+                    case 0:
+                        enoncees.add(new Calcul(op1, op2, '+'));
+                        break;
+                    case 1:
+                        enoncees.add(new Calcul(op1, op2, '-'));
+                        break;
+                    case 2:
+                        enoncees.add(new Calcul(op1, op2, '*'));
+                        break;
+                    case 3:
+                        enoncees.add(new Calcul(op1, op2, '/'));
+                        break;
+                }
+
+                a++;
 
 
             }
 
-            if (param.getCalcChaine()){
-                calcChaineAdd = (int) (Math.random()*4) +1;
-                switch (choixOp){
+            if (param.getCalcChaine()) {
+                calcChaineAdd = (int) (Math.random() * 4) + 1;
+                switch (choixOp) {
                     case 0:
-                        enoncees.add(new Calcul(op1, op2 + (10*calcChaineAdd), '+'));
+                        enoncees.add(new Calcul(op1, op2 + (10 * calcChaineAdd), '+'));
                         break;
                     case 1:
-                        enoncees.add(new Calcul(op1, op2+ (10*calcChaineAdd), '-'));
+                        enoncees.add(new Calcul(op1, op2 + (10 * calcChaineAdd), '-'));
                         break;
                     case 2:
-                        enoncees.add(new Calcul(op1, op2+ (10*calcChaineAdd), '*'));
+                        enoncees.add(new Calcul(op1, op2 + (10 * calcChaineAdd), '*'));
                         break;
-                    case 3 :
-                        enoncees.add(new Calcul(op1,op2+ (10*calcChaineAdd),'/'));
+                    case 3:
+                        enoncees.add(new Calcul(op1, op2 + (10 * calcChaineAdd), '/'));
                         break;
                 }
                 a++;

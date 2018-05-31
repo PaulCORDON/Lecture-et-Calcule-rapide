@@ -3,10 +3,9 @@ package com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
-public class borne implements Parcelable{
+public class borne implements Parcelable {
     public ArrayList<Integer> getBornes() {
         return bornes;
     }
@@ -45,7 +44,7 @@ public class borne implements Parcelable{
     }
 
     public void set(int j, int i) {
-        bornes.set(j,i);
+        bornes.set(j, i);
     }
 
     public int indexOf(int b) {

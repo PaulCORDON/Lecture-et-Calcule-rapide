@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.Critere;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -18,6 +17,7 @@ public class Calcul implements Parcelable {
     private boolean multiOp = false;
     private int resultat;
     private ArrayList<Critere> listCrit;
+
     /**
      * Constructeur de la classe calcul.
      *
@@ -43,14 +43,14 @@ public class Calcul implements Parcelable {
                 break;
             case '*':
                 resultat = operande1 * operande2;
-                operation='X';
+                operation = 'X';
                 break;
             case '/':
                 resultat = operande1 * operande2;
                 int tempo = resultat;
                 resultat = operande1;
-                operande1= operande2;
-                operande2=tempo;
+                operande1 = operande2;
+                operande2 = tempo;
 
                 tempo = operande1;
                 operande1 = operande2;
@@ -61,9 +61,8 @@ public class Calcul implements Parcelable {
     }
 
 
-
     public String getCalculString() {
-        if(multiOp){
+        if (multiOp) {
             //return "" + cal.getOp1Int() + " " + cal.getOperation() + " " + cal.getOp2Int() + " " + operande2;
         }
 
@@ -99,20 +98,26 @@ public class Calcul implements Parcelable {
     }
 
     public String ToString() {
-        if(multiOp){
-           //return "" + cal.getOp1Int() + " " + cal.getOperation() + " " + cal.getOp2Int() + " " + operande2 + " = " + resultat;
+        if (multiOp) {
+            //return "" + cal.getOp1Int() + " " + cal.getOperation() + " " + cal.getOp2Int() + " " + operande2 + " = " + resultat;
         }
-            return "" + operande1 + " " + operation + " " + operande2 + " = " + resultat; }
+        return "" + operande1 + " " + operation + " " + operande2 + " = " + resultat;
+    }
 
 
+    private void setOperande1(int Op) {
+        operande1 = Op;
+    }
 
-    private void setOperande1(int Op){operande1 = Op;}
+    private void setOperande2(int Op) {
+        operande2 = Op;
+    }
 
-    private void setOperande2(int Op){operande2 = Op;}
+    private void setOperation(char Op) {
+        operation = Op;
+    }
 
-    private void setOperation(char Op){operation = Op;}
-
-    public Calcul(){
+    public Calcul() {
 
     }
 

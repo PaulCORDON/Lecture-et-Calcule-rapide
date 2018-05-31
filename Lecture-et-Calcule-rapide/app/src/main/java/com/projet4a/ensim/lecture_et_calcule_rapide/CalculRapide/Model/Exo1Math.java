@@ -5,7 +5,6 @@ import android.os.Parcelable;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.Exercice;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -88,25 +87,25 @@ public class Exo1Math extends Exercice implements Parcelable {
             //on construit l'énoncé selon l'opérateur puis on l'ajoute à la liste
             switch (choixOperateur) {
                 case 0:
-                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'+'));
+                    calculEnonce.add(new Calcul(operandes[0], operandes[1], '+'));
                     break;
                 case 1:
-                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'-'));
+                    calculEnonce.add(new Calcul(operandes[0], operandes[1], '-'));
                     break;
                 case 2:
-                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'*'));
+                    calculEnonce.add(new Calcul(operandes[0], operandes[1], '*'));
                     break;
                 case 3: //passage par une multiplication afin de toujours avoir des nombres entiers
                     int swap = resultats[i];
                     resultats[i] = operandes[0];
                     operandes[0] = swap;
-                    calculEnonce.add(new Calcul(operandes[0],operandes[1],'/'));
+                    calculEnonce.add(new Calcul(operandes[0], operandes[1], '/'));
                     break;
             }
 
             //initialisation des bornes
             borne bornesTempo = new borne(param.getNbBornes());
-            
+
             //pour chaque borne
             for (int j = 0; j < param.getNbBornes(); j++) {
                 //on génère un entier correspondant aux paramètres
