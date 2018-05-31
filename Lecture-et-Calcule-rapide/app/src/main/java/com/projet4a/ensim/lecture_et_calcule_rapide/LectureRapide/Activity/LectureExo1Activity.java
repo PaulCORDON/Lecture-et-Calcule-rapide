@@ -297,6 +297,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                 Intent intent = new Intent(LectureExo1Activity.this, ExoLecture1Resultat.class);
                 intent.putExtra("nbBonneRep", nbBonneRep);
                 intent.putExtra("nbAppCourent", nbAppCourent);
+                finish();
                 startActivity(intent);
             }
         }.start();

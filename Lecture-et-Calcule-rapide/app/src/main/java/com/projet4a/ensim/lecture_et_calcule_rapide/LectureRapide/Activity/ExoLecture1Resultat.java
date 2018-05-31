@@ -71,8 +71,7 @@ public class ExoLecture1Resultat extends AppCompatActivity {
         accueil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ExoLecture1Resultat.this, MenuActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
     }
