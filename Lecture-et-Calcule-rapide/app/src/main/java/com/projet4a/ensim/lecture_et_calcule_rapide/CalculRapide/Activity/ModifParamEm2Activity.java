@@ -79,7 +79,7 @@ public class ModifParamEm2Activity extends AppCompatActivity {
         final RadioButton pavNum = (RadioButton) findViewById(R.id.PaveNum);
 
         /** Bouton qui permet de valider les parametres et de retourner sur la page d'accueil*/
-        Button valider = findViewById(R.id.BtonValider);
+        Button valider = findViewById(R.id.Valider);
 
         additionC.setChecked(param.getOperateur()[0]);
         soustractionC.setChecked(param.getOperateur()[1]);

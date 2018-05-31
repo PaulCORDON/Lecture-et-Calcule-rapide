@@ -1,173 +1,207 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/constraintLayout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:scrollbars="vertical"
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <android.support.constraint.Guideline
+        android:id="@+id/top_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
 
-        <LinearLayout
+    <android.support.constraint.Guideline
+        android:id="@+id/bottom_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottom_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/top_guideline">
+
+        <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/constraintLayout2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/left_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.2" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/right_guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.8" />
 
             <TextView
                 android:id="@+id/textView10"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:text="@string/paramLect1"
                 android:textAlignment="center"
                 android:textColor="@android:color/background_dark"
                 android:textSize="28sp"
                 android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:textAlignment="center" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView5"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:layout_marginTop="20dp">
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/tpsAppSec"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
-                <LinearLayout
-                    android:id="@+id/Colonne"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:layout_width="600dp"
-                    android:layout_marginRight="10dp">
+            <EditText
+                android:id="@+id/TpsApparution"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
-                    <TextView
-                        android:id="@+id/textView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_weight="1"
-                        android:text="@string/nbMotEnonce"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+            <TextView
+                android:id="@+id/Nbapp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/nbMotAFaireApp"
+                android:textAlignment="center"
+                android:textColor="@android:color/background_dark"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/TpsApparution" />
 
+            <EditText
+                android:id="@+id/NbMotsApp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/Nbapp" />
 
-                    <com.xw.repo.BubbleSeekBar
-                        android:id="@+id/seekNbEnonce"
-                        style="@style/Widget.AppCompat.SeekBar.Discrete"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
+            <Switch
+                android:id="@+id/BtnAppMultiple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/FaireAppPlusProp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/NbMotsApp" />
 
-                        app:bsb_bubble_text_color="@color/colorPrimaryDark"
-                        app:bsb_max="2"
-                        app:bsb_min="1"
+            <com.xw.repo.BubbleSeekBar
+                android:id="@+id/NbPropositions"
+                style="@style/Widget.AppCompat.SeekBar.Discrete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
 
-                        app:bsb_section_count="1"
-                        app:bsb_section_text_position="bottom_sides"
-                        app:bsb_show_section_mark="true"
-                        app:bsb_show_section_text="true"
-                        app:bsb_show_thumb_text="false"
-                        app:bsb_touch_to_seek="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                app:bsb_bubble_text_color="@color/colorPrimaryDark"
 
-                        />
+                app:bsb_max="9"
+                app:bsb_min="1"
+                app:bsb_section_count="8"
+                app:bsb_section_text_position="bottom_sides"
+                app:bsb_show_section_mark="true"
+                app:bsb_show_section_text="true"
+                app:bsb_show_thumb_text="false"
+                app:bsb_touch_to_seek="true"
+                app:layout_constraintEnd_toEndOf="@+id/BtnAppMultiple"
+                app:layout_constraintStart_toStartOf="@+id/BtnAppMultiple"
+                app:layout_constraintTop_toBottomOf="@+id/BtnAppMultiple" />
 
-                    <TextView
-                        android:id="@+id/textView5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_weight="1"
-                        android:text="@string/tpsAppSec"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/TpsApparution"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:layout_marginBottom="20dp"/>
-
-                    <TextView
-                        android:id="@+id/Nbapp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_weight="1"
-                        android:text="@string/nbMotAFaireApp"
-                        android:textAlignment="center"
-                        android:textColor="@android:color/background_dark"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <EditText
-                        android:id="@+id/NbMotsApp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:ems="10"
-                        android:inputType="number"
-                        android:layout_marginBottom="20dp"/>
-
-                    <Switch
-                        android:id="@+id/BtnAppMultiple"
-                        android:layout_width="match_parent"
-                        android:layout_height="37dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_weight="1"
-                        android:text="@string/FaireAppPlusProp"
-                        android:textColor="@android:color/background_dark" />
-
-                    <com.xw.repo.BubbleSeekBar
-                        android:id="@+id/NbPropositions"
-                        style="@style/Widget.AppCompat.SeekBar.Discrete"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-
-                        app:bsb_bubble_text_color="@color/colorPrimaryDark"
-                        app:bsb_max="5"
-                        app:bsb_min="1"
-
-                        app:bsb_section_count="4"
-                        app:bsb_section_text_position="bottom_sides"
-                        app:bsb_show_section_mark="true"
-                        app:bsb_show_section_text="true"
-                        app:bsb_show_thumb_text="false"
-                        app:bsb_touch_to_seek="true"
-
-                        />
-
-                    <Switch
-                        android:id="@+id/BtnApparutionEnonce"
-                        android:layout_width="match_parent"
-                        android:layout_height="37dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_weight="1"
-                        android:text="@string/FaireDispEnonce"
-                        android:textColor="@android:color/background_dark" />
-
-                </LinearLayout>
-            </LinearLayout>
+            <Switch
+                android:id="@+id/BtnApparutionEnonce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:text="@string/FaireDispEnonce"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/NbPropositions" />
 
             <Button
                 android:id="@+id/Valider"
-                android:layout_width="match_parent"
-                android:layout_height="61dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="30dp"
+                android:scrollHorizontally="false"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbars="vertical"
                 android:text="@string/valider"
-                tools:layout_editor_absoluteY="603dp" />
-        </LinearLayout>
-    </ScrollView>
+                android:textColor="@android:color/background_dark"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/right_guideline"
+                app:layout_constraintStart_toStartOf="@+id/left_guideline"
+                app:layout_constraintTop_toBottomOf="@+id/BtnApparutionEnonce"
+                tools:layout_conversion_absoluteHeight="0dp"
+                tools:layout_conversion_absoluteWidth="0dp" />
 
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
 </android.support.constraint.ConstraintLayout>

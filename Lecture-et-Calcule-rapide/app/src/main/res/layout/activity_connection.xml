@@ -81,27 +81,24 @@
                 android:layout_height="wrap_content"
                 />
 
-            <EditText
-                android:id="@+id/nom"
+            <TextView
+                android:id="@+id/textView13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:backgroundTint="@android:color/white"
-                android:ems="10"
-                android:hint="Underline color change"
                 android:text="Nom Prénom"
+                android:textAlignment="center"
                 android:textColor="@android:color/white"
-                android:textColorLink="@android:color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.056"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.019" />
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/listeNoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="20dp"/>
 
             <Button
                 android:id="@+id/button3"
