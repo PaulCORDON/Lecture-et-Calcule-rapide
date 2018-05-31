@@ -1,13 +1,9 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Model;
 
-import android.app.Application;
-import android.content.Context;
 import android.util.Log;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
-import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 /**
@@ -31,7 +27,6 @@ public class Exo1Lecture {
     ParamEl1 paramEl1;
 
 
-
     public String getEnonce() {
         return enonce;
     }
@@ -50,49 +45,52 @@ public class Exo1Lecture {
         apparition = genererApparition(listeMots);
         enonce = genererEnonce();
     }
+
     public Exo1Lecture(ParamEl1 param, String[] listeMots, String[] listeMots2) {
         Log.d("Exo1Lecture", "On est dans le constructeur avec un énoncé de deux mots");
         paramEl1 = param;
-        apparition = genererApparition(listeMots,listeMots2);
+        apparition = genererApparition(listeMots, listeMots2);
         enonce = genererEnonce();
     }
+
     /**
      * Methode qui génère le tableau des apparition.
      *
      * @return Tableau de chaine de caractère contenant l'énoncé et des mots similaires.
      */
-    private ArrayList<String> genererApparition(String [] listeMots){
+    private ArrayList<String> genererApparition(String[] listeMots) {
         //TODO Il peut il y avoir des bugs avec les indices qui peuvent sortir du tableau
         String[] tousLesMots = listeMots;
 
-        int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesMots.length-5);
-        ArrayList<String> enonce=new ArrayList<>();
+        int i = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesMots.length - 5);
+        ArrayList<String> enonce = new ArrayList<>();
         enonce.add(tousLesMots[i]);
-        enonce.add(tousLesMots[i+1]);
-        enonce.add(tousLesMots[i+2]);
-        enonce.add(tousLesMots[i+3]);
-        enonce.add(tousLesMots[i+4]);
-        for(String s: enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);
+        enonce.add(tousLesMots[i + 1]);
+        enonce.add(tousLesMots[i + 2]);
+        enonce.add(tousLesMots[i + 3]);
+        enonce.add(tousLesMots[i + 4]);
+        for (String s : enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);
         return enonce;
     }
-    private ArrayList<String> genererApparition(String [] listeMots,String [] listeMots2){
+
+    private ArrayList<String> genererApparition(String[] listeMots, String[] listeMots2) {
         //TODO Il peut il y avoir des bugs avec les indices qui peuvent sortir du tableau
         String[] tousLesNom = listeMots2;
         String[] tousLesDeterminant = listeMots;
-        Log.i("tout les noms taille = ",tousLesNom.length+"");
-        Log.i("tout les deters = ",tousLesDeterminant.length+"");
-        int i=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesNom.length-3);
-        Log.i("i = ",i+"");
-        ArrayList<String> enonce=new ArrayList<>();
-        int index=LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesDeterminant.length-3);
-        Log.i("index = ",index+"");
-        for (int j=index;j<index+3;j++){
-            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i]);
-            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+1]);
-            enonce.add(tousLesDeterminant[j]+" "+tousLesNom[i+2]);
+        Log.i("tout les noms taille = ", tousLesNom.length + "");
+        Log.i("tout les deters = ", tousLesDeterminant.length + "");
+        int i = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesNom.length - 3);
+        Log.i("i = ", i + "");
+        ArrayList<String> enonce = new ArrayList<>();
+        int index = LectureExo1Activity.tirageAleatoireEntre1EtLeNombreMitEnParam(tousLesDeterminant.length - 3);
+        Log.i("index = ", index + "");
+        for (int j = index; j < index + 3; j++) {
+            enonce.add(tousLesDeterminant[j] + " " + tousLesNom[i]);
+            enonce.add(tousLesDeterminant[j] + " " + tousLesNom[i + 1]);
+            enonce.add(tousLesDeterminant[j] + " " + tousLesNom[i + 2]);
         }
 
-        for(String s: enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);
+        for (String s : enonce) Log.w("Liste String", "Affichage des mots de l enonce " + s);
         return enonce;
     }
 

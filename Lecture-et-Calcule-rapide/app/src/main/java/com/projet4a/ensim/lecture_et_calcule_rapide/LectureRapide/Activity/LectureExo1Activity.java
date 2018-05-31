@@ -1,6 +1,5 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -100,35 +99,33 @@ public class LectureExo1Activity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String [] listeMots = null;
-        String [] listeMots2 = null;
-        if (param.getNbEnonce()==1){
+        String[] listeMots = null;
+        String[] listeMots2 = null;
+        if (param.getNbEnonce() == 1) {
             listeMots = this.getResources().getString(R.string.listeMotSeul).split(" ");
             exo = new Exo1Lecture(param, listeMots);
-        }
-        else {
-            switch (tirageAleatoireEntre1EtLeNombreMitEnParam(3)){
-                case 1 :
+        } else {
+            switch (tirageAleatoireEntre1EtLeNombreMitEnParam(3)) {
+                case 1:
                     listeMots = this.getResources().getString(R.string.DeterminantsMasculins).split(" ");
                     listeMots2 = this.getResources().getString(R.string.NomsMasculins).split(" ");
                     break;
-                case 2 :
+                case 2:
                     listeMots = this.getResources().getString(R.string.DeterminantsFeminins).split(" ");
                     listeMots2 = this.getResources().getString(R.string.NomsFeminins).split(" ");
                     break;
-                case 3 :
+                case 3:
                     listeMots = this.getResources().getString(R.string.DeterminantsPluriels).split(" ");
                     listeMots2 = this.getResources().getString(R.string.NomsPluriels).split(" ");
                     break;
             }
-            exo = new Exo1Lecture(param, listeMots,listeMots2);
+            exo = new Exo1Lecture(param, listeMots, listeMots2);
         }
 
-
         int score = 0;
-        while ((score+=param.getNbAparitionSimultanee())<param.getNbApparution());
+        while ((score += param.getNbAparitionSimultanee()) < param.getNbApparution()) ;
         scoreBar.setMax(score);
-        Log.w("Score","score total " +score);
+        Log.w("Score", "score total " + score);
 
         enonce.setText(exo.getEnonce());
 
@@ -214,8 +211,7 @@ public class LectureExo1Activity extends AppCompatActivity {
             }
         });
 
-
-        final long tempsTotal = score/param.getNbAparitionSimultanee()*param.getTempsApparution()+1000;
+        final long tempsTotal = score / param.getNbAparitionSimultanee() * param.getTempsApparution() + 1000;
         timeBar = (ProgressBar) findViewById(R.id.progressBar);
         timeBar.setMax(param.getTempsApparution().intValue());
 
@@ -229,7 +225,6 @@ public class LectureExo1Activity extends AppCompatActivity {
              */
             @Override
             public void onTick(long l) {
-
                 /**
                  * Second CountDownTimer pour pouvoir incrémenté la timeBar
                  */
@@ -240,7 +235,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                      */
                     @Override
                     public void onTick(long m) {
-                        timeBar.setProgress((int) (param.getTempsApparution() - m +200));
+                        timeBar.setProgress((int) (param.getTempsApparution() - m + 200));
                     }
 
                     /**
@@ -259,10 +254,8 @@ public class LectureExo1Activity extends AppCompatActivity {
                         timer.cancel();
                         timer.start();
                         t.cancel();
-
                     }
                 });
-
                 Log.d("EXO 1 Lecture", "dans le on tick");
                 Log.d("Nb bonne rep", "" + nbBonneRep);
                 Log.d("Nb mauvaise rep", "" + nbMauvaiseRep);
@@ -309,7 +302,6 @@ public class LectureExo1Activity extends AppCompatActivity {
         }.start();
     }
 
-    //TODO changer le text de la pop up
     @Override
     public void onBackPressed() {
         Log.d("OnBackPressed", "OnBackPressed Exo1Lecture");
@@ -355,7 +347,7 @@ public class LectureExo1Activity extends AppCompatActivity {
      * @return entier entre 1 et le nombre mit en paramêtre
      */
     public static int tirageAleatoireEntre1EtLeNombreMitEnParam(int p) {
-        int num =1+(int)(Math.random() * (p - 1)) ;
+        int num = 1 + (int) (Math.random() * (p - 1));
 
         return num;
     }
@@ -397,9 +389,8 @@ public class LectureExo1Activity extends AppCompatActivity {
         if (b.getText().equals(enonce.getText())) {
             Log.d("BONNE REP", "");
             nbBonneRep++;
-            scoreBar.setProgress(nbBonneRep+1);
+            scoreBar.setProgress(nbBonneRep + 1);
             Log.w("Score en cours", "score " + nbBonneRep);
-
         } else {
             Log.d("Mauvaise REP", "");
             nbMauvaiseRep++;
@@ -430,7 +421,7 @@ public class LectureExo1Activity extends AppCompatActivity {
                  */
                 if (!b.getText().equals(enonce.getText())) {
                     nbBonneRep++;
-                    scoreBar.setProgress(nbBonneRep+1);
+                    scoreBar.setProgress(nbBonneRep + 1);
                     Log.w("Score en cours", "score " + nbBonneRep);
                 } else {
                     nbMauvaiseRep++;
@@ -439,5 +430,4 @@ public class LectureExo1Activity extends AppCompatActivity {
             }
         }
     }
-
 }
