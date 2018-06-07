@@ -82,5 +82,18 @@ public class ConnectionActivity extends AppCompatActivity {
             }
         });
 
+
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url("http://localhost:9090/classe")
+                .get()
+                .addHeader("Content-Type", "application/json")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Postman-Token", "23137f8f-bcbc-aff8-5fcf-45dcd5de6d02")
+                .build();
+
+        Response response = client.newCall(request).execute();
+
     }
 }

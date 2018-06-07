@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Eleve {
 
-    public Eleve(@NotEmpty String nomPrenom, Date dateDeNaissance) {
+    public Eleve(String nomPrenom, Date dateDeNaissance) {
         super();
         this.nomPrenom = nomPrenom;
         this.dateDeNaissance = dateDeNaissance;
@@ -13,12 +13,12 @@ public class Eleve {
         super();
     }
 
-    @NotEmpty
+
     private String nomPrenom;
     private Date dateDeNaissance;
     private int classeId;
     private String classeName;
-    private ArrayList<Competence> listeCompetence;
+   // private ArrayList<Competence> listeCompetence;
 
 
     public String getClasseName() {
