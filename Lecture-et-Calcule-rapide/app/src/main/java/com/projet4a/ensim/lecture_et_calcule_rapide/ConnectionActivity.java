@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.InformationActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 
 public class ConnectionActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class ConnectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connection);
 
         Button buttonAnonyme= findViewById(R.id.connectAnonyme);
+        Button buttonInfo = findViewById(R.id.InfoButton);
         Spinner listeClasses=findViewById(R.id.listeClasses);
 
         Spinner listeNoms=findViewById(R.id.listeNoms);
@@ -82,18 +84,16 @@ public class ConnectionActivity extends AppCompatActivity {
             }
         });
 
+        buttonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        OkHttpClient client = new OkHttpClient();
+                Intent intent;
+                intent = new Intent(ConnectionActivity.this, InformationActivity.class);
+                startActivity(intent);
 
-        Request request = new Request.Builder()
-                .url("http://localhost:9090/classe")
-                .get()
-                .addHeader("Content-Type", "application/json")
-                .addHeader("Cache-Control", "no-cache")
-                .addHeader("Postman-Token", "23137f8f-bcbc-aff8-5fcf-45dcd5de6d02")
-                .build();
-
-        Response response = client.newCall(request).execute();
+            }
+        });
 
     }
 }
