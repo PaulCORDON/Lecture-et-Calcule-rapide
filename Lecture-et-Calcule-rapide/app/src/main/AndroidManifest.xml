@@ -22,9 +22,7 @@
         </activity>
         <activity
             android:name=".Menu.MenuActivity"
-            android:screenOrientation="sensorLandscape">
-
-        </activity>
+            android:screenOrientation="sensorLandscape"></activity>
         <activity
             android:name=".CalculRapide.Activity.MathExo1Activity"
             android:screenOrientation="sensorLandscape" />
@@ -59,8 +57,8 @@
         <activity
             android:name=".EnvoiResultat.GenerateQRCodeActivity"
             android:screenOrientation="sensorLandscape" />
-
-        <activity android:name=".ConnectionActivity"
+        <activity
+            android:name=".ConnectionActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -68,6 +66,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Menu.InformationActivity"
+            android:screenOrientation="sensorLandscape"/>
     </application>
 
 </manifest>

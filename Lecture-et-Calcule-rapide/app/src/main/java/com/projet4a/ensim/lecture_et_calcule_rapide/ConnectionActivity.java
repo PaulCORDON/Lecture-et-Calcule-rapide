@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.InformationActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 
 public class ConnectionActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class ConnectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connection);
 
         Button buttonAnonyme= findViewById(R.id.connectAnonyme);
+        Button buttonInfo = findViewById(R.id.InfoButton);
         Spinner listeClasses=findViewById(R.id.listeClasses);
 
         Spinner listeNoms=findViewById(R.id.listeNoms);
@@ -77,6 +79,17 @@ public class ConnectionActivity extends AppCompatActivity {
 
                 Intent intent;
                 intent = new Intent(ConnectionActivity.this, MenuActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+        buttonInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent;
+                intent = new Intent(ConnectionActivity.this, InformationActivity.class);
                 startActivity(intent);
 
             }
