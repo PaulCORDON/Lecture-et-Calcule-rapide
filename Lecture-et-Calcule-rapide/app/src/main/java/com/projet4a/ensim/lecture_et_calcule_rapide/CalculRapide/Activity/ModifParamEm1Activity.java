@@ -240,7 +240,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 boolean ExoFrise;
                 long tpsRep;
                 int valeurMax;
-                int nbBornes = 1;
+                int nbBornes = 0;
 
                 if (rbFrise.isChecked()) ExoFrise = true;
                 else ExoFrise = false;
@@ -264,8 +264,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                  */
                 else {
                     if (DeuxButtons.isChecked()) nbBornes = 1;
-                    else if (TroisButtons.isChecked()) nbBornes = 2;
-                    else nbBornes = 1;
+                    if (TroisButtons.isChecked()) nbBornes = 2;
                 }
 
                 if (!TpsAvantDisp.getText().toString().equals(""))
@@ -300,7 +299,7 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                 operateurs[3] = division.isChecked();
                 Log.w("operateur choisis : ", "+" + operateurs[0] + "-" + operateurs[1] + "*" + operateurs[2] + "/" + operateurs[3]);
 
-                if (tpsAvDisp <= tpsRep - 1000 && (operateurs[0] || operateurs[1] || operateurs[2] || operateurs[3])) {
+                if (tpsAvDisp <= tpsRep - 1000 && (operateurs[0] || operateurs[1] || operateurs[2] || operateurs[3]) && nbBornes != 0) {
                     param = new ParamEm1(
                             ExoFrise,
                             tpsRep,
@@ -333,6 +332,17 @@ public class ModifParamEm1Activity extends AppCompatActivity {
                         soustraction.setTextColor(Color.RED);
                         multiplication.setTextColor(Color.RED);
                         division.setTextColor(Color.RED);
+                    }
+                    if (nbBornes == 0){
+                        if(ExoFrise) Toast.makeText(ModifParamEm1Activity.this, "Selectionne un nombre de bornes", Toast.LENGTH_SHORT).show();
+                        else Toast.makeText(ModifParamEm1Activity.this, "Selectionne un nombre de boutons", Toast.LENGTH_SHORT).show();
+
+                        UneBornes.setTextColor(Color.RED);
+                        DeuxBornes.setTextColor(Color.RED);
+                        TroisBornes.setTextColor(Color.RED);
+
+                        DeuxButtons.setTextColor(Color.RED);
+                        TroisButtons.setTextColor(Color.RED);
                     }
                 }
 
@@ -434,6 +444,10 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             public void onClick(View view) {
                 DeuxBornes.setChecked(false);
                 TroisBornes.setChecked(false);
+
+                UneBornes.setTextColor(Color.BLACK);
+                DeuxBornes.setTextColor(Color.BLACK);
+                TroisBornes.setTextColor(Color.BLACK);
             }
         });
 
@@ -442,6 +456,10 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             public void onClick(View view) {
                 UneBornes.setChecked(false);
                 TroisBornes.setChecked(false);
+
+                UneBornes.setTextColor(Color.BLACK);
+                DeuxBornes.setTextColor(Color.BLACK);
+                TroisBornes.setTextColor(Color.BLACK);
             }
         });
 
@@ -450,6 +468,10 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             public void onClick(View view) {
                 UneBornes.setChecked(false);
                 DeuxBornes.setChecked(false);
+
+                UneBornes.setTextColor(Color.BLACK);
+                DeuxBornes.setTextColor(Color.BLACK);
+                TroisBornes.setTextColor(Color.BLACK);
             }
         });
 
@@ -457,6 +479,9 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 TroisButtons.setChecked(false);
+
+                DeuxButtons.setTextColor(Color.BLACK);
+                TroisButtons.setTextColor(Color.BLACK);
             }
         });
 
@@ -464,6 +489,9 @@ public class ModifParamEm1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DeuxButtons.setChecked(false);
+
+                DeuxButtons.setTextColor(Color.BLACK);
+                TroisButtons.setTextColor(Color.BLACK);
             }
         });
     }
