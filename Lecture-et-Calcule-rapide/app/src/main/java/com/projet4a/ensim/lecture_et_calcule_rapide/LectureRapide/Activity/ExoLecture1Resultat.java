@@ -53,9 +53,12 @@ public class ExoLecture1Resultat extends AppCompatActivity {
         /**
          * on affiche l'image du bonhomme en fonction du score
          */
-        if (reponseJuste <= 3) bonhommebof.setVisibility(View.VISIBLE);
-        if (reponseJuste > 3 && reponseJuste < 8) bonhommecool.setVisibility(View.VISIBLE);
-        if (reponseJuste >= 8) bonhommebigsmile.setVisibility(View.VISIBLE);
+
+
+        if (reponseJuste <= (3* nbDapparitionTotal)/10) bonhommebof.setVisibility(View.VISIBLE);
+        if (reponseJuste > (3* nbDapparitionTotal)/10 && reponseJuste < (8* nbDapparitionTotal)/10) bonhommecool.setVisibility(View.VISIBLE);
+        if (reponseJuste >= (8* nbDapparitionTotal)/10) bonhommebigsmile.setVisibility(View.VISIBLE);
+
 
         /**
          * on remplit les champs textes avec ce qu'on a récupérer au dessus

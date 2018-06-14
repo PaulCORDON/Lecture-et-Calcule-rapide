@@ -43,6 +43,8 @@
 
         <Button
             android:id="@+id/R3"
+            style="@style/RbButton.Inverse.Rounded.Black"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="10"
@@ -51,6 +53,8 @@
 
         <Button
             android:id="@+id/R4"
+            style="@style/RbButton.Inverse.Rounded.Black"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="12"
