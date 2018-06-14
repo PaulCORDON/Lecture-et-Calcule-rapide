@@ -1,16 +1,9 @@
 package com.projet4a.ensim.lecture_et_calcule_rapide;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.net.wifi.ScanResult;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,11 +15,8 @@ import android.widget.TextView;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.projet4a.ensim.lecture_et_calcule_rapide.ApiService.Service;
-import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.InformationActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.model.Classe;
-
-import java.util.List;
 
 public class ConnectionActivity extends AppCompatActivity {
 
