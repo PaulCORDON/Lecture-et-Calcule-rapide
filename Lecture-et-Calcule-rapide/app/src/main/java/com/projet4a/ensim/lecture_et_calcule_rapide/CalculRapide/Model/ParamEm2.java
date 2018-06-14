@@ -82,18 +82,39 @@ public class ParamEm2 extends ParamMath implements Serializable {
         return typeRep;
     }
 
+    /**
+     *
+     *
+     * @return le nombre de calcul
+     */
+
     public int getNbCalcul() {
         return nbCalcul;
     }
 
+    /**
+     *
+     *
+     * @return la valeur maximal d'une opérande
+     */
     public int getValMaxOperande() {
         return valMaxOperande;
     }
 
+    /**
+     *
+     *
+     * @return renvoi true si on utilise des nombre pair false sinon
+     */
     public Boolean getNombrePair() {
         return nombrePair;
     }
 
+    /**
+     *
+     *
+     * @return renvoi false si on utilise des nombre pair true sinon
+     */
     public Boolean getNombreImpair() {
         return nombreImpair;
     }

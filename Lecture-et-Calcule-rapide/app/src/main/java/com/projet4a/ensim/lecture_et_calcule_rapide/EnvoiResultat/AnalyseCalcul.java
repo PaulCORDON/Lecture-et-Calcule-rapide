@@ -4,6 +4,10 @@ import android.widget.Switch;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Calcul;
 
+/**
+ *
+ * class qui analyse 
+ */
 public class AnalyseCalcul {
 
         public static void analyseCalcul(Calcul C, boolean repJ){
