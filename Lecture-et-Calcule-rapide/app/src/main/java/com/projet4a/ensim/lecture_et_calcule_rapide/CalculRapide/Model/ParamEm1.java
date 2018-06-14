@@ -7,6 +7,17 @@ import android.os.Parcelable;
  * classe définissant les paramètres de Exo1Maths
  */
 public class ParamEm1 extends ParamMath implements Parcelable {
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    private String nom;
+
     private int nbBornes;
     /**
      * Nombre de bornes

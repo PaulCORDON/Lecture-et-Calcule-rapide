@@ -31,7 +31,7 @@
     <string name="tpsAppSec">Temps d\'apparition (en secondes)</string>
     <string name="nbMotAFaireApp">Nombre de mots à faire apparaitre</string>
     <string name="FaireAppPlusProp">Faire apparaitre plusieurs propositions à la fois</string>
-    <string name="FaireDispEnonce">Faire disparaitre l\'énoncé aucours de l\'éxercice</string>
+    <string name="FaireDispEnonce">Faire disparaitre l\'énoncé au cours de l\'exercice</string>
     <string name="valider">Valider</string>
     <string name="paramMath1">Modification des paramètres de l\'exercice 1</string>
     <string name="choixRep">Choix du type de réponse</string>

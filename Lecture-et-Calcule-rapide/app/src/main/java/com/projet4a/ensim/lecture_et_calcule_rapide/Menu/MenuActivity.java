@@ -15,6 +15,7 @@ import com.cpiz.android.bubbleview.BubbleTextView;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathExo1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathsActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.ModifParamEm1Activity;
+import com.projet4a.ensim.lecture_et_calcule_rapide.ConnectionActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureAccueilActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.LectureExo1Activity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.LectureRapide.Activity.ModifParamEl1Activity;
@@ -25,10 +26,6 @@ import java.util.TimerTask;
 import static java.lang.Thread.sleep;
 
 public class MenuActivity extends AppCompatActivity {
-
-
-
-
 
     @Override
 
@@ -116,31 +113,32 @@ public class MenuActivity extends AppCompatActivity {
         });
 
 
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
 
-                    if (bonhomme1.isShown()) {
-                        bonhomme1.setVisibility(View.GONE);
-                        bulle1.setVisibility(View.GONE);
-                        bonhomme2.setVisibility(View.VISIBLE);
-                        bulle2.setVisibility(View.VISIBLE);
-                    } else {
-                        bonhomme1.setVisibility(View.VISIBLE);
-                        bulle1.setVisibility(View.VISIBLE);
-                        bonhomme2.setVisibility(View.GONE);
-                        bulle2.setVisibility(View.GONE);
-                    }
-
+                if (bonhomme1.isShown()) {
+                    bonhomme1.setVisibility(View.GONE);
+                    bulle1.setVisibility(View.GONE);
+                    bonhomme2.setVisibility(View.VISIBLE);
+                    bulle2.setVisibility(View.VISIBLE);
+                } else {
+                    bonhomme1.setVisibility(View.VISIBLE);
+                    bulle1.setVisibility(View.VISIBLE);
+                    bonhomme2.setVisibility(View.GONE);
+                    bulle2.setVisibility(View.GONE);
                 }
-            }, 3000);
 
-
-
-
+            }
+        }, 3000);
 
     }
 
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(MenuActivity.this, ConnectionActivity.class);
+        startActivity(intent);
+        finish();
+    }
 }

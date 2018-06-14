@@ -4,6 +4,16 @@ import java.io.Serializable;
 
 public class ParamEm2 extends ParamMath implements Serializable {
 
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    private String nom;
+
     private int typeRep;
     /**
      * type de réponse à donner par l'élève
