@@ -25,6 +25,7 @@
 
     <Button
         android:id="@+id/BtnMenu"
+        style="@style/RbButton.Inverse.Rounded.Black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -38,6 +39,8 @@
 
     <Button
         android:id="@+id/BtnGenerer"
+        style="@style/RbButton.Inverse.Rounded.Black"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
