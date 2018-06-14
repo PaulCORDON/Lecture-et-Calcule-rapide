@@ -50,6 +50,8 @@
                 android:textSize="24sp" />
 
             <Button
+                style="@style/RbButton.Inverse.Rounded.Black"
+
                 android:id="@+id/connectAnonyme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -113,6 +115,8 @@
                 android:layout_weight="1" />
 
             <Button
+                style="@style/RbButton.Inverse.Rounded.Black"
+
                 android:id="@+id/button3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
