@@ -6,7 +6,7 @@ import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Calcul;
 
 /**
  *
- * class qui analyse 
+ * class qui analyse le type de calcul qui sera dans les exercices en fontion des paramètres rentrer par l'utilsateur
  */
 public class AnalyseCalcul {
 

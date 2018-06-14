@@ -343,6 +343,8 @@
 
             <Button
                 android:id="@+id/Valider"
+                style="@style/RbButton.Inverse.Rounded.Black"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
