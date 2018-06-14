@@ -11,13 +11,9 @@ import android.widget.TextView;
 
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo1Math;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.Exo2Math;
+import com.projet4a.ensim.lecture_et_calcule_rapide.EnvoiResultat.GenerateQRCodeActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.Menu.MenuActivity;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
 
 public class ExoMath1Resultat extends AppCompatActivity {
 
@@ -51,53 +47,67 @@ public class ExoMath1Resultat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_exo_math1_resultat);
+
+        /**
+         * Déclaration des variables
+         */
+        Button RepF1 = null;
+        Button RepF2 = null;
+        Button RepF3 = null;
+        Button RepF4 = null;
+
         Intent intent = getIntent();
 
         // on récupere le tableau contenant les réponses données par l'élève :
         reponseJuste = intent.getBooleanArrayExtra("ReponseDonnee");
         type = intent.getIntExtra("TypeExo", 1);
 
-        Log.w("passage activités :", "valeur de type ::::::::::::::::::::::::::::::::::::: " + type);
+        Log.w("passage activités :","valeur de type ::::::::::::::::::::::::::::::::::::: " + type);
         //on récupere l'exercice avec la bonne instance :
-        switch (type) {
-            case 1:
+        switch(type){
+            case 1 :
                 exoMath = intent.getParcelableExtra("exoMath");
 
-                try {
-                    FileInputStream fis = openFileInput("ExoM1.txt");
-                    ObjectInputStream ois = new ObjectInputStream(fis);
-                    exoMath = (Exo1Math) ois.readObject();
-                    Log.w("récupération ", "On récupere bien les valeurs de exo1Math " + type);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
+
+                if (exoMath.getParam().getFrise()) {
+                    switch (exoMath.getParam().getNbBornes()) {
+                        case 1:
+                            setContentView(R.layout.activity_exo_math1_resultat_1bornes);
+                            RepF1 = (Button) findViewById(R.id.RepF1);
+                            RepF2 = (Button) findViewById(R.id.RepF2);
+
+                            break;
+                        case 2:
+                            setContentView(R.layout.activity_exo_math1_resultat_2bornes);
+                            RepF1 = (Button) findViewById(R.id.RepF1);
+                            RepF2 = (Button) findViewById(R.id.RepF2);
+                            RepF3 = (Button) findViewById(R.id.RepF3);
+                            break;
+                        case 3:
+                            setContentView(R.layout.activity_exo_math1_resultat_3bornes);
+
+                            RepF1 = (Button) findViewById(R.id.RepF1);
+                            RepF2 = (Button) findViewById(R.id.RepF2);
+                            RepF3 = (Button) findViewById(R.id.RepF3);
+                            RepF4 = (Button) findViewById(R.id.RepF4);
+                            break;
+                    }
                 }
+
                 break;
+
 
             case 2:
                 exo2Math = intent.getParcelableExtra("exoMath2");
 
-                try {
-                    FileInputStream fis = openFileInput("ExoM2.txt");
-                    ObjectInputStream ois = new ObjectInputStream(fis);
-                    exo2Math = (Exo2Math) ois.readObject();
-                    Log.w("récupération ", "On récupere bien les valeurs de exo2Math  " + type);
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
+                setContentView(R.layout.activity_exo_math1_resultat);
                 break;
 
         }
-        Log.w("récupération ", "On a passé la récupération !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + type);
 
+
+
+        Log.w("récupération ","On a passé la récupération !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + type);
 
         //  lien avec le vue
         final TextView nbRep = (TextView) findViewById(R.id.score);
@@ -155,14 +165,16 @@ public class ExoMath1Resultat extends AppCompatActivity {
                     }
                     accueil.setVisibility(View.INVISIBLE);
                     nextQuest.setText("Correction suivante");
-                    slash.setText("Question " + (numQuestCorr) + " : ");
-                    switch (type) {
+                    slash.setText("Question :" + (numQuestCorr) );
+                    switch (type){
                         case 2:
                             numQuCorrig.setText("" + exo2Math.getCalcul().get(0).ToString());
                             Log.w("calcul.toString() :", "voilà ce que l'on a : " + exo2Math.getCalcul().get(0).toString());
                             break;
                         default:
-                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0).ToString());
+
+
+                            numQuCorrig.setText(exoMath.getCalculEnonce().get(0).ToString() );
                             break;
                     }
                 }
@@ -202,7 +214,6 @@ public class ExoMath1Resultat extends AppCompatActivity {
 
                 }
                 if (numQuestCorr == reponseJuste.length) {
-                    score.setText("Ton score");
                     nextQuest.setText("Acceuil");
                     nextQuest.setOnClickListener(new View.OnClickListener() {
                         @Override
