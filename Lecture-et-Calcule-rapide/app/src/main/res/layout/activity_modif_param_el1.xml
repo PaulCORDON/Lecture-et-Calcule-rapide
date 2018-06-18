@@ -124,6 +124,7 @@ android:scrollbars="vertical"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="number"
+                android:maxLength="3"
                 app:layout_constraintEnd_toStartOf="@+id/right_guideline"
                 app:layout_constraintStart_toStartOf="@+id/left_guideline"
                 app:layout_constraintTop_toBottomOf="@+id/Nbapp" />
