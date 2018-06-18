@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.cpiz.android.bubbleview.BubbleTextView;
 import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm1;
+import com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Model.ParamEm2;
 import com.projet4a.ensim.lecture_et_calcule_rapide.R;
 
 import java.io.FileInputStream;
@@ -37,6 +38,16 @@ public class MathsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maths);
+
+        final GifImageView gifFrise= (GifImageView) findViewById(R.id.gifFrise);
+        final GifImageView gifBouton= (GifImageView) findViewById(R.id.gifBouton);
+        final GifImageView gifBouton2= (GifImageView) findViewById(R.id.gifBouton2);
+        final GifImageView gifPaveNum= (GifImageView) findViewById(R.id.gifPaveNum);
+
+        gifFrise.setVisibility(View.GONE);
+        gifBouton.setVisibility(View.GONE);
+        gifBouton2.setVisibility(View.GONE);
+        gifPaveNum.setVisibility(View.GONE);
 
         /* creation des boutons exercice 1,2,3 qui serviront pour le calcul et la lecture*/
         final Button exercice1 = (Button) findViewById(R.id.exo1M);
@@ -127,6 +138,19 @@ public class MathsActivity extends AppCompatActivity {
         exercice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ParamEm1 param = new ParamEm1();
+                try {
+                    FileInputStream fis = openFileInput("ParamEm1.txt");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    param = (ParamEm1) ois.readObject();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 bulle3.setVisibility(View.GONE);
                 exercice1.setEnabled(false);
                 exercice2.setEnabled(true);
@@ -144,6 +168,13 @@ public class MathsActivity extends AppCompatActivity {
                 bulle2.startAnimation(animate2);
 
                 descriptionM.setText("Exercice 1 de Mathématiques\nConsigne : Trouve où se situe le résultat du calcul");
+
+                if(param.getFrise()){
+                    gifFrise.setVisibility(View.VISIBLE);
+                }
+                else{
+                    gifBouton.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -151,6 +182,20 @@ public class MathsActivity extends AppCompatActivity {
         exercice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                ParamEm2 param = new ParamEm2();
+                try {
+                    FileInputStream fis = openFileInput("ParamEm1.txt");
+                    ObjectInputStream ois = new ObjectInputStream(fis);
+                    param = (ParamEm2) ois.readObject();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+
                 bulle2.setVisibility(View.GONE);
                 exercice1.setEnabled(true);
                 exercice2.setEnabled(false);
@@ -168,6 +213,13 @@ public class MathsActivity extends AppCompatActivity {
                 bulle3.startAnimation(animate2);
 
                 descriptionM.setText("Exercice 2 de Mathématiques\nConsigne : Fait les multiplications");
+
+                if(param.getRepPaveNum()){
+                    gifPaveNum.setVisibility(View.VISIBLE);
+                }
+                else{
+                    gifBouton2.setVisibility(View.VISIBLE);
+                }
             }
         });
 
