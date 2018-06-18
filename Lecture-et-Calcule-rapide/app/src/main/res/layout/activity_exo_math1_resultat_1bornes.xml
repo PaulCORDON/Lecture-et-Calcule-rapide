@@ -25,6 +25,8 @@
 
     <Button
         android:id="@+id/RepF2"
+        style="@style/RbButton.Inverse.Rounded.Green"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -42,6 +44,8 @@
 
     <Button
         android:id="@+id/RepF1"
+        style="@style/RbButton.Inverse.Rounded.Green"
+
         android:layout_width="0dp"
         android:layout_height="41dp"
         android:layout_marginBottom="8dp"
@@ -124,6 +128,8 @@
 
     <Button
         android:id="@+id/Acceuil"
+        style="@style/RbButton.Inverse.Rounded.Black"
+
         android:layout_width="91dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -140,6 +146,8 @@
 
     <Button
         android:id="@+id/nextQuest"
+        style="@style/RbButton.Inverse.Rounded.Black"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -270,22 +278,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.614" />
-
-    <Button
-        android:id="@+id/BtnQRCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="@string/qrCode"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/slash"
