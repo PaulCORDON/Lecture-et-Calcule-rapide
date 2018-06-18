@@ -56,6 +56,7 @@ public class ExoMath1Resultat extends AppCompatActivity {
         Button RepF3 = null;
         Button RepF4 = null;
 
+
         Intent intent = getIntent();
 
         // on récupere le tableau contenant les réponses données par l'élève :
@@ -75,6 +76,9 @@ public class ExoMath1Resultat extends AppCompatActivity {
                             setContentView(R.layout.activity_exo_math1_resultat_1bornes);
                             RepF1 = (Button) findViewById(R.id.RepF1);
                             RepF2 = (Button) findViewById(R.id.RepF2);
+                            RepF1.setAlpha(0);
+                            RepF2.setAlpha(0);
+
 
                             break;
                         case 2:
@@ -82,6 +86,9 @@ public class ExoMath1Resultat extends AppCompatActivity {
                             RepF1 = (Button) findViewById(R.id.RepF1);
                             RepF2 = (Button) findViewById(R.id.RepF2);
                             RepF3 = (Button) findViewById(R.id.RepF3);
+                            RepF1.setAlpha(0);
+                            RepF2.setAlpha(0);
+                            RepF3.setAlpha(0);
                             break;
                         case 3:
                             setContentView(R.layout.activity_exo_math1_resultat_3bornes);
@@ -90,6 +97,10 @@ public class ExoMath1Resultat extends AppCompatActivity {
                             RepF2 = (Button) findViewById(R.id.RepF2);
                             RepF3 = (Button) findViewById(R.id.RepF3);
                             RepF4 = (Button) findViewById(R.id.RepF4);
+                            RepF1.setAlpha(0);
+                            RepF2.setAlpha(0);
+                            RepF3.setAlpha(0);
+                            RepF4.setAlpha(0);
                             break;
                     }
                 }
