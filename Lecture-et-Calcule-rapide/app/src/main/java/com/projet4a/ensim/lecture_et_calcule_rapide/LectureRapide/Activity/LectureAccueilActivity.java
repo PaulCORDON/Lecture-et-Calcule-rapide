@@ -87,7 +87,7 @@ public class LectureAccueilActivity extends AppCompatActivity {
         /*creation du boutton go */
         final Button go = (Button) findViewById(R.id.goL);
         /*création du gif*/
-        final GifImageView gif = findViewById(R.id.Gif);
+        final GifImageView gif = findViewById(R.id.GifFrise);
         descriptionL = findViewById(R.id.descriptionL);
         parametreL.setVisibility(View.GONE);
         go.setVisibility(View.GONE);

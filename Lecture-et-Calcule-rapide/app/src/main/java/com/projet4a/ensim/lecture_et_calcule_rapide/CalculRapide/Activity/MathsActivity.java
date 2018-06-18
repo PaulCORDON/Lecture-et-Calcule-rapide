@@ -67,7 +67,7 @@ public class MathsActivity extends AppCompatActivity {
         final BubbleTextView bulle3 = findViewById(R.id.bulle3);
         bulle3.setVisibility(View.GONE);
 
-        final GifImageView gifExo = (GifImageView) findViewById(R.id.Gif);
+        final GifImageView gifExo = (GifImageView) findViewById(R.id.GifFrise);
         final ImageButton volume = findViewById(R.id.volume);
         TextToSpeech.OnInitListener listener =
                 new TextToSpeech.OnInitListener() {
