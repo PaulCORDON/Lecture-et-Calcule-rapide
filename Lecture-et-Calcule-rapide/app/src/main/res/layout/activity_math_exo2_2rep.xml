@@ -25,7 +25,7 @@
             android:inputType="textPersonName"
             android:text="Operande1"
             android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/Operateur"
