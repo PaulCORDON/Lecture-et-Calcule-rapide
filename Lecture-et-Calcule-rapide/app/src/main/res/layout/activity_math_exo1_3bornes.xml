@@ -109,7 +109,7 @@
         android:id="@+id/BtnRepA"
         style="@style/RbButton.Inverse.Rounded.Green"
 
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
