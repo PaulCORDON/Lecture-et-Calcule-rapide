@@ -78,7 +78,7 @@ public class MathsActivity extends AppCompatActivity {
         final BubbleTextView bulle3 = findViewById(R.id.bulle3);
         bulle3.setVisibility(View.GONE);
 
-        final GifImageView gifExo = (GifImageView) findViewById(R.id.GifFrise);
+        final GifImageView gifExo = (GifImageView) findViewById(R.id.gifFrise);
         final ImageButton volume = findViewById(R.id.volume);
         TextToSpeech.OnInitListener listener =
                 new TextToSpeech.OnInitListener() {
@@ -171,9 +171,15 @@ public class MathsActivity extends AppCompatActivity {
 
                 if(param.getFrise()){
                     gifFrise.setVisibility(View.VISIBLE);
+                    gifBouton.setVisibility(View.GONE);
+                    gifBouton2.setVisibility(View.GONE);
+                    gifPaveNum.setVisibility(View.GONE);
                 }
                 else{
                     gifBouton.setVisibility(View.VISIBLE);
+                    gifFrise.setVisibility(View.GONE);
+                    gifBouton2.setVisibility(View.GONE);
+                    gifPaveNum.setVisibility(View.GONE);
                 }
             }
         });
@@ -185,7 +191,7 @@ public class MathsActivity extends AppCompatActivity {
 
                 ParamEm2 param = new ParamEm2();
                 try {
-                    FileInputStream fis = openFileInput("ParamEm1.txt");
+                    FileInputStream fis = openFileInput("ParamEm2.txt");
                     ObjectInputStream ois = new ObjectInputStream(fis);
                     param = (ParamEm2) ois.readObject();
                 } catch (FileNotFoundException e) {
@@ -216,9 +222,15 @@ public class MathsActivity extends AppCompatActivity {
 
                 if(param.getRepPaveNum()){
                     gifPaveNum.setVisibility(View.VISIBLE);
+                    gifFrise.setVisibility(View.GONE);
+                    gifBouton.setVisibility(View.GONE);
+                    gifBouton2.setVisibility(View.GONE);
                 }
                 else{
                     gifBouton2.setVisibility(View.VISIBLE);
+                    gifFrise.setVisibility(View.GONE);
+                    gifBouton.setVisibility(View.GONE);
+                    gifPaveNum.setVisibility(View.GONE);
                 }
             }
         });

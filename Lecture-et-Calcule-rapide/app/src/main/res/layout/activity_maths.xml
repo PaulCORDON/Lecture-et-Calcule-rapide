@@ -8,19 +8,61 @@
     tools:context="com.projet4a.ensim.lecture_et_calcule_rapide.CalculRapide.Activity.MathsActivity">
 
     <pl.droidsonroids.gif.GifImageView
-        android:id="@+id/GifFrise"
+        android:id="@+id/gifFrise"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:background="@color/zxing_transparent"
         android:padding="60dp"
-        android:src="@drawable/giphy"
+        android:src="@drawable/exomathunfrise"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/bonhomme"
         app:layout_constraintStart_toEndOf="@+id/goM"
         app:layout_constraintTop_toBottomOf="@+id/descriptionM"
         app:layout_constraintVertical_bias="0.0" />
 
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifBouton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/zxing_transparent"
+        android:padding="60dp"
+        android:src="@drawable/exomathunbtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme"
+        app:layout_constraintStart_toEndOf="@+id/goM"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionM"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifBouton2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/zxing_transparent"
+        android:padding="60dp"
+        android:src="@drawable/exomathdeuxbtn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme"
+        app:layout_constraintStart_toEndOf="@+id/goM"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionM"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifPaveNum"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/zxing_transparent"
+        android:padding="60dp"
+        android:src="@drawable/exomathdeuxpave"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bonhomme"
+        app:layout_constraintStart_toEndOf="@+id/goM"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionM"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/bonhomme"
@@ -34,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/GifFrise"
+        app:layout_constraintTop_toTopOf="@+id/gifFrise"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@mipmap/bonhommemenu" />
 
